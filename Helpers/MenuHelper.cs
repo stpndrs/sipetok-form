@@ -27,7 +27,7 @@ namespace sipetok_form.Helpers
                     break;
 
                 case "penggunaMenu":
-                    UserLists userLists = new UserLists();
+                    UserPage userLists = new UserPage();
                     userLists.Show();
                     thisForm.Close();
                     break;

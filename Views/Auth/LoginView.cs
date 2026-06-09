@@ -1,4 +1,5 @@
 using sipetok_form.Services;
+using sipetok_form.Views.Users;
 
 namespace sipetok_form.Views.Transactions
 {
@@ -40,7 +41,7 @@ namespace sipetok_form.Views.Transactions
                     MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // 4. Buka halaman utama (UserLists) dan sembunyikan Form Login ini
-                    UserLists halamanUtama = new UserLists();
+                    UserPage halamanUtama = new UserPage();
                     halamanUtama.Show();
 
                     this.Hide();
