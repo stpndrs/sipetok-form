@@ -49,7 +49,7 @@ namespace sipetok_form.Views.Users
                     usersList.Columns["Username"].HeaderText = "Username";
                     usersList.Columns["Email"].HeaderText = "Email";
                     usersList.Columns["Role"].HeaderText = "Role";
-                    usersList.Columns["Status"].HeaderText = "Status";
+                    usersList.Columns["IsActive"].HeaderText = "IsActive";
 
                     SetupActionButtons();
 
@@ -78,11 +78,11 @@ namespace sipetok_form.Views.Users
                 }
             }
 
-            if (usersList.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
+            if (usersList.Columns[e.ColumnIndex].Name == "IsActive" && e.Value != null)
             {
-                if (e.Value is Status statusObj)
+                if (e.Value is IsActive IsActiveObj)
                 {
-                    e.Value = statusObj.Label;
+                    e.Value = IsActiveObj.Label;
                     e.FormattingApplied = true;
                 }
             }
@@ -205,6 +205,7 @@ namespace sipetok_form.Views.Users
             // Aksi Hapus
             if (usersList.Columns[e.ColumnIndex].Name == "BtnHapus")
             {
+                ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
                     $"Apakah Anda yakin ingin menghapus {dataSelected.Username} dari server?",
                     "Konfirmasi Hapus Endpoint",
@@ -246,6 +247,10 @@ namespace sipetok_form.Views.Users
                 UserActionResponse response = new UserActionResponse();
                 if (_saveDataType == "update")
                 {
+                    if (txtPassword.Text != "")
+                    {
+                        _selectedUser.Password = txtPassword.Text;
+                    }
                     response = await _apiService.UpdateUserAsync(_selectedUser.Id, _selectedUser);
                 }
                 else if (_saveDataType == "create")
@@ -256,10 +261,10 @@ namespace sipetok_form.Views.Users
                         Email = txtEmail.Text,
                         Password = txtPassword.Text,
                         Role = new Role { Key = (int)cbbRole?.SelectedValue, Label = cbbRole.Text },
-                        Status = new Status { Key = 1, Label = "ACTIVE" }
+                        IsActive = new IsActive { Key = 1, Label = "ACTIVE" }
                     };
 
-                    response = await _apiService.CreateProductAsync(userBaru);
+                    response = await _apiService.CreateUserAsync(userBaru);
                 }
 
                 if (response.Success)

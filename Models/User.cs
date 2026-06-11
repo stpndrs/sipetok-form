@@ -14,7 +14,7 @@ namespace sipetok_form.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public Role Role { get; set; } = new Role();
-        public Status Status { get; set; } = new Status();
+        public IsActive IsActive { get; set; } = new IsActive();
     }
 
     internal class Role
@@ -23,7 +23,7 @@ namespace sipetok_form.Models
         public string Label { get; set; }
     }
 
-    internal class Status
+    internal class IsActive
     {
         public int Key { get; set; }
         public string Label { get; set; }
