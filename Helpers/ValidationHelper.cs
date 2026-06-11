@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Forms; // Wajib di-import untuk membaca komponen Label
-using sipetok_form.Models.dto.response; // Import namespace tempat UserActionResponse berada
+using sipetok_form.Models.dto.response; // Import namespace tempat ActionResponse berada
 
 namespace sipetok_form.Helpers
 {
     internal static class ValidationHelper
     {
-        public static void ShowValidation(UserActionResponse response, Label targetLabel)
+        public static void ShowValidation<T>(ActionResponse<T> response, Label targetLabel)
         {
             if (targetLabel == null) return;
 

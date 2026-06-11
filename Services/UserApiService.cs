@@ -27,7 +27,7 @@ namespace sipetok_form.Services
                 IMethod getService = _userFactory.CreateMethod("get");
 
                 // 2. Eksekusi action dengan passing target class response & endpoint-nya
-                var response = await getService.ActionAsync<dto.response.UserResponse>("users");
+                var response = await getService.ActionAsync<dto.response.ApiResponse<User>>("users");
 
                 return response?.Data;
             }
@@ -38,7 +38,7 @@ namespace sipetok_form.Services
             }
         }
 
-        public async Task<UserActionResponse> CreateUserAsync(User user)
+        public async Task<ActionResponse<User>> CreateUserAsync(User user)
         {
             try
             {
@@ -55,8 +55,8 @@ namespace sipetok_form.Services
                     IsActive = user.IsActive?.Key == 1
                 };
 
-                // Panggil ActionAsync ke-2: passing <UserSaveRequest, UserActionResponse>
-                var result = await saveService.ActionAsync<UserSaveRequest, UserActionResponse>(
+                // Panggil ActionAsync ke-2: passing <UserSaveRequest, ActionResponse<User>>
+                var result = await saveService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
                     "users",
                     requestBody,
                     HttpMethod.Post // Tentukan methodnya POST
@@ -67,11 +67,11 @@ namespace sipetok_form.Services
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                return new UserActionResponse { Success = false, Message = ex.Message };
+                return new ActionResponse<User> { Success = false, Message = ex.Message };
             }
         }
 
-        public async Task<UserActionResponse> UpdateUserAsync(int id, User user)
+        public async Task<ActionResponse<User>> UpdateUserAsync(int id, User user)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace sipetok_form.Services
                 };
 
                 // Panggil ActionAsync ke-2: arahkan ke endpoint "users/{id}" dengan method PUT
-                var result = await saveService.ActionAsync<UserSaveRequest, UserActionResponse>(
+                var result = await saveService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
                     $"users/{id}",
                     requestBody,
                     HttpMethod.Put // Tentukan methodnya PUT
@@ -99,17 +99,17 @@ namespace sipetok_form.Services
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                return new UserActionResponse { Success = false, Message = ex.Message };
+                return new ActionResponse<User> { Success = false, Message = ex.Message };
             }
         }
 
-        public async Task<UserActionResponse> DeleteUserAsync(int id)
+        public async Task<ActionResponse<User>> DeleteUserAsync(int id)
         {
             try
             {
                 // Minta produk "save" yang sama karena sama-sama mengirim payload data
                 IMethod deleteService = _userFactory.CreateMethod("delete");
-                var result = await deleteService.ActionAsync<UserSaveRequest, UserActionResponse>(
+                var result = await deleteService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
                     $"users/{id}",
                     null,
                     HttpMethod.Delete // Tentukan methodnya PUT
@@ -119,7 +119,7 @@ namespace sipetok_form.Services
             }
             catch (Exception ex)
             {
-                return new UserActionResponse { Success = false, Message = $"Gagal terhubung ke server: {ex.Message}" };
+                return new ActionResponse<User> { Success = false, Message = $"Gagal terhubung ke server: {ex.Message}" };
             }
         }
     }
