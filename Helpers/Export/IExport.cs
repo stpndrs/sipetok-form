@@ -7,7 +7,7 @@ namespace sipetok_form.Helpers.Export
 {
     internal interface IExport
     {
-        static abstract void ExportOperationalList(List<Operational> operationalList, string filePath);
-        static abstract void ExportTransactionList(List<Transaction> transactionList, string filePath);
+        void ExportOperationalList(List<Operational> operationalList, string filePath);
+        void ExportTransactionList(List<Transaction> transactionList, string filePath);
     }
 }

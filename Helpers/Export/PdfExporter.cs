@@ -7,12 +7,12 @@ namespace sipetok_form.Helpers.Export
 {
     internal class PdfExporter : IExport
     {
-        public static void ExportOperationalList(List<Operational> operationalList, string filePath)
+        public void ExportOperationalList(List<Operational> operationalList, string filePath)
         {
             throw new NotImplementedException();
         }
 
-        public static void ExportTransactionList(List<Transaction> transactionList, string filePath)
+        public void ExportTransactionList(List<Transaction> transactionList, string filePath)
         {
             throw new NotImplementedException();
         }

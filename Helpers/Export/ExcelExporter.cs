@@ -8,7 +8,7 @@ namespace sipetok_form.Helpers.Export
 {
     internal class ExcelExporter : IExport
     {
-        public static void ExportOperationalList(List<Operational> operationalList, string filePath)
+        public void ExportOperationalList(List<Operational> operationalList, string filePath)
         {
             // 1. Membuat Workbook baru
             using (var workbook = new XLWorkbook())
@@ -52,7 +52,7 @@ namespace sipetok_form.Helpers.Export
             }
         }
 
-        public static void ExportTransactionList(List<Transaction> transactionList, string filePath)
+        public void ExportTransactionList(List<Transaction> transactionList, string filePath)
         {
             using (var workbook = new XLWorkbook())
             {
