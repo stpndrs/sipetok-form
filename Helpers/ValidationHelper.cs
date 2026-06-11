@@ -6,7 +6,7 @@ namespace sipetok_form.Helpers
 {
     internal static class ValidationHelper
     {
-        public static void ShowValidation(ActionResponse response, Label targetLabel)
+        public static void ShowValidation<T>(ActionResponse<T> response, Label targetLabel)
         {
             if (targetLabel == null) return;
 

@@ -215,7 +215,7 @@ namespace sipetok_form.Views.Users
 
                 if (dialog == DialogResult.Yes)
                 {
-                    ActionResponse response = await _apiService.User.DeleteUserAsync(dataSelected.Id);
+                    ActionResponse<User> response = await _apiService.User.DeleteUserAsync(dataSelected.Id);
 
                     if (response.Success)
                     {
@@ -244,7 +244,7 @@ namespace sipetok_form.Views.Users
             try
             {
                 btnSave.Enabled = false;
-                ActionResponse response = new ActionResponse();
+                ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
                     if (txtPassword.Text != "")
