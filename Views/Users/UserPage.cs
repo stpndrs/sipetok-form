@@ -37,7 +37,7 @@ namespace sipetok_form.Views.Users
         {
             try
             {
-                List<User>? data = await _apiService.GetUsersAsync();
+                List<User>? data = await _apiService.User.GetUsersAsync();
 
                 if (data != null)
                 {
@@ -215,7 +215,7 @@ namespace sipetok_form.Views.Users
 
                 if (dialog == DialogResult.Yes)
                 {
-                    UserActionResponse response = await _apiService.DeleteUserAsync(dataSelected.Id);
+                    UserActionResponse response = await _apiService.User.DeleteUserAsync(dataSelected.Id);
 
                     if (response.Success)
                     {
@@ -251,7 +251,7 @@ namespace sipetok_form.Views.Users
                     {
                         _selectedUser.Password = txtPassword.Text;
                     }
-                    response = await _apiService.UpdateUserAsync(_selectedUser.Id, _selectedUser);
+                    response = await _apiService.User.UpdateUserAsync(_selectedUser.Id, _selectedUser);
                 }
                 else if (_saveDataType == "create")
                 {
@@ -264,7 +264,7 @@ namespace sipetok_form.Views.Users
                         IsActive = new IsActive { Key = 1, Label = "ACTIVE" }
                     };
 
-                    response = await _apiService.CreateUserAsync(userBaru);
+                    response = await _apiService.User.CreateUserAsync(userBaru);
                 }
 
                 if (response.Success)
