@@ -32,7 +32,7 @@ namespace sipetok_form.Views.Transactions
             try
             {
                 // 2. Kirim data ke API via ApiService
-                var responLogin = await _apiService.LoginAsync(username, password);
+                var responLogin = await _apiService.Auth.LoginAsync(username, password);
 
                 // 3. Cek hasil respon dari API
                 if (responLogin.Success)
