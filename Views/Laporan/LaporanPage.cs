@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sipetok_form.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,11 @@ namespace sipetok_form.Views.Laporan
         public LaporanPage()
         {
             InitializeComponent();
+        }
+
+        private void handleClickMenu(object sender, EventArgs e)
+        {
+            MenuHelper.HandleClick(sender, e, this);
         }
     }
 }
