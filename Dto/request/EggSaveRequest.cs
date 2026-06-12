@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 
-namespace sipetok_form.Models
+namespace sipetok_form.Models.dto.request
 {
-    internal class Egg
+    internal class EggSaveRequest
     {
         public DateTime ProductionDate { get; set; }
         public double Stock { get; set; }

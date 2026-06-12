@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using sipetok_form.Models;
 
-namespace sipetok_form.Models
+namespace sipetok_api.Models
 {
     internal class Tenant
     {
@@ -20,17 +18,6 @@ namespace sipetok_form.Models
 
         public int UserId { get; set; }
 
-        public virtual User? User { get; set; }
-
-        public Tenant() { }
-
-        public Tenant(int Id, string Name, string Address, string PhoneNumber, int UserId)
-        {
-            this.Id = Id;
-            this.Name = Name;
-            this.Address = Address;
-            this.PhoneNumber = PhoneNumber;
-            this.UserId = UserId;
-        }
+        public User User { get; set; }
     }
 }

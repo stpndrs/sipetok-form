@@ -10,6 +10,6 @@ namespace sipetok_form.Models.dto.request
 
         // Diubah menjadi int agar sesuai dengan ekspektasi API Backend
         public int Role { get; set; }
-        public int Status { get; set; }
+        public bool IsActive { get; set; }
     }
 }
