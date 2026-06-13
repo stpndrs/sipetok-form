@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Http.Json;
-
 using sipetok_form.Models;
 using sipetok_form.dto.response;
 
@@ -27,12 +26,27 @@ namespace sipetok_form.Services
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", savedToken);
             }
         }
-        public async Task<List<Operational>?> GetUsersAsync()
+        public async Task<List<Operational>?> GetOperationalAsync()
         {
             AttachAuthHeader();
             try
             {
-                var response = await _client.GetFromJsonAsync<OperationalResponse>("operationals");
+                var response = await _client.GetFromJsonAsync<ApiResponse<Operational>>("operationals");
+
+                return response?.Data;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<Transaction>?> GetTransaksiAsync()
+        {
+            AttachAuthHeader();
+            try
+            {
+                var response = await _client.GetFromJsonAsync<ApiResponse<Transaction>>("transactions");
 
                 return response?.Data;
             }

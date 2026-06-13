@@ -20,8 +20,9 @@ namespace sipetok_form.Helpers.Export
                 worksheet.Cell("A1").Value = "ID";
                 worksheet.Cell("B1").Value = "Nama Operasional";
                 worksheet.Cell("C1").Value = "Biaya (Cost)";
-                worksheet.Cell("D1").Value = "Tenant ID";
-                worksheet.Cell("E1").Value = "Tanggal";
+                //worksheet.Cell("D1").Value = "Tenant ID";
+                //worksheet.Cell("E1").Value = "Tanggal";
+                worksheet.Cell("D1").Value = "Tanggal";
 
                 // Desain Header sedikit biar rapi (Opsional)
                 var headerRow = worksheet.Row(1);
@@ -35,11 +36,12 @@ namespace sipetok_form.Helpers.Export
                     worksheet.Cell(currentRow, 1).Value = item.Id;
                     worksheet.Cell(currentRow, 2).Value = item.Name;
                     worksheet.Cell(currentRow, 3).Value = item.OperationalCost; // Jika ini berupa angka berformat string, excel akan membacanya sebagai teks
-                    worksheet.Cell(currentRow, 4).Value = item.TenantId;
-                    worksheet.Cell(currentRow, 5).Value = item.OperationalDate;
+                    //worksheet.Cell(currentRow, 4).Value = item.TenantId;
+                    worksheet.Cell(currentRow, 4).Value = item.OperationalDate;
 
                     // Mengatur format tanggal di Excel agar rapi
-                    worksheet.Cell(currentRow, 5).Style.DateFormat.Format = "yyyy-mm-dd";
+                    //worksheet.Cell(currentRow, 5).Style.DateFormat.Format = "yyyy-mm-dd";
+                    worksheet.Cell(currentRow, 4).Style.DateFormat.Format = "yyyy-mm-dd";
 
                     currentRow++;
                 }
@@ -62,7 +64,7 @@ namespace sipetok_form.Helpers.Export
                 string[] headers = {
                     "ID Transaksi", "Tanggal", "Nama Pelanggan", "No. HP",
                     "Status Pembayaran", "Status Pesanan", "Total Harga", "Jumlah Bayar",
-                    "ID Detail", "ID Kategori Telur", "Jumlah (Qty)", "Harga Satuan", "Subtotal"
+                    "ID Detail", "Kategori", "Jumlah (Qty)", "Harga Satuan", "Subtotal"
                 };
 
                 for (int i = 0; i < headers.Length; i++)
@@ -97,7 +99,7 @@ namespace sipetok_form.Helpers.Export
 
                             // Tulis data detail transaksi
                             worksheet.Cell(currentRow, 9).Value = detail.Id;
-                            worksheet.Cell(currentRow, 10).Value = detail.CategoryId;
+                            worksheet.Cell(currentRow, 10).Value = detail.Category.Name;
                             worksheet.Cell(currentRow, 11).Value = detail.Quantity;
 
                             // Menggunakan tipe decimal langsung agar Excel bisa menghitung (bukan string)
@@ -136,8 +138,8 @@ namespace sipetok_form.Helpers.Export
             worksheet.Cell(row, 2).Value = tx.Date;
             worksheet.Cell(row, 3).Value = tx.CustomerName;
             worksheet.Cell(row, 4).Value = tx.CustomerPhoneNumber;
-            worksheet.Cell(row, 5).Value = tx.PaymentStatus.ToString(); // Mengubah Enum ke String ("Success", "Cancelled", dll)
-            worksheet.Cell(row, 6).Value = tx.OrderStatus.ToString();    // Mengubah Enum ke String
+            worksheet.Cell(row, 5).Value = tx.PaymentStatus;
+            worksheet.Cell(row, 6).Value = tx.OrderStatus;
             worksheet.Cell(row, 7).Value = tx.TotalPrice;
             worksheet.Cell(row, 8).Value = tx.PaymentAmount;
         }

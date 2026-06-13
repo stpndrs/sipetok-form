@@ -19,7 +19,7 @@ namespace sipetok_form.Models
         public virtual EggCategory? Category { get; set; }
         public double Quantity { get; set; }
         public decimal PriceAtPurchase { get; set; }
-        public decimal Subtotal { get; set; } // Ubah ke decimal
+        public decimal Subtotal { get; set; }
 
         public TransactionDetail() { }
 
