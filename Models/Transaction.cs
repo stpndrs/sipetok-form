@@ -1,6 +1,8 @@
-﻿using System;
+﻿using sipetok_api.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace sipetok_form.Models
@@ -18,7 +20,6 @@ namespace sipetok_form.Models
         public virtual ICollection<TransactionDetail> Details { get; set; } = new List<TransactionDetail>();
         [Browsable(false)]
         public int TenantId { get; set; }
-    }
 
     internal class TransactionDetail
     {
@@ -27,5 +28,6 @@ namespace sipetok_form.Models
         public double Quantity { get; set; }
         public decimal PriceAtPurchase { get; set; }
         public decimal Subtotal { get; set; }
+        public virtual Tenant? Tenant { get; set; }
     }
 }

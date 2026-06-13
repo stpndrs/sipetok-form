@@ -1,4 +1,5 @@
 ﻿using sipetok_form.Views;
+using sipetok_form.Views.Laporan;
 using sipetok_form.Views.Transactions;
 using sipetok_form.Views.Users;
 using System;
@@ -32,9 +33,13 @@ namespace sipetok_form.Helpers
                     thisForm.Close();
                     break;
 
-                case "transaksiMenu":
+              case "transaksiMenu":
                     TransactionPage transactionLists = new TransactionPage();
                     transactionLists.Show();
+                
+                case "laporanMenu":
+                    LaporanPage laporanList = new LaporanPage();
+                    laporanList.Show();
                     thisForm.Close();
                     break;
 
