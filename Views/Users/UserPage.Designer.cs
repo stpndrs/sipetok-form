@@ -135,6 +135,7 @@
             transaksiMenu.Name = "transaksiMenu";
             transaksiMenu.Size = new Size(85, 22);
             transaksiMenu.Text = "Transaksi";
+            transaksiMenu.Click += handleClickMenu;
             // 
             // operationalMenu
             // 

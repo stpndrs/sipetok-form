@@ -9,6 +9,7 @@ namespace sipetok_form.Services.Factories
             switch (actionType.ToLower())
             {
                 case "get":
+                case "show":
                 case "read":
                     return new GetData(HttpClient);
 

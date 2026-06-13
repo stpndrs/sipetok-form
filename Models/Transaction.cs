@@ -18,8 +18,16 @@ namespace sipetok_form.Models
         public string CustomerName { get; set; } = string.Empty;
         public string CustomerPhoneNumber { get; set; } = string.Empty;
         public virtual ICollection<TransactionDetail> Details { get; set; } = new List<TransactionDetail>();
+        [Browsable(false)]
         public int TenantId { get; set; }
 
+    internal class TransactionDetail
+    {
+        public int CategoryId { get; set; }
+        public EggCategory Category { get; set; }
+        public double Quantity { get; set; }
+        public decimal PriceAtPurchase { get; set; }
+        public decimal Subtotal { get; set; }
         public virtual Tenant? Tenant { get; set; }
     }
 }

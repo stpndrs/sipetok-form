@@ -39,12 +39,31 @@ namespace sipetok_form.Services
             }
         }
 
+        public async Task<Transaction> GetTransactionByIdAsync(int id)
+        {
+            try
+            {
+                // 1. Minta produk "get" ke factory
+                IMethod getService = _transactionFactory.CreateMethod("get");
+
+                // 2. Eksekusi action dengan passing target class response & endpoint-nya
+                var response = await getService.ActionAsync<dto.response.SingleApiResponse<Transaction>>($"transactions/{id}");
+
+                return response?.Data;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
         public async Task<ActionResponse<Transaction>> CreateTransactionAsync(Transaction transaction)
         {
             try
             {
                 // Minta produk "save" ke factory
-                IMethod saveService = _transactionFactory.CreateMethod("save");
+                IMethod saveService = _transactionFactory.CreateMethod("create");
 
                 // Bungkus body request-nya
                 var requestBody = new TransactionSaveRequest
@@ -99,7 +118,7 @@ namespace sipetok_form.Services
                 var result = await saveService.ActionAsync<TransactionSaveRequest, ActionResponse<Transaction>>(
                     $"transactions/pay/{id}",
                     requestBody,
-                    HttpMethod.Put // Tentukan methodnya PUT
+                    HttpMethod.Post // Tentukan methodnya Post
                 );
 
                 return result;
@@ -122,7 +141,7 @@ namespace sipetok_form.Services
                 var result = await saveService.ActionAsync<TransactionSaveRequest, ActionResponse<Transaction>>(
                     $"transactions/complete/{id}",
                     null,
-                    HttpMethod.Put // Tentukan methodnya PUT
+                    HttpMethod.Post // Tentukan methodnya Post
                 );
 
                 return result;
@@ -145,7 +164,7 @@ namespace sipetok_form.Services
                 var result = await saveService.ActionAsync<TransactionSaveRequest, ActionResponse<Transaction>>(
                     $"transactions/cancel/{id}",
                     null,
-                    HttpMethod.Put // Tentukan methodnya PUT
+                    HttpMethod.Post // Tentukan methodnya Post
                 );
 
                 return result;

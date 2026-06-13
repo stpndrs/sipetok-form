@@ -10,7 +10,7 @@ namespace sipetok_form.Models.dto.response
         public string Message { get; set; } = string.Empty;
 
         // Berisi data User jika sukses (bisa null jika terjadi validation error)
-        public List<T>? Data { get; set; }
+        public T Data { get; set; }
 
         // Berisi daftar error validasi jika gagal (bisa null jika sukses)
         public Dictionary<string, List<string>>? Errors { get; set; }

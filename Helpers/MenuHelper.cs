@@ -33,6 +33,10 @@ namespace sipetok_form.Helpers
                     thisForm.Close();
                     break;
 
+              case "transaksiMenu":
+                    TransactionPage transactionLists = new TransactionPage();
+                    transactionLists.Show();
+                
                 case "laporanMenu":
                     LaporanPage laporanList = new LaporanPage();
                     laporanList.Show();
