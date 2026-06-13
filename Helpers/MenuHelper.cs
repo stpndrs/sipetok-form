@@ -32,6 +32,12 @@ namespace sipetok_form.Helpers
                     thisForm.Close();
                     break;
 
+                case "transaksiMenu":
+                    TransactionPage transactionLists = new TransactionPage();
+                    transactionLists.Show();
+                    thisForm.Close();
+                    break;
+
                 case "menuLogout":
                     DialogResult result = MessageBox.Show("Apakah Anda yakin ingin logout?", "Konfirmasi", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
