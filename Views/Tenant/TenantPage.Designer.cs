@@ -1,0 +1,506 @@
+﻿namespace sipetok_form.Views.Tenant
+{
+    partial class TenantPage
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            Phone = new Label();
+            txtPhoneNumber = new TextBox();
+            flowLayoutPanel6 = new FlowLayoutPanel();
+            label4 = new Label();
+            txtAddress = new TextBox();
+            flowLayoutPanel5 = new FlowLayoutPanel();
+            label3 = new Label();
+            txtName = new TextBox();
+            label2 = new Label();
+            validationErrorMsg = new Label();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            label1 = new Label();
+            addBtn = new Button();
+            tenantsList = new DataGridView();
+            body = new TableLayoutPanel();
+            formPanel = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            label6 = new Label();
+            chkIsValid = new CheckBox();
+            btnSave = new Button();
+            cancelBtn = new Button();
+            menuLogout = new ToolStripMenuItem();
+            laporanMenu = new ToolStripMenuItem();
+            operationalMenu = new ToolStripMenuItem();
+            transaksiMenu = new ToolStripMenuItem();
+            stokMenu = new ToolStripMenuItem();
+            kategoriMenu = new ToolStripMenuItem();
+            penggunaMenu = new ToolStripMenuItem();
+            dashboardMenu = new ToolStripMenuItem();
+            topMenu = new MenuStrip();
+            tenantMenu = new ToolStripMenuItem();
+            container = new TableLayoutPanel();
+            flowLayoutPanel6.SuspendLayout();
+            flowLayoutPanel5.SuspendLayout();
+            flowLayoutPanel4.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tenantsList).BeginInit();
+            body.SuspendLayout();
+            formPanel.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            topMenu.SuspendLayout();
+            container.SuspendLayout();
+            SuspendLayout();
+            // 
+            // Phone
+            // 
+            Phone.AutoSize = true;
+            Phone.Font = new Font("Microsoft Sans Serif", 10.2F);
+            Phone.Location = new Point(12, 8);
+            Phone.Name = "Phone";
+            Phone.Size = new Size(103, 17);
+            Phone.TabIndex = 1;
+            Phone.Text = "Phone Number";
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.Font = new Font("Microsoft Sans Serif", 7.8F);
+            txtPhoneNumber.Location = new Point(12, 27);
+            txtPhoneNumber.Margin = new Padding(3, 2, 3, 2);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(356, 19);
+            txtPhoneNumber.TabIndex = 2;
+            // 
+            // flowLayoutPanel6
+            // 
+            flowLayoutPanel6.AutoSize = true;
+            flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel6.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel6.Controls.Add(Phone);
+            flowLayoutPanel6.Controls.Add(txtPhoneNumber);
+            flowLayoutPanel6.Dock = DockStyle.Fill;
+            flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel6.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel6.Location = new Point(26, 285);
+            flowLayoutPanel6.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel6.Name = "flowLayoutPanel6";
+            flowLayoutPanel6.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel6.Size = new Size(386, 58);
+            flowLayoutPanel6.TabIndex = 12;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label4.Location = new Point(12, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(60, 17);
+            label4.TabIndex = 4;
+            label4.Text = "Address";
+            // 
+            // txtAddress
+            // 
+            txtAddress.Font = new Font("Microsoft Sans Serif", 7.8F);
+            txtAddress.Location = new Point(12, 27);
+            txtAddress.Margin = new Padding(3, 2, 3, 2);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(356, 19);
+            txtAddress.TabIndex = 3;
+            // 
+            // flowLayoutPanel5
+            // 
+            flowLayoutPanel5.AutoSize = true;
+            flowLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel5.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel5.Controls.Add(label4);
+            flowLayoutPanel5.Controls.Add(txtAddress);
+            flowLayoutPanel5.Dock = DockStyle.Fill;
+            flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel5.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel5.Location = new Point(26, 197);
+            flowLayoutPanel5.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel5.Name = "flowLayoutPanel5";
+            flowLayoutPanel5.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel5.Size = new Size(386, 58);
+            flowLayoutPanel5.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label3.Location = new Point(12, 8);
+            label3.Name = "label3";
+            label3.Size = new Size(45, 17);
+            label3.TabIndex = 1;
+            label3.Text = "Nama";
+            // 
+            // txtName
+            // 
+            txtName.Font = new Font("Microsoft Sans Serif", 7.8F);
+            txtName.Location = new Point(12, 27);
+            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(356, 19);
+            txtName.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlText;
+            label2.Location = new Point(29, 22);
+            label2.Margin = new Padding(3, 0, 3, 11);
+            label2.Name = "label2";
+            label2.Size = new Size(253, 29);
+            label2.TabIndex = 1;
+            label2.Text = "Kelola Data Pengguna";
+            // 
+            // validationErrorMsg
+            // 
+            validationErrorMsg.AutoSize = true;
+            validationErrorMsg.BackColor = SystemColors.Control;
+            validationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            validationErrorMsg.ForeColor = Color.Red;
+            validationErrorMsg.Location = new Point(29, 62);
+            validationErrorMsg.Margin = new Padding(3, 0, 3, 30);
+            validationErrorMsg.Name = "validationErrorMsg";
+            validationErrorMsg.Size = new Size(0, 17);
+            validationErrorMsg.TabIndex = 15;
+            // 
+            // flowLayoutPanel4
+            // 
+            flowLayoutPanel4.AutoSize = true;
+            flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel4.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel4.Controls.Add(label3);
+            flowLayoutPanel4.Controls.Add(txtName);
+            flowLayoutPanel4.Dock = DockStyle.Fill;
+            flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel4.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel4.Location = new Point(26, 109);
+            flowLayoutPanel4.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel4.Size = new Size(386, 58);
+            flowLayoutPanel4.TabIndex = 11;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoSize = true;
+            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel1.Controls.Add(label1);
+            flowLayoutPanel1.Controls.Add(addBtn);
+            flowLayoutPanel1.Controls.Add(tenantsList);
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(3, 2);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1192, 694);
+            flowLayoutPanel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(3, 0);
+            label1.Margin = new Padding(3, 0, 3, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(157, 29);
+            label1.TabIndex = 2;
+            label1.Text = "Daftar Tenant";
+            // 
+            // addBtn
+            // 
+            addBtn.AutoSize = true;
+            addBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addBtn.Location = new Point(3, 42);
+            addBtn.Margin = new Padding(3, 2, 3, 22);
+            addBtn.Name = "addBtn";
+            addBtn.Size = new Size(158, 36);
+            addBtn.TabIndex = 17;
+            addBtn.Text = "Tambah Data";
+            addBtn.UseVisualStyleBackColor = true;
+            addBtn.Click += addBtn_Click;
+            // 
+            // tenantsList
+            // 
+            tenantsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tenantsList.Location = new Point(3, 102);
+            tenantsList.Margin = new Padding(3, 2, 44, 2);
+            tenantsList.MaximumSize = new Size(1569, 590);
+            tenantsList.Name = "tenantsList";
+            tenantsList.RowHeadersWidth = 51;
+            tenantsList.Size = new Size(1145, 590);
+            tenantsList.TabIndex = 3;
+            tenantsList.CellContentClick += tenantsList_CellContentClick;
+            // 
+            // body
+            // 
+            body.AutoSize = true;
+            body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            body.ColumnCount = 2;
+            body.ColumnStyles.Add(new ColumnStyle());
+            body.ColumnStyles.Add(new ColumnStyle());
+            body.Controls.Add(flowLayoutPanel1, 0, 0);
+            body.Controls.Add(formPanel, 1, 0);
+            body.Location = new Point(3, 28);
+            body.Margin = new Padding(3, 2, 3, 2);
+            body.Name = "body";
+            body.RowCount = 1;
+            body.RowStyles.Add(new RowStyle());
+            body.Size = new Size(1628, 698);
+            body.TabIndex = 7;
+            // 
+            // formPanel
+            // 
+            formPanel.Controls.Add(label2);
+            formPanel.Controls.Add(validationErrorMsg);
+            formPanel.Controls.Add(flowLayoutPanel4);
+            formPanel.Controls.Add(flowLayoutPanel5);
+            formPanel.Controls.Add(flowLayoutPanel6);
+            formPanel.Controls.Add(flowLayoutPanel2);
+            formPanel.Controls.Add(btnSave);
+            formPanel.Controls.Add(cancelBtn);
+            formPanel.FlowDirection = FlowDirection.TopDown;
+            formPanel.Location = new Point(1201, 2);
+            formPanel.Margin = new Padding(3, 2, 3, 2);
+            formPanel.Name = "formPanel";
+            formPanel.Padding = new Padding(26, 22, 26, 22);
+            formPanel.Size = new Size(424, 684);
+            formPanel.TabIndex = 5;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.AutoSize = true;
+            flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel2.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel2.Controls.Add(label6);
+            flowLayoutPanel2.Controls.Add(chkIsValid);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel2.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel2.Location = new Point(26, 373);
+            flowLayoutPanel2.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel2.Size = new Size(386, 58);
+            flowLayoutPanel2.TabIndex = 17;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label6.Location = new Point(12, 8);
+            label6.Name = "label6";
+            label6.Size = new Size(39, 17);
+            label6.TabIndex = 1;
+            label6.Text = "Valid";
+            // 
+            // chkIsValid
+            // 
+            chkIsValid.AutoSize = true;
+            chkIsValid.Location = new Point(12, 28);
+            chkIsValid.Name = "chkIsValid";
+            chkIsValid.Size = new Size(60, 17);
+            chkIsValid.TabIndex = 3;
+            chkIsValid.Text = "Is Valid";
+            chkIsValid.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            btnSave.AutoSize = true;
+            btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.Location = new Point(29, 463);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(380, 36);
+            btnSave.TabIndex = 18;
+            btnSave.Text = "Simpan";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            // 
+            // cancelBtn
+            // 
+            cancelBtn.AutoSize = true;
+            cancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelBtn.Location = new Point(29, 503);
+            cancelBtn.Margin = new Padding(3, 2, 3, 2);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.Size = new Size(380, 36);
+            cancelBtn.TabIndex = 19;
+            cancelBtn.Text = "Batalkan";
+            cancelBtn.UseVisualStyleBackColor = true;
+            cancelBtn.Click += cancelBtn_Click;
+            // 
+            // menuLogout
+            // 
+            menuLogout.Name = "menuLogout";
+            menuLogout.Size = new Size(67, 22);
+            menuLogout.Text = "Logout";
+            // 
+            // laporanMenu
+            // 
+            laporanMenu.Name = "laporanMenu";
+            laporanMenu.Size = new Size(74, 22);
+            laporanMenu.Text = "Laporan";
+            // 
+            // operationalMenu
+            // 
+            operationalMenu.Name = "operationalMenu";
+            operationalMenu.Size = new Size(100, 22);
+            operationalMenu.Text = "Operasional";
+            // 
+            // transaksiMenu
+            // 
+            transaksiMenu.Name = "transaksiMenu";
+            transaksiMenu.Size = new Size(85, 22);
+            transaksiMenu.Text = "Transaksi";
+            // 
+            // stokMenu
+            // 
+            stokMenu.Name = "stokMenu";
+            stokMenu.Size = new Size(117, 22);
+            stokMenu.Text = "Stok & Inventori";
+            // 
+            // kategoriMenu
+            // 
+            kategoriMenu.Name = "kategoriMenu";
+            kategoriMenu.Size = new Size(113, 22);
+            kategoriMenu.Text = "Kategori Telur";
+            // 
+            // penggunaMenu
+            // 
+            penggunaMenu.Name = "penggunaMenu";
+            penggunaMenu.Size = new Size(85, 22);
+            penggunaMenu.Text = "Pengguna";
+            // 
+            // dashboardMenu
+            // 
+            dashboardMenu.Name = "dashboardMenu";
+            dashboardMenu.Size = new Size(92, 22);
+            dashboardMenu.Text = "Dashboard";
+            // 
+            // topMenu
+            // 
+            topMenu.BackColor = SystemColors.ControlLight;
+            topMenu.Dock = DockStyle.Fill;
+            topMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            topMenu.ImageScalingSize = new Size(20, 20);
+            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, tenantMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            topMenu.Location = new Point(0, 0);
+            topMenu.Name = "topMenu";
+            topMenu.Padding = new Padding(5, 2, 0, 2);
+            topMenu.Size = new Size(1904, 26);
+            topMenu.TabIndex = 6;
+            topMenu.Text = "menuStrip1";
+            // 
+            // tenantMenu
+            // 
+            tenantMenu.Name = "tenantMenu";
+            tenantMenu.Size = new Size(65, 22);
+            tenantMenu.Text = "Tenant";
+            // 
+            // container
+            // 
+            container.ColumnCount = 1;
+            container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            container.Controls.Add(topMenu, 0, 0);
+            container.Controls.Add(body, 0, 1);
+            container.Dock = DockStyle.Fill;
+            container.Location = new Point(0, 0);
+            container.Margin = new Padding(3, 2, 3, 2);
+            container.Name = "container";
+            container.RowCount = 2;
+            container.RowStyles.Add(new RowStyle());
+            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            container.Size = new Size(1904, 1041);
+            container.TabIndex = 1;
+            // 
+            // TenantPage
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1904, 1041);
+            Controls.Add(container);
+            Name = "TenantPage";
+            Text = "TenantPage";
+            flowLayoutPanel6.ResumeLayout(false);
+            flowLayoutPanel6.PerformLayout();
+            flowLayoutPanel5.ResumeLayout(false);
+            flowLayoutPanel5.PerformLayout();
+            flowLayoutPanel4.ResumeLayout(false);
+            flowLayoutPanel4.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tenantsList).EndInit();
+            body.ResumeLayout(false);
+            body.PerformLayout();
+            formPanel.ResumeLayout(false);
+            formPanel.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
+            topMenu.ResumeLayout(false);
+            topMenu.PerformLayout();
+            container.ResumeLayout(false);
+            container.PerformLayout();
+            ResumeLayout(false);
+        }
+
+        #endregion
+        private Label Phone;
+        private TextBox txtPhoneNumber;
+        private FlowLayoutPanel flowLayoutPanel6;
+        private Label label4;
+        private TextBox txtAddress;
+        private FlowLayoutPanel flowLayoutPanel5;
+        private Label label3;
+        private TextBox txtName;
+        private Label label2;
+        private Label validationErrorMsg;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label1;
+        private Button addBtn;
+        private DataGridView tenantsList;
+        private TableLayoutPanel body;
+        private FlowLayoutPanel formPanel;
+        private ToolStripMenuItem menuLogout;
+        private ToolStripMenuItem laporanMenu;
+        private ToolStripMenuItem operationalMenu;
+        private ToolStripMenuItem transaksiMenu;
+        private ToolStripMenuItem stokMenu;
+        private ToolStripMenuItem kategoriMenu;
+        private ToolStripMenuItem penggunaMenu;
+        private ToolStripMenuItem dashboardMenu;
+        private MenuStrip topMenu;
+        private TableLayoutPanel container;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Label label6;
+        private CheckBox chkIsValid;
+        private Button btnSave;
+        private Button cancelBtn;
+        private ToolStripMenuItem tenantMenu;
+    }
+}
