@@ -25,10 +25,9 @@ namespace sipetok_form.Models
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }
-        public EggCategory Category { get; set; }
+        public virtual EggCategory? Category { get; set; }
         public double Quantity { get; set; }
         public decimal PriceAtPurchase { get; set; }
         public decimal Subtotal { get; set; }
-        public virtual Tenant? Tenant { get; set; }
     }
 }
