@@ -21,12 +21,9 @@ namespace sipetok_form.Models
         [Browsable(false)]
         public int TenantId { get; set; }
     }
-
     internal class TransactionDetail
     {
         public int Id { get; set; }
-        public int TransactionId { get; set; }
-        public virtual Transaction? Transaction { get; set; }
         public int CategoryId { get; set; }
         public virtual EggCategory? Category { get; set; }
         public double Quantity { get; set; }

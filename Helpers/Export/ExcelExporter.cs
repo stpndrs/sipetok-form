@@ -35,7 +35,7 @@ namespace sipetok_form.Helpers.Export
                 {
                     worksheet.Cell(currentRow, 1).Value = item.Id;
                     worksheet.Cell(currentRow, 2).Value = item.Name;
-                    worksheet.Cell(currentRow, 3).Value = item.OperationalCost; // Jika ini berupa angka berformat string, excel akan membacanya sebagai teks
+                    worksheet.Cell(currentRow, 3).Value = item.OperationalCost;
                     //worksheet.Cell(currentRow, 4).Value = item.TenantId;
                     worksheet.Cell(currentRow, 4).Value = item.OperationalDate;
 
@@ -75,7 +75,7 @@ namespace sipetok_form.Helpers.Export
                 // Styling Header
                 var headerRow = worksheet.Row(1);
                 headerRow.Style.Font.Bold = true;
-                headerRow.Style.Fill.BackgroundColor = XLColor.FromHtml("#2E7D32"); // Hijau gelap formal
+                headerRow.Style.Fill.BackgroundColor = XLColor.FromHtml("#2E7D32"); 
                 headerRow.Style.Font.FontColor = XLColor.White;
 
                 // 2. Mengisi Data
@@ -83,26 +83,32 @@ namespace sipetok_form.Helpers.Export
 
                 foreach (var tx in transactionList)
                 {
+                    // Catat baris awal sebelum detail di-loop
+                    int startRow = currentRow;
+
                     // Jika transaksi tidak memiliki detail (list kosong)
                     if (tx.Details == null || tx.Details.Count == 0)
                     {
                         WriteTransactionMaster(worksheet, currentRow, tx);
+
+                        // Isi kolom detail kosong dengan tanda strip agar rapi
+                        worksheet.Cell(currentRow, 9).Value = "-";
+                        worksheet.Cell(currentRow, 10).Value = "-";
+                        worksheet.Cell(currentRow, 11).Value = 0;
+                        worksheet.Cell(currentRow, 12).Value = 0;
+                        worksheet.Cell(currentRow, 13).Value = 0;
+
                         currentRow++;
                     }
                     else
                     {
-                        // Jika ada detailnya, looping setiap detail item
+                        // PERBAIKAN: Loop detail terlebih dahulu untuk mengisi data baris demi baris secara sejajar
                         foreach (var detail in tx.Details)
                         {
-                            // Tulis data utama transaksi
-                            WriteTransactionMaster(worksheet, currentRow, tx);
-
-                            // Tulis data detail transaksi
+                            // Tulis data detail transaksi di baris aktif (currentRow)
                             worksheet.Cell(currentRow, 9).Value = detail.Id;
-                            worksheet.Cell(currentRow, 10).Value = detail.Category.Name;
+                            worksheet.Cell(currentRow, 10).Value = detail.Category?.Name ?? "-";
                             worksheet.Cell(currentRow, 11).Value = detail.Quantity;
-
-                            // Menggunakan tipe decimal langsung agar Excel bisa menghitung (bukan string)
                             worksheet.Cell(currentRow, 12).Value = detail.PriceAtPurchase;
                             worksheet.Cell(currentRow, 13).Value = detail.Subtotal;
 
@@ -112,14 +118,38 @@ namespace sipetok_form.Helpers.Export
 
                             currentRow++;
                         }
+
+                        // Setelah semua detail ditulis, tentukan baris akhir untuk transaksi ini
+                        int endRow = currentRow - 1;
+
+                        // Tulis data master SEKALI SAJA di baris awal (ClosedXML otomatis menerapkan nilainya ke area merge)
+                        WriteTransactionMaster(worksheet, startRow, tx);
+
+                        // PROSES MERGE: Gabungkan kolom 1 sampai 8 dari startRow hingga endRow
+                        for (int col = 1; col <= 8; col++)
+                        {
+                            var range = worksheet.Range(startRow, col, endRow, col);
+                            range.Merge();
+
+                            // Set posisi teks di tengah-tengah secara Vertikal & Horizontal agar rapi
+                            range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                            if (col == 1 || col == 2 || col == 4 || col == 5 || col == 6)
+                            {
+                                range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                            }
+                            else if (col == 7 || col == 8)
+                            {
+                                range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+                            }
+                        }
                     }
                 }
 
-                // 3. Merapikan Format Kolom & Layout
-                // Format Kolom Tanggal
+                // 3. Merapikan Format Kolom & Layout Secara Keseluruhan
+                // Format Kolom Tanggal (Kolom B)
                 worksheet.Column(2).Style.DateFormat.Format = "yyyy-mm-dd hh:mm";
 
-                // Format Currency untuk Total Harga & Jumlah Bayar Master
+                // Format Currency untuk Total Harga & Jumlah Bayar Master (Kolom G & H)
                 worksheet.Column(7).Style.NumberFormat.Format = "#,##0";
                 worksheet.Column(8).Style.NumberFormat.Format = "#,##0";
 
