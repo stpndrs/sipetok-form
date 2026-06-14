@@ -20,9 +20,10 @@ namespace sipetok_form.Models
         public virtual ICollection<TransactionDetail> Details { get; set; } = new List<TransactionDetail>();
         [Browsable(false)]
         public int TenantId { get; set; }
-
+    }
     internal class TransactionDetail
     {
+        public int Id { get; set; }
         public int CategoryId { get; set; }
         public EggCategory Category { get; set; }
         public double Quantity { get; set; }
