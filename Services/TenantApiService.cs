@@ -46,11 +46,11 @@ namespace sipetok_form.Services
                 // Minta produk "save" ke factory
                 IMethod saveService = _tenantFactory.CreateMethod("save");
 
-                var userData = new TenantSaveRequest
+                var userData = new UserSaveRequest
                 {
-                    Name = tenant.Name,
-                    PhoneNumber = tenant.PhoneNumber,
-                    Address = tenant.Address,
+                    Username = tenant.User.Username,
+                    Password = tenant.User.Password,
+                    Email = tenant.User.Email
                 };
 
                 // Bungkus body request-nya
@@ -59,6 +59,7 @@ namespace sipetok_form.Services
                     Name = tenant.Name,
                     Address = tenant.Address,
                     PhoneNumber = tenant.PhoneNumber,
+                    User = userData
                 };
 
                 // Panggil ActionAsync ke-2: passing <TenantSaveRequest, ActionResponse<Tenant>>

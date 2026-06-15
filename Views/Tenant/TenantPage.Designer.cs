@@ -48,6 +48,15 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             label6 = new Label();
             chkIsValid = new CheckBox();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            label5 = new Label();
+            txtUsername = new TextBox();
+            flowLayoutPanel7 = new FlowLayoutPanel();
+            label7 = new Label();
+            txtPassword = new TextBox();
+            flowLayoutPanel8 = new FlowLayoutPanel();
+            Email = new Label();
+            txtEmail = new TextBox();
             btnSave = new Button();
             cancelBtn = new Button();
             menuLogout = new ToolStripMenuItem();
@@ -69,6 +78,9 @@
             body.SuspendLayout();
             formPanel.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
+            flowLayoutPanel7.SuspendLayout();
+            flowLayoutPanel8.SuspendLayout();
             topMenu.SuspendLayout();
             container.SuspendLayout();
             SuspendLayout();
@@ -216,7 +228,7 @@
             flowLayoutPanel1.Location = new Point(3, 2);
             flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1192, 694);
+            flowLayoutPanel1.Size = new Size(1195, 694);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // label1
@@ -252,7 +264,7 @@
             tenantsList.MaximumSize = new Size(1569, 590);
             tenantsList.Name = "tenantsList";
             tenantsList.RowHeadersWidth = 51;
-            tenantsList.Size = new Size(1145, 590);
+            tenantsList.Size = new Size(1148, 590);
             tenantsList.TabIndex = 3;
             tenantsList.CellContentClick += tenantsList_CellContentClick;
             // 
@@ -270,7 +282,7 @@
             body.Name = "body";
             body.RowCount = 1;
             body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(1628, 698);
+            body.Size = new Size(1631, 844);
             body.TabIndex = 7;
             // 
             // formPanel
@@ -281,14 +293,17 @@
             formPanel.Controls.Add(flowLayoutPanel5);
             formPanel.Controls.Add(flowLayoutPanel6);
             formPanel.Controls.Add(flowLayoutPanel2);
+            formPanel.Controls.Add(flowLayoutPanel3);
+            formPanel.Controls.Add(flowLayoutPanel7);
+            formPanel.Controls.Add(flowLayoutPanel8);
             formPanel.Controls.Add(btnSave);
             formPanel.Controls.Add(cancelBtn);
             formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(1201, 2);
+            formPanel.Location = new Point(1204, 2);
             formPanel.Margin = new Padding(3, 2, 3, 2);
             formPanel.Name = "formPanel";
             formPanel.Padding = new Padding(26, 22, 26, 22);
-            formPanel.Size = new Size(424, 684);
+            formPanel.Size = new Size(424, 840);
             formPanel.TabIndex = 5;
             // 
             // flowLayoutPanel2
@@ -328,15 +343,123 @@
             chkIsValid.Text = "Is Valid";
             chkIsValid.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.AutoSize = true;
+            flowLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel3.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel3.Controls.Add(label5);
+            flowLayoutPanel3.Controls.Add(txtUsername);
+            flowLayoutPanel3.Dock = DockStyle.Fill;
+            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel3.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel3.Location = new Point(26, 461);
+            flowLayoutPanel3.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel3.Size = new Size(386, 58);
+            flowLayoutPanel3.TabIndex = 21;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label5.Location = new Point(12, 8);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 17);
+            label5.TabIndex = 1;
+            label5.Text = "Username";
+            // 
+            // txtUsername
+            // 
+            txtUsername.Font = new Font("Microsoft Sans Serif", 7.8F);
+            txtUsername.Location = new Point(12, 27);
+            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(356, 19);
+            txtUsername.TabIndex = 2;
+            // 
+            // flowLayoutPanel7
+            // 
+            flowLayoutPanel7.AutoSize = true;
+            flowLayoutPanel7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel7.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel7.Controls.Add(label7);
+            flowLayoutPanel7.Controls.Add(txtPassword);
+            flowLayoutPanel7.Dock = DockStyle.Fill;
+            flowLayoutPanel7.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel7.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel7.Location = new Point(26, 549);
+            flowLayoutPanel7.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel7.Name = "flowLayoutPanel7";
+            flowLayoutPanel7.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel7.Size = new Size(386, 58);
+            flowLayoutPanel7.TabIndex = 20;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label7.Location = new Point(12, 8);
+            label7.Name = "label7";
+            label7.Size = new Size(69, 17);
+            label7.TabIndex = 4;
+            label7.Text = "Password";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Font = new Font("Microsoft Sans Serif", 7.8F);
+            txtPassword.Location = new Point(12, 27);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(356, 19);
+            txtPassword.TabIndex = 3;
+            // 
+            // flowLayoutPanel8
+            // 
+            flowLayoutPanel8.AutoSize = true;
+            flowLayoutPanel8.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            flowLayoutPanel8.BorderStyle = BorderStyle.FixedSingle;
+            flowLayoutPanel8.Controls.Add(Email);
+            flowLayoutPanel8.Controls.Add(txtEmail);
+            flowLayoutPanel8.Dock = DockStyle.Fill;
+            flowLayoutPanel8.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel8.Font = new Font("Microsoft Sans Serif", 7.8F);
+            flowLayoutPanel8.Location = new Point(26, 637);
+            flowLayoutPanel8.Margin = new Padding(0, 0, 0, 30);
+            flowLayoutPanel8.Name = "flowLayoutPanel8";
+            flowLayoutPanel8.Padding = new Padding(9, 8, 9, 8);
+            flowLayoutPanel8.Size = new Size(386, 58);
+            flowLayoutPanel8.TabIndex = 22;
+            // 
+            // Email
+            // 
+            Email.AutoSize = true;
+            Email.Font = new Font("Microsoft Sans Serif", 10.2F);
+            Email.Location = new Point(12, 8);
+            Email.Name = "Email";
+            Email.Size = new Size(42, 17);
+            Email.TabIndex = 1;
+            Email.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Font = new Font("Microsoft Sans Serif", 7.8F);
+            txtEmail.Location = new Point(12, 27);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(356, 19);
+            txtEmail.TabIndex = 2;
+            // 
             // btnSave
             // 
             btnSave.AutoSize = true;
             btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(29, 463);
+            btnSave.Location = new Point(29, 727);
             btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(380, 36);
-            btnSave.TabIndex = 18;
+            btnSave.TabIndex = 23;
             btnSave.Text = "Simpan";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -345,11 +468,11 @@
             // 
             cancelBtn.AutoSize = true;
             cancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cancelBtn.Location = new Point(29, 503);
+            cancelBtn.Location = new Point(29, 767);
             cancelBtn.Margin = new Padding(3, 2, 3, 2);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(380, 36);
-            cancelBtn.TabIndex = 19;
+            cancelBtn.TabIndex = 24;
             cancelBtn.Text = "Batalkan";
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
@@ -461,6 +584,12 @@
             formPanel.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel3.PerformLayout();
+            flowLayoutPanel7.ResumeLayout(false);
+            flowLayoutPanel7.PerformLayout();
+            flowLayoutPanel8.ResumeLayout(false);
+            flowLayoutPanel8.PerformLayout();
             topMenu.ResumeLayout(false);
             topMenu.PerformLayout();
             container.ResumeLayout(false);
@@ -499,8 +628,17 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label6;
         private CheckBox chkIsValid;
+        private ToolStripMenuItem tenantMenu;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Label label5;
+        private TextBox txtUsername;
+        private FlowLayoutPanel flowLayoutPanel7;
+        private Label label7;
+        private TextBox txtPassword;
+        private FlowLayoutPanel flowLayoutPanel8;
+        private Label Email;
+        private TextBox txtEmail;
         private Button btnSave;
         private Button cancelBtn;
-        private ToolStripMenuItem tenantMenu;
     }
 }

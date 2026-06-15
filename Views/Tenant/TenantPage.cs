@@ -1,6 +1,7 @@
 ﻿using ClosedXML.Excel;
 using sipetok_form.Helpers;
 using sipetok_form.Models;
+using sipetok_form.Models.dto.request;
 using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
 using System;
@@ -17,7 +18,6 @@ namespace sipetok_form.Views.Tenant
 {
     public partial class TenantPage : Form
     {
-        // Mengubah tipe data dari User menjadi Tenant
         private sipetok_api.Models.Tenant? _selectedTenant = null;
         private string _saveDataType = null;
         private readonly ApiService _apiService = new ApiService();
@@ -26,7 +26,7 @@ namespace sipetok_form.Views.Tenant
         {
             InitializeComponent();
             this.Load += FormMain_Load;
-            this.tenantsList.CellFormatting += tenantsList_CellFormatting; 
+            this.tenantsList.CellFormatting += tenantsList_CellFormatting;
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -39,7 +39,6 @@ namespace sipetok_form.Views.Tenant
         {
             try
             {
-                // Memanggil endpoint Tenant dari ApiService
                 List<sipetok_api.Models.Tenant>? data = await _apiService.Tenant.GetTenantsAsync();
 
                 if (data != null)
@@ -47,26 +46,20 @@ namespace sipetok_form.Views.Tenant
                     tenantsList.DataSource = null;
                     tenantsList.DataSource = data;
 
-                    // Mengatur Susunan Header Utama GUI sesuai properti Tenant
                     tenantsList.Columns["Id"].HeaderText = "Id Tenant";
                     tenantsList.Columns["Name"].HeaderText = "Nama Tenant";
                     tenantsList.Columns["Address"].HeaderText = "Alamat";
                     tenantsList.Columns["PhoneNumber"].HeaderText = "No. Telepon";
 
-                    // Trik utama: Ganti kolom CheckBox otomatis menjadi kolom teks biasa
                     if (tenantsList.Columns.Contains("IsValid"))
                     {
-                        // Simpan posisi urutan kolomnya biar tidak lompat ke paling kanan
                         int displayIndex = tenantsList.Columns["IsValid"].DisplayIndex;
-
-                        // Hapus kolom bawaan yang berbentuk CheckBox
                         tenantsList.Columns.Remove("IsValid");
 
-                        // Buat kolom teks baru untuk menggantikannya
                         DataGridViewTextBoxColumn txtColumn = new DataGridViewTextBoxColumn
                         {
                             Name = "IsValid",
-                            DataPropertyName = "IsValid", 
+                            DataPropertyName = "IsValid",
                             HeaderText = "Status Validasi"
                         };
 
@@ -74,7 +67,6 @@ namespace sipetok_form.Views.Tenant
                         txtColumn.DisplayIndex = displayIndex;
                     }
 
-                    // Menyembunyikan kolom relasi agar tidak muncul mentah-mentah di grid
                     if (tenantsList.Columns.Contains("UserId")) tenantsList.Columns["UserId"].Visible = false;
                     if (tenantsList.Columns.Contains("User")) tenantsList.Columns["User"].Visible = false;
 
@@ -93,18 +85,13 @@ namespace sipetok_form.Views.Tenant
 
         private void tenantsList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Memastikan baris data valid dan nilainya tidak null
             if (e.RowIndex < 0 || e.Value == null) return;
 
-            // Menargetkan kolom IsValid untuk diubah format tampilannya
             if (tenantsList.Columns[e.ColumnIndex].Name == "IsValid")
             {
                 if (e.Value is bool isValid)
                 {
-                    // Jika true menjadi "Active", jika false menjadi "Inactive"
                     e.Value = isValid ? "Valid" : "Invalid";
-
-                    // Memberitahu DataGridView bahwa kita sudah memformat nilainya
                     e.FormattingApplied = true;
                 }
             }
@@ -134,6 +121,7 @@ namespace sipetok_form.Views.Tenant
             tenantsList.Columns.Add(btnHapus);
         }
 
+        // PERBAIKAN 1: Logika penempatan struktur if-else untuk menyembunyikan/menampilkan field
         private void ToggleForm(bool show)
         {
             formPanel.Visible = show;
@@ -151,11 +139,28 @@ namespace sipetok_form.Views.Tenant
 
                 if (_saveDataType == "update")
                 {
+                    // Sembunyikan field Akun User saat Edit Tenant
+                    flowLayoutPanel3.Visible = false;
+                    flowLayoutPanel7.Visible = false;
+                    flowLayoutPanel8.Visible = false;
+                    flowLayoutPanel2.Visible = true;
                     AttemptFormFields(false);
+                }
+                else if (_saveDataType == "create")
+                {
+                    // Pastikan field Akun User selalu muncul saat Tambah Data Baru
+                    flowLayoutPanel3.Visible = true;
+                    flowLayoutPanel7.Visible = true;
+                    flowLayoutPanel8.Visible = true;
+                    flowLayoutPanel2.Visible = false;
+
+
+                    AttemptFormFields(true); // Bersihkan form field agar kosong
                 }
             }
             else
             {
+                // Bagian ini sekarang akan selalu berjalan saat form ditutup (Batal/Sukses Simpan)
                 columnStyles[0].SizeType = SizeType.Percent;
                 columnStyles[0].Width = 100;
 
@@ -179,9 +184,8 @@ namespace sipetok_form.Views.Tenant
             tenantsList.Height = totalHeight + 4;
         }
 
-        public async void AttemptFormFields(bool clear)
+        public void AttemptFormFields(bool clear)
         {
-
             validationErrorMsg.Text = "";
 
             if (clear)
@@ -190,6 +194,9 @@ namespace sipetok_form.Views.Tenant
                 txtName.Text = "";
                 txtAddress.Text = "";
                 txtPhoneNumber.Text = "";
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+                txtEmail.Text = "";
                 chkIsValid.Checked = false;
             }
             else
@@ -207,7 +214,6 @@ namespace sipetok_form.Views.Tenant
 
             var dataSelected = (sipetok_api.Models.Tenant)tenantsList.Rows[e.RowIndex].DataBoundItem;
 
-            // Aksi Edit
             if (tenantsList.Columns[e.ColumnIndex].Name == "BtnEdit")
             {
                 _selectedTenant = dataSelected;
@@ -215,7 +221,6 @@ namespace sipetok_form.Views.Tenant
                 ToggleForm(true);
             }
 
-            // Aksi Hapus
             if (tenantsList.Columns[e.ColumnIndex].Name == "BtnHapus")
             {
                 ToggleForm(false);
@@ -228,7 +233,6 @@ namespace sipetok_form.Views.Tenant
 
                 if (dialog == DialogResult.Yes)
                 {
-                    // Memanggil endpoint delete tenant
                     ActionResponse<sipetok_api.Models.Tenant> response = await _apiService.Tenant.DeleteTenantAsync(dataSelected.Id);
 
                     if (response.Success)
@@ -267,21 +271,25 @@ namespace sipetok_form.Views.Tenant
                     _selectedTenant.PhoneNumber = txtPhoneNumber.Text;
                     _selectedTenant.IsValid = chkIsValid.Checked;
 
-                    Debug.Write(chkIsValid.Checked);
-
                     response = await _apiService.Tenant.UpdateTenantAsync(_selectedTenant.Id, _selectedTenant);
                 }
                 else if (_saveDataType == "create")
                 {
-                    sipetok_api.Models.Tenant tenantBaru = new sipetok_api.Models.Tenant
+                    // PERBAIKAN 2: Menambahkan instansiasi objek 'new User' secara eksplisit
+                    var newTenant = new sipetok_api.Models.Tenant
                     {
                         Name = txtName.Text,
-                        Address = txtAddress.Text,
                         PhoneNumber = txtPhoneNumber.Text,
-                        IsValid = chkIsValid.Checked,
+                        Address = txtAddress.Text,
+                        User = new User
+                        {
+                            Username = txtUsername.Text,
+                            Password = txtPassword.Text,
+                            Email = txtEmail.Text,
+                        }
                     };
 
-                    response = await _apiService.Tenant.CreateTenantAsync(tenantBaru);
+                    response = await _apiService.Tenant.CreateTenantAsync(newTenant);
                 }
 
                 if (response.Success)
