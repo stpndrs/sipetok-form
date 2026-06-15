@@ -27,7 +27,7 @@ namespace sipetok_form.Services
                 IMethod getService = _eggFactory.CreateMethod("get");
 
                 // 2. Eksekusi action dengan passing target class response & endpoint-nya
-                var response = await getService.ActionAsync<dto.response.ApiResponse<Egg>>("egg/categories");
+                var response = await getService.ActionAsync<dto.response.ApiResponse<Egg>>("eggs");
 
                 return response?.Data;
             }
@@ -55,7 +55,7 @@ namespace sipetok_form.Services
 
                 // Panggil ActionAsync ke-2: passing <EggSaveRequest, ActionResponse<Egg>>
                 var result = await saveService.ActionAsync<EggSaveRequest, ActionResponse<Egg>>(
-                    "egg/categories",
+                    "eggs",
                     requestBody,
                     HttpMethod.Post // Tentukan methodnya POST
                 );
@@ -85,7 +85,7 @@ namespace sipetok_form.Services
 
                 // Panggil ActionAsync ke-2: arahkan ke endpoint "egg/categories/{id}" dengan method PUT
                 var result = await saveService.ActionAsync<EggSaveRequest, ActionResponse<Egg>>(
-                    $"egg/categories/{id}",
+                    $"eggs/{id}",
                     requestBody,
                     HttpMethod.Put // Tentukan methodnya PUT
                 );
@@ -106,7 +106,7 @@ namespace sipetok_form.Services
                 // Minta produk "save" yang sama karena sama-sama mengirim payload data
                 IMethod deleteService = _eggFactory.CreateMethod("delete");
                 var result = await deleteService.ActionAsync<EggSaveRequest, ActionResponse<Egg>>(
-                    $"egg/categories/{id}",
+                    $"eggs/{id}",
                     null,
                     HttpMethod.Delete // Tentukan methodnya PUT
                 );

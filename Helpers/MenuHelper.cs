@@ -1,8 +1,9 @@
-﻿using sipetok_form.Views;
+using sipetok_form.Views;
 using sipetok_form.Views.Laporan;
 using sipetok_form.Views.Tenant;
 using sipetok_form.Views.Transactions;
 using sipetok_form.Views.Users;
+using sipetok_form.Views.Eggs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,7 +40,7 @@ namespace sipetok_form.Helpers
                     tenantList.Show();
                     thisForm.Close();
                     break;
-
+                    
                 case "transaksiMenu":
                     TransactionPage transactionLists = new TransactionPage();
                     transactionLists.Show();
@@ -57,6 +58,12 @@ namespace sipetok_form.Helpers
                     {
                         Application.Exit();
                     }
+                    break;
+
+                case "stokMenu":
+                    EggStockPage eggStockPage = new EggStockPage();
+                    eggStockPage.Show();
+                    thisForm.Close();
                     break;
 
                 default:
