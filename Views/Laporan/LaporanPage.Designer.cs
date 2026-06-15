@@ -57,6 +57,7 @@
             btnTransaksi = new Button();
             btnOperational = new Button();
             dataGridView1 = new DataGridView();
+            tenantMenu = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             formPanel.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, tenantMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -342,6 +343,14 @@
             dataGridView1.Size = new Size(1397, 890);
             dataGridView1.TabIndex = 2;
             // 
+            // tenantMenu
+            // 
+            tenantMenu.Font = new Font("Roboto", 10.8F);
+            tenantMenu.Name = "tenantMenu";
+            tenantMenu.Size = new Size(65, 22);
+            tenantMenu.Text = "Tenant";
+            tenantMenu.Click += handleClickMenu;
+            // 
             // LaporanPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -401,5 +410,6 @@
         private Label label5;
         private ComboBox comboBox1;
         private Button btnExport;
+        private ToolStripMenuItem tenantMenu;
     }
 }

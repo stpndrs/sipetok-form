@@ -482,42 +482,49 @@
             menuLogout.Name = "menuLogout";
             menuLogout.Size = new Size(67, 22);
             menuLogout.Text = "Logout";
+            menuLogout.Click += handleClickMenu;
             // 
             // laporanMenu
             // 
             laporanMenu.Name = "laporanMenu";
             laporanMenu.Size = new Size(74, 22);
             laporanMenu.Text = "Laporan";
+            laporanMenu.Click += handleClickMenu;
             // 
             // operationalMenu
             // 
             operationalMenu.Name = "operationalMenu";
             operationalMenu.Size = new Size(100, 22);
             operationalMenu.Text = "Operasional";
+            operationalMenu.Click += handleClickMenu;
             // 
             // transaksiMenu
             // 
             transaksiMenu.Name = "transaksiMenu";
             transaksiMenu.Size = new Size(85, 22);
             transaksiMenu.Text = "Transaksi";
+            transaksiMenu.Click += handleClickMenu;
             // 
             // stokMenu
             // 
             stokMenu.Name = "stokMenu";
             stokMenu.Size = new Size(117, 22);
             stokMenu.Text = "Stok & Inventori";
+            stokMenu.Click += handleClickMenu;
             // 
             // kategoriMenu
             // 
             kategoriMenu.Name = "kategoriMenu";
             kategoriMenu.Size = new Size(113, 22);
             kategoriMenu.Text = "Kategori Telur";
+            kategoriMenu.Click += handleClickMenu;
             // 
             // penggunaMenu
             // 
             penggunaMenu.Name = "penggunaMenu";
             penggunaMenu.Size = new Size(85, 22);
             penggunaMenu.Text = "Pengguna";
+            penggunaMenu.Click += handleClickMenu;
             // 
             // dashboardMenu
             // 
@@ -544,6 +551,7 @@
             tenantMenu.Name = "tenantMenu";
             tenantMenu.Size = new Size(65, 22);
             tenantMenu.Text = "Tenant";
+            tenantMenu.Click += handleClickMenu;
             // 
             // container
             // 
