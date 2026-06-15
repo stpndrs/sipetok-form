@@ -60,26 +60,26 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1846, 942);
+            flowLayoutPanel1.Size = new Size(1846, 925);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Poppins", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
             label1.Location = new Point(3, 0);
             label1.Margin = new Padding(3, 0, 3, 15);
             label1.Name = "label1";
-            label1.Size = new Size(264, 53);
+            label1.Size = new Size(231, 36);
             label1.TabIndex = 2;
             label1.Text = "Daftar Transaksi";
             // 
             // addBtn
             // 
             addBtn.AutoSize = true;
-            addBtn.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addBtn.Location = new Point(3, 71);
+            addBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addBtn.Location = new Point(3, 54);
             addBtn.Margin = new Padding(3, 3, 3, 30);
             addBtn.Name = "addBtn";
             addBtn.Size = new Size(180, 48);
@@ -91,7 +91,7 @@
             // usersList
             // 
             usersList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            usersList.Location = new Point(3, 152);
+            usersList.Location = new Point(3, 135);
             usersList.Margin = new Padding(3, 3, 50, 3);
             usersList.MaximumSize = new Size(1793, 787);
             usersList.Name = "usersList";
@@ -111,13 +111,13 @@
             body.Name = "body";
             body.RowCount = 1;
             body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(1852, 948);
+            body.Size = new Size(1852, 931);
             body.TabIndex = 7;
             // 
             // menuLogout
             // 
             menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(80, 26);
+            menuLogout.Size = new Size(79, 26);
             menuLogout.Text = "Logout";
             menuLogout.Click += handleClickMenu;
             // 
@@ -131,7 +131,7 @@
             // operationalMenu
             // 
             operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(120, 26);
+            operationalMenu.Size = new Size(121, 26);
             operationalMenu.Text = "Operasional";
             operationalMenu.Click += handleClickMenu;
             // 
@@ -152,21 +152,21 @@
             // kategoriMenu
             // 
             kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(136, 26);
+            kategoriMenu.Size = new Size(138, 26);
             kategoriMenu.Text = "Kategori Telur";
             kategoriMenu.Click += handleClickMenu;
             // 
             // penggunaMenu
             // 
             penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(104, 26);
+            penggunaMenu.Size = new Size(106, 26);
             penggunaMenu.Text = "Pengguna";
             penggunaMenu.Click += handleClickMenu;
             // 
             // dashboardMenu
             // 
             dashboardMenu.Name = "dashboardMenu";
-            dashboardMenu.Size = new Size(111, 26);
+            dashboardMenu.Size = new Size(112, 26);
             dashboardMenu.Text = "Dashboard";
             dashboardMenu.Click += handleClickMenu;
             // 
@@ -174,7 +174,7 @@
             // 
             topMenu.BackColor = SystemColors.ControlLight;
             topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            topMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             topMenu.ImageScalingSize = new Size(20, 20);
             topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
             topMenu.Location = new Point(0, 0);

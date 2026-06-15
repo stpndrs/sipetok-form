@@ -2,6 +2,7 @@ using sipetok_form.Views;
 using sipetok_form.Views.Laporan;
 using sipetok_form.Views.Tenant;
 using sipetok_form.Views.Transactions;
+using sipetok_form.Views.EggCategoryForm;
 using sipetok_form.Views.Users;
 using sipetok_form.Views.Eggs;
 using System;
@@ -49,6 +50,12 @@ namespace sipetok_form.Helpers
                 case "laporanMenu":
                     LaporanPage laporanList = new LaporanPage();
                     laporanList.Show();
+                    thisForm.Close();
+                    break;
+
+                case "kategoriMenu":
+                    EggCategoryPage categoryList = new EggCategoryPage();
+                    categoryList.Show();
                     thisForm.Close();
                     break;
 
