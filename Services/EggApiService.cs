@@ -13,6 +13,7 @@ namespace sipetok_form.Services
     {
         private readonly ModuleFactory _eggFactory;
 
+
         public EggApiService()
         {
             // Daftarkan factory yang ingin dipakai

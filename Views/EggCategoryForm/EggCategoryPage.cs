@@ -46,7 +46,7 @@ namespace sipetok_form.Views.EggCategoryForm
         {
             try
             {
-                List<EggCategory>? data = await _apiService.EggCategory.GetEggCategorysAsync();
+                List<EggCategory>? data = await _apiService.EggCategory.GetEggCategoriesAsync();
 
                 if (data != null)
                 {
@@ -162,18 +162,34 @@ namespace sipetok_form.Views.EggCategoryForm
                 //txtTenantId.Text = _selectedEggCategory?.ToString();
             }
         }
+
+        //function SRP baru untuk handle aksi edit dan delete agar lebih clean
+        private void HandleEditAction(EggCategory dataSelected)
+        {
+            _selectedEggCategory = dataSelected;
+            _saveDataType = "update";
+            ToggleForm(true);
+        }
+
+        private async Task HandleDeleteActionAsync(EggCategory dataSelected)
+        {
+            ToggleForm(false);
+            DialogResult dialog = MessageBox.Show($"Apakah Anda yakin...", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                var response = await _apiService.EggCategory.DeleteEggCategoryAsync(dataSelected.Id);
+                if (response.Success) await RefreshGrid();
+                else MessageBox.Show(response.Message, "Gagal Menghapus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private async void EggCategoryList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             var dataSelected = (EggCategory)EggCategoryList.Rows[e.RowIndex].DataBoundItem;
 
-            if (EggCategoryList.Columns[e.ColumnIndex].Name == "editBtn")
-            {
-                _selectedEggCategory = dataSelected;
-                _saveDataType = "update";
-                ToggleForm(true);
-            }
+            if (EggCategoryList.Columns[e.ColumnIndex].Name == "editBtn") HandleEditAction(dataSelected);
+            if (EggCategoryList.Columns[e.ColumnIndex].Name == "deleteBtn") await HandleDeleteActionAsync(dataSelected);
 
             if (EggCategoryList.Columns[e.ColumnIndex].Name == "deleteBtn")
             {
@@ -221,65 +237,63 @@ namespace sipetok_form.Views.EggCategoryForm
 
         private async void SaveBtn_Click(object sender, EventArgs e)
         {
+            // 1. Delegasi Validasi
+            if (!ValidateInput(out decimal parsedPrice)) return;
+
             try
             {
                 SaveBtn.Enabled = false;
-                ActionResponse<EggCategory> response = new ActionResponse<EggCategory>();
-
-                // 1. Validasi & Parsing Harga (Mengubah string input ke desimal)
-                if (!decimal.TryParse(txtPrice.Text, out decimal parsedPrice))
-                {
-                    MessageBox.Show("Harga harus berupa angka yang valid!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Proses UPDATE data
-                if (_saveDataType == "update")
-                {
-                    if (_selectedEggCategory != null)
-                    {
-                        _selectedEggCategory.Name = txtName.Text;
-                        _selectedEggCategory.Description = txtDescription.Text;
-                        _selectedEggCategory.Price = parsedPrice;
-                        //_selectedEggCategory.TenantId = parsedTenantId;
-
-                        response = await _apiService.EggCategory.UpdateEggCategoryAsync(_selectedEggCategory.Id, _selectedEggCategory);
-                    }
-                }
-                // Proses CREATE data baru
-                else if (_saveDataType == "create")
-                {
-                    EggCategory newCategory = new EggCategory
-                    {
-                        Name = txtName.Text,
-                        Description = txtDescription.Text,
-                        Price = parsedPrice
-                        //TenantId = parsedTenantId
-                    };
-
-                    response = await _apiService.EggCategory.CreateEggCategoryAsync(newCategory);
-                }
-
-                // 3. Handle Response dari API
-                if (response.Success)
-                {
-                    await RefreshGrid();
-                    ToggleForm(false);
-                    MessageBox.Show("Data berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
-                    MessageBox.Show(response.Message, "Gagal Menyimpan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                // 2. Delegasi Hit API
+                ActionResponse<EggCategory> response = await ExecuteSaveRequestAsync(parsedPrice);
+                // 3. Delegasi Output UI
+                await HandleSaveResponseAsync(response);
             }
-            catch (Exception ex)
+            catch (Exception ex) { MessageBox.Show($"Terjadi kesalahan sistem: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            finally { SaveBtn.Enabled = true; }
+        }
+
+        // FUNGSI-FUNGSI BARU SRP baru untuk memisahkan tanggung jawab validasi, eksekusi request, dan output UI agar lebih clean dan maintainable
+        private bool ValidateInput(out decimal price)
+        {
+            if (!decimal.TryParse(txtPrice.Text, out price))
             {
-                MessageBox.Show($"Terjadi kesalahan sistem: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Harga harus berupa angka yang valid!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
-            finally
+            if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                SaveBtn.Enabled = true;
+                MessageBox.Show("Nama kategori tidak boleh kosong!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
+        private async Task<ActionResponse<EggCategory>> ExecuteSaveRequestAsync(decimal parsedPrice)
+        {
+            if (_saveDataType == "update" && _selectedEggCategory != null)
+            {
+                _selectedEggCategory.Name = txtName.Text;
+                _selectedEggCategory.Description = txtDescription.Text;
+                _selectedEggCategory.Price = parsedPrice;
+                return await _apiService.EggCategory.UpdateEggCategoryAsync(_selectedEggCategory.Id, _selectedEggCategory);
+            }
+
+            EggCategory newCategory = new EggCategory { Name = txtName.Text, Description = txtDescription.Text, Price = parsedPrice };
+            return await _apiService.EggCategory.CreateEggCategoryAsync(newCategory);
+        }
+
+        private async Task HandleSaveResponseAsync(ActionResponse<EggCategory> response)
+        {
+            if (response.Success)
+            {
+                await RefreshGrid();
+                ToggleForm(false);
+                MessageBox.Show("Data berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ValidationHelper.ShowValidation(response, validationErrorMsg);
+                MessageBox.Show(response.Message, "Gagal Menyimpan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
