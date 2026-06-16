@@ -24,7 +24,7 @@ namespace sipetok_form.Views.Users
         {
             InitializeComponent();
             this.Load += FormMain_Load;
-            this.usersList.CellFormatting += usersList_CellFormatting;
+            this.UsersList.CellFormatting += UsersList_CellFormatting;
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -41,19 +41,19 @@ namespace sipetok_form.Views.Users
 
                 if (data != null)
                 {
-                    usersList.DataSource = null;
-                    usersList.DataSource = data;
+                    UsersList.DataSource = null;
+                    UsersList.DataSource = data;
 
                     // Atur Susunan Header Utama GUI
-                    usersList.Columns["Id"].HeaderText = "Id";
-                    usersList.Columns["Username"].HeaderText = "Username";
-                    usersList.Columns["Email"].HeaderText = "Email";
-                    usersList.Columns["Role"].HeaderText = "Role";
-                    usersList.Columns["IsActive"].HeaderText = "IsActive";
+                    UsersList.Columns["Id"].HeaderText = "Id";
+                    UsersList.Columns["Username"].HeaderText = "Username";
+                    UsersList.Columns["Email"].HeaderText = "Email";
+                    UsersList.Columns["Role"].HeaderText = "Role";
+                    UsersList.Columns["IsActive"].HeaderText = "IsActive";
 
                     SetupActionButtons();
 
-                    usersList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    UsersList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     AdjustGridHeight();
                 }
             }
@@ -64,11 +64,11 @@ namespace sipetok_form.Views.Users
             }
         }
 
-        private void usersList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void UsersList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || e.Value == null) return;
 
-            if (usersList.Columns[e.ColumnIndex].Name == "Role" && e.Value != null)
+            if (UsersList.Columns[e.ColumnIndex].Name == "Role" && e.Value != null)
             {
                 if (e.Value is Role roleObj)
                 {
@@ -78,7 +78,7 @@ namespace sipetok_form.Views.Users
                 }
             }
 
-            if (usersList.Columns[e.ColumnIndex].Name == "IsActive" && e.Value != null)
+            if (UsersList.Columns[e.ColumnIndex].Name == "IsActive" && e.Value != null)
             {
                 if (e.Value is IsActive IsActiveObj)
                 {
@@ -90,26 +90,26 @@ namespace sipetok_form.Views.Users
 
         private void SetupActionButtons()
         {
-            if (usersList.Columns.Contains("BtnEdit")) usersList.Columns.Remove("BtnEdit");
-            if (usersList.Columns.Contains("BtnHapus")) usersList.Columns.Remove("BtnHapus");
+            if (UsersList.Columns.Contains("EditBtn")) UsersList.Columns.Remove("EditBtn");
+            if (UsersList.Columns.Contains("DeleteBtn")) UsersList.Columns.Remove("DeleteBtn");
 
             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
             {
-                Name = "BtnEdit",
+                Name = "EditBtn",
                 HeaderText = "Aksi Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true
             };
-            usersList.Columns.Add(btnEdit);
+            UsersList.Columns.Add(btnEdit);
 
             DataGridViewButtonColumn btnHapus = new DataGridViewButtonColumn
             {
-                Name = "BtnHapus",
+                Name = "DeleteBtn",
                 HeaderText = "Aksi Hapus",
                 Text = "Hapus",
                 UseColumnTextForButtonValue = true
             };
-            usersList.Columns.Add(btnHapus);
+            UsersList.Columns.Add(btnHapus);
         }
 
         private void ToggleForm(bool show)
@@ -126,7 +126,7 @@ namespace sipetok_form.Views.Users
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 30;
 
-                usersList.Width = 1300;
+                UsersList.Width = 1300;
 
                 if (_saveDataType == "update")
                 {
@@ -141,7 +141,7 @@ namespace sipetok_form.Views.Users
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 0;
 
-                usersList.Width = 1920;
+                UsersList.Width = 1920;
 
                 AttemptFormFields(true);
                 _saveDataType = null;
@@ -150,12 +150,12 @@ namespace sipetok_form.Views.Users
 
         private void AdjustGridHeight()
         {
-            int totalHeight = usersList.ColumnHeadersHeight;
-            foreach (DataGridViewRow row in usersList.Rows)
+            int totalHeight = UsersList.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in UsersList.Rows)
             {
                 totalHeight += row.Height;
             }
-            usersList.Height = totalHeight + 4;
+            UsersList.Height = totalHeight + 4;
         }
 
         public void AttemptFormFields(bool clear)
@@ -188,14 +188,14 @@ namespace sipetok_form.Views.Users
             }
         }
 
-        private async void usersList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void UsersList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            var dataSelected = (User)usersList.Rows[e.RowIndex].DataBoundItem;
+            var dataSelected = (User)UsersList.Rows[e.RowIndex].DataBoundItem;
 
             // Aksi Edit
-            if (usersList.Columns[e.ColumnIndex].Name == "BtnEdit")
+            if (UsersList.Columns[e.ColumnIndex].Name == "EditBtn")
             {
                 _selectedUser = dataSelected;
                 _saveDataType = "update";
@@ -203,7 +203,7 @@ namespace sipetok_form.Views.Users
             }
 
             // Aksi Hapus
-            if (usersList.Columns[e.ColumnIndex].Name == "BtnHapus")
+            if (UsersList.Columns[e.ColumnIndex].Name == "DeleteBtn")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
@@ -229,21 +229,27 @@ namespace sipetok_form.Views.Users
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            _saveDataType = "create";
+            ToggleForm(true);
+        }
+
+        private async void SaveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                btnSave.Enabled = false;
+                SaveBtn.Enabled = false;
                 ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
@@ -251,6 +257,10 @@ namespace sipetok_form.Views.Users
                     {
                         _selectedUser.Password = txtPassword.Text;
                     }
+                    _selectedUser.Username = txtUsername.Text;
+                    _selectedUser.Email = txtEmail.Text;
+                    _selectedUser.Role = new Role { Key = (int)cbbRole?.SelectedValue, Label = cbbRole.Text };
+                    _selectedUser.IsActive = new IsActive { Key = 1, Label = "ACTIVE" };
                     response = await _apiService.User.UpdateUserAsync(_selectedUser.Id, _selectedUser);
                 }
                 else if (_saveDataType == "create")
@@ -284,14 +294,8 @@ namespace sipetok_form.Views.Users
             }
             finally
             {
-                btnSave.Enabled = true;
+                SaveBtn.Enabled = true;
             }
-        }
-
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            _saveDataType = "create";
-            ToggleForm(true);
         }
     }
 }

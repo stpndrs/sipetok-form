@@ -13,7 +13,7 @@ namespace sipetok_form.Views.Transactions
             txtPassword.PasswordChar = '*';
         }
 
-        private async void btnLogin_Click(object sender, EventArgs e)
+        private async void loginBtn_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
@@ -26,30 +26,30 @@ namespace sipetok_form.Views.Transactions
             }
 
             // Menampilkan status loading sederhana
-            btnLogin.Enabled = false;
-            btnLogin.Text = "Mohon tunggu...";
+            loginBtn.Enabled = false;
+            loginBtn.Text = "Mohon tunggu...";
 
             try
             {
                 // 2. Kirim data ke API via ApiService
-                var responLogin = await _apiService.Auth.LoginAsync(username, password);
+                var response = await _apiService.Auth.LoginAsync(username, password);
 
                 // 3. Cek hasil respon dari API
-                if (responLogin.Success)
+                if (response.Success)
                 {
                     System.Diagnostics.Debug.WriteLine($"[LOGIN SUKSES] Selamat datang, {username}!");
                     MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // 4. Buka halaman utama (UserLists) dan sembunyikan Form Login ini
-                    UserPage halamanUtama = new UserPage();
-                    halamanUtama.Show();
+                    UserPage userPage = new UserPage();
+                    userPage.Show();
 
                     this.Hide();
                 }
                 else
                 {
                     // Tampilkan pesan gagal berdasarkan respon dari API
-                    MessageBox.Show(responLogin.Message, "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(response.Message, "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -59,8 +59,8 @@ namespace sipetok_form.Views.Transactions
             finally
             {
                 // Mengembalikan tombol ke keadaan semula
-                btnLogin.Enabled = true;
-                btnLogin.Text = "Login";
+                loginBtn.Enabled = true;
+                loginBtn.Text = "Login";
             }
         }
     }

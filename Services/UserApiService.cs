@@ -46,7 +46,7 @@ namespace sipetok_form.Services
                 IMethod saveService = _userFactory.CreateMethod("save");
 
                 // Bungkus body request-nya
-                var requestBody = new UserSaveRequest
+                var request = new UserSaveRequest
                 {
                     Username = user.Username,
                     Password = user.Password,
@@ -56,13 +56,13 @@ namespace sipetok_form.Services
                 };
 
                 // Panggil ActionAsync ke-2: passing <UserSaveRequest, ActionResponse<User>>
-                var result = await saveService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
+                var response = await saveService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
                     "users",
-                    requestBody,
+                    request,
                     HttpMethod.Post // Tentukan methodnya POST
                 );
 
-                return result;
+                return response;
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace sipetok_form.Services
                 // Minta produk "save" yang sama karena sama-sama mengirim payload data
                 IMethod saveService = _userFactory.CreateMethod("save");
 
-                var requestBody = new UserSaveRequest
+                var request = new UserSaveRequest
                 {
                     Username = user.Username,
                     Password = user.Password,
@@ -88,13 +88,13 @@ namespace sipetok_form.Services
                 };
 
                 // Panggil ActionAsync ke-2: arahkan ke endpoint "users/{id}" dengan method PUT
-                var result = await saveService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
+                var response = await saveService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
                     $"users/{id}",
-                    requestBody,
+                    request,
                     HttpMethod.Put // Tentukan methodnya PUT
                 );
 
-                return result;
+                return response;
             }
             catch (Exception ex)
             {
@@ -109,13 +109,13 @@ namespace sipetok_form.Services
             {
                 // Minta produk "save" yang sama karena sama-sama mengirim payload data
                 IMethod deleteService = _userFactory.CreateMethod("delete");
-                var result = await deleteService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
+                var response = await deleteService.ActionAsync<UserSaveRequest, ActionResponse<User>>(
                     $"users/{id}",
                     null,
                     HttpMethod.Delete // Tentukan methodnya PUT
                 );
 
-                return result;
+                return response;
             }
             catch (Exception ex)
             {
