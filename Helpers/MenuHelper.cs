@@ -24,43 +24,43 @@ namespace sipetok_form.Helpers
 
             switch (namaMenu)
             {
-                case "dashboardMenu":
+                case "DashboardMenu":
                     DashboardView dashboardView = new DashboardView();
                     dashboardView.Show();
                     thisForm.Close();
                     break;
 
-                case "penggunaMenu":
+                case "UserMenu":
                     UserPage userLists = new UserPage();
                     userLists.Show();
                     thisForm.Close();
                     break;
 
-                case "tenantMenu":
+                case "TenantMenu":
                     TenantPage tenantList = new TenantPage();
                     tenantList.Show();
                     thisForm.Close();
                     break;
                     
-                case "transaksiMenu":
+                case "TransactionMenu":
                     TransactionPage transactionLists = new TransactionPage();
                     transactionLists.Show();
                     thisForm.Close();
                     break;
                 
-                case "laporanMenu":
+                case "ReportMenu":
                     LaporanPage laporanList = new LaporanPage();
                     laporanList.Show();
                     thisForm.Close();
                     break;
 
-                case "kategoriMenu":
+                case "EggCategoryMenu":
                     EggCategoryPage categoryList = new EggCategoryPage();
                     categoryList.Show();
                     thisForm.Close();
                     break;
 
-                case "menuLogout":
+                case "LogoutMenu":
                     DialogResult result = MessageBox.Show("Apakah Anda yakin ingin logout?", "Konfirmasi", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
@@ -68,7 +68,7 @@ namespace sipetok_form.Helpers
                     }
                     break;
 
-                case "stokMenu":
+                case "StockMenu":
                     EggStockPage eggStockPage = new EggStockPage();
                     eggStockPage.Show();
                     thisForm.Close();
