@@ -8,280 +8,347 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace sipetok_form.Views.Laporan
 {
     public partial class LaporanPage : Form
     {
-        private readonly ApiLaporan _LaporanService = new ApiLaporan();
+        private readonly ApiLaporan _reportService = new ApiLaporan();
+        private const int MaxGridHeight = 600;
+
+        /// <summary>
+        /// Konstruktor utama untuk halaman LaporanPage.
+        /// Berfungsi menginisialisasi komponen UI dan mendaftarkan event load halaman.
+        /// </summary>
         public LaporanPage()
         {
             InitializeComponent();
             this.Load += LaporanPage_Load;
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
-        {
-            MenuHelper.HandleClick(sender, e, this);
-        }
-
+        /// <summary>
+        /// Event handler yang berjalan otomatis saat halaman pertama kali dimuat.
+        /// Berfungsi untuk langsung menampilkan data transaksi secara default.
+        /// </summary>
         private void LaporanPage_Load(object sender, EventArgs e)
         {
             btnTransaksi.PerformClick();
         }
 
+        /// <summary>
+        /// Mengatur perpindahan atau interaksi menu navigasi utama pada aplikasi.
+        /// </summary>
+        private void HandleMenuClick(object sender, EventArgs e)
+        {
+            MenuHelper.HandleClick(sender, e, this);
+        }
+
+        /// <summary>
+        /// Event handler saat tombol Transaksi diklik.
+        /// Berfungsi memicu proses pemuatan data laporan transaksi dari API ke dalam grid.
+        /// </summary>
         private async void btnTransaksi_Click(object sender, EventArgs e)
         {
-            try
-            {
-                btnTransaksi.Enabled = false; // Matikan tombol sementara saat loading
-
-                // 1. Ambil data transaksi dari API
-                List<Transaction>? dataTransaksi = await _LaporanService.GetTransaksiAsync();
-
-                if (dataTransaksi != null)
-                {
-                    // 2. Reset Grid agar kolom lama hilang
-                    dataGridView1.DataSource = null;
-                    dataGridView1.Columns.Clear();
-
-                    // 3. Ikat data baru ke Grid
-                    dataGridView1.DataSource = dataTransaksi;
-
-                    // 4. Atur susunan Header Kolom untuk Transaksi
-                    dataGridView1.Columns["Id"].HeaderText = "ID Transaksi";
-                    dataGridView1.Columns["Date"].HeaderText = "Tanggal";
-                    dataGridView1.Columns["CustomerName"].HeaderText = "Nama Pelanggan";
-                    dataGridView1.Columns["TotalPrice"].HeaderText = "Total Harga";
-                    dataGridView1.Columns["PaymentStatus"].HeaderText = "Status Pembayaran";
-                    dataGridView1.Columns["OrderStatus"].HeaderText = "Status Pesanan";
-
-                    // Sembunyikan kolom Detail atau kolom lain yang tidak ingin ditampilkan langsung di grid utama
-                    if (dataGridView1.Columns.Contains("Details")) dataGridView1.Columns["Details"].Visible = false;
-                    if (dataGridView1.Columns.Contains("TenantId")) dataGridView1.Columns["TenantId"].Visible = false;
-                    if (dataGridView1.Columns.Contains("Tenant")) dataGridView1.Columns["Tenant"].Visible = false;
-                    if (dataGridView1.Columns.Contains("PaymentAmount")) dataGridView1.Columns["PaymentAmount"].Visible = false;
-                    if (dataGridView1.Columns.Contains("CustomerPhoneNumber")) dataGridView1.Columns["CustomerPhoneNumber"].Visible = false;
-
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    AdjustGridHeight();
-                }
-                else
-                {
-                    MessageBox.Show("Data transaksi tidak ditemukan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                MessageBox.Show($"Gagal memuat laporan transaksi: {ex.Message}", "Error Sistem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                btnTransaksi.Enabled = true;
-                btnTransaksi.BackColor = Color.LightGray;
-                btnOperational.BackColor = Color.White;
-                label2.Text = "Kelola Laporan Transaksi";
-            }
+            await LoadReportDataAsync(
+                fetchDataFunc: () => _reportService.GetTransaksiAsync(),
+                configureGridAction: SetupTransactionColumns,
+                loadingButton: btnTransaksi,
+                activeButton: btnTransaksi,
+                inactiveButton: btnOperational,
+                headerTitle: "Manage Transaction Report"
+            );
         }
 
+        /// <summary>
+        /// Event handler saat tombol Operasional diklik.
+        /// Berfungsi memicu proses pemuatan data laporan biaya operasional dari API ke dalam grid.
+        /// </summary>
         private async void btnOperational_Click(object sender, EventArgs e)
+        {
+            await LoadReportDataAsync(
+                fetchDataFunc: () => _reportService.GetOperationalAsync(),
+                configureGridAction: SetupOperationalColumns,
+                loadingButton: btnOperational,
+                activeButton: btnOperational,
+                inactiveButton: btnTransaksi,
+                headerTitle: "Manage Operational Report"
+            );
+        }
+
+        /// <summary>
+        /// Method generik reusable (DRY) untuk menangani alur pemuatan data dari API,
+        /// manajemen state tombol loading, error handling, hingga pembaruan UI secara terpusat.
+        /// </summary>
+        private async Task LoadReportDataAsync<T>(
+            Func<Task<List<T>?>> fetchDataFunc,
+            Action configureGridAction,
+            Button loadingButton,
+            Button activeButton,
+            Button inactiveButton,
+            string headerTitle)
         {
             try
             {
-                btnOperational.Enabled = false; // Matikan tombol sementara saat loading
+                loadingButton.Enabled = false;
 
-                // 1. Ambil data operasional dari service yang sudah kita bahas sebelumnya
-                List<Operational>? dataOperational = await _LaporanService.GetOperationalAsync();
-
-                if (dataOperational != null)
+                List<T>? reportData = await fetchDataFunc();
+                if (reportData == null || reportData.Count == 0)
                 {
-                    // 2. Reset Grid agar kolom lama hilang
-                    dataGridView1.DataSource = null;
-                    dataGridView1.Columns.Clear();
-
-                    // 3. Ikat data baru ke Grid
-                    dataGridView1.DataSource = dataOperational;
-
-                    // 4. Atur susunan Header Kolom untuk Operasional
-                    // (Sesuaikan nama properti di dalam tanda kutip dengan yang ada di class Operational Anda)
-                    dataGridView1.Columns["Id"].HeaderText = "ID Operasional";
-                    dataGridView1.Columns["Name"].HeaderText = "Nama Pengeluaran";
-                    dataGridView1.Columns["OperationalCost"].HeaderText = "Biaya Operasional";
-
-                    if (dataGridView1.Columns.Contains("TenantId")) dataGridView1.Columns["TenantId"].Visible = false;
-                    if (dataGridView1.Columns.Contains("Tenant")) dataGridView1.Columns["Tenant"].Visible = false;
-
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    AdjustGridHeight();
+                    MessageBox.Show("Report data not found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("Data operasional tidak ditemukan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+
+                BindGridData(reportData);
+                configureGridAction();
+                AdjustGridHeight();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                MessageBox.Show($"Gagal memuat laporan operasional: {ex.Message}", "Error Sistem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load report data: {ex.Message}", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                btnOperational.Enabled = true;
-                btnOperational.BackColor = Color.LightGray;
-                btnTransaksi.BackColor = Color.White;
-                label2.Text = "Kelola Laporan Operational";
+                loadingButton.Enabled = true;
+                UpdateUIState(activeButton, inactiveButton, headerTitle);
             }
         }
 
+        /// <summary>
+        /// Membersihkan data lama dan mengikat (binding) list data baru ke DataGridView.
+        /// </summary>
+        private void BindGridData<T>(List<T> data)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = data;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        /// <summary>
+        /// Mengonfigurasi nama header kolom dan menyembunyikan properti internal untuk data Transaksi.
+        /// </summary>
+        private void SetupTransactionColumns()
+        {
+            SetColumnHeader("Id", "Transaction ID");
+            SetColumnHeader("Date", "Date");
+            SetColumnHeader("CustomerName", "Customer Name");
+            SetColumnHeader("TotalPrice", "Total Price");
+            SetColumnHeader("PaymentStatus", "Payment Status");
+            SetColumnHeader("OrderStatus", "Order Status");
+
+            HideColumns("Details", "TenantId", "Tenant", "PaymentAmount", "CustomerPhoneNumber");
+        }
+
+        /// <summary>
+        /// Mengonfigurasi nama header kolom dan menyembunyikan properti internal untuk data Operasional.
+        /// </summary>
+        private void SetupOperationalColumns()
+        {
+            SetColumnHeader("Id", "Operational ID");
+            SetColumnHeader("Name", "Expense Name");
+            SetColumnHeader("OperationalCost", "Operational Cost");
+
+            HideColumns("TenantId", "Tenant");
+        }
+
+        /// <summary>
+        /// Event handler untuk tombol ekspor data.
+        /// Berfungsi memvalidasi format & tanggal input, kemudian mengarahkan proses ekspor sesuai tipe data aktif.
+        /// </summary>
         private void btnExport_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1. Validasi: Pastikan user sudah memilih format file (Excel / PDF)
                 if (comboBox1.SelectedItem == null)
                 {
-                    MessageBox.Show("Silakan pilih format file ekspor (Excel atau Pdf)!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select an export file format (Excel or PDF)!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // 2. Ambil nilai filter dari komponen UI Anda
-                DateTime tanggalMulai = dateTimePickerMulai.Value.Date;
-                DateTime tanggalSelesai = dateTimePickerSelesai.Value.Date.AddDays(1).AddTicks(-1); // Mengcakup penuh sampai jam 23:59:59
+                DateTime startDate = dateTimePickerMulai.Value.Date;
+                DateTime endDate = dateTimePickerSelesai.Value.Date.AddDays(1).AddTicks(-1);
 
-                if (tanggalMulai > tanggalSelesai)
+                if (startDate > endDate)
                 {
-                    MessageBox.Show("Tanggal mulai tidak boleh melebihi tanggal selesai!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Start date cannot exceed end date!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                string formatTerpilih = comboBox1.SelectedItem.ToString();
+                string selectedFormat = comboBox1.SelectedItem.ToString();
 
-                // 3. Deteksi Jenis Data yang Sedang Aktif di Grid
-                if (dataGridView1.DataSource is List<Transaction> listTransaksi)
+                if (dataGridView1.DataSource is List<Transaction> transactionList)
                 {
-                    // Saring data Transaksi berdasarkan rentang tanggal
-                    var dataFiltered = listTransaksi
-                        .Where(t => t.Date >= tanggalMulai && t.Date <= tanggalSelesai)
-                        .ToList();
-
-                    if (dataFiltered.Count == 0)
-                    {
-                        MessageBox.Show("Tidak ada data transaksi pada rentang tanggal tersebut.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    // Jalankan Windows Save Dialog
-                    string fileName = $"Laporan_Transaksi_{tanggalMulai:yyyyMMdd}_sd_{dateTimePickerSelesai.Value:yyyyMMdd}";
-                    string filePath = GetSaveFilePath(formatTerpilih, fileName);
-
-                    if (!string.IsNullOrEmpty(filePath))
-                    {
-                        // Gunakan Factory Pattern 
-                        ExportFactory factory = formatTerpilih == "Excel" ? new ExcelFactory() : new PdfFactory();
-                        IExport exporter = factory.CreateExporter();
-
-                        exporter.ExportTransactionList(dataFiltered, filePath);
-                        MessageBox.Show($"Laporan Transaksi sukses diekspor ke {formatTerpilih}!", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    ExportTransactions(transactionList, startDate, endDate, selectedFormat);
                 }
-                else if (dataGridView1.DataSource is List<Operational> listOperasional)
+                else if (dataGridView1.DataSource is List<Operational> operationalList)
                 {
-                    // Saring data Operasional berdasarkan rentang tanggal
-                    var dataFiltered = listOperasional
-                        .Where(o => o.OperationalDate >= tanggalMulai && o.OperationalDate <= tanggalSelesai)
-                        .ToList();
-
-                    if (dataFiltered.Count == 0)
-                    {
-                        MessageBox.Show("Tidak ada data operasional pada rentang tanggal tersebut.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    // Jalankan Windows Save Dialog
-                    string fileName = $"Laporan_Operasional_{tanggalMulai:yyyyMMdd}_sd_{dateTimePickerSelesai.Value:yyyyMMdd}";
-                    string filePath = GetSaveFilePath(formatTerpilih, fileName);
-
-                    if (!string.IsNullOrEmpty(filePath))
-                    {
-                        // Gunakan Factory Pattern 
-                        ExportFactory factory = formatTerpilih == "Excel" ? new ExcelFactory() : new PdfFactory();
-                        IExport exporter = factory.CreateExporter();
-
-                        exporter.ExportOperationalList(dataFiltered, filePath);
-                        MessageBox.Show($"Laporan Operasional sukses diekspor ke {formatTerpilih}!", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    ExportOperationals(operationalList, startDate, endDate, selectedFormat);
                 }
                 else
                 {
-                    MessageBox.Show("Tidak ada data di tabel yang dapat diekspor. Silakan muat data terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No data available in the table to export. Please load data first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (NotImplementedException)
             {
-                MessageBox.Show($"Fitur ekspor ke format tersebut belum diimplementasikan di kelas Exporter Anda.", "Info Pengembang", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Export feature for this format is not implemented yet.", "Developer Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Terjadi kesalahan saat mengekspor data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred during data export: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Helper Fungsi untuk memunculkan SaveFileDialog agar kode bersih tidak duplikat
+        /// <summary>
+        /// Melakukan penyaringan data transaksi berdasarkan tanggal dan mengekspornya via Factory Pattern.
+        /// </summary>
+        private void ExportTransactions(List<Transaction> transactions, DateTime start, DateTime end, string format)
+        {
+            var filteredData = transactions.Where(t => t.Date >= start && t.Date <= end).ToList();
+            if (IsDataFilteredEmpty(filteredData.Count)) return;
+
+            string defaultFileName = $"Transaction_Report_{start:yyyyMMdd}_to_{dateTimePickerSelesai.Value:yyyyMMdd}";
+            string filePath = GetSaveFilePath(format, defaultFileName);
+
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                IReportExporter exporter = ExportFactoryProvider.GetExporter(format);
+                exporter.ExportTransactionList(filteredData, filePath);
+                ShowExportSuccessMessage(format);
+            }
+        }
+
+        /// <summary>
+        /// Melakukan penyaringan data operasional berdasarkan tanggal dan mengekspornya via Factory Pattern.
+        /// </summary>
+        private void ExportOperationals(List<Operational> operationals, DateTime start, DateTime end, string format)
+        {
+            var filteredData = operationals.Where(o => o.OperationalDate >= start && o.OperationalDate <= end).ToList();
+            if (IsDataFilteredEmpty(filteredData.Count)) return;
+
+            string defaultFileName = $"Operational_Report_{start:yyyyMMdd}_to_{dateTimePickerSelesai.Value:yyyyMMdd}";
+            string filePath = GetSaveFilePath(format, defaultFileName);
+
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                IReportExporter exporter = ExportFactoryProvider.GetExporter(format);
+                exporter.ExportOperationalList(filteredData, filePath);
+                ShowExportSuccessMessage(format);
+            }
+        }
+
+        /// <summary>
+        /// Menampilkan Windows SaveFileDialog untuk mendapatkan lokasi penyimpanan file dari pengguna.
+        /// </summary>
         private string GetSaveFilePath(string format, string defaultFileName)
         {
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                if (format == "Excel")
-                {
-                    sfd.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
-                    sfd.FileName = defaultFileName + ".xlsx";
-                }
-                else
-                {
-                    sfd.Filter = "PDF Document (*.pdf)|*.pdf";
-                    sfd.FileName = defaultFileName + ".pdf";
-                }
+                bool isExcel = format == "Excel";
+                sfd.Filter = isExcel ? "Excel Workbook (*.xlsx)|*.xlsx" : "PDF Document (*.pdf)|*.pdf";
+                sfd.FileName = defaultFileName + (isExcel ? ".xlsx" : ".pdf");
 
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    return sfd.FileName;
-                }
+                return sfd.ShowDialog() == DialogResult.OK ? sfd.FileName : string.Empty;
             }
-            return string.Empty;
         }
 
-        private void AdjustGridHeight()
-        {
-            // 1. Hitung tinggi Header Kolom (Tempat tulisan ID, Tanggal, dll)
-            int totalHeight = dataGridView1.ColumnHeadersHeight;
+        #region Helper UI Methods (KISS & DRY Execution)
 
-            // 2. Tambahkan tinggi dari setiap baris data yang muncul
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+        /// <summary>
+        /// Mengubah teks judul header pada kolom DataGridView jika kolom tersebut ditemukan.
+        /// </summary>
+        private void SetColumnHeader(string columnName, string headerText)
+        {
+            if (dataGridView1.Columns.Contains(columnName))
             {
-                if (row.Visible)
+                dataGridView1.Columns[columnName].HeaderText = headerText;
+            }
+        }
+
+        /// <summary>
+        /// Menyembunyikan daftar kolom DataGridView berdasarkan array nama kolom yang dikirimkan.
+        /// </summary>
+        private void HideColumns(params string[] columnNames)
+        {
+            foreach (var name in columnNames)
+            {
+                if (dataGridView1.Columns.Contains(name))
                 {
-                    totalHeight += row.Height;
+                    dataGridView1.Columns[name].Visible = false;
                 }
             }
+        }
 
-            // 3. Tambahkan sedikit pixel untuk border/garis pembatas tabel (sekitar 3-9 pixel)
+        /// <summary>
+        /// Mengatur kondisi visual UI (warna latar belakang tombol aktif/tidak aktif dan judul halaman).
+        /// </summary>
+        private void UpdateUIState(Button activeButton, Button inactiveButton, string headerTitle)
+        {
+            activeButton.BackColor = Color.LightGray;
+            inactiveButton.BackColor = Color.White;
+            label2.Text = headerTitle;
+        }
+
+        /// <summary>
+        /// Memeriksa apakah data hasil filter kosong, sekaligus menampilkan pesan informasi ke pengguna jika kosong.
+        /// </summary>
+        private bool IsDataFilteredEmpty(int count)
+        {
+            if (count == 0)
+            {
+                MessageBox.Show("No data found within the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Menampilkan kotak pesan sukses setelah file laporan berhasil diekspor.
+        /// </summary>
+        private void ShowExportSuccessMessage(string format)
+        {
+            MessageBox.Show($"Report successfully exported to {format}!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// Menghitung total tinggi baris data secara dinamis guna menyesuaikan ukuran tinggi DataGridView agar pas di layar.
+        /// </summary>
+        private void AdjustGridHeight()
+        {
+            int totalHeight = dataGridView1.ColumnHeadersHeight;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Visible) totalHeight += row.Height;
+            }
+
             totalHeight += (dataGridView1.BorderStyle == BorderStyle.None) ? 3 : 9;
+            dataGridView1.Height = Math.Min(totalHeight, MaxGridHeight);
+        }
 
-            // 4. Batasi tinggi maksimal agar tidak menembus bawah Form/layar Laptop
-            // Misal kita set tinggi maksimalnya adalah 600 pixel
-            int maxAllowedHeight = 600;
+        #endregion
+    }
 
-            if (totalHeight > maxAllowedHeight)
-            {
-                dataGridView1.Height = maxAllowedHeight;
-            }
-            else
-            {
-                dataGridView1.Height = totalHeight;
-            }
+    /// <summary>
+    /// Provider eksternal (SRP) yang bertanggung jawab menentukan dan membuat objek exporter (Excel/PDF) berdasarkan string format.
+    /// </summary>
+    internal static class ExportFactoryProvider
+    {
+        /// <summary>
+        /// Mengembalikan implementasi IReportExporter yang sesuai menggunakan Factory Pattern yang baru.
+        /// </summary>
+        public static IReportExporter GetExporter(string format)
+        {
+            ReportExporterFactory factory = format == "Excel"
+                ? new ExcelReportExporterFactory()
+                : new PdfReportExporterFactory();
+
+            return factory.CreateExporter();
         }
     }
 }

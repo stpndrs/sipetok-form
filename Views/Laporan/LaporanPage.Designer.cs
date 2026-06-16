@@ -87,7 +87,7 @@
             dahboardToolStripMenuItem.Name = "dahboardToolStripMenuItem";
             dahboardToolStripMenuItem.Size = new Size(84, 22);
             dahboardToolStripMenuItem.Text = "Dahboard";
-            dahboardToolStripMenuItem.Click += handleClickMenu;
+            dahboardToolStripMenuItem.Click += HandleMenuClick;
             // 
             // penggunaMenu
             // 
@@ -95,7 +95,7 @@
             penggunaMenu.Name = "penggunaMenu";
             penggunaMenu.Size = new Size(85, 22);
             penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += handleClickMenu;
+            penggunaMenu.Click += HandleMenuClick;
             // 
             // kategoriMenu
             // 
@@ -103,7 +103,7 @@
             kategoriMenu.Name = "kategoriMenu";
             kategoriMenu.Size = new Size(113, 22);
             kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += handleClickMenu;
+            kategoriMenu.Click += HandleMenuClick;
             // 
             // transaksiMenu
             // 
@@ -111,7 +111,7 @@
             transaksiMenu.Name = "transaksiMenu";
             transaksiMenu.Size = new Size(85, 22);
             transaksiMenu.Text = "Transaksi";
-            transaksiMenu.Click += handleClickMenu;
+            transaksiMenu.Click += HandleMenuClick;
             // 
             // operationalMenu
             // 
@@ -119,7 +119,7 @@
             operationalMenu.Name = "operationalMenu";
             operationalMenu.Size = new Size(100, 22);
             operationalMenu.Text = "Operasional";
-            operationalMenu.Click += handleClickMenu;
+            operationalMenu.Click += HandleMenuClick;
             // 
             // laporanMenu
             // 
@@ -127,7 +127,7 @@
             laporanMenu.Name = "laporanMenu";
             laporanMenu.Size = new Size(74, 22);
             laporanMenu.Text = "Laporan";
-            laporanMenu.Click += handleClickMenu;
+            laporanMenu.Click += HandleMenuClick;
             // 
             // menuLogout
             // 
@@ -135,7 +135,7 @@
             menuLogout.Name = "menuLogout";
             menuLogout.Size = new Size(67, 22);
             menuLogout.Text = "Logout";
-            menuLogout.Click += handleClickMenu;
+            menuLogout.Click += HandleMenuClick;
             // 
             // contextMenuStrip1
             // 
@@ -349,7 +349,7 @@
             tenantMenu.Name = "tenantMenu";
             tenantMenu.Size = new Size(65, 22);
             tenantMenu.Text = "Tenant";
-            tenantMenu.Click += handleClickMenu;
+            tenantMenu.Click += HandleMenuClick;
             // 
             // LaporanPage
             // 
