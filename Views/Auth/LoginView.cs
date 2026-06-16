@@ -10,13 +10,13 @@ namespace sipetok_form.Views.Transactions
         {
             InitializeComponent();
 
-            txtPassword.PasswordChar = '*';
+            PasswordTextField.PasswordChar = '*';
         }
 
-        private async void loginBtn_Click(object sender, EventArgs e)
+        private async void LoginBtn_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string username = UsernameTextField.Text.Trim();
+            string password = PasswordTextField.Text.Trim();
 
             // 1. Validasi Input Kosong
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -26,8 +26,8 @@ namespace sipetok_form.Views.Transactions
             }
 
             // Menampilkan status loading sederhana
-            loginBtn.Enabled = false;
-            loginBtn.Text = "Mohon tunggu...";
+            LoginBtn.Enabled = false;
+            LoginBtn.Text = "Mohon tunggu...";
 
             try
             {
@@ -59,8 +59,8 @@ namespace sipetok_form.Views.Transactions
             finally
             {
                 // Mengembalikan tombol ke keadaan semula
-                loginBtn.Enabled = true;
-                loginBtn.Text = "Login";
+                LoginBtn.Enabled = true;
+                LoginBtn.Text = "Login";
             }
         }
     }

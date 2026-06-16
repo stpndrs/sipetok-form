@@ -28,211 +28,211 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label2 = new Label();
-            txtUsername = new TextBox();
-            txtPassword = new TextBox();
-            label3 = new Label();
-            loginBtn = new Button();
-            panel1 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label4 = new Label();
-            label1 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
+            UsernameLabel = new Label();
+            UsernameTextField = new TextBox();
+            PasswordTextField = new TextBox();
+            PasswordLabel = new Label();
+            LoginBtn = new Button();
+            PageContainer = new Panel();
+            BodyContainer = new TableLayoutPanel();
+            LoginContainer = new FlowLayoutPanel();
+            PageLabel = new Label();
+            PageSubLabel = new Label();
+            UsernameInputGroup = new FlowLayoutPanel();
+            PasswordInputGroup = new FlowLayoutPanel();
+            PageContainer.SuspendLayout();
+            BodyContainer.SuspendLayout();
+            LoginContainer.SuspendLayout();
+            UsernameInputGroup.SuspendLayout();
+            PasswordInputGroup.SuspendLayout();
             SuspendLayout();
             // 
-            // label2
+            // UsernameLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label2.Location = new Point(13, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(86, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Username";
+            UsernameLabel.AutoSize = true;
+            UsernameLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            UsernameLabel.Location = new Point(13, 11);
+            UsernameLabel.Name = "UsernameLabel";
+            UsernameLabel.Size = new Size(86, 20);
+            UsernameLabel.TabIndex = 1;
+            UsernameLabel.Text = "Username";
             // 
-            // txtUsername
+            // UsernameTextField
             // 
-            txtUsername.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtUsername.Location = new Point(13, 34);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(406, 22);
-            txtUsername.TabIndex = 2;
+            UsernameTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            UsernameTextField.Location = new Point(13, 34);
+            UsernameTextField.Name = "UsernameTextField";
+            UsernameTextField.Size = new Size(406, 22);
+            UsernameTextField.TabIndex = 2;
             // 
-            // txtPassword
+            // PasswordTextField
             // 
-            txtPassword.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtPassword.Location = new Point(13, 34);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(406, 22);
-            txtPassword.TabIndex = 3;
+            PasswordTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PasswordTextField.Location = new Point(13, 34);
+            PasswordTextField.Name = "PasswordTextField";
+            PasswordTextField.Size = new Size(406, 22);
+            PasswordTextField.TabIndex = 3;
             // 
-            // label3
+            // PasswordLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label3.Location = new Point(13, 11);
-            label3.Name = "label3";
-            label3.Size = new Size(83, 20);
-            label3.TabIndex = 4;
-            label3.Text = "Password";
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            PasswordLabel.Location = new Point(13, 11);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(83, 20);
+            PasswordLabel.TabIndex = 4;
+            PasswordLabel.Text = "Password";
             // 
-            // loginBtn
+            // LoginBtn
             // 
-            loginBtn.AutoSize = true;
-            loginBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginBtn.Location = new Point(53, 453);
-            loginBtn.Name = "loginBtn";
-            loginBtn.Size = new Size(406, 48);
-            loginBtn.TabIndex = 5;
-            loginBtn.Text = "Masuk";
-            loginBtn.UseVisualStyleBackColor = true;
-            loginBtn.Click += loginBtn_Click;
+            LoginBtn.AutoSize = true;
+            LoginBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LoginBtn.Location = new Point(53, 453);
+            LoginBtn.Name = "LoginBtn";
+            LoginBtn.Size = new Size(406, 48);
+            LoginBtn.TabIndex = 5;
+            LoginBtn.Text = "Masuk";
+            LoginBtn.UseVisualStyleBackColor = true;
+            LoginBtn.Click += LoginBtn_Click;
             // 
-            // panel1
+            // PageContainer
             // 
-            panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Font = new Font("Microsoft Sans Serif", 7.8F);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1902, 989);
-            panel1.TabIndex = 6;
+            PageContainer.Controls.Add(BodyContainer);
+            PageContainer.Dock = DockStyle.Fill;
+            PageContainer.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PageContainer.Location = new Point(0, 0);
+            PageContainer.Name = "PageContainer";
+            PageContainer.Size = new Size(1902, 989);
+            PageContainer.TabIndex = 6;
             // 
-            // tableLayoutPanel1
+            // BodyContainer
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 21F));
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 989F));
-            tableLayoutPanel1.Size = new Size(1902, 989);
-            tableLayoutPanel1.TabIndex = 8;
+            BodyContainer.ColumnCount = 1;
+            BodyContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            BodyContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 21F));
+            BodyContainer.Controls.Add(LoginContainer, 0, 0);
+            BodyContainer.Dock = DockStyle.Fill;
+            BodyContainer.Font = new Font("Microsoft Sans Serif", 7.8F);
+            BodyContainer.Location = new Point(0, 0);
+            BodyContainer.Name = "BodyContainer";
+            BodyContainer.RowCount = 1;
+            BodyContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            BodyContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 989F));
+            BodyContainer.Size = new Size(1902, 989);
+            BodyContainer.TabIndex = 8;
             // 
-            // flowLayoutPanel1
+            // LoginContainer
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.None;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel1.Controls.Add(label4);
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel3);
-            flowLayoutPanel1.Controls.Add(loginBtn);
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel1.Location = new Point(683, 216);
-            flowLayoutPanel1.Margin = new Padding(10, 11, 10, 11);
-            flowLayoutPanel1.MaximumSize = new Size(1920, 1079);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(50, 51, 50, 51);
-            flowLayoutPanel1.Size = new Size(536, 557);
-            flowLayoutPanel1.TabIndex = 7;
+            LoginContainer.Anchor = AnchorStyles.None;
+            LoginContainer.AutoSize = true;
+            LoginContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            LoginContainer.BorderStyle = BorderStyle.FixedSingle;
+            LoginContainer.Controls.Add(PageLabel);
+            LoginContainer.Controls.Add(PageSubLabel);
+            LoginContainer.Controls.Add(UsernameInputGroup);
+            LoginContainer.Controls.Add(PasswordInputGroup);
+            LoginContainer.Controls.Add(LoginBtn);
+            LoginContainer.FlowDirection = FlowDirection.TopDown;
+            LoginContainer.Font = new Font("Microsoft Sans Serif", 7.8F);
+            LoginContainer.Location = new Point(683, 216);
+            LoginContainer.Margin = new Padding(10, 11, 10, 11);
+            LoginContainer.MaximumSize = new Size(1920, 1079);
+            LoginContainer.Name = "LoginContainer";
+            LoginContainer.Padding = new Padding(50, 51, 50, 51);
+            LoginContainer.Size = new Size(536, 557);
+            LoginContainer.TabIndex = 7;
             // 
-            // label4
+            // PageLabel
             // 
-            label4.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(50, 51);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(410, 60);
-            label4.TabIndex = 0;
-            label4.Text = "Login Page";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
+            PageLabel.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PageLabel.Location = new Point(50, 51);
+            PageLabel.Margin = new Padding(0);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(410, 60);
+            PageLabel.TabIndex = 0;
+            PageLabel.Text = "Login Page";
+            PageLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // PageSubLabel
             // 
-            label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(53, 111);
-            label1.Margin = new Padding(3, 0, 3, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(407, 75);
-            label1.TabIndex = 9;
-            label1.Text = "Masukkan username dan password untuk mengakses aplikasi SIPETOK";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            PageSubLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageSubLabel.Location = new Point(53, 111);
+            PageSubLabel.Margin = new Padding(3, 0, 3, 40);
+            PageSubLabel.Name = "PageSubLabel";
+            PageSubLabel.Size = new Size(407, 75);
+            PageSubLabel.TabIndex = 9;
+            PageSubLabel.Text = "Masukkan username dan password untuk mengakses aplikasi SIPETOK";
+            PageSubLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel2
+            // UsernameInputGroup
             // 
-            flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel2.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel2.Controls.Add(label2);
-            flowLayoutPanel2.Controls.Add(txtUsername);
-            flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel2.Location = new Point(50, 226);
-            flowLayoutPanel2.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel2.Size = new Size(434, 72);
-            flowLayoutPanel2.TabIndex = 8;
+            UsernameInputGroup.AutoSize = true;
+            UsernameInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            UsernameInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            UsernameInputGroup.Controls.Add(UsernameLabel);
+            UsernameInputGroup.Controls.Add(UsernameTextField);
+            UsernameInputGroup.Dock = DockStyle.Fill;
+            UsernameInputGroup.FlowDirection = FlowDirection.TopDown;
+            UsernameInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            UsernameInputGroup.Location = new Point(50, 226);
+            UsernameInputGroup.Margin = new Padding(0, 0, 0, 40);
+            UsernameInputGroup.Name = "UsernameInputGroup";
+            UsernameInputGroup.Padding = new Padding(10, 11, 10, 11);
+            UsernameInputGroup.Size = new Size(434, 72);
+            UsernameInputGroup.TabIndex = 8;
             // 
-            // flowLayoutPanel3
+            // PasswordInputGroup
             // 
-            flowLayoutPanel3.AutoSize = true;
-            flowLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel3.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel3.Controls.Add(label3);
-            flowLayoutPanel3.Controls.Add(txtPassword);
-            flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel3.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel3.Location = new Point(50, 338);
-            flowLayoutPanel3.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel3.Size = new Size(434, 72);
-            flowLayoutPanel3.TabIndex = 8;
+            PasswordInputGroup.AutoSize = true;
+            PasswordInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PasswordInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            PasswordInputGroup.Controls.Add(PasswordLabel);
+            PasswordInputGroup.Controls.Add(PasswordTextField);
+            PasswordInputGroup.Dock = DockStyle.Fill;
+            PasswordInputGroup.FlowDirection = FlowDirection.TopDown;
+            PasswordInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PasswordInputGroup.Location = new Point(50, 338);
+            PasswordInputGroup.Margin = new Padding(0, 0, 0, 40);
+            PasswordInputGroup.Name = "PasswordInputGroup";
+            PasswordInputGroup.Padding = new Padding(10, 11, 10, 11);
+            PasswordInputGroup.Size = new Size(434, 72);
+            PasswordInputGroup.TabIndex = 8;
             // 
             // LoginView
             // 
-            AcceptButton = loginBtn;
+            AcceptButton = LoginBtn;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 989);
-            Controls.Add(panel1);
+            Controls.Add(PageContainer);
             MinimumSize = new Size(1917, 1026);
             Name = "LoginView";
             Text = "Login";
             WindowState = FormWindowState.Maximized;
-            panel1.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel3.PerformLayout();
+            PageContainer.ResumeLayout(false);
+            BodyContainer.ResumeLayout(false);
+            BodyContainer.PerformLayout();
+            LoginContainer.ResumeLayout(false);
+            LoginContainer.PerformLayout();
+            UsernameInputGroup.ResumeLayout(false);
+            UsernameInputGroup.PerformLayout();
+            PasswordInputGroup.ResumeLayout(false);
+            PasswordInputGroup.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private Label label2;
-        private TextBox txtUsername;
-        private TextBox txtPassword;
-        private Label label3;
-        private Button loginBtn;
-        private Panel panel1;
-        private Label label4;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
+        private Label UsernameLabel;
+        private TextBox UsernameTextField;
+        private TextBox PasswordTextField;
+        private Label PasswordLabel;
+        private Button LoginBtn;
+        private Panel PageContainer;
+        private Label PageLabel;
+        private FlowLayoutPanel PasswordInputGroup;
+        private FlowLayoutPanel LoginContainer;
+        private FlowLayoutPanel UsernameInputGroup;
+        private TableLayoutPanel BodyContainer;
+        private Label PageSubLabel;
     }
 }
