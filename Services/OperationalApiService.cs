@@ -52,6 +52,7 @@ namespace sipetok_form.Services
                     Name = operational.Name,
                     OperationalCost = operational.OperationalCost,
                     TenantId = operational.TenantId,
+                    OperationalDate = operational.OperationalDate,
                 };
 
                 // Panggil ActionAsync ke-2: passing <OperationalSaveRequest, ActionResponse<Operational>>
@@ -82,6 +83,7 @@ namespace sipetok_form.Services
                     Name = operational.Name,
                     OperationalCost = operational.OperationalCost,
                     TenantId = operational.TenantId,
+                    OperationalDate = operational.OperationalDate,
                 };
 
                 // Panggil ActionAsync ke-2: arahkan ke endpoint "operationals/{id}" dengan method PUT
