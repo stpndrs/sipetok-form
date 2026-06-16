@@ -74,26 +74,26 @@ namespace sipetok_form.Views.EggCategoryForm
         }
         private void SetupActionButtons()
         {
-            if (EggCategoryList.Columns.Contains("BtnEdit")) EggCategoryList.Columns.Remove("BtnEdit");
-            if (EggCategoryList.Columns.Contains("BtnHapus")) EggCategoryList.Columns.Remove("BtnHapus");
+            if (EggCategoryList.Columns.Contains("editBtn")) EggCategoryList.Columns.Remove("editBtn");
+            if (EggCategoryList.Columns.Contains("deleteBtn")) EggCategoryList.Columns.Remove("deleteBtn");
 
-            DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
+            DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn
             {
-                Name = "BtnEdit",
+                Name = "editBtn",
                 HeaderText = "Aksi Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true
             };
-            EggCategoryList.Columns.Add(btnEdit);
+            EggCategoryList.Columns.Add(editBtn);
 
-            DataGridViewButtonColumn btnHapus = new DataGridViewButtonColumn
+            DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn
             {
-                Name = "BtnHapus",
+                Name = "deleteBtn",
                 HeaderText = "Aksi Hapus",
                 Text = "Hapus",
                 UseColumnTextForButtonValue = true
             };
-            EggCategoryList.Columns.Add(btnHapus);
+            EggCategoryList.Columns.Add(deleteBtn);
         }
         private void AdjustGridHeight()
         {
@@ -168,14 +168,14 @@ namespace sipetok_form.Views.EggCategoryForm
 
             var dataSelected = (EggCategory)EggCategoryList.Rows[e.RowIndex].DataBoundItem;
 
-            if (EggCategoryList.Columns[e.ColumnIndex].Name == "BtnEdit")
+            if (EggCategoryList.Columns[e.ColumnIndex].Name == "editBtn")
             {
                 _selectedEggCategory = dataSelected;
                 _saveDataType = "update";
                 ToggleForm(true);
             }
 
-            if (EggCategoryList.Columns[e.ColumnIndex].Name == "BtnHapus")
+            if (EggCategoryList.Columns[e.ColumnIndex].Name == "deleteBtn")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
@@ -201,16 +201,7 @@ namespace sipetok_form.Views.EggCategoryForm
             }
         }
 
-
-        private void Email_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void penggunaMenu_Click(object sender, EventArgs e)
         {
@@ -222,22 +213,17 @@ namespace sipetok_form.Views.EggCategoryForm
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                btnSave.Enabled = false;
+                SaveBtn.Enabled = false;
                 ActionResponse<EggCategory> response = new ActionResponse<EggCategory>();
 
                 // 1. Validasi & Parsing Harga (Mengubah string input ke desimal)
@@ -246,12 +232,6 @@ namespace sipetok_form.Views.EggCategoryForm
                     MessageBox.Show("Harga harus berupa angka yang valid!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                // 2. Parsing Tenant ID (Mengubah string ke integer)
-                //if (!int.TryParse(txtTenantId.Text, out int parsedTenantId))
-                //{
-                //    parsedTenantId = 1; // Default jika kosong atau tidak valid
-                //}
 
                 // Proses UPDATE data
                 if (_saveDataType == "update")
@@ -269,7 +249,7 @@ namespace sipetok_form.Views.EggCategoryForm
                 // Proses CREATE data baru
                 else if (_saveDataType == "create")
                 {
-                    EggCategory kategoriBaru = new EggCategory
+                    EggCategory newCategory = new EggCategory
                     {
                         Name = txtName.Text,
                         Description = txtDescription.Text,
@@ -277,7 +257,7 @@ namespace sipetok_form.Views.EggCategoryForm
                         //TenantId = parsedTenantId
                     };
 
-                    response = await _apiService.EggCategory.CreateEggCategoryAsync(kategoriBaru);
+                    response = await _apiService.EggCategory.CreateEggCategoryAsync(newCategory);
                 }
 
                 // 3. Handle Response dari API
@@ -299,7 +279,7 @@ namespace sipetok_form.Views.EggCategoryForm
             }
             finally
             {
-                btnSave.Enabled = true;
+                SaveBtn.Enabled = true;
             }
         }
     }
