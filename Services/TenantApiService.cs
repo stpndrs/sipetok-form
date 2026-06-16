@@ -50,9 +50,7 @@ namespace sipetok_form.Services
                 {
                     Username = tenant.User.Username,
                     Password = tenant.User.Password,
-                    Email = tenant.User.Email,
-                    Role = 2,
-                    IsActive = tenant.User.IsActive?.Key == 1
+                    Email = tenant.User.Email
                 };
 
                 // Bungkus body request-nya
@@ -92,6 +90,7 @@ namespace sipetok_form.Services
                     Name = tenant.Name,
                     Address = tenant.Address,
                     PhoneNumber = tenant.PhoneNumber,
+                    IsValid = tenant.IsValid
                 };
 
                 // Panggil ActionAsync ke-2: arahkan ke endpoint "tenants/{id}" dengan method PUT

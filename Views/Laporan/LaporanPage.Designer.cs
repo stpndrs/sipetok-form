@@ -57,6 +57,7 @@
             btnTransaksi = new Button();
             btnOperational = new Button();
             dataGridView1 = new DataGridView();
+            tenantMenu = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             formPanel.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, tenantMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -86,7 +87,7 @@
             dahboardToolStripMenuItem.Name = "dahboardToolStripMenuItem";
             dahboardToolStripMenuItem.Size = new Size(84, 22);
             dahboardToolStripMenuItem.Text = "Dahboard";
-            dahboardToolStripMenuItem.Click += handleClickMenu;
+            dahboardToolStripMenuItem.Click += HandleMenuClick;
             // 
             // penggunaMenu
             // 
@@ -94,7 +95,7 @@
             penggunaMenu.Name = "penggunaMenu";
             penggunaMenu.Size = new Size(85, 22);
             penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += handleClickMenu;
+            penggunaMenu.Click += HandleMenuClick;
             // 
             // kategoriMenu
             // 
@@ -102,7 +103,7 @@
             kategoriMenu.Name = "kategoriMenu";
             kategoriMenu.Size = new Size(113, 22);
             kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += handleClickMenu;
+            kategoriMenu.Click += HandleMenuClick;
             // 
             // transaksiMenu
             // 
@@ -110,7 +111,7 @@
             transaksiMenu.Name = "transaksiMenu";
             transaksiMenu.Size = new Size(85, 22);
             transaksiMenu.Text = "Transaksi";
-            transaksiMenu.Click += handleClickMenu;
+            transaksiMenu.Click += HandleMenuClick;
             // 
             // operationalMenu
             // 
@@ -118,7 +119,7 @@
             operationalMenu.Name = "operationalMenu";
             operationalMenu.Size = new Size(100, 22);
             operationalMenu.Text = "Operasional";
-            operationalMenu.Click += handleClickMenu;
+            operationalMenu.Click += HandleMenuClick;
             // 
             // laporanMenu
             // 
@@ -126,7 +127,7 @@
             laporanMenu.Name = "laporanMenu";
             laporanMenu.Size = new Size(74, 22);
             laporanMenu.Text = "Laporan";
-            laporanMenu.Click += handleClickMenu;
+            laporanMenu.Click += HandleMenuClick;
             // 
             // menuLogout
             // 
@@ -134,7 +135,7 @@
             menuLogout.Name = "menuLogout";
             menuLogout.Size = new Size(67, 22);
             menuLogout.Text = "Logout";
-            menuLogout.Click += handleClickMenu;
+            menuLogout.Click += HandleMenuClick;
             // 
             // contextMenuStrip1
             // 
@@ -342,6 +343,14 @@
             dataGridView1.Size = new Size(1397, 890);
             dataGridView1.TabIndex = 2;
             // 
+            // tenantMenu
+            // 
+            tenantMenu.Font = new Font("Roboto", 10.8F);
+            tenantMenu.Name = "tenantMenu";
+            tenantMenu.Size = new Size(65, 22);
+            tenantMenu.Text = "Tenant";
+            tenantMenu.Click += HandleMenuClick;
+            // 
             // LaporanPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -401,5 +410,6 @@
         private Label label5;
         private ComboBox comboBox1;
         private Button btnExport;
+        private ToolStripMenuItem tenantMenu;
     }
 }

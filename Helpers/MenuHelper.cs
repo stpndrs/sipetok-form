@@ -2,7 +2,9 @@
 using sipetok_form.Views.Eggs;
 using sipetok_form.Views.Laporan;
 using sipetok_form.Views.Operationals;
+using sipetok_form.Views.Tenant;
 using sipetok_form.Views.Transactions;
+using sipetok_form.Views.EggCategoryForm;
 using sipetok_form.Views.Users;
 using System;
 using System.Collections.Generic;
@@ -35,14 +37,27 @@ namespace sipetok_form.Helpers
                     thisForm.Close();
                     break;
 
+                case "tenantMenu":
+                    TenantPage tenantList = new TenantPage();
+                    tenantList.Show();
+                    thisForm.Close();
+                    break;
+                    
                 case "transaksiMenu":
                     TransactionPage transactionLists = new TransactionPage();
                     transactionLists.Show();
+                    thisForm.Close();
                     break;
                 
                 case "laporanMenu":
                     LaporanPage laporanList = new LaporanPage();
                     laporanList.Show();
+                    thisForm.Close();
+                    break;
+
+                case "kategoriMenu":
+                    EggCategoryPage categoryList = new EggCategoryPage();
+                    categoryList.Show();
                     thisForm.Close();
                     break;
 

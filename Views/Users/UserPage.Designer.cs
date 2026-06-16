@@ -31,7 +31,7 @@
             container = new TableLayoutPanel();
             topMenu = new MenuStrip();
             dashboardMenu = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
+            tenantMenu = new ToolStripMenuItem();
             kategoriMenu = new ToolStripMenuItem();
             stokMenu = new ToolStripMenuItem();
             transaksiMenu = new ToolStripMenuItem();
@@ -60,6 +60,7 @@
             cbbRole = new ComboBox();
             btnSave = new Button();
             cancelBtn = new Button();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             container.SuspendLayout();
             topMenu.SuspendLayout();
             body.SuspendLayout();
@@ -94,7 +95,7 @@
             topMenu.Dock = DockStyle.Fill;
             topMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, toolStripMenuItem1, tenantMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
             topMenu.Location = new Point(0, 0);
             topMenu.Name = "topMenu";
             topMenu.Padding = new Padding(5, 2, 0, 2);
@@ -109,12 +110,12 @@
             dashboardMenu.Text = "Dashboard";
             dashboardMenu.Click += handleClickMenu;
             // 
-            // penggunaMenu
+            // tenantMenu
             // 
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(85, 22);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += handleClickMenu;
+            tenantMenu.Name = "tenantMenu";
+            tenantMenu.Size = new Size(65, 22);
+            tenantMenu.Text = "Tenant";
+            tenantMenu.Click += handleClickMenu;
             // 
             // kategoriMenu
             // 
@@ -439,6 +440,12 @@
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
             // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(85, 22);
+            toolStripMenuItem1.Text = "Pengguna";
+            // 
             // UserPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -476,7 +483,6 @@
         private TableLayoutPanel container;
         private MenuStrip topMenu;
         private ToolStripMenuItem dashboardMenu;
-        private ToolStripMenuItem penggunaMenu;
         private ToolStripMenuItem kategoriMenu;
         private ToolStripMenuItem stokMenu;
         private ToolStripMenuItem transaksiMenu;
@@ -505,5 +511,7 @@
         private DataGridView usersList;
         private Button cancelBtn;
         private Button addBtn;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem tenantMenu;
     }
 }

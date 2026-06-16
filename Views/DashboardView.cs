@@ -22,8 +22,19 @@ namespace sipetok_form.Views
 
         }
 
-        private void handleClickMenu(object sender, EventArgs e) {
+        private void handleClickMenu(object sender, EventArgs e)
+        {
             MenuHelper.HandleClick(sender, e, this);
+        }
+
+        private void kategoriMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void penggunaMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
