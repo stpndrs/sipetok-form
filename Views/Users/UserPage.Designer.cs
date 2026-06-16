@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             PageContainer = new TableLayoutPanel();
-            topMenu = new MenuStrip();
+            MenuContainer = new MenuStrip();
             DashboardMenu = new ToolStripMenuItem();
             UserMenu = new ToolStripMenuItem();
             TenantMenu = new ToolStripMenuItem();
@@ -62,7 +62,7 @@
             SaveBtn = new Button();
             CancelBtn = new Button();
             PageContainer.SuspendLayout();
-            topMenu.SuspendLayout();
+            MenuContainer.SuspendLayout();
             PageBodyContainer.SuspendLayout();
             ListContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UsersList).BeginInit();
@@ -77,7 +77,7 @@
             // 
             PageContainer.ColumnCount = 1;
             PageContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            PageContainer.Controls.Add(topMenu, 0, 0);
+            PageContainer.Controls.Add(MenuContainer, 0, 0);
             PageContainer.Controls.Add(PageBodyContainer, 0, 1);
             PageContainer.Dock = DockStyle.Fill;
             PageContainer.Location = new Point(0, 0);
@@ -88,19 +88,19 @@
             PageContainer.Size = new Size(1902, 1033);
             PageContainer.TabIndex = 0;
             // 
-            // topMenu
+            // MenuContainer
             // 
-            topMenu.BackColor = SystemColors.ControlLight;
-            topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
-            topMenu.Location = new Point(0, 0);
-            topMenu.Name = "topMenu";
-            topMenu.Padding = new Padding(6, 3, 0, 3);
-            topMenu.Size = new Size(1902, 32);
-            topMenu.TabIndex = 6;
-            topMenu.Text = "menuStrip1";
+            MenuContainer.BackColor = SystemColors.ControlLight;
+            MenuContainer.Dock = DockStyle.Fill;
+            MenuContainer.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MenuContainer.ImageScalingSize = new Size(20, 20);
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            MenuContainer.Location = new Point(0, 0);
+            MenuContainer.Name = "MenuContainer";
+            MenuContainer.Padding = new Padding(6, 3, 0, 3);
+            MenuContainer.Size = new Size(1902, 32);
+            MenuContainer.TabIndex = 6;
+            MenuContainer.Text = "menuStrip1";
             // 
             // DashboardMenu
             // 
@@ -448,8 +448,8 @@
             WindowState = FormWindowState.Maximized;
             PageContainer.ResumeLayout(false);
             PageContainer.PerformLayout();
-            topMenu.ResumeLayout(false);
-            topMenu.PerformLayout();
+            MenuContainer.ResumeLayout(false);
+            MenuContainer.PerformLayout();
             PageBodyContainer.ResumeLayout(false);
             PageBodyContainer.PerformLayout();
             ListContainer.ResumeLayout(false);
@@ -471,7 +471,7 @@
         #endregion
 
         private TableLayoutPanel PageContainer;
-        private MenuStrip topMenu;
+        private MenuStrip MenuContainer;
         private ToolStripMenuItem DashboardMenu;
         private ToolStripMenuItem EggCategoryMenu;
         private ToolStripMenuItem StockMenu;
