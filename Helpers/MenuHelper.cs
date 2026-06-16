@@ -1,8 +1,9 @@
 ﻿using sipetok_form.Views;
+using sipetok_form.Views.Eggs;
 using sipetok_form.Views.Laporan;
+using sipetok_form.Views.Operationals;
 using sipetok_form.Views.Transactions;
 using sipetok_form.Views.Users;
-using sipetok_form.Views.Eggs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -56,6 +57,12 @@ namespace sipetok_form.Helpers
                 case "stokMenu":
                     EggStockPage eggStockPage = new EggStockPage();
                     eggStockPage.Show();
+                    thisForm.Close();
+                    break;
+
+                case "operationalMenu":
+                    OperationalPage operationalPage = new OperationalPage();
+                    operationalPage.Show();
                     thisForm.Close();
                     break;
 
