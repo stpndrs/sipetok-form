@@ -50,7 +50,7 @@ namespace sipetok_form.Helpers
                     break;
                 
                 case "ReportMenu":
-                    LaporanPage laporanList = new LaporanPage();
+                    ReportsPage laporanList = new ReportsPage();
                     laporanList.Show();
                     thisForm.Close();
                     break;

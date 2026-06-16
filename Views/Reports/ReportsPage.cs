@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace sipetok_form.Views.Laporan
 {
-    public partial class LaporanPage : Form
+    public partial class ReportsPage : Form
     {
         private readonly ApiLaporan _reportService = new ApiLaporan();
         private const int MaxGridHeight = 600;
@@ -24,7 +24,7 @@ namespace sipetok_form.Views.Laporan
         /// Konstruktor utama untuk halaman LaporanPage.
         /// Berfungsi menginisialisasi komponen UI dan mendaftarkan event load halaman.
         /// </summary>
-        public LaporanPage()
+        public ReportsPage()
         {
             InitializeComponent();
             this.Load += LaporanPage_Load;
@@ -36,7 +36,14 @@ namespace sipetok_form.Views.Laporan
         /// </summary>
         private void LaporanPage_Load(object sender, EventArgs e)
         {
-            btnTransaksi.PerformClick();
+            var columnStyles = body.ColumnStyles;
+            columnStyles[0].SizeType = SizeType.Percent;
+            columnStyles[0].Width = 70;
+            columnStyles[1].SizeType = SizeType.Percent;
+            columnStyles[1].Width = 30;
+            DataList.Width = 1300;
+
+            TransaksiBtn.PerformClick();
         }
 
         /// <summary>
@@ -51,14 +58,14 @@ namespace sipetok_form.Views.Laporan
         /// Event handler saat tombol Transaksi diklik.
         /// Berfungsi memicu proses pemuatan data laporan transaksi dari API ke dalam grid.
         /// </summary>
-        private async void btnTransaksi_Click(object sender, EventArgs e)
+        private async void TransaksiBtn_Click(object sender, EventArgs e)
         {
             await LoadReportDataAsync(
                 fetchDataFunc: () => _reportService.GetTransaksiAsync(),
                 configureGridAction: SetupTransactionColumns,
-                loadingButton: btnTransaksi,
-                activeButton: btnTransaksi,
-                inactiveButton: btnOperational,
+                loadingButton: TransaksiBtn,
+                activeButton: TransaksiBtn,
+                inactiveButton: OperationalBtn,
                 headerTitle: "Manage Transaction Report"
             );
         }
@@ -67,14 +74,14 @@ namespace sipetok_form.Views.Laporan
         /// Event handler saat tombol Operasional diklik.
         /// Berfungsi memicu proses pemuatan data laporan biaya operasional dari API ke dalam grid.
         /// </summary>
-        private async void btnOperational_Click(object sender, EventArgs e)
+        private async void OperationalBtn_Click(object sender, EventArgs e)
         {
             await LoadReportDataAsync(
                 fetchDataFunc: () => _reportService.GetOperationalAsync(),
                 configureGridAction: SetupOperationalColumns,
-                loadingButton: btnOperational,
-                activeButton: btnOperational,
-                inactiveButton: btnTransaksi,
+                loadingButton: OperationalBtn,
+                activeButton: OperationalBtn,
+                inactiveButton: TransaksiBtn,
                 headerTitle: "Manage Operational Report"
             );
         }
@@ -104,7 +111,6 @@ namespace sipetok_form.Views.Laporan
 
                 BindGridData(reportData);
                 configureGridAction();
-                AdjustGridHeight();
             }
             catch (Exception ex)
             {
@@ -123,10 +129,11 @@ namespace sipetok_form.Views.Laporan
         /// </summary>
         private void BindGridData<T>(List<T> data)
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.Columns.Clear();
-            dataGridView1.DataSource = data;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DataList.DataSource = null;
+            DataList.Columns.Clear();
+            DataList.DataSource = data;
+            DataList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            AdjustGridHeight();
         }
 
         /// <summary>
@@ -160,18 +167,18 @@ namespace sipetok_form.Views.Laporan
         /// Event handler untuk tombol ekspor data.
         /// Berfungsi memvalidasi format & tanggal input, kemudian mengarahkan proses ekspor sesuai tipe data aktif.
         /// </summary>
-        private void btnExport_Click(object sender, EventArgs e)
+        private void ExportBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comboBox1.SelectedItem == null)
+                if (JenisCb.SelectedItem == null)
                 {
                     MessageBox.Show("Please select an export file format (Excel or PDF)!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                DateTime startDate = dateTimePickerMulai.Value.Date;
-                DateTime endDate = dateTimePickerSelesai.Value.Date.AddDays(1).AddTicks(-1);
+                DateTime startDate = MulaiDateTimePicker.Value.Date;
+                DateTime endDate = SelesaiDateTimePicker.Value.Date.AddDays(1).AddTicks(-1);
 
                 if (startDate > endDate)
                 {
@@ -179,13 +186,13 @@ namespace sipetok_form.Views.Laporan
                     return;
                 }
 
-                string selectedFormat = comboBox1.SelectedItem.ToString();
+                string selectedFormat = JenisCb.SelectedItem.ToString();
 
-                if (dataGridView1.DataSource is List<Transaction> transactionList)
+                if (DataList.DataSource is List<Transaction> transactionList)
                 {
                     ExportTransactions(transactionList, startDate, endDate, selectedFormat);
                 }
-                else if (dataGridView1.DataSource is List<Operational> operationalList)
+                else if (DataList.DataSource is List<Operational> operationalList)
                 {
                     ExportOperationals(operationalList, startDate, endDate, selectedFormat);
                 }
@@ -212,7 +219,7 @@ namespace sipetok_form.Views.Laporan
             var filteredData = transactions.Where(t => t.Date >= start && t.Date <= end).ToList();
             if (IsDataFilteredEmpty(filteredData.Count)) return;
 
-            string defaultFileName = $"Transaction_Report_{start:yyyyMMdd}_to_{dateTimePickerSelesai.Value:yyyyMMdd}";
+            string defaultFileName = $"Transaction_Report_{start:yyyyMMdd}_to_{SelesaiDateTimePicker.Value:yyyyMMdd}";
             string filePath = GetSaveFilePath(format, defaultFileName);
 
             if (!string.IsNullOrEmpty(filePath))
@@ -231,7 +238,7 @@ namespace sipetok_form.Views.Laporan
             var filteredData = operationals.Where(o => o.OperationalDate >= start && o.OperationalDate <= end).ToList();
             if (IsDataFilteredEmpty(filteredData.Count)) return;
 
-            string defaultFileName = $"Operational_Report_{start:yyyyMMdd}_to_{dateTimePickerSelesai.Value:yyyyMMdd}";
+            string defaultFileName = $"Operational_Report_{start:yyyyMMdd}_to_{SelesaiDateTimePicker.Value:yyyyMMdd}";
             string filePath = GetSaveFilePath(format, defaultFileName);
 
             if (!string.IsNullOrEmpty(filePath))
@@ -264,9 +271,9 @@ namespace sipetok_form.Views.Laporan
         /// </summary>
         private void SetColumnHeader(string columnName, string headerText)
         {
-            if (dataGridView1.Columns.Contains(columnName))
+            if (DataList.Columns.Contains(columnName))
             {
-                dataGridView1.Columns[columnName].HeaderText = headerText;
+                DataList.Columns[columnName].HeaderText = headerText;
             }
         }
 
@@ -277,9 +284,9 @@ namespace sipetok_form.Views.Laporan
         {
             foreach (var name in columnNames)
             {
-                if (dataGridView1.Columns.Contains(name))
+                if (DataList.Columns.Contains(name))
                 {
-                    dataGridView1.Columns[name].Visible = false;
+                    DataList.Columns[name].Visible = false;
                 }
             }
         }
@@ -320,15 +327,12 @@ namespace sipetok_form.Views.Laporan
         /// </summary>
         private void AdjustGridHeight()
         {
-            int totalHeight = dataGridView1.ColumnHeadersHeight;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            int totalHeight = DataList.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in DataList.Rows)
             {
-                if (row.Visible) totalHeight += row.Height;
+                totalHeight += row.Height;
             }
-
-            totalHeight += (dataGridView1.BorderStyle == BorderStyle.None) ? 3 : 9;
-            dataGridView1.Height = Math.Min(totalHeight, MaxGridHeight);
+            DataList.Height = totalHeight + 4;
         }
 
         #endregion

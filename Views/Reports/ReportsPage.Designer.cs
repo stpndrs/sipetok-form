@@ -1,6 +1,6 @@
 ﻿namespace sipetok_form.Views.Laporan
 {
-    partial class LaporanPage
+    partial class ReportsPage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            menuStrip1 = new MenuStrip();
+            MenuContainer = new MenuStrip();
             dahboardToolStripMenuItem = new ToolStripMenuItem();
             penggunaMenu = new ToolStripMenuItem();
             tenantMenu = new ToolStripMenuItem();
@@ -39,47 +39,47 @@
             laporanMenu = new ToolStripMenuItem();
             menuLogout = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            tableLayoutPanel1 = new TableLayoutPanel();
+            body = new TableLayoutPanel();
             formPanel = new FlowLayoutPanel();
             label2 = new Label();
             validationErrorMsg = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             label1 = new Label();
-            dateTimePickerMulai = new DateTimePicker();
+            MulaiDateTimePicker = new DateTimePicker();
             flowLayoutPanel4 = new FlowLayoutPanel();
             label4 = new Label();
-            dateTimePickerSelesai = new DateTimePicker();
+            SelesaiDateTimePicker = new DateTimePicker();
             flowLayoutPanel5 = new FlowLayoutPanel();
             label5 = new Label();
-            comboBox1 = new ComboBox();
-            btnExport = new Button();
+            JenisCb = new ComboBox();
+            ExportBtn = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            btnTransaksi = new Button();
-            btnOperational = new Button();
-            dataGridView1 = new DataGridView();
-            menuStrip1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            TransaksiBtn = new Button();
+            OperationalBtn = new Button();
+            DataList = new DataGridView();
+            MenuContainer.SuspendLayout();
+            body.SuspendLayout();
             formPanel.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             flowLayoutPanel5.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataList).BeginInit();
             SuspendLayout();
             // 
-            // menuStrip1
+            // MenuContainer
             // 
-            menuStrip1.BackColor = SystemColors.ControlLight;
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, tenantMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(1904, 26);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            MenuContainer.BackColor = SystemColors.ControlLight;
+            MenuContainer.ImageScalingSize = new Size(20, 20);
+            MenuContainer.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, tenantMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            MenuContainer.Location = new Point(0, 0);
+            MenuContainer.Name = "MenuContainer";
+            MenuContainer.Padding = new Padding(5, 2, 0, 2);
+            MenuContainer.Size = new Size(1904, 26);
+            MenuContainer.TabIndex = 0;
+            MenuContainer.Text = "menuStrip1";
             // 
             // dahboardToolStripMenuItem
             // 
@@ -151,20 +151,20 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // tableLayoutPanel1
+            // body
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel1.Controls.Add(formPanel, 1, 0);
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 26);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1904, 1015);
-            tableLayoutPanel1.TabIndex = 1;
+            body.ColumnCount = 2;
+            body.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            body.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            body.Controls.Add(formPanel, 1, 0);
+            body.Controls.Add(flowLayoutPanel1, 0, 0);
+            body.Dock = DockStyle.Fill;
+            body.Location = new Point(0, 26);
+            body.Name = "body";
+            body.RowCount = 1;
+            body.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            body.Size = new Size(1904, 770);
+            body.TabIndex = 1;
             // 
             // formPanel
             // 
@@ -176,7 +176,7 @@
             formPanel.Margin = new Padding(3, 2, 3, 2);
             formPanel.Name = "formPanel";
             formPanel.Padding = new Padding(26, 22, 26, 22);
-            formPanel.Size = new Size(424, 932);
+            formPanel.Size = new Size(424, 766);
             formPanel.TabIndex = 6;
             // 
             // label2
@@ -208,7 +208,7 @@
             flowLayoutPanel3.Controls.Add(flowLayoutPanel2);
             flowLayoutPanel3.Controls.Add(flowLayoutPanel4);
             flowLayoutPanel3.Controls.Add(flowLayoutPanel5);
-            flowLayoutPanel3.Controls.Add(btnExport);
+            flowLayoutPanel3.Controls.Add(ExportBtn);
             flowLayoutPanel3.Location = new Point(29, 111);
             flowLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -219,7 +219,7 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(label1);
-            flowLayoutPanel2.Controls.Add(dateTimePickerMulai);
+            flowLayoutPanel2.Controls.Add(MulaiDateTimePicker);
             flowLayoutPanel2.Location = new Point(26, 22);
             flowLayoutPanel2.Margin = new Padding(0, 0, 0, 30);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -237,17 +237,17 @@
             label1.TabIndex = 0;
             label1.Text = "Tanggal Mulai";
             // 
-            // dateTimePickerMulai
+            // MulaiDateTimePicker
             // 
-            dateTimePickerMulai.Location = new Point(12, 31);
-            dateTimePickerMulai.Name = "dateTimePickerMulai";
-            dateTimePickerMulai.Size = new Size(249, 23);
-            dateTimePickerMulai.TabIndex = 1;
+            MulaiDateTimePicker.Location = new Point(12, 31);
+            MulaiDateTimePicker.Name = "MulaiDateTimePicker";
+            MulaiDateTimePicker.Size = new Size(249, 23);
+            MulaiDateTimePicker.TabIndex = 1;
             // 
             // flowLayoutPanel4
             // 
             flowLayoutPanel4.Controls.Add(label4);
-            flowLayoutPanel4.Controls.Add(dateTimePickerSelesai);
+            flowLayoutPanel4.Controls.Add(SelesaiDateTimePicker);
             flowLayoutPanel4.Location = new Point(26, 128);
             flowLayoutPanel4.Margin = new Padding(0, 0, 0, 30);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -265,17 +265,17 @@
             label4.TabIndex = 0;
             label4.Text = "Tanggal Selesai";
             // 
-            // dateTimePickerSelesai
+            // SelesaiDateTimePicker
             // 
-            dateTimePickerSelesai.Location = new Point(12, 31);
-            dateTimePickerSelesai.Name = "dateTimePickerSelesai";
-            dateTimePickerSelesai.Size = new Size(249, 23);
-            dateTimePickerSelesai.TabIndex = 1;
+            SelesaiDateTimePicker.Location = new Point(12, 31);
+            SelesaiDateTimePicker.Name = "SelesaiDateTimePicker";
+            SelesaiDateTimePicker.Size = new Size(249, 23);
+            SelesaiDateTimePicker.TabIndex = 1;
             // 
             // flowLayoutPanel5
             // 
             flowLayoutPanel5.Controls.Add(label5);
-            flowLayoutPanel5.Controls.Add(comboBox1);
+            flowLayoutPanel5.Controls.Add(JenisCb);
             flowLayoutPanel5.Location = new Point(26, 234);
             flowLayoutPanel5.Margin = new Padding(0, 0, 0, 30);
             flowLayoutPanel5.Name = "flowLayoutPanel5";
@@ -293,79 +293,80 @@
             label5.TabIndex = 0;
             label5.Text = "Jenis";
             // 
-            // comboBox1
+            // JenisCb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Excel", "Pdf" });
-            comboBox1.Location = new Point(12, 31);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(249, 23);
-            comboBox1.TabIndex = 1;
+            JenisCb.FormattingEnabled = true;
+            JenisCb.Items.AddRange(new object[] { "Excel", "Pdf" });
+            JenisCb.Location = new Point(12, 31);
+            JenisCb.Name = "JenisCb";
+            JenisCb.Size = new Size(249, 23);
+            JenisCb.TabIndex = 1;
             // 
-            // btnExport
+            // ExportBtn
             // 
-            btnExport.Location = new Point(29, 338);
-            btnExport.Name = "btnExport";
-            btnExport.Size = new Size(281, 29);
-            btnExport.TabIndex = 6;
-            btnExport.Text = "Export";
-            btnExport.UseVisualStyleBackColor = true;
-            btnExport.Click += btnExport_Click;
+            ExportBtn.Location = new Point(29, 338);
+            ExportBtn.Name = "ExportBtn";
+            ExportBtn.Size = new Size(281, 29);
+            ExportBtn.TabIndex = 6;
+            ExportBtn.Text = "Export";
+            ExportBtn.UseVisualStyleBackColor = true;
+            ExportBtn.Click += ExportBtn_Click;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(btnTransaksi);
-            flowLayoutPanel1.Controls.Add(btnOperational);
-            flowLayoutPanel1.Controls.Add(dataGridView1);
+            flowLayoutPanel1.Controls.Add(TransaksiBtn);
+            flowLayoutPanel1.Controls.Add(OperationalBtn);
+            flowLayoutPanel1.Controls.Add(DataList);
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1326, 930);
+            flowLayoutPanel1.Size = new Size(1326, 764);
             flowLayoutPanel1.TabIndex = 0;
             // 
-            // btnTransaksi
+            // TransaksiBtn
             // 
-            btnTransaksi.Location = new Point(3, 3);
-            btnTransaksi.Name = "btnTransaksi";
-            btnTransaksi.Size = new Size(110, 23);
-            btnTransaksi.TabIndex = 0;
-            btnTransaksi.Text = "Transaksi";
-            btnTransaksi.UseVisualStyleBackColor = true;
-            btnTransaksi.Click += btnTransaksi_Click;
+            TransaksiBtn.Location = new Point(3, 3);
+            TransaksiBtn.Name = "TransaksiBtn";
+            TransaksiBtn.Size = new Size(110, 23);
+            TransaksiBtn.TabIndex = 0;
+            TransaksiBtn.Text = "Transaksi";
+            TransaksiBtn.UseVisualStyleBackColor = true;
+            TransaksiBtn.Click += TransaksiBtn_Click;
             // 
-            // btnOperational
+            // OperationalBtn
             // 
-            btnOperational.Location = new Point(119, 3);
-            btnOperational.Name = "btnOperational";
-            btnOperational.Size = new Size(110, 23);
-            btnOperational.TabIndex = 1;
-            btnOperational.Text = "Operational";
-            btnOperational.UseVisualStyleBackColor = true;
-            btnOperational.Click += btnOperational_Click;
+            OperationalBtn.Location = new Point(119, 3);
+            OperationalBtn.Name = "OperationalBtn";
+            OperationalBtn.Size = new Size(110, 23);
+            OperationalBtn.TabIndex = 1;
+            OperationalBtn.Text = "Operational";
+            OperationalBtn.UseVisualStyleBackColor = true;
+            OperationalBtn.Click += OperationalBtn_Click;
             // 
-            // dataGridView1
+            // DataList
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 32);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ScrollBars = ScrollBars.Vertical;
-            dataGridView1.Size = new Size(1281, 898);
-            dataGridView1.TabIndex = 2;
+            DataList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataList.Location = new Point(3, 32);
+            DataList.Name = "DataList";
+            DataList.RowHeadersWidth = 51;
+            DataList.ScrollBars = ScrollBars.Vertical;
+            DataList.Size = new Size(1281, 898);
+            DataList.TabIndex = 2;
             // 
             // LaporanPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            ClientSize = new Size(1904, 796);
+            Controls.Add(body);
+            Controls.Add(MenuContainer);
+            MainMenuStrip = MenuContainer;
             Margin = new Padding(3, 2, 3, 2);
             Name = "LaporanPage";
             Text = "LaporanPage";
             WindowState = FormWindowState.Maximized;
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
+            MenuContainer.ResumeLayout(false);
+            MenuContainer.PerformLayout();
+            body.ResumeLayout(false);
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
@@ -376,14 +377,14 @@
             flowLayoutPanel5.ResumeLayout(false);
             flowLayoutPanel5.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
+        private MenuStrip MenuContainer;
         private ToolStripMenuItem dahboardToolStripMenuItem;
         private ToolStripMenuItem penggunaMenu;
         private ToolStripMenuItem kategoriMenu;
@@ -392,25 +393,25 @@
         private ToolStripMenuItem laporanMenu;
         private ToolStripMenuItem menuLogout;
         private ContextMenuStrip contextMenuStrip1;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel body;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button btnTransaksi;
-        private DataGridView dataGridView1;
-        private Button btnOperational;
+        private Button TransaksiBtn;
+        private DataGridView DataList;
+        private Button OperationalBtn;
         private FlowLayoutPanel formPanel;
         private Label label2;
         private Label validationErrorMsg;
         private FlowLayoutPanel flowLayoutPanel3;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label label1;
-        private DateTimePicker dateTimePickerMulai;
+        private DateTimePicker MulaiDateTimePicker;
         private FlowLayoutPanel flowLayoutPanel4;
         private Label label4;
-        private DateTimePicker dateTimePickerSelesai;
+        private DateTimePicker SelesaiDateTimePicker;
         private FlowLayoutPanel flowLayoutPanel5;
         private Label label5;
-        private ComboBox comboBox1;
-        private Button btnExport;
+        private ComboBox JenisCb;
+        private Button ExportBtn;
         private ToolStripMenuItem tenantMenu;
     }
 }
