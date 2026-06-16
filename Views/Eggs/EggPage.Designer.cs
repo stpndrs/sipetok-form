@@ -28,425 +28,427 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cancelBtn = new Button();
-            labelProductionDate = new Label();
-            dtpProductionDate = new DateTimePicker();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            labelStock = new Label();
-            txtStock = new TextBox();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            labelCategory = new Label();
-            cbbCategory = new ComboBox();
-            flowLayoutPanel6 = new FlowLayoutPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label1 = new Label();
-            addBtn = new Button();
-            eggList = new DataGridView();
-            label2 = new Label();
-            validationErrorMsg = new Label();
-            formPanel = new FlowLayoutPanel();
-            btnSave = new Button();
-            body = new TableLayoutPanel();
-            menuLogout = new ToolStripMenuItem();
-            laporanMenu = new ToolStripMenuItem();
-            operationalMenu = new ToolStripMenuItem();
-            transaksiMenu = new ToolStripMenuItem();
-            stokMenu = new ToolStripMenuItem();
-            kategoriMenu = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
-            dashboardMenu = new ToolStripMenuItem();
-            topMenu = new MenuStrip();
-            container = new TableLayoutPanel();
-            flowLayoutPanel4.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            flowLayoutPanel6.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)eggList).BeginInit();
-            formPanel.SuspendLayout();
-            body.SuspendLayout();
-            topMenu.SuspendLayout();
-            container.SuspendLayout();
+            CancelButton = new Button();
+            ProductionDateLabel = new Label();
+            ProductionDateTimePicker = new DateTimePicker();
+            ProductionDateInputGroup = new FlowLayoutPanel();
+            StockLabel = new Label();
+            StockTextField = new TextBox();
+            StockInputGroup = new FlowLayoutPanel();
+            EggCategoryLabel = new Label();
+            CategoryComboBox = new ComboBox();
+            CategoryInputGroup = new FlowLayoutPanel();
+            ListContainer = new FlowLayoutPanel();
+            PageLabel = new Label();
+            AddButton = new Button();
+            EggsList = new DataGridView();
+            FormLabel = new Label();
+            ValidatonErrorMassage = new Label();
+            FormContainer = new FlowLayoutPanel();
+            SaveButton = new Button();
+            PageBodyContainer = new TableLayoutPanel();
+            LogoutMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
+            OperationalMenu = new ToolStripMenuItem();
+            TransactionMenu = new ToolStripMenuItem();
+            StockMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
+            DashboardMenu = new ToolStripMenuItem();
+            MenuContainer = new MenuStrip();
+            PageContainer = new TableLayoutPanel();
+            ProductionDateInputGroup.SuspendLayout();
+            StockInputGroup.SuspendLayout();
+            CategoryInputGroup.SuspendLayout();
+            ListContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)EggsList).BeginInit();
+            FormContainer.SuspendLayout();
+            PageBodyContainer.SuspendLayout();
+            MenuContainer.SuspendLayout();
+            PageContainer.SuspendLayout();
             SuspendLayout();
             // 
-            // cancelBtn
+            // CancelButton
             // 
-            cancelBtn.AutoSize = true;
-            cancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cancelBtn.Location = new Point(33, 535);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(434, 48);
-            cancelBtn.TabIndex = 16;
-            cancelBtn.Text = "Batalkan";
-            cancelBtn.UseVisualStyleBackColor = true;
-            cancelBtn.Click += cancelBtn_Click;
+            CancelButton.AutoSize = true;
+            CancelButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelButton.Location = new Point(33, 535);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(434, 48);
+            CancelButton.TabIndex = 16;
+            CancelButton.Text = "Batalkan";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelBtn_Click;
             // 
-            // labelProductionDate
+            // ProductionDateLabel
             // 
-            labelProductionDate.AutoSize = true;
-            labelProductionDate.Font = new Font("Microsoft Sans Serif", 10.2F);
-            labelProductionDate.Location = new Point(13, 11);
-            labelProductionDate.Name = "labelProductionDate";
-            labelProductionDate.Size = new Size(138, 20);
-            labelProductionDate.TabIndex = 1;
-            labelProductionDate.Text = "Tanggal Produksi";
+            ProductionDateLabel.AutoSize = true;
+            ProductionDateLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            ProductionDateLabel.Location = new Point(13, 11);
+            ProductionDateLabel.Name = "ProductionDateLabel";
+            ProductionDateLabel.Size = new Size(138, 20);
+            ProductionDateLabel.TabIndex = 1;
+            ProductionDateLabel.Text = "Tanggal Produksi";
             // 
-            // dtpProductionDate
+            // ProductionDateTimePicker
             // 
-            dtpProductionDate.Font = new Font("Microsoft Sans Serif", 7.8F);
-            dtpProductionDate.Location = new Point(13, 34);
-            dtpProductionDate.Name = "dtpProductionDate";
-            dtpProductionDate.Size = new Size(406, 22);
-            dtpProductionDate.TabIndex = 2;
+            ProductionDateTimePicker.Font = new Font("Microsoft Sans Serif", 7.8F);
+            ProductionDateTimePicker.Location = new Point(13, 34);
+            ProductionDateTimePicker.Name = "ProductionDateTimePicker";
+            ProductionDateTimePicker.Size = new Size(406, 22);
+            ProductionDateTimePicker.TabIndex = 2;
             // 
-            // flowLayoutPanel4
+            // ProductionDateInputGroup
             // 
-            flowLayoutPanel4.AutoSize = true;
-            flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel4.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel4.Controls.Add(labelProductionDate);
-            flowLayoutPanel4.Controls.Add(dtpProductionDate);
-            flowLayoutPanel4.Dock = DockStyle.Fill;
-            flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel4.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel4.Location = new Point(30, 140);
-            flowLayoutPanel4.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel4.Size = new Size(440, 72);
-            flowLayoutPanel4.TabIndex = 11;
+            ProductionDateInputGroup.AutoSize = true;
+            ProductionDateInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ProductionDateInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            ProductionDateInputGroup.Controls.Add(ProductionDateLabel);
+            ProductionDateInputGroup.Controls.Add(ProductionDateTimePicker);
+            ProductionDateInputGroup.Dock = DockStyle.Fill;
+            ProductionDateInputGroup.FlowDirection = FlowDirection.TopDown;
+            ProductionDateInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            ProductionDateInputGroup.Location = new Point(30, 140);
+            ProductionDateInputGroup.Margin = new Padding(0, 0, 0, 40);
+            ProductionDateInputGroup.Name = "ProductionDateInputGroup";
+            ProductionDateInputGroup.Padding = new Padding(10, 11, 10, 11);
+            ProductionDateInputGroup.Size = new Size(440, 72);
+            ProductionDateInputGroup.TabIndex = 11;
             // 
-            // labelStock
+            // StockLabel
             // 
-            labelStock.AutoSize = true;
-            labelStock.Font = new Font("Microsoft Sans Serif", 10.2F);
-            labelStock.Location = new Point(13, 11);
-            labelStock.Name = "labelStock";
-            labelStock.Size = new Size(42, 20);
-            labelStock.TabIndex = 4;
-            labelStock.Text = "Stok";
+            StockLabel.AutoSize = true;
+            StockLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            StockLabel.Location = new Point(13, 11);
+            StockLabel.Name = "StockLabel";
+            StockLabel.Size = new Size(42, 20);
+            StockLabel.TabIndex = 4;
+            StockLabel.Text = "Stok";
             // 
-            // txtStock
+            // StockTextField
             // 
-            txtStock.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtStock.Location = new Point(13, 34);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(406, 22);
-            txtStock.TabIndex = 3;
+            StockTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            StockTextField.Location = new Point(13, 34);
+            StockTextField.Name = "StockTextField";
+            StockTextField.Size = new Size(406, 22);
+            StockTextField.TabIndex = 3;
             // 
-            // flowLayoutPanel5
+            // StockInputGroup
             // 
-            flowLayoutPanel5.AutoSize = true;
-            flowLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel5.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel5.Controls.Add(labelStock);
-            flowLayoutPanel5.Controls.Add(txtStock);
-            flowLayoutPanel5.Dock = DockStyle.Fill;
-            flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel5.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel5.Location = new Point(30, 252);
-            flowLayoutPanel5.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel5.Size = new Size(440, 72);
-            flowLayoutPanel5.TabIndex = 10;
+            StockInputGroup.AutoSize = true;
+            StockInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            StockInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            StockInputGroup.Controls.Add(StockLabel);
+            StockInputGroup.Controls.Add(StockTextField);
+            StockInputGroup.Dock = DockStyle.Fill;
+            StockInputGroup.FlowDirection = FlowDirection.TopDown;
+            StockInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            StockInputGroup.Location = new Point(30, 252);
+            StockInputGroup.Margin = new Padding(0, 0, 0, 40);
+            StockInputGroup.Name = "StockInputGroup";
+            StockInputGroup.Padding = new Padding(10, 11, 10, 11);
+            StockInputGroup.Size = new Size(440, 72);
+            StockInputGroup.TabIndex = 10;
             // 
-            // labelCategory
+            // EggCategoryLabel
             // 
-            labelCategory.AutoSize = true;
-            labelCategory.Font = new Font("Microsoft Sans Serif", 10.2F);
-            labelCategory.Location = new Point(13, 11);
-            labelCategory.Name = "labelCategory";
-            labelCategory.Size = new Size(114, 20);
-            labelCategory.TabIndex = 1;
-            labelCategory.Text = "Kategori Telur";
+            EggCategoryLabel.AutoSize = true;
+            EggCategoryLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            EggCategoryLabel.Location = new Point(13, 11);
+            EggCategoryLabel.Name = "EggCategoryLabel";
+            EggCategoryLabel.Size = new Size(114, 20);
+            EggCategoryLabel.TabIndex = 1;
+            EggCategoryLabel.Text = "Kategori Telur";
             // 
-            // cbbCategory
+            // CategoryComboBox
             // 
-            cbbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbCategory.Font = new Font("Microsoft Sans Serif", 7.8F);
-            cbbCategory.Location = new Point(13, 34);
-            cbbCategory.Name = "cbbCategory";
-            cbbCategory.Size = new Size(406, 24);
-            cbbCategory.TabIndex = 2;
+            CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            CategoryComboBox.Font = new Font("Microsoft Sans Serif", 7.8F);
+            CategoryComboBox.Location = new Point(13, 34);
+            CategoryComboBox.Name = "CategoryComboBox";
+            CategoryComboBox.Size = new Size(406, 24);
+            CategoryComboBox.TabIndex = 2;
             // 
-            // flowLayoutPanel6
+            // CategoryInputGroup
             // 
-            flowLayoutPanel6.AutoSize = true;
-            flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel6.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel6.Controls.Add(labelCategory);
-            flowLayoutPanel6.Controls.Add(cbbCategory);
-            flowLayoutPanel6.Dock = DockStyle.Fill;
-            flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel6.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel6.Location = new Point(30, 364);
-            flowLayoutPanel6.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel6.Size = new Size(440, 74);
-            flowLayoutPanel6.TabIndex = 12;
+            CategoryInputGroup.AutoSize = true;
+            CategoryInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            CategoryInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            CategoryInputGroup.Controls.Add(EggCategoryLabel);
+            CategoryInputGroup.Controls.Add(CategoryComboBox);
+            CategoryInputGroup.Dock = DockStyle.Fill;
+            CategoryInputGroup.FlowDirection = FlowDirection.TopDown;
+            CategoryInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            CategoryInputGroup.Location = new Point(30, 364);
+            CategoryInputGroup.Margin = new Padding(0, 0, 0, 40);
+            CategoryInputGroup.Name = "CategoryInputGroup";
+            CategoryInputGroup.Padding = new Padding(10, 11, 10, 11);
+            CategoryInputGroup.Size = new Size(440, 74);
+            CategoryInputGroup.TabIndex = 12;
             // 
-            // flowLayoutPanel1
+            // ListContainer
             // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(addBtn);
-            flowLayoutPanel1.Controls.Add(eggList);
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1362, 924);
-            flowLayoutPanel1.TabIndex = 6;
+            ListContainer.AutoSize = true;
+            ListContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ListContainer.Controls.Add(PageLabel);
+            ListContainer.Controls.Add(AddButton);
+            ListContainer.Controls.Add(EggsList);
+            ListContainer.FlowDirection = FlowDirection.TopDown;
+            ListContainer.Location = new Point(3, 3);
+            ListContainer.Name = "ListContainer";
+            ListContainer.Size = new Size(1362, 924);
+            ListContainer.TabIndex = 6;
+            ListContainer.Paint += flowLayoutPanel1_Paint;
             // 
-            // label1
+            // PageLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(3, 0);
-            label1.Margin = new Padding(3, 0, 3, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(206, 36);
-            label1.TabIndex = 2;
-            label1.Text = "Stok & Inventori";
+            PageLabel.AutoSize = true;
+            PageLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageLabel.ForeColor = SystemColors.ControlText;
+            PageLabel.Location = new Point(3, 0);
+            PageLabel.Margin = new Padding(3, 0, 3, 15);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(206, 36);
+            PageLabel.TabIndex = 2;
+            PageLabel.Text = "Stok & Inventori";
             // 
-            // addBtn
+            // AddButton
             // 
-            addBtn.AutoSize = true;
-            addBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addBtn.Location = new Point(3, 54);
-            addBtn.Margin = new Padding(3, 3, 3, 29);
-            addBtn.Name = "addBtn";
-            addBtn.Size = new Size(181, 48);
-            addBtn.TabIndex = 17;
-            addBtn.Text = "Tambah Data";
-            addBtn.UseVisualStyleBackColor = true;
-            addBtn.Click += addBtn_Click;
+            AddButton.AutoSize = true;
+            AddButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddButton.Location = new Point(3, 54);
+            AddButton.Margin = new Padding(3, 3, 3, 29);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(181, 48);
+            AddButton.TabIndex = 17;
+            AddButton.Text = "Tambah Data";
+            AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddBtn_Click;
             // 
-            // eggList
+            // EggsList
             // 
-            eggList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            eggList.Location = new Point(3, 134);
-            eggList.Margin = new Padding(3, 3, 50, 3);
-            eggList.MaximumSize = new Size(1793, 787);
-            eggList.Name = "eggList";
-            eggList.RowHeadersWidth = 51;
-            eggList.Size = new Size(1309, 787);
-            eggList.TabIndex = 3;
-            eggList.CellContentClick += usersList_CellContentClick;
+            EggsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            EggsList.Location = new Point(3, 134);
+            EggsList.Margin = new Padding(3, 3, 50, 3);
+            EggsList.MaximumSize = new Size(1793, 787);
+            EggsList.Name = "EggsList";
+            EggsList.RowHeadersWidth = 51;
+            EggsList.Size = new Size(1309, 787);
+            EggsList.TabIndex = 3;
+            EggsList.CellContentClick += EggList_CellContentClick;
             // 
-            // label2
+            // FormLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(33, 29);
-            label2.Margin = new Padding(3, 0, 3, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(242, 36);
-            label2.TabIndex = 1;
-            label2.Text = "Kelola Stok Telur";
+            FormLabel.AutoSize = true;
+            FormLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormLabel.ForeColor = SystemColors.ControlText;
+            FormLabel.Location = new Point(33, 29);
+            FormLabel.Margin = new Padding(3, 0, 3, 15);
+            FormLabel.Name = "FormLabel";
+            FormLabel.Size = new Size(242, 36);
+            FormLabel.TabIndex = 1;
+            FormLabel.Text = "Kelola Stok Telur";
             // 
-            // validationErrorMsg
+            // ValidatonErrorMassage
             // 
-            validationErrorMsg.AutoSize = true;
-            validationErrorMsg.BackColor = SystemColors.Control;
-            validationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validationErrorMsg.ForeColor = Color.Red;
-            validationErrorMsg.Location = new Point(33, 80);
-            validationErrorMsg.Margin = new Padding(3, 0, 3, 40);
-            validationErrorMsg.Name = "validationErrorMsg";
-            validationErrorMsg.Size = new Size(0, 20);
-            validationErrorMsg.TabIndex = 15;
+            ValidatonErrorMassage.AutoSize = true;
+            ValidatonErrorMassage.BackColor = SystemColors.Control;
+            ValidatonErrorMassage.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ValidatonErrorMassage.ForeColor = Color.Red;
+            ValidatonErrorMassage.Location = new Point(33, 80);
+            ValidatonErrorMassage.Margin = new Padding(3, 0, 3, 40);
+            ValidatonErrorMassage.Name = "ValidatonErrorMassage";
+            ValidatonErrorMassage.Size = new Size(0, 20);
+            ValidatonErrorMassage.TabIndex = 15;
             // 
-            // formPanel
+            // FormContainer
             // 
-            formPanel.Controls.Add(label2);
-            formPanel.Controls.Add(validationErrorMsg);
-            formPanel.Controls.Add(flowLayoutPanel4);
-            formPanel.Controls.Add(flowLayoutPanel5);
-            formPanel.Controls.Add(flowLayoutPanel6);
-            formPanel.Controls.Add(btnSave);
-            formPanel.Controls.Add(cancelBtn);
-            formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(1371, 3);
-            formPanel.Name = "formPanel";
-            formPanel.Padding = new Padding(30, 29, 30, 29);
-            formPanel.Size = new Size(485, 912);
-            formPanel.TabIndex = 5;
+            FormContainer.Controls.Add(FormLabel);
+            FormContainer.Controls.Add(ValidatonErrorMassage);
+            FormContainer.Controls.Add(ProductionDateInputGroup);
+            FormContainer.Controls.Add(StockInputGroup);
+            FormContainer.Controls.Add(CategoryInputGroup);
+            FormContainer.Controls.Add(SaveButton);
+            FormContainer.Controls.Add(CancelButton);
+            FormContainer.FlowDirection = FlowDirection.TopDown;
+            FormContainer.Location = new Point(1371, 3);
+            FormContainer.Name = "FormContainer";
+            FormContainer.Padding = new Padding(30, 29, 30, 29);
+            FormContainer.Size = new Size(485, 912);
+            FormContainer.TabIndex = 5;
             // 
-            // btnSave
+            // SaveButton
             // 
-            btnSave.AutoSize = true;
-            btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(33, 481);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(434, 48);
-            btnSave.TabIndex = 9;
-            btnSave.Text = "Simpan";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
+            SaveButton.AutoSize = true;
+            SaveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveButton.Location = new Point(33, 481);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(434, 48);
+            SaveButton.TabIndex = 9;
+            SaveButton.Text = "Simpan";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveBtn_Click;
             // 
-            // body
+            // PageBodyContainer
             // 
-            body.AutoSize = true;
-            body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            body.ColumnCount = 2;
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.Controls.Add(flowLayoutPanel1, 0, 0);
-            body.Controls.Add(formPanel, 1, 0);
-            body.Location = new Point(3, 35);
-            body.Name = "body";
-            body.RowCount = 1;
-            body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(1859, 930);
-            body.TabIndex = 7;
+            PageBodyContainer.AutoSize = true;
+            PageBodyContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PageBodyContainer.ColumnCount = 2;
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
+            PageBodyContainer.Controls.Add(ListContainer, 0, 0);
+            PageBodyContainer.Controls.Add(FormContainer, 1, 0);
+            PageBodyContainer.Location = new Point(3, 35);
+            PageBodyContainer.Name = "PageBodyContainer";
+            PageBodyContainer.RowCount = 1;
+            PageBodyContainer.RowStyles.Add(new RowStyle());
+            PageBodyContainer.Size = new Size(1859, 930);
+            PageBodyContainer.TabIndex = 7;
             // 
-            // menuLogout
+            // LogoutMenu
             // 
-            menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(79, 26);
-            menuLogout.Text = "Logout";
-            menuLogout.Click += handleClickMenu;
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(79, 26);
+            LogoutMenu.Text = "Logout";
+            LogoutMenu.Click += HandleClickMenu;
             // 
-            // laporanMenu
+            // ReportMenu
             // 
-            laporanMenu.Name = "laporanMenu";
-            laporanMenu.Size = new Size(90, 26);
-            laporanMenu.Text = "Laporan";
-            laporanMenu.Click += handleClickMenu;
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(90, 26);
+            ReportMenu.Text = "Laporan";
+            ReportMenu.Click += HandleClickMenu;
             // 
-            // operationalMenu
+            // OperationalMenu
             // 
-            operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(121, 26);
-            operationalMenu.Text = "Operasional";
-            operationalMenu.Click += handleClickMenu;
+            OperationalMenu.Name = "OperationalMenu";
+            OperationalMenu.Size = new Size(121, 26);
+            OperationalMenu.Text = "Operasional";
+            OperationalMenu.Click += HandleClickMenu;
             // 
-            // transaksiMenu
+            // TransactionMenu
             // 
-            transaksiMenu.Name = "transaksiMenu";
-            transaksiMenu.Size = new Size(103, 26);
-            transaksiMenu.Text = "Transaksi";
-            transaksiMenu.Click += handleClickMenu;
+            TransactionMenu.Name = "TransactionMenu";
+            TransactionMenu.Size = new Size(103, 26);
+            TransactionMenu.Text = "Transaksi";
+            TransactionMenu.Click += HandleClickMenu;
             // 
-            // stokMenu
+            // StockMenu
             // 
-            stokMenu.Name = "stokMenu";
-            stokMenu.Size = new Size(138, 26);
-            stokMenu.Text = "Stok & Inventori";
-            stokMenu.Click += handleClickMenu;
+            StockMenu.Name = "StockMenu";
+            StockMenu.Size = new Size(138, 26);
+            StockMenu.Text = "Stok & Inventori";
+            StockMenu.Click += HandleClickMenu;
             // 
-            // kategoriMenu
+            // EggCategoryMenu
             // 
-            kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(138, 26);
-            kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += handleClickMenu;
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(138, 26);
+            EggCategoryMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Click += HandleClickMenu;
             // 
-            // penggunaMenu
+            // UserMenu
             // 
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(106, 26);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += handleClickMenu;
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(106, 26);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += HandleClickMenu;
             // 
-            // dashboardMenu
+            // DashboardMenu
             // 
-            dashboardMenu.Name = "dashboardMenu";
-            dashboardMenu.Size = new Size(112, 26);
-            dashboardMenu.Text = "Dashboard";
-            dashboardMenu.Click += handleClickMenu;
+            DashboardMenu.Name = "DashboardMenu";
+            DashboardMenu.Size = new Size(112, 26);
+            DashboardMenu.Text = "Dashboard";
+            DashboardMenu.Click += HandleClickMenu;
             // 
-            // topMenu
+            // MenuContainer
             // 
-            topMenu.BackColor = SystemColors.ControlLight;
-            topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
-            topMenu.Location = new Point(0, 0);
-            topMenu.Name = "topMenu";
-            topMenu.Padding = new Padding(6, 3, 0, 3);
-            topMenu.Size = new Size(1902, 32);
-            topMenu.TabIndex = 6;
-            topMenu.Text = "menuStrip1";
+            MenuContainer.BackColor = SystemColors.ControlLight;
+            MenuContainer.Dock = DockStyle.Fill;
+            MenuContainer.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MenuContainer.ImageScalingSize = new Size(20, 20);
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            MenuContainer.Location = new Point(0, 0);
+            MenuContainer.Name = "MenuContainer";
+            MenuContainer.Padding = new Padding(6, 3, 0, 3);
+            MenuContainer.Size = new Size(1902, 32);
+            MenuContainer.TabIndex = 6;
+            MenuContainer.Text = "menuStrip1";
             // 
-            // container
+            // PageContainer
             // 
-            container.ColumnCount = 1;
-            container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            container.Controls.Add(topMenu, 0, 0);
-            container.Controls.Add(body, 0, 1);
-            container.Dock = DockStyle.Fill;
-            container.Location = new Point(0, 0);
-            container.Name = "container";
-            container.RowCount = 2;
-            container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(1902, 1033);
-            container.TabIndex = 1;
+            PageContainer.ColumnCount = 1;
+            PageContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            PageContainer.Controls.Add(MenuContainer, 0, 0);
+            PageContainer.Controls.Add(PageBodyContainer, 0, 1);
+            PageContainer.Dock = DockStyle.Fill;
+            PageContainer.Location = new Point(0, 0);
+            PageContainer.Name = "PageContainer";
+            PageContainer.RowCount = 2;
+            PageContainer.RowStyles.Add(new RowStyle());
+            PageContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PageContainer.Size = new Size(1902, 1033);
+            PageContainer.TabIndex = 1;
             // 
             // EggStockPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(container);
+            Controls.Add(PageContainer);
             Name = "EggStockPage";
             Text = "Stok & Inventori";
             WindowState = FormWindowState.Maximized;
-            flowLayoutPanel4.ResumeLayout(false);
-            flowLayoutPanel4.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
-            flowLayoutPanel6.ResumeLayout(false);
-            flowLayoutPanel6.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)eggList).EndInit();
-            formPanel.ResumeLayout(false);
-            formPanel.PerformLayout();
-            body.ResumeLayout(false);
-            body.PerformLayout();
-            topMenu.ResumeLayout(false);
-            topMenu.PerformLayout();
-            container.ResumeLayout(false);
-            container.PerformLayout();
+            Load += EggStockPage_Load;
+            ProductionDateInputGroup.ResumeLayout(false);
+            ProductionDateInputGroup.PerformLayout();
+            StockInputGroup.ResumeLayout(false);
+            StockInputGroup.PerformLayout();
+            CategoryInputGroup.ResumeLayout(false);
+            CategoryInputGroup.PerformLayout();
+            ListContainer.ResumeLayout(false);
+            ListContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)EggsList).EndInit();
+            FormContainer.ResumeLayout(false);
+            FormContainer.PerformLayout();
+            PageBodyContainer.ResumeLayout(false);
+            PageBodyContainer.PerformLayout();
+            MenuContainer.ResumeLayout(false);
+            MenuContainer.PerformLayout();
+            PageContainer.ResumeLayout(false);
+            PageContainer.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private Button cancelBtn;
-        private Label labelProductionDate;
-        private DateTimePicker dtpProductionDate;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private Label labelStock;
-        private TextBox txtStock;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private Label labelCategory;
-        private ComboBox cbbCategory;
-        private FlowLayoutPanel flowLayoutPanel6;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
-        private Button addBtn;
-        private DataGridView eggList;
-        private Label label2;
-        private Label validationErrorMsg;
-        private FlowLayoutPanel formPanel;
-        private Button btnSave;
-        private TableLayoutPanel body;
-        private ToolStripMenuItem menuLogout;
-        private ToolStripMenuItem laporanMenu;
-        private ToolStripMenuItem operationalMenu;
-        private ToolStripMenuItem transaksiMenu;
-        private ToolStripMenuItem stokMenu;
-        private ToolStripMenuItem kategoriMenu;
-        private ToolStripMenuItem penggunaMenu;
-        private ToolStripMenuItem dashboardMenu;
-        private MenuStrip topMenu;
-        private TableLayoutPanel container;
+        private Button CancelButton;
+        private Label ProductionDateLabel;
+        private DateTimePicker ProductionDateTimePicker;
+        private FlowLayoutPanel ProductionDateInputGroup;
+        private Label StockLabel;
+        private TextBox StockTextField;
+        private FlowLayoutPanel StockInputGroup;
+        private Label EggCategoryLabel;
+        private ComboBox CategoryComboBox;
+        private FlowLayoutPanel CategoryInputGroup;
+        private FlowLayoutPanel ListContainer;
+        private Label PageLabel;
+        private Button AddButton;
+        private DataGridView EggsList;
+        private Label FormLabel;
+        private Label ValidatonErrorMassage;
+        private FlowLayoutPanel FormContainer;
+        private Button SaveButton;
+        private TableLayoutPanel PageBodyContainer;
+        private ToolStripMenuItem LogoutMenu;
+        private ToolStripMenuItem ReportMenu;
+        private ToolStripMenuItem OperationalMenu;
+        private ToolStripMenuItem TransactionMenu;
+        private ToolStripMenuItem StockMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem UserMenu;
+        private ToolStripMenuItem DashboardMenu;
+        private MenuStrip MenuContainer;
+        private TableLayoutPanel PageContainer;
     }
 }
