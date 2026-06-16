@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             Phone = new Label();
-            txtPhoneNumber = new TextBox();
+            PhoneNumberTextField = new TextBox();
             flowLayoutPanel6 = new FlowLayoutPanel();
             label4 = new Label();
-            txtAddress = new TextBox();
+            AddressTextField = new TextBox();
             flowLayoutPanel5 = new FlowLayoutPanel();
             label3 = new Label();
-            txtName = new TextBox();
+            NamaTextField = new TextBox();
             label2 = new Label();
             validationErrorMsg = new Label();
             flowLayoutPanel4 = new FlowLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
-            addBtn = new Button();
-            tenantsList = new DataGridView();
+            AddBtn = new Button();
+            TenantList = new DataGridView();
             body = new TableLayoutPanel();
             formPanel = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
@@ -50,15 +50,15 @@
             chkIsValid = new CheckBox();
             flowLayoutPanel3 = new FlowLayoutPanel();
             label5 = new Label();
-            txtUsername = new TextBox();
+            UsernameTextField = new TextBox();
             flowLayoutPanel7 = new FlowLayoutPanel();
             label7 = new Label();
-            txtPassword = new TextBox();
+            PasswordTextField = new TextBox();
             flowLayoutPanel8 = new FlowLayoutPanel();
             Email = new Label();
-            txtEmail = new TextBox();
-            btnSave = new Button();
-            cancelBtn = new Button();
+            EmailTextField = new TextBox();
+            SaveBtn = new Button();
+            CancelBtn = new Button();
             menuLogout = new ToolStripMenuItem();
             laporanMenu = new ToolStripMenuItem();
             operationalMenu = new ToolStripMenuItem();
@@ -74,7 +74,7 @@
             flowLayoutPanel5.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tenantsList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TenantList).BeginInit();
             body.SuspendLayout();
             formPanel.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
@@ -91,18 +91,18 @@
             Phone.Font = new Font("Microsoft Sans Serif", 10.2F);
             Phone.Location = new Point(12, 8);
             Phone.Name = "Phone";
-            Phone.Size = new Size(103, 17);
+            Phone.Size = new Size(106, 17);
             Phone.TabIndex = 1;
-            Phone.Text = "Phone Number";
+            Phone.Text = "Nomor Telepon";
             // 
-            // txtPhoneNumber
+            // PhoneNumberTextField
             // 
-            txtPhoneNumber.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtPhoneNumber.Location = new Point(12, 27);
-            txtPhoneNumber.Margin = new Padding(3, 2, 3, 2);
-            txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(356, 19);
-            txtPhoneNumber.TabIndex = 2;
+            PhoneNumberTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PhoneNumberTextField.Location = new Point(12, 27);
+            PhoneNumberTextField.Margin = new Padding(3, 2, 3, 2);
+            PhoneNumberTextField.Name = "PhoneNumberTextField";
+            PhoneNumberTextField.Size = new Size(356, 19);
+            PhoneNumberTextField.TabIndex = 2;
             // 
             // flowLayoutPanel6
             // 
@@ -110,7 +110,7 @@
             flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel6.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel6.Controls.Add(Phone);
-            flowLayoutPanel6.Controls.Add(txtPhoneNumber);
+            flowLayoutPanel6.Controls.Add(PhoneNumberTextField);
             flowLayoutPanel6.Dock = DockStyle.Fill;
             flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel6.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -127,18 +127,18 @@
             label4.Font = new Font("Microsoft Sans Serif", 10.2F);
             label4.Location = new Point(12, 8);
             label4.Name = "label4";
-            label4.Size = new Size(60, 17);
+            label4.Size = new Size(51, 17);
             label4.TabIndex = 4;
-            label4.Text = "Address";
+            label4.Text = "Alamat";
             // 
-            // txtAddress
+            // AddressTextField
             // 
-            txtAddress.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtAddress.Location = new Point(12, 27);
-            txtAddress.Margin = new Padding(3, 2, 3, 2);
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(356, 19);
-            txtAddress.TabIndex = 3;
+            AddressTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            AddressTextField.Location = new Point(12, 27);
+            AddressTextField.Margin = new Padding(3, 2, 3, 2);
+            AddressTextField.Name = "AddressTextField";
+            AddressTextField.Size = new Size(356, 19);
+            AddressTextField.TabIndex = 3;
             // 
             // flowLayoutPanel5
             // 
@@ -146,7 +146,7 @@
             flowLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel5.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel5.Controls.Add(label4);
-            flowLayoutPanel5.Controls.Add(txtAddress);
+            flowLayoutPanel5.Controls.Add(AddressTextField);
             flowLayoutPanel5.Dock = DockStyle.Fill;
             flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel5.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -167,14 +167,14 @@
             label3.TabIndex = 1;
             label3.Text = "Nama";
             // 
-            // txtName
+            // NamaTextField
             // 
-            txtName.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtName.Location = new Point(12, 27);
-            txtName.Margin = new Padding(3, 2, 3, 2);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(356, 19);
-            txtName.TabIndex = 2;
+            NamaTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            NamaTextField.Location = new Point(12, 27);
+            NamaTextField.Margin = new Padding(3, 2, 3, 2);
+            NamaTextField.Name = "NamaTextField";
+            NamaTextField.Size = new Size(356, 19);
+            NamaTextField.TabIndex = 2;
             // 
             // label2
             // 
@@ -206,7 +206,7 @@
             flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel4.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel4.Controls.Add(label3);
-            flowLayoutPanel4.Controls.Add(txtName);
+            flowLayoutPanel4.Controls.Add(NamaTextField);
             flowLayoutPanel4.Dock = DockStyle.Fill;
             flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel4.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -222,8 +222,8 @@
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(addBtn);
-            flowLayoutPanel1.Controls.Add(tenantsList);
+            flowLayoutPanel1.Controls.Add(AddBtn);
+            flowLayoutPanel1.Controls.Add(TenantList);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 2);
             flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -243,30 +243,30 @@
             label1.TabIndex = 2;
             label1.Text = "Daftar Tenant";
             // 
-            // addBtn
+            // AddBtn
             // 
-            addBtn.AutoSize = true;
-            addBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addBtn.Location = new Point(3, 42);
-            addBtn.Margin = new Padding(3, 2, 3, 22);
-            addBtn.Name = "addBtn";
-            addBtn.Size = new Size(158, 36);
-            addBtn.TabIndex = 17;
-            addBtn.Text = "Tambah Data";
-            addBtn.UseVisualStyleBackColor = true;
-            addBtn.Click += addBtn_Click;
+            AddBtn.AutoSize = true;
+            AddBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddBtn.Location = new Point(3, 42);
+            AddBtn.Margin = new Padding(3, 2, 3, 22);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(158, 36);
+            AddBtn.TabIndex = 17;
+            AddBtn.Text = "Tambah Data";
+            AddBtn.UseVisualStyleBackColor = true;
+            AddBtn.Click += addBtn_Click;
             // 
-            // tenantsList
+            // TenantList
             // 
-            tenantsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tenantsList.Location = new Point(3, 102);
-            tenantsList.Margin = new Padding(3, 2, 44, 2);
-            tenantsList.MaximumSize = new Size(1569, 590);
-            tenantsList.Name = "tenantsList";
-            tenantsList.RowHeadersWidth = 51;
-            tenantsList.Size = new Size(1148, 590);
-            tenantsList.TabIndex = 3;
-            tenantsList.CellContentClick += tenantsList_CellContentClick;
+            TenantList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TenantList.Location = new Point(3, 102);
+            TenantList.Margin = new Padding(3, 2, 44, 2);
+            TenantList.MaximumSize = new Size(1569, 590);
+            TenantList.Name = "TenantList";
+            TenantList.RowHeadersWidth = 51;
+            TenantList.Size = new Size(1148, 590);
+            TenantList.TabIndex = 3;
+            TenantList.CellContentClick += tenantsList_CellContentClick;
             // 
             // body
             // 
@@ -296,8 +296,8 @@
             formPanel.Controls.Add(flowLayoutPanel3);
             formPanel.Controls.Add(flowLayoutPanel7);
             formPanel.Controls.Add(flowLayoutPanel8);
-            formPanel.Controls.Add(btnSave);
-            formPanel.Controls.Add(cancelBtn);
+            formPanel.Controls.Add(SaveBtn);
+            formPanel.Controls.Add(CancelBtn);
             formPanel.FlowDirection = FlowDirection.TopDown;
             formPanel.Location = new Point(1204, 2);
             formPanel.Margin = new Padding(3, 2, 3, 2);
@@ -349,7 +349,7 @@
             flowLayoutPanel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel3.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel3.Controls.Add(label5);
-            flowLayoutPanel3.Controls.Add(txtUsername);
+            flowLayoutPanel3.Controls.Add(UsernameTextField);
             flowLayoutPanel3.Dock = DockStyle.Fill;
             flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel3.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -370,14 +370,14 @@
             label5.TabIndex = 1;
             label5.Text = "Username";
             // 
-            // txtUsername
+            // UsernameTextField
             // 
-            txtUsername.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtUsername.Location = new Point(12, 27);
-            txtUsername.Margin = new Padding(3, 2, 3, 2);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(356, 19);
-            txtUsername.TabIndex = 2;
+            UsernameTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            UsernameTextField.Location = new Point(12, 27);
+            UsernameTextField.Margin = new Padding(3, 2, 3, 2);
+            UsernameTextField.Name = "UsernameTextField";
+            UsernameTextField.Size = new Size(356, 19);
+            UsernameTextField.TabIndex = 2;
             // 
             // flowLayoutPanel7
             // 
@@ -385,7 +385,7 @@
             flowLayoutPanel7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel7.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel7.Controls.Add(label7);
-            flowLayoutPanel7.Controls.Add(txtPassword);
+            flowLayoutPanel7.Controls.Add(PasswordTextField);
             flowLayoutPanel7.Dock = DockStyle.Fill;
             flowLayoutPanel7.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel7.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -406,14 +406,14 @@
             label7.TabIndex = 4;
             label7.Text = "Password";
             // 
-            // txtPassword
+            // PasswordTextField
             // 
-            txtPassword.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtPassword.Location = new Point(12, 27);
-            txtPassword.Margin = new Padding(3, 2, 3, 2);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(356, 19);
-            txtPassword.TabIndex = 3;
+            PasswordTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PasswordTextField.Location = new Point(12, 27);
+            PasswordTextField.Margin = new Padding(3, 2, 3, 2);
+            PasswordTextField.Name = "PasswordTextField";
+            PasswordTextField.Size = new Size(356, 19);
+            PasswordTextField.TabIndex = 3;
             // 
             // flowLayoutPanel8
             // 
@@ -421,7 +421,7 @@
             flowLayoutPanel8.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel8.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel8.Controls.Add(Email);
-            flowLayoutPanel8.Controls.Add(txtEmail);
+            flowLayoutPanel8.Controls.Add(EmailTextField);
             flowLayoutPanel8.Dock = DockStyle.Fill;
             flowLayoutPanel8.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel8.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -442,40 +442,40 @@
             Email.TabIndex = 1;
             Email.Text = "Email";
             // 
-            // txtEmail
+            // EmailTextField
             // 
-            txtEmail.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtEmail.Location = new Point(12, 27);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(356, 19);
-            txtEmail.TabIndex = 2;
+            EmailTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            EmailTextField.Location = new Point(12, 27);
+            EmailTextField.Margin = new Padding(3, 2, 3, 2);
+            EmailTextField.Name = "EmailTextField";
+            EmailTextField.Size = new Size(356, 19);
+            EmailTextField.TabIndex = 2;
             // 
-            // btnSave
+            // SaveBtn
             // 
-            btnSave.AutoSize = true;
-            btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(29, 727);
-            btnSave.Margin = new Padding(3, 2, 3, 2);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(380, 36);
-            btnSave.TabIndex = 23;
-            btnSave.Text = "Simpan";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
+            SaveBtn.AutoSize = true;
+            SaveBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveBtn.Location = new Point(29, 727);
+            SaveBtn.Margin = new Padding(3, 2, 3, 2);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(380, 36);
+            SaveBtn.TabIndex = 23;
+            SaveBtn.Text = "Simpan";
+            SaveBtn.UseVisualStyleBackColor = true;
+            SaveBtn.Click += btnSave_Click;
             // 
-            // cancelBtn
+            // CancelBtn
             // 
-            cancelBtn.AutoSize = true;
-            cancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cancelBtn.Location = new Point(29, 767);
-            cancelBtn.Margin = new Padding(3, 2, 3, 2);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(380, 36);
-            cancelBtn.TabIndex = 24;
-            cancelBtn.Text = "Batalkan";
-            cancelBtn.UseVisualStyleBackColor = true;
-            cancelBtn.Click += cancelBtn_Click;
+            CancelBtn.AutoSize = true;
+            CancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelBtn.Location = new Point(29, 767);
+            CancelBtn.Margin = new Padding(3, 2, 3, 2);
+            CancelBtn.Name = "CancelBtn";
+            CancelBtn.Size = new Size(380, 36);
+            CancelBtn.TabIndex = 24;
+            CancelBtn.Text = "Batalkan";
+            CancelBtn.UseVisualStyleBackColor = true;
+            CancelBtn.Click += cancelBtn_Click;
             // 
             // menuLogout
             // 
@@ -531,6 +531,7 @@
             dashboardMenu.Name = "dashboardMenu";
             dashboardMenu.Size = new Size(92, 22);
             dashboardMenu.Text = "Dashboard";
+            dashboardMenu.Click += handleClickMenu;
             // 
             // topMenu
             // 
@@ -585,7 +586,7 @@
             flowLayoutPanel4.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)tenantsList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TenantList).EndInit();
             body.ResumeLayout(false);
             body.PerformLayout();
             formPanel.ResumeLayout(false);
@@ -607,20 +608,20 @@
 
         #endregion
         private Label Phone;
-        private TextBox txtPhoneNumber;
+        private TextBox PhoneNumberTextField;
         private FlowLayoutPanel flowLayoutPanel6;
         private Label label4;
-        private TextBox txtAddress;
+        private TextBox AddressTextField;
         private FlowLayoutPanel flowLayoutPanel5;
         private Label label3;
-        private TextBox txtName;
+        private TextBox NamaTextField;
         private Label label2;
         private Label validationErrorMsg;
         private FlowLayoutPanel flowLayoutPanel4;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
-        private Button addBtn;
-        private DataGridView tenantsList;
+        private Button AddBtn;
+        private DataGridView TenantList;
         private TableLayoutPanel body;
         private FlowLayoutPanel formPanel;
         private ToolStripMenuItem menuLogout;
@@ -639,14 +640,14 @@
         private ToolStripMenuItem tenantMenu;
         private FlowLayoutPanel flowLayoutPanel3;
         private Label label5;
-        private TextBox txtUsername;
+        private TextBox UsernameTextField;
         private FlowLayoutPanel flowLayoutPanel7;
         private Label label7;
-        private TextBox txtPassword;
+        private TextBox PasswordTextField;
         private FlowLayoutPanel flowLayoutPanel8;
         private Label Email;
-        private TextBox txtEmail;
-        private Button btnSave;
-        private Button cancelBtn;
+        private TextBox EmailTextField;
+        private Button SaveBtn;
+        private Button CancelBtn;
     }
 }
