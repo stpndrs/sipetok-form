@@ -55,18 +55,18 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(195, 68);
+            flowLayoutPanel1.Size = new Size(167, 51);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Poppins", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
             label1.Location = new Point(3, 0);
             label1.Margin = new Padding(3, 0, 3, 15);
             label1.Name = "label1";
-            label1.Size = new Size(189, 53);
+            label1.Size = new Size(161, 36);
             label1.TabIndex = 2;
             label1.Text = "Dashboard";
             // 
@@ -82,13 +82,13 @@
             body.Name = "body";
             body.RowCount = 1;
             body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(201, 74);
+            body.Size = new Size(173, 57);
             body.TabIndex = 7;
             // 
             // menuLogout
             // 
             menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(80, 26);
+            menuLogout.Size = new Size(79, 26);
             menuLogout.Text = "Logout";
             // 
             // laporanMenu
@@ -100,7 +100,7 @@
             // operationalMenu
             // 
             operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(120, 26);
+            operationalMenu.Size = new Size(121, 26);
             operationalMenu.Text = "Operasional";
             // 
             // transaksiMenu
@@ -118,26 +118,28 @@
             // kategoriMenu
             // 
             kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(136, 26);
+            kategoriMenu.Size = new Size(138, 26);
             kategoriMenu.Text = "Kategori Telur";
+            kategoriMenu.Click += kategoriMenu_Click;
             // 
             // penggunaMenu
             // 
             penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(104, 26);
+            penggunaMenu.Size = new Size(106, 26);
             penggunaMenu.Text = "Pengguna";
+            penggunaMenu.Click += penggunaMenu_Click;
             // 
             // dashboardMenu
             // 
             dashboardMenu.Name = "dashboardMenu";
-            dashboardMenu.Size = new Size(111, 26);
+            dashboardMenu.Size = new Size(112, 26);
             dashboardMenu.Text = "Dashboard";
             // 
             // topMenu
             // 
             topMenu.BackColor = SystemColors.ControlLight;
             topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            topMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             topMenu.ImageScalingSize = new Size(20, 20);
             topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
             topMenu.Location = new Point(0, 0);
