@@ -32,6 +32,7 @@
             menuStrip1 = new MenuStrip();
             dahboardToolStripMenuItem = new ToolStripMenuItem();
             penggunaMenu = new ToolStripMenuItem();
+            tenantMenu = new ToolStripMenuItem();
             kategoriMenu = new ToolStripMenuItem();
             transaksiMenu = new ToolStripMenuItem();
             operationalMenu = new ToolStripMenuItem();
@@ -57,7 +58,6 @@
             btnTransaksi = new Button();
             btnOperational = new Button();
             dataGridView1 = new DataGridView();
-            tenantMenu = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             formPanel.SuspendLayout();
@@ -96,6 +96,14 @@
             penggunaMenu.Size = new Size(85, 22);
             penggunaMenu.Text = "Pengguna";
             penggunaMenu.Click += HandleMenuClick;
+            // 
+            // tenantMenu
+            // 
+            tenantMenu.Font = new Font("Roboto", 10.8F);
+            tenantMenu.Name = "tenantMenu";
+            tenantMenu.Size = new Size(65, 22);
+            tenantMenu.Text = "Tenant";
+            tenantMenu.Click += HandleMenuClick;
             // 
             // kategoriMenu
             // 
@@ -146,16 +154,16 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 76.8382339F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.1617641F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             tableLayoutPanel1.Controls.Add(formPanel, 1, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel1.Location = new Point(0, 29);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 26);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1904, 936);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(1904, 1015);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // formPanel
@@ -164,7 +172,7 @@
             formPanel.Controls.Add(validationErrorMsg);
             formPanel.Controls.Add(flowLayoutPanel3);
             formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(1466, 2);
+            formPanel.Location = new Point(1335, 2);
             formPanel.Margin = new Padding(3, 2, 3, 2);
             formPanel.Name = "formPanel";
             formPanel.Padding = new Padding(26, 22, 26, 22);
@@ -311,7 +319,7 @@
             flowLayoutPanel1.Controls.Add(dataGridView1);
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1457, 930);
+            flowLayoutPanel1.Size = new Size(1326, 930);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // btnTransaksi
@@ -340,16 +348,8 @@
             dataGridView1.Location = new Point(3, 32);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ScrollBars = ScrollBars.Vertical;
-            dataGridView1.Size = new Size(1397, 890);
+            dataGridView1.Size = new Size(1281, 898);
             dataGridView1.TabIndex = 2;
-            // 
-            // tenantMenu
-            // 
-            tenantMenu.Font = new Font("Roboto", 10.8F);
-            tenantMenu.Name = "tenantMenu";
-            tenantMenu.Size = new Size(65, 22);
-            tenantMenu.Text = "Tenant";
-            tenantMenu.Click += HandleMenuClick;
             // 
             // LaporanPage
             // 
@@ -362,6 +362,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "LaporanPage";
             Text = "LaporanPage";
+            WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
