@@ -28,183 +28,183 @@
         /// </summary>
         private void InitializeComponent()
         {
-            container = new TableLayoutPanel();
-            topMenu = new MenuStrip();
-            dashboardMenu = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            tenantMenu = new ToolStripMenuItem();
-            kategoriMenu = new ToolStripMenuItem();
-            stokMenu = new ToolStripMenuItem();
-            transaksiMenu = new ToolStripMenuItem();
-            operationalMenu = new ToolStripMenuItem();
-            laporanMenu = new ToolStripMenuItem();
-            menuLogout = new ToolStripMenuItem();
-            body = new TableLayoutPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label1 = new Label();
+            PageContainer = new TableLayoutPanel();
+            MenuContainer = new MenuStrip();
+            DashboardMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
+            TenantMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            StockMenu = new ToolStripMenuItem();
+            TransactionMenu = new ToolStripMenuItem();
+            OperationalMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
+            LogoutMenu = new ToolStripMenuItem();
+            PageBodyContainer = new TableLayoutPanel();
+            ListContainer = new FlowLayoutPanel();
+            PageLabel = new Label();
             AddBtn = new Button();
             UsersList = new DataGridView();
-            formPanel = new FlowLayoutPanel();
-            label2 = new Label();
-            validationErrorMsg = new Label();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            label3 = new Label();
-            txtUsername = new TextBox();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            label4 = new Label();
-            txtPassword = new TextBox();
-            flowLayoutPanel6 = new FlowLayoutPanel();
-            Email = new Label();
-            txtEmail = new TextBox();
-            flowLayoutPanel7 = new FlowLayoutPanel();
-            label5 = new Label();
-            cbbRole = new ComboBox();
+            FormContainer = new FlowLayoutPanel();
+            FormLabel = new Label();
+            ValidationErrorMsgLabel = new Label();
+            UsernameInputGroup = new FlowLayoutPanel();
+            UsernameLabel = new Label();
+            UsernameTextField = new TextBox();
+            PasswordInputGroup = new FlowLayoutPanel();
+            PasswordLabel = new Label();
+            PasswordTextField = new TextBox();
+            EmailInputGroup = new FlowLayoutPanel();
+            EmailLabel = new Label();
+            EmailTextField = new TextBox();
+            RoleInputGroup = new FlowLayoutPanel();
+            RoleLabel = new Label();
+            RoleComboBox = new ComboBox();
             SaveBtn = new Button();
             CancelBtn = new Button();
-            container.SuspendLayout();
-            topMenu.SuspendLayout();
-            body.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            PageContainer.SuspendLayout();
+            MenuContainer.SuspendLayout();
+            PageBodyContainer.SuspendLayout();
+            ListContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UsersList).BeginInit();
-            formPanel.SuspendLayout();
-            flowLayoutPanel4.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            flowLayoutPanel6.SuspendLayout();
-            flowLayoutPanel7.SuspendLayout();
+            FormContainer.SuspendLayout();
+            UsernameInputGroup.SuspendLayout();
+            PasswordInputGroup.SuspendLayout();
+            EmailInputGroup.SuspendLayout();
+            RoleInputGroup.SuspendLayout();
             SuspendLayout();
             // 
-            // container
+            // PageContainer
             // 
-            container.ColumnCount = 1;
-            container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            container.Controls.Add(topMenu, 0, 0);
-            container.Controls.Add(body, 0, 1);
-            container.Dock = DockStyle.Fill;
-            container.Location = new Point(0, 0);
-            container.Name = "container";
-            container.RowCount = 2;
-            container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(1902, 1033);
-            container.TabIndex = 0;
+            PageContainer.ColumnCount = 1;
+            PageContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            PageContainer.Controls.Add(MenuContainer, 0, 0);
+            PageContainer.Controls.Add(PageBodyContainer, 0, 1);
+            PageContainer.Dock = DockStyle.Fill;
+            PageContainer.Location = new Point(0, 0);
+            PageContainer.Name = "PageContainer";
+            PageContainer.RowCount = 2;
+            PageContainer.RowStyles.Add(new RowStyle());
+            PageContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PageContainer.Size = new Size(1902, 1033);
+            PageContainer.TabIndex = 0;
             // 
-            // topMenu
+            // MenuContainer
             // 
-            topMenu.BackColor = SystemColors.ControlLight;
-            topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, toolStripMenuItem1, tenantMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
-            topMenu.Location = new Point(0, 0);
-            topMenu.Name = "topMenu";
-            topMenu.Padding = new Padding(6, 3, 0, 3);
-            topMenu.Size = new Size(1902, 32);
-            topMenu.TabIndex = 6;
-            topMenu.Text = "menuStrip1";
+            MenuContainer.BackColor = SystemColors.ControlLight;
+            MenuContainer.Dock = DockStyle.Fill;
+            MenuContainer.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MenuContainer.ImageScalingSize = new Size(20, 20);
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            MenuContainer.Location = new Point(0, 0);
+            MenuContainer.Name = "MenuContainer";
+            MenuContainer.Padding = new Padding(6, 3, 0, 3);
+            MenuContainer.Size = new Size(1902, 32);
+            MenuContainer.TabIndex = 6;
+            MenuContainer.Text = "menuStrip1";
             // 
-            // dashboardMenu
+            // DashboardMenu
             // 
-            dashboardMenu.Name = "dashboardMenu";
-            dashboardMenu.Size = new Size(111, 26);
-            dashboardMenu.Text = "Dashboard";
-            dashboardMenu.Click += HandleClickMenu;
+            DashboardMenu.Name = "DashboardMenu";
+            DashboardMenu.Size = new Size(111, 26);
+            DashboardMenu.Text = "Dashboard";
+            DashboardMenu.Click += HandleClickMenu;
             // 
-            // toolStripMenuItem1
+            // UserMenu
             // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(104, 26);
-            toolStripMenuItem1.Text = "Pengguna";
-            toolStripMenuItem1.Click += HandleClickMenu;
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(104, 26);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += HandleClickMenu;
             // 
-            // tenantMenu
+            // TenantMenu
             // 
-            tenantMenu.Name = "tenantMenu";
-            tenantMenu.Size = new Size(80, 26);
-            tenantMenu.Text = "Tenant";
-            tenantMenu.Click += HandleClickMenu;
+            TenantMenu.Name = "TenantMenu";
+            TenantMenu.Size = new Size(80, 26);
+            TenantMenu.Text = "Tenant";
+            TenantMenu.Click += HandleClickMenu;
             // 
-            // kategoriMenu
+            // EggCategoryMenu
             // 
-            kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(136, 26);
-            kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += HandleClickMenu;
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(136, 26);
+            EggCategoryMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Click += HandleClickMenu;
             // 
-            // stokMenu
+            // StockMenu
             // 
-            stokMenu.Name = "stokMenu";
-            stokMenu.Size = new Size(138, 26);
-            stokMenu.Text = "Stok & Inventori";
-            stokMenu.Click += HandleClickMenu;
+            StockMenu.Name = "StockMenu";
+            StockMenu.Size = new Size(138, 26);
+            StockMenu.Text = "Stok & Inventori";
+            StockMenu.Click += HandleClickMenu;
             // 
-            // transaksiMenu
+            // TransactionMenu
             // 
-            transaksiMenu.Name = "transaksiMenu";
-            transaksiMenu.Size = new Size(103, 26);
-            transaksiMenu.Text = "Transaksi";
-            transaksiMenu.Click += HandleClickMenu;
+            TransactionMenu.Name = "TransactionMenu";
+            TransactionMenu.Size = new Size(103, 26);
+            TransactionMenu.Text = "Transaksi";
+            TransactionMenu.Click += HandleClickMenu;
             // 
-            // operationalMenu
+            // OperationalMenu
             // 
-            operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(120, 26);
-            operationalMenu.Text = "Operasional";
-            operationalMenu.Click += HandleClickMenu;
+            OperationalMenu.Name = "OperationalMenu";
+            OperationalMenu.Size = new Size(120, 26);
+            OperationalMenu.Text = "Operasional";
+            OperationalMenu.Click += HandleClickMenu;
             // 
-            // laporanMenu
+            // ReportMenu
             // 
-            laporanMenu.Name = "laporanMenu";
-            laporanMenu.Size = new Size(90, 26);
-            laporanMenu.Text = "Laporan";
-            laporanMenu.Click += HandleClickMenu;
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(90, 26);
+            ReportMenu.Text = "Laporan";
+            ReportMenu.Click += HandleClickMenu;
             // 
-            // menuLogout
+            // LogoutMenu
             // 
-            menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(80, 26);
-            menuLogout.Text = "Logout";
-            menuLogout.Click += HandleClickMenu;
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(80, 26);
+            LogoutMenu.Text = "Logout";
+            LogoutMenu.Click += HandleClickMenu;
             // 
-            // body
+            // PageBodyContainer
             // 
-            body.AutoSize = true;
-            body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            body.ColumnCount = 2;
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.Controls.Add(flowLayoutPanel1, 0, 0);
-            body.Controls.Add(formPanel, 1, 0);
-            body.Location = new Point(3, 35);
-            body.Name = "body";
-            body.RowCount = 1;
-            body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(1859, 930);
-            body.TabIndex = 7;
+            PageBodyContainer.AutoSize = true;
+            PageBodyContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PageBodyContainer.ColumnCount = 2;
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
+            PageBodyContainer.Controls.Add(ListContainer, 0, 0);
+            PageBodyContainer.Controls.Add(FormContainer, 1, 0);
+            PageBodyContainer.Location = new Point(3, 35);
+            PageBodyContainer.Name = "PageBodyContainer";
+            PageBodyContainer.RowCount = 1;
+            PageBodyContainer.RowStyles.Add(new RowStyle());
+            PageBodyContainer.Size = new Size(1859, 930);
+            PageBodyContainer.TabIndex = 7;
             // 
-            // flowLayoutPanel1
+            // ListContainer
             // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(AddBtn);
-            flowLayoutPanel1.Controls.Add(UsersList);
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1362, 924);
-            flowLayoutPanel1.TabIndex = 6;
+            ListContainer.AutoSize = true;
+            ListContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ListContainer.Controls.Add(PageLabel);
+            ListContainer.Controls.Add(AddBtn);
+            ListContainer.Controls.Add(UsersList);
+            ListContainer.FlowDirection = FlowDirection.TopDown;
+            ListContainer.Location = new Point(3, 3);
+            ListContainer.Name = "ListContainer";
+            ListContainer.Size = new Size(1362, 924);
+            ListContainer.TabIndex = 6;
             // 
-            // label1
+            // PageLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(3, 0);
-            label1.Margin = new Padding(3, 0, 3, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(239, 36);
-            label1.TabIndex = 2;
-            label1.Text = "Daftar Pengguna";
+            PageLabel.AutoSize = true;
+            PageLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageLabel.ForeColor = SystemColors.ControlText;
+            PageLabel.Location = new Point(3, 0);
+            PageLabel.Margin = new Padding(3, 0, 3, 15);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(239, 36);
+            PageLabel.TabIndex = 2;
+            PageLabel.Text = "Daftar Pengguna";
             // 
             // AddBtn
             // 
@@ -231,187 +231,187 @@
             UsersList.TabIndex = 3;
             UsersList.CellContentClick += UsersList_CellContentClick;
             // 
-            // formPanel
+            // FormContainer
             // 
-            formPanel.Controls.Add(label2);
-            formPanel.Controls.Add(validationErrorMsg);
-            formPanel.Controls.Add(flowLayoutPanel4);
-            formPanel.Controls.Add(flowLayoutPanel5);
-            formPanel.Controls.Add(flowLayoutPanel6);
-            formPanel.Controls.Add(flowLayoutPanel7);
-            formPanel.Controls.Add(SaveBtn);
-            formPanel.Controls.Add(CancelBtn);
-            formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(1371, 3);
-            formPanel.Name = "formPanel";
-            formPanel.Padding = new Padding(30, 29, 30, 29);
-            formPanel.Size = new Size(485, 912);
-            formPanel.TabIndex = 5;
+            FormContainer.Controls.Add(FormLabel);
+            FormContainer.Controls.Add(ValidationErrorMsgLabel);
+            FormContainer.Controls.Add(UsernameInputGroup);
+            FormContainer.Controls.Add(PasswordInputGroup);
+            FormContainer.Controls.Add(EmailInputGroup);
+            FormContainer.Controls.Add(RoleInputGroup);
+            FormContainer.Controls.Add(SaveBtn);
+            FormContainer.Controls.Add(CancelBtn);
+            FormContainer.FlowDirection = FlowDirection.TopDown;
+            FormContainer.Location = new Point(1371, 3);
+            FormContainer.Name = "FormContainer";
+            FormContainer.Padding = new Padding(30, 29, 30, 29);
+            FormContainer.Size = new Size(485, 912);
+            FormContainer.TabIndex = 5;
             // 
-            // label2
+            // FormLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(33, 29);
-            label2.Margin = new Padding(3, 0, 3, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(312, 36);
-            label2.TabIndex = 1;
-            label2.Text = "Kelola Data Pengguna";
+            FormLabel.AutoSize = true;
+            FormLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormLabel.ForeColor = SystemColors.ControlText;
+            FormLabel.Location = new Point(33, 29);
+            FormLabel.Margin = new Padding(3, 0, 3, 15);
+            FormLabel.Name = "FormLabel";
+            FormLabel.Size = new Size(312, 36);
+            FormLabel.TabIndex = 1;
+            FormLabel.Text = "Kelola Data Pengguna";
             // 
-            // validationErrorMsg
+            // ValidationErrorMsgLabel
             // 
-            validationErrorMsg.AutoSize = true;
-            validationErrorMsg.BackColor = SystemColors.Control;
-            validationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validationErrorMsg.ForeColor = Color.Red;
-            validationErrorMsg.Location = new Point(33, 80);
-            validationErrorMsg.Margin = new Padding(3, 0, 3, 40);
-            validationErrorMsg.Name = "validationErrorMsg";
-            validationErrorMsg.Size = new Size(0, 20);
-            validationErrorMsg.TabIndex = 15;
+            ValidationErrorMsgLabel.AutoSize = true;
+            ValidationErrorMsgLabel.BackColor = SystemColors.Control;
+            ValidationErrorMsgLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ValidationErrorMsgLabel.ForeColor = Color.Red;
+            ValidationErrorMsgLabel.Location = new Point(33, 80);
+            ValidationErrorMsgLabel.Margin = new Padding(3, 0, 3, 40);
+            ValidationErrorMsgLabel.Name = "ValidationErrorMsgLabel";
+            ValidationErrorMsgLabel.Size = new Size(0, 20);
+            ValidationErrorMsgLabel.TabIndex = 15;
             // 
-            // flowLayoutPanel4
+            // UsernameInputGroup
             // 
-            flowLayoutPanel4.AutoSize = true;
-            flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel4.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel4.Controls.Add(label3);
-            flowLayoutPanel4.Controls.Add(txtUsername);
-            flowLayoutPanel4.Dock = DockStyle.Fill;
-            flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel4.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel4.Location = new Point(30, 140);
-            flowLayoutPanel4.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel4.Size = new Size(440, 72);
-            flowLayoutPanel4.TabIndex = 11;
+            UsernameInputGroup.AutoSize = true;
+            UsernameInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            UsernameInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            UsernameInputGroup.Controls.Add(UsernameLabel);
+            UsernameInputGroup.Controls.Add(UsernameTextField);
+            UsernameInputGroup.Dock = DockStyle.Fill;
+            UsernameInputGroup.FlowDirection = FlowDirection.TopDown;
+            UsernameInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            UsernameInputGroup.Location = new Point(30, 140);
+            UsernameInputGroup.Margin = new Padding(0, 0, 0, 40);
+            UsernameInputGroup.Name = "UsernameInputGroup";
+            UsernameInputGroup.Padding = new Padding(10, 11, 10, 11);
+            UsernameInputGroup.Size = new Size(440, 72);
+            UsernameInputGroup.TabIndex = 11;
             // 
-            // label3
+            // UsernameLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label3.Location = new Point(13, 11);
-            label3.Name = "label3";
-            label3.Size = new Size(86, 20);
-            label3.TabIndex = 1;
-            label3.Text = "Username";
+            UsernameLabel.AutoSize = true;
+            UsernameLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            UsernameLabel.Location = new Point(13, 11);
+            UsernameLabel.Name = "UsernameLabel";
+            UsernameLabel.Size = new Size(86, 20);
+            UsernameLabel.TabIndex = 1;
+            UsernameLabel.Text = "Username";
             // 
-            // txtUsername
+            // UsernameTextField
             // 
-            txtUsername.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtUsername.Location = new Point(13, 34);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(406, 22);
-            txtUsername.TabIndex = 2;
+            UsernameTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            UsernameTextField.Location = new Point(13, 34);
+            UsernameTextField.Name = "UsernameTextField";
+            UsernameTextField.Size = new Size(406, 22);
+            UsernameTextField.TabIndex = 2;
             // 
-            // flowLayoutPanel5
+            // PasswordInputGroup
             // 
-            flowLayoutPanel5.AutoSize = true;
-            flowLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel5.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel5.Controls.Add(label4);
-            flowLayoutPanel5.Controls.Add(txtPassword);
-            flowLayoutPanel5.Dock = DockStyle.Fill;
-            flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel5.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel5.Location = new Point(30, 252);
-            flowLayoutPanel5.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel5.Size = new Size(440, 72);
-            flowLayoutPanel5.TabIndex = 10;
+            PasswordInputGroup.AutoSize = true;
+            PasswordInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PasswordInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            PasswordInputGroup.Controls.Add(PasswordLabel);
+            PasswordInputGroup.Controls.Add(PasswordTextField);
+            PasswordInputGroup.Dock = DockStyle.Fill;
+            PasswordInputGroup.FlowDirection = FlowDirection.TopDown;
+            PasswordInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PasswordInputGroup.Location = new Point(30, 252);
+            PasswordInputGroup.Margin = new Padding(0, 0, 0, 40);
+            PasswordInputGroup.Name = "PasswordInputGroup";
+            PasswordInputGroup.Padding = new Padding(10, 11, 10, 11);
+            PasswordInputGroup.Size = new Size(440, 72);
+            PasswordInputGroup.TabIndex = 10;
             // 
-            // label4
+            // PasswordLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label4.Location = new Point(13, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(83, 20);
-            label4.TabIndex = 4;
-            label4.Text = "Password";
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            PasswordLabel.Location = new Point(13, 11);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(83, 20);
+            PasswordLabel.TabIndex = 4;
+            PasswordLabel.Text = "Password";
             // 
-            // txtPassword
+            // PasswordTextField
             // 
-            txtPassword.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtPassword.Location = new Point(13, 34);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(406, 22);
-            txtPassword.TabIndex = 3;
+            PasswordTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PasswordTextField.Location = new Point(13, 34);
+            PasswordTextField.Name = "PasswordTextField";
+            PasswordTextField.Size = new Size(406, 22);
+            PasswordTextField.TabIndex = 3;
             // 
-            // flowLayoutPanel6
+            // EmailInputGroup
             // 
-            flowLayoutPanel6.AutoSize = true;
-            flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel6.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel6.Controls.Add(Email);
-            flowLayoutPanel6.Controls.Add(txtEmail);
-            flowLayoutPanel6.Dock = DockStyle.Fill;
-            flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel6.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel6.Location = new Point(30, 364);
-            flowLayoutPanel6.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel6.Size = new Size(440, 72);
-            flowLayoutPanel6.TabIndex = 12;
+            EmailInputGroup.AutoSize = true;
+            EmailInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            EmailInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            EmailInputGroup.Controls.Add(EmailLabel);
+            EmailInputGroup.Controls.Add(EmailTextField);
+            EmailInputGroup.Dock = DockStyle.Fill;
+            EmailInputGroup.FlowDirection = FlowDirection.TopDown;
+            EmailInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            EmailInputGroup.Location = new Point(30, 364);
+            EmailInputGroup.Margin = new Padding(0, 0, 0, 40);
+            EmailInputGroup.Name = "EmailInputGroup";
+            EmailInputGroup.Padding = new Padding(10, 11, 10, 11);
+            EmailInputGroup.Size = new Size(440, 72);
+            EmailInputGroup.TabIndex = 12;
             // 
-            // Email
+            // EmailLabel
             // 
-            Email.AutoSize = true;
-            Email.Font = new Font("Microsoft Sans Serif", 10.2F);
-            Email.Location = new Point(13, 11);
-            Email.Name = "Email";
-            Email.Size = new Size(51, 20);
-            Email.TabIndex = 1;
-            Email.Text = "Email";
+            EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            EmailLabel.Location = new Point(13, 11);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(51, 20);
+            EmailLabel.TabIndex = 1;
+            EmailLabel.Text = "Email";
             // 
-            // txtEmail
+            // EmailTextField
             // 
-            txtEmail.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtEmail.Location = new Point(13, 34);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(406, 22);
-            txtEmail.TabIndex = 2;
+            EmailTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            EmailTextField.Location = new Point(13, 34);
+            EmailTextField.Name = "EmailTextField";
+            EmailTextField.Size = new Size(406, 22);
+            EmailTextField.TabIndex = 2;
             // 
-            // flowLayoutPanel7
+            // RoleInputGroup
             // 
-            flowLayoutPanel7.AutoSize = true;
-            flowLayoutPanel7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel7.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel7.Controls.Add(label5);
-            flowLayoutPanel7.Controls.Add(cbbRole);
-            flowLayoutPanel7.Dock = DockStyle.Fill;
-            flowLayoutPanel7.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel7.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel7.Location = new Point(30, 476);
-            flowLayoutPanel7.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel7.Size = new Size(440, 74);
-            flowLayoutPanel7.TabIndex = 13;
+            RoleInputGroup.AutoSize = true;
+            RoleInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            RoleInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            RoleInputGroup.Controls.Add(RoleLabel);
+            RoleInputGroup.Controls.Add(RoleComboBox);
+            RoleInputGroup.Dock = DockStyle.Fill;
+            RoleInputGroup.FlowDirection = FlowDirection.TopDown;
+            RoleInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            RoleInputGroup.Location = new Point(30, 476);
+            RoleInputGroup.Margin = new Padding(0, 0, 0, 40);
+            RoleInputGroup.Name = "RoleInputGroup";
+            RoleInputGroup.Padding = new Padding(10, 11, 10, 11);
+            RoleInputGroup.Size = new Size(440, 74);
+            RoleInputGroup.TabIndex = 13;
             // 
-            // label5
+            // RoleLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label5.Location = new Point(13, 11);
-            label5.Name = "label5";
-            label5.Size = new Size(122, 20);
-            label5.TabIndex = 1;
-            label5.Text = "Role Pengguna";
+            RoleLabel.AutoSize = true;
+            RoleLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            RoleLabel.Location = new Point(13, 11);
+            RoleLabel.Name = "RoleLabel";
+            RoleLabel.Size = new Size(122, 20);
+            RoleLabel.TabIndex = 1;
+            RoleLabel.Text = "Role Pengguna";
             // 
-            // cbbRole
+            // RoleComboBox
             // 
-            cbbRole.FormattingEnabled = true;
-            cbbRole.Items.AddRange(new object[] { "Admin", "Tenant" });
-            cbbRole.Location = new Point(13, 34);
-            cbbRole.Name = "cbbRole";
-            cbbRole.Size = new Size(406, 24);
-            cbbRole.TabIndex = 2;
+            RoleComboBox.FormattingEnabled = true;
+            RoleComboBox.Items.AddRange(new object[] { "Admin", "Tenant" });
+            RoleComboBox.Location = new Point(13, 34);
+            RoleComboBox.Name = "RoleComboBox";
+            RoleComboBox.Size = new Size(406, 24);
+            RoleComboBox.TabIndex = 2;
             // 
             // SaveBtn
             // 
@@ -442,66 +442,66 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(container);
+            Controls.Add(PageContainer);
             Name = "UserPage";
             Text = "UserPage";
             WindowState = FormWindowState.Maximized;
-            container.ResumeLayout(false);
-            container.PerformLayout();
-            topMenu.ResumeLayout(false);
-            topMenu.PerformLayout();
-            body.ResumeLayout(false);
-            body.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            PageContainer.ResumeLayout(false);
+            PageContainer.PerformLayout();
+            MenuContainer.ResumeLayout(false);
+            MenuContainer.PerformLayout();
+            PageBodyContainer.ResumeLayout(false);
+            PageBodyContainer.PerformLayout();
+            ListContainer.ResumeLayout(false);
+            ListContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UsersList).EndInit();
-            formPanel.ResumeLayout(false);
-            formPanel.PerformLayout();
-            flowLayoutPanel4.ResumeLayout(false);
-            flowLayoutPanel4.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
-            flowLayoutPanel6.ResumeLayout(false);
-            flowLayoutPanel6.PerformLayout();
-            flowLayoutPanel7.ResumeLayout(false);
-            flowLayoutPanel7.PerformLayout();
+            FormContainer.ResumeLayout(false);
+            FormContainer.PerformLayout();
+            UsernameInputGroup.ResumeLayout(false);
+            UsernameInputGroup.PerformLayout();
+            PasswordInputGroup.ResumeLayout(false);
+            PasswordInputGroup.PerformLayout();
+            EmailInputGroup.ResumeLayout(false);
+            EmailInputGroup.PerformLayout();
+            RoleInputGroup.ResumeLayout(false);
+            RoleInputGroup.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel container;
-        private MenuStrip topMenu;
-        private ToolStripMenuItem dashboardMenu;
-        private ToolStripMenuItem kategoriMenu;
-        private ToolStripMenuItem stokMenu;
-        private ToolStripMenuItem transaksiMenu;
-        private ToolStripMenuItem operationalMenu;
-        private ToolStripMenuItem laporanMenu;
-        private ToolStripMenuItem menuLogout;
-        private TableLayoutPanel body;
-        private FlowLayoutPanel formPanel;
-        private Label label2;
-        private Label validationErrorMsg;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private Label label3;
-        private TextBox txtUsername;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private Label label4;
-        private TextBox txtPassword;
-        private FlowLayoutPanel flowLayoutPanel6;
-        private Label Email;
-        private TextBox txtEmail;
-        private FlowLayoutPanel flowLayoutPanel7;
-        private Label label5;
-        private ComboBox cbbRole;
+        private TableLayoutPanel PageContainer;
+        private MenuStrip MenuContainer;
+        private ToolStripMenuItem DashboardMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem StockMenu;
+        private ToolStripMenuItem TransactionMenu;
+        private ToolStripMenuItem OperationalMenu;
+        private ToolStripMenuItem ReportMenu;
+        private ToolStripMenuItem LogoutMenu;
+        private TableLayoutPanel PageBodyContainer;
+        private FlowLayoutPanel FormContainer;
+        private Label FormLabel;
+        private Label ValidationErrorMsgLabel;
+        private FlowLayoutPanel UsernameInputGroup;
+        private Label UsernameLabel;
+        private TextBox UsernameTextField;
+        private FlowLayoutPanel PasswordInputGroup;
+        private Label PasswordLabel;
+        private TextBox PasswordTextField;
+        private FlowLayoutPanel EmailInputGroup;
+        private Label EmailLabel;
+        private TextBox EmailTextField;
+        private FlowLayoutPanel RoleInputGroup;
+        private Label RoleLabel;
+        private ComboBox RoleComboBox;
         private Button SaveBtn;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
+        private FlowLayoutPanel ListContainer;
+        private Label PageLabel;
         private DataGridView UsersList;
         private Button CancelBtn;
         private Button AddBtn;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem tenantMenu;
+        private ToolStripMenuItem UserMenu;
+        private ToolStripMenuItem TenantMenu;
     }
 }

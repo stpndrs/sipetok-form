@@ -114,9 +114,9 @@ namespace sipetok_form.Views.Users
 
         private void ToggleForm(bool show)
         {
-            formPanel.Visible = show;
+            FormContainer.Visible = show;
 
-            var columnStyles = body.ColumnStyles;
+            var columnStyles = PageBodyContainer.ColumnStyles;
 
             if (show)
             {
@@ -165,26 +165,26 @@ namespace sipetok_form.Views.Users
                 new ItemMenu(1, "Admin"),
                 new ItemMenu(2, "Tenant")
             };
-            cbbRole.DataSource = listRole;
-            cbbRole.DisplayMember = "Label";
-            cbbRole.ValueMember = "Value";
+            RoleComboBox.DataSource = listRole;
+            RoleComboBox.DisplayMember = "Label";
+            RoleComboBox.ValueMember = "Value";
 
-            validationErrorMsg.Text = "";
+            ValidationErrorMsgLabel.Text = "";
 
             if (clear)
             {
                 _selectedUser = null;
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                txtEmail.Text = "";
-                cbbRole.SelectedIndex = -1;
+                UsernameTextField.Text = "";
+                PasswordTextField.Text = "";
+                EmailTextField.Text = "";
+                RoleComboBox.SelectedIndex = -1;
             }
             else
             {
                 Debug.WriteLine(_selectedUser?.Username);
-                txtUsername.Text = _selectedUser?.Username;
-                txtEmail.Text = _selectedUser?.Email;
-                cbbRole.Text = _selectedUser?.Role.Label;
+                UsernameTextField.Text = _selectedUser?.Username;
+                EmailTextField.Text = _selectedUser?.Email;
+                RoleComboBox.Text = _selectedUser?.Role.Label;
             }
         }
 
@@ -253,13 +253,13 @@ namespace sipetok_form.Views.Users
                 ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
-                    if (txtPassword.Text != "")
+                    if (PasswordTextField.Text != "")
                     {
-                        _selectedUser.Password = txtPassword.Text;
+                        _selectedUser.Password = PasswordTextField.Text;
                     }
-                    _selectedUser.Username = txtUsername.Text;
-                    _selectedUser.Email = txtEmail.Text;
-                    _selectedUser.Role = new Role { Key = (int)cbbRole?.SelectedValue, Label = cbbRole.Text };
+                    _selectedUser.Username = UsernameTextField.Text;
+                    _selectedUser.Email = EmailTextField.Text;
+                    _selectedUser.Role = new Role { Key = (int)RoleComboBox?.SelectedValue, Label = RoleComboBox.Text };
                     _selectedUser.IsActive = new IsActive { Key = 1, Label = "ACTIVE" };
                     response = await _apiService.User.UpdateUserAsync(_selectedUser.Id, _selectedUser);
                 }
@@ -267,10 +267,10 @@ namespace sipetok_form.Views.Users
                 {
                     User userBaru = new User
                     {
-                        Username = txtUsername.Text,
-                        Email = txtEmail.Text,
-                        Password = txtPassword.Text,
-                        Role = new Role { Key = (int)cbbRole?.SelectedValue, Label = cbbRole.Text },
+                        Username = UsernameTextField.Text,
+                        Email = EmailTextField.Text,
+                        Password = PasswordTextField.Text,
+                        Role = new Role { Key = (int)RoleComboBox?.SelectedValue, Label = RoleComboBox.Text },
                         IsActive = new IsActive { Key = 1, Label = "ACTIVE" }
                     };
 
@@ -284,7 +284,7 @@ namespace sipetok_form.Views.Users
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMsgLabel);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
