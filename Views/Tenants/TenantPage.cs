@@ -101,12 +101,12 @@ namespace sipetok_form.Views.Tenants
 
         private void SetupActionButtons()
         {
-            if (TenantList.Columns.Contains("EditBtn")) TenantList.Columns.Remove("EditBtn");
-            if (TenantList.Columns.Contains("DeleteBtn")) TenantList.Columns.Remove("DeleteBtn");
+            if (TenantList.Columns.Contains("EditButton")) TenantList.Columns.Remove("EditButton");
+            if (TenantList.Columns.Contains("DeleteButton")) TenantList.Columns.Remove("DeleteButton");
 
             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
             {
-                Name = "EditBtn",
+                Name = "EditButton",
                 HeaderText = "Aksi Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true
@@ -115,7 +115,7 @@ namespace sipetok_form.Views.Tenants
 
             DataGridViewButtonColumn btnHapus = new DataGridViewButtonColumn
             {
-                Name = "DeleteBtn",
+                Name = "DeleteButton",
                 HeaderText = "Aksi Hapus",
                 Text = "Hapus",
                 UseColumnTextForButtonValue = true
@@ -210,14 +210,14 @@ namespace sipetok_form.Views.Tenants
 
             var dataSelected = (sipetok_api.Models.Tenant)TenantList.Rows[e.RowIndex].DataBoundItem;
 
-            if (TenantList.Columns[e.ColumnIndex].Name == "EditBtn")
+            if (TenantList.Columns[e.ColumnIndex].Name == "EditButton")
             {
                 _selectedTenant = dataSelected;
                 _saveDataType = "update";
                 ToggleForm(true);
             }
 
-            if (TenantList.Columns[e.ColumnIndex].Name == "DeleteBtn")
+            if (TenantList.Columns[e.ColumnIndex].Name == "DeleteButton")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(

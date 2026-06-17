@@ -27,14 +27,14 @@ namespace sipetok_form.Views.Laporan
         public ReportPage()
         {
             InitializeComponent();
-            this.Load += LaporanPage_Load;
+            this.Load += ReportPage_Load;
         }
 
         /// <summary>
         /// Event handler yang berjalan otomatis saat halaman pertama kali dimuat.
         /// Berfungsi untuk langsung menampilkan data transaksi secara default.
         /// </summary>
-        private void LaporanPage_Load(object sender, EventArgs e)
+        private void ReportPage_Load(object sender, EventArgs e)
         {
             var columnStyles = PageBodyContainer.ColumnStyles;
             columnStyles[0].SizeType = SizeType.Percent;
