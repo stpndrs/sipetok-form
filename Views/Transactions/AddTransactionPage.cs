@@ -30,7 +30,7 @@ namespace sipetok_form.Views.Transactions
         {
             try
             {
-                var listKategori = await _apiService.EggCategory.GetEggCategorysAsync();
+                var listKategori = await _apiService.EggCategory.GetEggCategoriesAsync();
                 if (listKategori != null)
                 {
                     _cachedCategories = listKategori;

@@ -92,7 +92,7 @@
             // 
             MenuContainer.BackColor = SystemColors.ControlLight;
             MenuContainer.Dock = DockStyle.Fill;
-            MenuContainer.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MenuContainer.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MenuContainer.ImageScalingSize = new Size(20, 20);
             MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             MenuContainer.Location = new Point(0, 0);
@@ -105,28 +105,28 @@
             // DashboardMenu
             // 
             DashboardMenu.Name = "DashboardMenu";
-            DashboardMenu.Size = new Size(111, 26);
+            DashboardMenu.Size = new Size(112, 26);
             DashboardMenu.Text = "Dashboard";
             DashboardMenu.Click += HandleClickMenu;
             // 
             // UserMenu
             // 
             UserMenu.Name = "UserMenu";
-            UserMenu.Size = new Size(104, 26);
+            UserMenu.Size = new Size(106, 26);
             UserMenu.Text = "Pengguna";
             UserMenu.Click += HandleClickMenu;
             // 
             // TenantMenu
             // 
             TenantMenu.Name = "TenantMenu";
-            TenantMenu.Size = new Size(80, 26);
+            TenantMenu.Size = new Size(81, 26);
             TenantMenu.Text = "Tenant";
             TenantMenu.Click += HandleClickMenu;
             // 
             // EggCategoryMenu
             // 
             EggCategoryMenu.Name = "EggCategoryMenu";
-            EggCategoryMenu.Size = new Size(136, 26);
+            EggCategoryMenu.Size = new Size(138, 26);
             EggCategoryMenu.Text = "Kategori Telur";
             EggCategoryMenu.Click += HandleClickMenu;
             // 
@@ -147,7 +147,7 @@
             // OperationalMenu
             // 
             OperationalMenu.Name = "OperationalMenu";
-            OperationalMenu.Size = new Size(120, 26);
+            OperationalMenu.Size = new Size(121, 26);
             OperationalMenu.Text = "Operasional";
             OperationalMenu.Click += HandleClickMenu;
             // 
@@ -161,7 +161,7 @@
             // LogoutMenu
             // 
             LogoutMenu.Name = "LogoutMenu";
-            LogoutMenu.Size = new Size(80, 26);
+            LogoutMenu.Size = new Size(79, 26);
             LogoutMenu.Text = "Logout";
             LogoutMenu.Click += HandleClickMenu;
             // 
@@ -446,6 +446,7 @@
             Name = "UserPage";
             Text = "UserPage";
             WindowState = FormWindowState.Maximized;
+            Load += UserPage_Load;
             PageContainer.ResumeLayout(false);
             PageContainer.PerformLayout();
             MenuContainer.ResumeLayout(false);
