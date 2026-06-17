@@ -446,7 +446,7 @@
             Name = "UserPage";
             Text = "UserPage";
             WindowState = FormWindowState.Maximized;
-            Load += UserPage_Load;
+            Load += FormMain_Load;
             PageContainer.ResumeLayout(false);
             PageContainer.PerformLayout();
             MenuContainer.ResumeLayout(false);
