@@ -120,7 +120,7 @@ namespace sipetok_form.Views.Operationals
 
         public void AttemptFormFields(bool clear)
         {
-            validationErrorMsg.Text = "";
+            ValidationErrorMessage.Text = "";
 
             if (clear)
             {
@@ -137,7 +137,7 @@ namespace sipetok_form.Views.Operationals
             }
         }
 
-        private async void operationalList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void OperationalList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -171,17 +171,17 @@ namespace sipetok_form.Views.Operationals
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -189,13 +189,13 @@ namespace sipetok_form.Views.Operationals
 
                 if (string.IsNullOrEmpty(OperationalNameTextField.Text))
                 {
-                    validationErrorMsg.Text = "Nama operasional tidak boleh kosong!";
+                    ValidationErrorMessage.Text = "Nama operasional tidak boleh kosong!";
                     return;
                 }
 
                 if (string.IsNullOrEmpty(OperationalCostTextField.Text))
                 {
-                    validationErrorMsg.Text = "Biaya operasional tidak boleh kosong!";
+                    ValidationErrorMessage.Text = "Biaya operasional tidak boleh kosong!";
                     return;
                 }
 
@@ -226,7 +226,7 @@ namespace sipetok_form.Views.Operationals
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMessage);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -240,7 +240,7 @@ namespace sipetok_form.Views.Operationals
             }
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             _saveDataType = "create";
             ToggleForm(true);
