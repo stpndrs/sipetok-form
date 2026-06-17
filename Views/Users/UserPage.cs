@@ -297,5 +297,10 @@ namespace sipetok_form.Views.Users
                 SaveBtn.Enabled = true;
             }
         }
+
+        private void UserPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
