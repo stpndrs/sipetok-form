@@ -2,9 +2,6 @@
 using sipetok_form.Models;
 using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace sipetok_form.Views.Eggs
 {
@@ -34,10 +31,10 @@ namespace sipetok_form.Views.Eggs
                 List<EggCategory>? categories = await _apiService.EggCategory.GetEggCategoriesAsync();
                 if (categories != null)
                 {
-                    cbbCategory.DataSource = categories;
-                    cbbCategory.DisplayMember = "Name";
-                    cbbCategory.ValueMember = "Id";
-                    cbbCategory.SelectedIndex = -1;
+                    CategoryComboBox.DataSource = categories;
+                    CategoryComboBox.DisplayMember = "Name";
+                    CategoryComboBox.ValueMember = "Id";
+                    CategoryComboBox.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -54,16 +51,16 @@ namespace sipetok_form.Views.Eggs
 
                 if (data != null)
                 {
-                    eggList.DataSource = null;
-                    eggList.DataSource = data;
+                    EggsList.DataSource = null;
+                    EggsList.DataSource = data;
 
-                    eggList.Columns["Id"].HeaderText = "Id";
-                    eggList.Columns["ProductionDate"].HeaderText = "Tanggal Produksi";
-                    eggList.Columns["Stock"].HeaderText = "Stok";
-                    eggList.Columns["CategoryId"].HeaderText = "Id Kategori";
+                    EggsList.Columns["Id"].HeaderText = "Id";
+                    EggsList.Columns["ProductionDate"].HeaderText = "Tanggal Produksi";
+                    EggsList.Columns["Stock"].HeaderText = "Stok";
+                    EggsList.Columns["CategoryId"].HeaderText = "Id Kategori";
 
                     SetupActionButtons();
-                    eggList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    EggsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     AdjustGridHeight();
                 }
             }
@@ -75,20 +72,20 @@ namespace sipetok_form.Views.Eggs
 
         private void SetupActionButtons()
         {
-            if (eggList.Columns.Contains("BtnEdit")) eggList.Columns.Remove("BtnEdit");
-            if (eggList.Columns.Contains("BtnHapus")) eggList.Columns.Remove("BtnHapus");
+            if (EggsList.Columns.Contains("EditBtn")) EggsList.Columns.Remove("EditBtn");
+            if (EggsList.Columns.Contains("DeleteBtn")) EggsList.Columns.Remove("DeleteBtn");
 
-            eggList.Columns.Add(new DataGridViewButtonColumn
+            EggsList.Columns.Add(new DataGridViewButtonColumn
             {
-                Name = "BtnEdit",
+                Name = "EditBtn",
                 HeaderText = "Aksi Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true
             });
 
-            eggList.Columns.Add(new DataGridViewButtonColumn
+            EggsList.Columns.Add(new DataGridViewButtonColumn
             {
-                Name = "BtnHapus",
+                Name = "DeleteBtn",
                 HeaderText = "Aksi Hapus",
                 Text = "Hapus",
                 UseColumnTextForButtonValue = true
@@ -97,8 +94,8 @@ namespace sipetok_form.Views.Eggs
 
         private void ToggleForm(bool show)
         {
-            formPanel.Visible = show;
-            var columnStyles = body.ColumnStyles;
+            FormContainer.Visible = show;
+            var columnStyles = PageBodyContainer.ColumnStyles;
 
             if (show)
             {
@@ -106,9 +103,9 @@ namespace sipetok_form.Views.Eggs
                 columnStyles[0].Width = 70;
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 30;
-                eggList.Width = 1300;
+                EggsList.Width = 1300;
 
-                if (_saveDataType == "update")
+                if (_saveDataType == "Update")
                     AttemptFormFields(false);
             }
             else
@@ -117,7 +114,7 @@ namespace sipetok_form.Views.Eggs
                 columnStyles[0].Width = 100;
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 0;
-                eggList.Width = 1920;
+                EggsList.Width = 1920;
 
                 AttemptFormFields(true);
                 _saveDataType = null;
@@ -126,46 +123,46 @@ namespace sipetok_form.Views.Eggs
 
         private void AdjustGridHeight()
         {
-            int totalHeight = eggList.ColumnHeadersHeight;
-            foreach (DataGridViewRow row in eggList.Rows)
+            int totalHeight = EggsList.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in EggsList.Rows)
                 totalHeight += row.Height;
-            eggList.Height = totalHeight + 4;
+            EggsList.Height = totalHeight + 4;
         }
 
         public void AttemptFormFields(bool clear)
         {
-            validationErrorMsg.Text = "";
+            ValidatonErrorMassage.Text = "";
 
             if (clear)
             {
                 _selectedEgg = null;
-                dtpProductionDate.Value = DateTime.Today;
-                txtStock.Text = "";
-                cbbCategory.SelectedIndex = -1;
+                ProductionDateTimePicker.Value = DateTime.Today;
+                StockTextField.Text = "";
+                CategoryComboBox.SelectedIndex = -1;
             }
             else
             {
-                dtpProductionDate.Value = _selectedEgg?.ProductionDate ?? DateTime.Today;
-                txtStock.Text = _selectedEgg?.Stock.ToString();
+                ProductionDateTimePicker.Value = _selectedEgg?.ProductionDate ?? DateTime.Today;
+                StockTextField.Text = _selectedEgg?.Stock.ToString();
                 if (_selectedEgg != null)
-                    cbbCategory.SelectedValue = _selectedEgg.CategoryId;
+                    CategoryComboBox.SelectedValue = _selectedEgg.CategoryId;
             }
         }
 
-        private async void usersList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void EggList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            var dataSelected = (Egg)eggList.Rows[e.RowIndex].DataBoundItem;
+            var dataSelected = (Egg)EggsList.Rows[e.RowIndex].DataBoundItem;
 
-            if (eggList.Columns[e.ColumnIndex].Name == "BtnEdit")
+            if (EggsList.Columns[e.ColumnIndex].Name == "EditBtn")
             {
                 _selectedEgg = dataSelected;
-                _saveDataType = "update";
+                _saveDataType = "Update";
                 ToggleForm(true);
             }
 
-            if (eggList.Columns[e.ColumnIndex].Name == "BtnHapus")
+            if (EggsList.Columns[e.ColumnIndex].Name == "DeleteBtn")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
@@ -186,56 +183,56 @@ namespace sipetok_form.Views.Eggs
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                btnSave.Enabled = false;
+                SaveButton.Enabled = false;
 
-                if (string.IsNullOrEmpty(txtStock.Text))
+                if (string.IsNullOrEmpty(StockTextField.Text))
                 {
-                    validationErrorMsg.Text = "Stok tidak boleh kosong!";
+                    ValidatonErrorMassage.Text = "Stok tidak boleh kosong!";
                     return;
                 }
 
-                if (!double.TryParse(txtStock.Text, out double stock))
+                if (!double.TryParse(StockTextField.Text, out double stock))
                 {
-                    validationErrorMsg.Text = "Stok harus berupa angka!";
+                    ValidatonErrorMassage.Text = "Stok harus berupa angka!";
                     return;
                 }
 
-                if (cbbCategory.SelectedValue == null)
+                if (CategoryComboBox.SelectedValue == null)
                 {
-                    validationErrorMsg.Text = "Kategori harus dipilih!";
+                    ValidatonErrorMassage.Text = "Kategori harus dipilih!";
                     return;
                 }
 
                 ActionResponse<Egg> response;
 
-                if (_saveDataType == "update" && _selectedEgg != null)
+                if (_saveDataType == "Update" && _selectedEgg != null)
                 {
-                    _selectedEgg.ProductionDate = dtpProductionDate.Value;
+                    _selectedEgg.ProductionDate = ProductionDateTimePicker.Value;
                     _selectedEgg.Stock = stock;
-                    _selectedEgg.CategoryId = (int)cbbCategory.SelectedValue;
+                    _selectedEgg.CategoryId = (int)CategoryComboBox.SelectedValue;
                     response = await _apiService.Egg.UpdateEggAsync(_selectedEgg.Id, _selectedEgg);
                 }
                 else
                 {
                     Egg eggBaru = new Egg
                     {
-                        ProductionDate = dtpProductionDate.Value,
+                        ProductionDate = ProductionDateTimePicker.Value,
                         Stock = stock,
-                        CategoryId = (int)cbbCategory.SelectedValue
+                        CategoryId = (int)CategoryComboBox.SelectedValue
                     };
                     response = await _apiService.Egg.CreateEggAsync(eggBaru);
                 }
@@ -247,7 +244,7 @@ namespace sipetok_form.Views.Eggs
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidatonErrorMassage);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -257,14 +254,24 @@ namespace sipetok_form.Views.Eggs
             }
             finally
             {
-                btnSave.Enabled = true;
+                SaveButton.Enabled = true;
             }
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void AddBtn_Click(object sender, EventArgs e)
         {
             _saveDataType = "create";
             ToggleForm(true);
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void EggStockPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
