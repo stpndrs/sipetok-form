@@ -15,16 +15,16 @@ using System.Windows.Forms;
 
 namespace sipetok_form.Views.Laporan
 {
-    public partial class ReportsPage : Form
+    public partial class ReportPage : Form
     {
-        private readonly ApiLaporan _reportService = new ApiLaporan();
+        private readonly ApiService _apiService = new ApiService();
         private const int MaxGridHeight = 600;
 
         /// <summary>
         /// Konstruktor utama untuk halaman LaporanPage.
         /// Berfungsi menginisialisasi komponen UI dan mendaftarkan event load halaman.
         /// </summary>
-        public ReportsPage()
+        public ReportPage()
         {
             InitializeComponent();
             this.Load += LaporanPage_Load;
@@ -58,10 +58,10 @@ namespace sipetok_form.Views.Laporan
         /// Event handler saat tombol Transaksi diklik.
         /// Berfungsi memicu proses pemuatan data laporan transaksi dari API ke dalam grid.
         /// </summary>
-        private async void TransaksiBtn_Click(object sender, EventArgs e)
+        private async void TransaksiButton_Click(object sender, EventArgs e)
         {
             await LoadReportDataAsync(
-                fetchDataFunc: () => _reportService.GetTransaksiAsync(),
+                fetchDataFunc: () => _apiService.Transaction.GetTransactionsAsync(),
                 configureGridAction: SetupTransactionColumns,
                 loadingButton: TransactionButton,
                 activeButton: TransactionButton,
@@ -74,10 +74,10 @@ namespace sipetok_form.Views.Laporan
         /// Event handler saat tombol Operasional diklik.
         /// Berfungsi memicu proses pemuatan data laporan biaya operasional dari API ke dalam grid.
         /// </summary>
-        private async void OperationalBtn_Click(object sender, EventArgs e)
+        private async void OperationalButton_Click(object sender, EventArgs e)
         {
             await LoadReportDataAsync(
-                fetchDataFunc: () => _reportService.GetOperationalAsync(),
+                fetchDataFunc: () => _apiService.Operational.GetOperationalsAsync(),
                 configureGridAction: SetupOperationalColumns,
                 loadingButton: OperationalButton,
                 activeButton: OperationalButton,
@@ -167,7 +167,7 @@ namespace sipetok_form.Views.Laporan
         /// Event handler untuk tombol ekspor data.
         /// Berfungsi memvalidasi format & tanggal input, kemudian mengarahkan proses ekspor sesuai tipe data aktif.
         /// </summary>
-        private void ExportBtn_Click(object sender, EventArgs e)
+        private void ExportButton_Click(object sender, EventArgs e)
         {
             try
             {

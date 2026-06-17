@@ -1,6 +1,6 @@
 ﻿namespace sipetok_form.Views.Laporan
 {
-    partial class ReportsPage
+    partial class ReportPage
     {
         /// <summary>
         /// Required designer variable.
@@ -310,7 +310,7 @@
             ExportButton.TabIndex = 6;
             ExportButton.Text = "Export";
             ExportButton.UseVisualStyleBackColor = true;
-            ExportButton.Click += ExportBtn_Click;
+            ExportButton.Click += ExportButton_Click;
             // 
             // ListContainer
             // 
@@ -330,7 +330,7 @@
             TransactionButton.TabIndex = 0;
             TransactionButton.Text = "Transaksi";
             TransactionButton.UseVisualStyleBackColor = true;
-            TransactionButton.Click += TransaksiBtn_Click;
+            TransactionButton.Click += TransaksiButton_Click;
             // 
             // OperationalButton
             // 
@@ -340,7 +340,7 @@
             OperationalButton.TabIndex = 1;
             OperationalButton.Text = "Operational";
             OperationalButton.UseVisualStyleBackColor = true;
-            OperationalButton.Click += OperationalBtn_Click;
+            OperationalButton.Click += OperationalButton_Click;
             // 
             // DataList
             // 
