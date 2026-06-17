@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sipetok_form.Views.Tenant
+namespace sipetok_form.Views.Tenants
 {
     public partial class TenantPage : Form
     {
@@ -124,8 +124,8 @@ namespace sipetok_form.Views.Tenant
         // PERBAIKAN 1: Logika penempatan struktur if-else untuk menyembunyikan/menampilkan field
         private void ToggleForm(bool show)
         {
-            formPanel.Visible = show;
-            var columnStyles = body.ColumnStyles;
+            FormContainer.Visible = show;
+            var columnStyles = PageBodyContainer.ColumnStyles;
 
             if (show)
             {
@@ -140,19 +140,19 @@ namespace sipetok_form.Views.Tenant
                 if (_saveDataType == "update")
                 {
                     // Sembunyikan field Akun User saat Edit Tenant
-                    flowLayoutPanel3.Visible = false;
-                    flowLayoutPanel7.Visible = false;
-                    flowLayoutPanel8.Visible = false;
-                    flowLayoutPanel2.Visible = true;
+                    UsernameInputGroup.Visible = false;
+                    PasswordInputGroup.Visible = false;
+                    EmailInputGroup.Visible = false;
+                    ValidationInputGroup.Visible = true;
                     AttemptFormFields(false);
                 }
                 else if (_saveDataType == "create")
                 {
                     // Pastikan field Akun User selalu muncul saat Tambah Data Baru
-                    flowLayoutPanel3.Visible = true;
-                    flowLayoutPanel7.Visible = true;
-                    flowLayoutPanel8.Visible = true;
-                    flowLayoutPanel2.Visible = false;
+                    UsernameInputGroup.Visible = true;
+                    PasswordInputGroup.Visible = true;
+                    EmailInputGroup.Visible = true;
+                    ValidationInputGroup.Visible = false;
 
 
                     AttemptFormFields(true); // Bersihkan form field agar kosong

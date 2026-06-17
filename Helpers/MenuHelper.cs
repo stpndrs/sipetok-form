@@ -2,7 +2,7 @@
 using sipetok_form.Views.Eggs;
 using sipetok_form.Views.Laporan;
 using sipetok_form.Views.Operationals;
-using sipetok_form.Views.Tenant;
+using sipetok_form.Views.Tenants;
 using sipetok_form.Views.Transactions;
 using sipetok_form.Views.EggCategoryForm;
 using sipetok_form.Views.Users;
