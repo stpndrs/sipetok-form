@@ -75,7 +75,7 @@ namespace sipetok_form.Helpers
                     thisForm.Close();
                     break;
 
-                case "operationalMenu":
+                case "OperationalMenu":
                     OperationalPage operationalPage = new OperationalPage();
                     operationalPage.Show();
                     thisForm.Close();

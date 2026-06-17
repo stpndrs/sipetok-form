@@ -17,18 +17,16 @@ namespace sipetok_form.Views.Transactions
     {
         private readonly ApiService _apiService = new ApiService();
         private List<EggCategory> _cachedCategories = new List<EggCategory>();
-        private TransactionPage trsPage;
+        private TransactionPage TransactionPage;
 
-        public AddTransactionPage(TransactionPage trsPage)
+        public AddTransactionPage(TransactionPage transactionPage)
         {
+            this.TransactionPage = transactionPage; 
             InitializeComponent();
-            LoadKategoriTelur();
-
-            this.trsPage = trsPage;
+            LoadEggCategories();
         }
 
-        // Method mengambil data kategori telur dari API untuk disimpan di cache memory form
-        private async Task LoadKategoriTelur()
+        private async Task LoadEggCategories()
         {
             try
             {
@@ -44,7 +42,7 @@ namespace sipetok_form.Views.Transactions
             }
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void AddItemButton_Click(object sender, EventArgs e)
         {
             AddDynamicInputRow();
         }
@@ -54,28 +52,28 @@ namespace sipetok_form.Views.Transactions
             // 1. Buat panel pembungkus horizontal per baris
             Panel rowPanel = new Panel
             {
-                Width = flpContainer.Width - 25, // Dikurangi sedikit agar scrollbar vertikal aman
+                Width = TransactionItemsContainer.Width - 25, // Dikurangi sedikit agar scrollbar vertikal aman
                 Height = 35
             };
 
             // 2. Buat ComboBox untuk memilih kategori telur
-            ComboBox cbbCategory = new ComboBox
+            ComboBox CategoryComboBox = new ComboBox
             {
-                Name = "cbbCategoryId",
+                Name = "CategoryComboBoxId",
                 Width = 160,
                 Location = new Point(5, 5),
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
 
             // Masukkan data cache kategori ke dalam dropdown
-            cbbCategory.DataSource = new BindingSource(_cachedCategories, null);
-            cbbCategory.DisplayMember = "Name";
-            cbbCategory.ValueMember = "Id";
+            CategoryComboBox.DataSource = new BindingSource(_cachedCategories, null);
+            CategoryComboBox.DisplayMember = "Name";
+            CategoryComboBox.ValueMember = "Id";
 
             // 3. Buat TextBox untuk input jumlah (Qty)
-            TextBox txtQty = new TextBox
+            TextBox QtyTextField = new TextBox
             {
-                Name = "txtQty",
+                Name = "QtyTextField",
                 Width = 60,
                 Location = new Point(175, 5),
                 Text = "1"
@@ -91,53 +89,53 @@ namespace sipetok_form.Views.Transactions
                 ForeColor = Color.Red,
                 FlatStyle = FlatStyle.Flat
             };
-            btnDeleteRow.Click += (s, e) => { flpContainer.Controls.Remove(rowPanel); };
+            btnDeleteRow.Click += (s, e) => { TransactionItemsContainer.Controls.Remove(rowPanel); };
 
             // 5. Gabungkan komponen ke dalam panel baris
-            rowPanel.Controls.Add(cbbCategory);
-            rowPanel.Controls.Add(txtQty);
+            rowPanel.Controls.Add(CategoryComboBox);
+            rowPanel.Controls.Add(QtyTextField);
             rowPanel.Controls.Add(btnDeleteRow);
 
             // 6. Masukkan panel baris tersebut ke dalam FlowLayoutPanel utama
-            flpContainer.Controls.Add(rowPanel);
+            TransactionItemsContainer.Controls.Add(rowPanel);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                btnAddItem.Enabled = false;
+                AddItemButton.Enabled = false;
                 ActionResponse<Transaction> response = new ActionResponse<Transaction>();
 
                     Transaction transaksiBaru = new Transaction
                     {
-                        Date = dtDate.Value,
-                        CustomerName = txtCustomerName.Text,
-                        CustomerPhoneNumber = txtCustomerPhoneNumber.Text,
+                        Date = DateTimePicker.Value,
+                        CustomerName = CustomerNameTextField.Text,
+                        CustomerPhoneNumber = CustomerPhoneNumbeTextField.Text,
                         Details = new List<TransactionDetail>()
                     };
 
                     // SISI SISIR DYNAMIC CONTROLS: Looping setiap panel yang ada di dalam FlowLayoutPanel
-                    foreach (Control control in flpContainer.Controls)
+                    foreach (Control control in TransactionItemsContainer.Controls)
                     {
                         if (control is Panel rowPanel)
                         {
-                            ComboBox? cbbCategory = rowPanel.Controls["cbbCategoryId"] as ComboBox;
-                            TextBox? txtQty = rowPanel.Controls["txtQty"] as TextBox;
+                            ComboBox? CategoryComboBox = rowPanel.Controls["CategoryComboBoxId"] as ComboBox;
+                            TextBox? QtyTextField = rowPanel.Controls["QtyTextField"] as TextBox;
 
-                            if (cbbCategory != null && txtQty != null)
+                            if (CategoryComboBox != null && QtyTextField != null)
                             {
                                 // Validasi input Qty per baris harus berupa angka bulat positif
-                                if (!int.TryParse(txtQty.Text, out int qty) || qty <= 0)
+                                if (!int.TryParse(QtyTextField.Text, out int qty) || qty <= 0)
                                 {
                                     MessageBox.Show("Ada inputan jumlah item yang tidak valid (harus angka > 0)!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    btnAddItem.Enabled = true;
+                                    AddItemButton.Enabled = true;
                                     return;
                                 }
 
                                 var detailItem = new TransactionDetail
                                 {
-                                    CategoryId = Convert.ToInt32(cbbCategory.SelectedValue),
+                                    CategoryId = Convert.ToInt32(CategoryComboBox.SelectedValue),
                                     Quantity = qty,
                                 };
 
@@ -151,12 +149,13 @@ namespace sipetok_form.Views.Transactions
 
                 if (response.Success)
                 {
-                    await trsPage.RefreshGrid();
+                    TransactionPage TransactionPage = new TransactionPage();
+                    await TransactionPage.RefreshGrid();
                     MessageBox.Show("Transaksi SIPETOK berhasil diproses!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMessageLabel);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -166,12 +165,12 @@ namespace sipetok_form.Views.Transactions
             }
             finally
             {
-                btnAddItem.Enabled = true;
+                AddItemButton.Enabled = true;
             }
         }
-        private async void cancelBtn_Click(object sender, EventArgs e)
+        private async void CancelButton_Click(object sender, EventArgs e)
         {
-            await trsPage.RefreshGrid();
+            await TransactionPage.RefreshGrid();
             this.Close();
         }
 

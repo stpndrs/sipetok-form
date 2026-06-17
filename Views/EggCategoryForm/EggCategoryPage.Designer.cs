@@ -28,200 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cancelBtn = new Button();
-            label5 = new Label();
-            flowLayoutPanel7 = new FlowLayoutPanel();
-            txtPrice = new TextBox();
-            Description = new Label();
-            txtDescription = new TextBox();
-            flowLayoutPanel6 = new FlowLayoutPanel();
-            label4 = new Label();
-            txtName = new TextBox();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label1 = new Label();
-            addBtn = new Button();
+            CancelBtn = new Button();
+            PriceLabel = new Label();
+            PriceInputGroup = new FlowLayoutPanel();
+            PriceTextField = new TextBox();
+            DescriptionLabel = new Label();
+            DescriptionTextFiled = new TextBox();
+            DescriptionInputGroup = new FlowLayoutPanel();
+            NameLabel = new Label();
+            NameTextField = new TextBox();
+            NameInputGroup = new FlowLayoutPanel();
+            ListContainer = new FlowLayoutPanel();
+            PageLabel = new Label();
+            AddBtn = new Button();
             EggCategoryList = new DataGridView();
-            label2 = new Label();
-            validationErrorMsg = new Label();
-            formPanel = new FlowLayoutPanel();
+            FormLabel = new Label();
+            ValidationErrorMsg = new Label();
+            FormContainer = new FlowLayoutPanel();
             SaveBtn = new Button();
-            body = new TableLayoutPanel();
-            menuLogout = new ToolStripMenuItem();
-            laporanMenu = new ToolStripMenuItem();
-            operationalMenu = new ToolStripMenuItem();
-            transaksiMenu = new ToolStripMenuItem();
-            stokMenu = new ToolStripMenuItem();
-            kategoriMenu = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
-            dashboardMenu = new ToolStripMenuItem();
-            topMenu = new MenuStrip();
-            container = new TableLayoutPanel();
-            flowLayoutPanel7.SuspendLayout();
-            flowLayoutPanel6.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            Body = new TableLayoutPanel();
+            LogoutMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
+            OperationalMenu = new ToolStripMenuItem();
+            TransactionMenu = new ToolStripMenuItem();
+            StockMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
+            DashboardMenu = new ToolStripMenuItem();
+            TopMenu = new MenuStrip();
+            Container = new TableLayoutPanel();
+            PriceInputGroup.SuspendLayout();
+            DescriptionInputGroup.SuspendLayout();
+            NameInputGroup.SuspendLayout();
+            ListContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EggCategoryList).BeginInit();
-            formPanel.SuspendLayout();
-            body.SuspendLayout();
-            topMenu.SuspendLayout();
-            container.SuspendLayout();
+            FormContainer.SuspendLayout();
+            Body.SuspendLayout();
+            TopMenu.SuspendLayout();
+            Container.SuspendLayout();
             SuspendLayout();
             // 
-            // cancelBtn
+            // CancelBtn
             // 
-            cancelBtn.AutoSize = true;
-            cancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cancelBtn.Location = new Point(33, 533);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(434, 48);
-            cancelBtn.TabIndex = 16;
-            cancelBtn.Text = "Batalkan";
-            cancelBtn.UseVisualStyleBackColor = true;
+            CancelBtn.AutoSize = true;
+            CancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelBtn.Location = new Point(33, 533);
+            CancelBtn.Name = "CancelBtn";
+            CancelBtn.Size = new Size(434, 48);
+            CancelBtn.TabIndex = 16;
+            CancelBtn.Text = "Batalkan";
+            CancelBtn.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // PriceLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label5.Location = new Point(13, 11);
-            label5.Name = "label5";
-            label5.Size = new Size(48, 20);
-            label5.TabIndex = 1;
-            label5.Text = "Price";
+            PriceLabel.AutoSize = true;
+            PriceLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            PriceLabel.Location = new Point(13, 11);
+            PriceLabel.Name = "PriceLabel";
+            PriceLabel.Size = new Size(48, 20);
+            PriceLabel.TabIndex = 1;
+            PriceLabel.Text = "Price";
             // 
-            // flowLayoutPanel7
+            // PriceInputGroup
             // 
-            flowLayoutPanel7.AutoSize = true;
-            flowLayoutPanel7.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel7.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel7.Controls.Add(label5);
-            flowLayoutPanel7.Controls.Add(txtPrice);
-            flowLayoutPanel7.Dock = DockStyle.Fill;
-            flowLayoutPanel7.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel7.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel7.Location = new Point(30, 364);
-            flowLayoutPanel7.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel7.Size = new Size(440, 72);
-            flowLayoutPanel7.TabIndex = 13;
+            PriceInputGroup.AutoSize = true;
+            PriceInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PriceInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            PriceInputGroup.Controls.Add(PriceLabel);
+            PriceInputGroup.Controls.Add(PriceTextField);
+            PriceInputGroup.Dock = DockStyle.Fill;
+            PriceInputGroup.FlowDirection = FlowDirection.TopDown;
+            PriceInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PriceInputGroup.Location = new Point(30, 364);
+            PriceInputGroup.Margin = new Padding(0, 0, 0, 40);
+            PriceInputGroup.Name = "PriceInputGroup";
+            PriceInputGroup.Padding = new Padding(10, 11, 10, 11);
+            PriceInputGroup.Size = new Size(440, 72);
+            PriceInputGroup.TabIndex = 13;
             // 
-            // txtPrice
+            // PriceTextField
             // 
-            txtPrice.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtPrice.Location = new Point(13, 34);
-            txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(406, 22);
-            txtPrice.TabIndex = 3;
+            PriceTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            PriceTextField.Location = new Point(13, 34);
+            PriceTextField.Name = "PriceTextField";
+            PriceTextField.Size = new Size(406, 22);
+            PriceTextField.TabIndex = 3;
             // 
-            // Description
+            // DescriptionLabel
             // 
-            Description.AutoSize = true;
-            Description.Font = new Font("Microsoft Sans Serif", 10.2F);
-            Description.Location = new Point(13, 11);
-            Description.Name = "Description";
-            Description.Size = new Size(80, 20);
-            Description.TabIndex = 1;
-            Description.Text = "Deskripsi";
-            
+            DescriptionLabel.AutoSize = true;
+            DescriptionLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            DescriptionLabel.Location = new Point(13, 11);
+            DescriptionLabel.Name = "DescriptionLabel";
+            DescriptionLabel.Size = new Size(80, 20);
+            DescriptionLabel.TabIndex = 1;
+            DescriptionLabel.Text = "Deskripsi";
             // 
-            // txtDescription
+            // DescriptionTextFiled
             // 
-            txtDescription.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtDescription.Location = new Point(13, 34);
-            txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(406, 22);
-            txtDescription.TabIndex = 2;
+            DescriptionTextFiled.Font = new Font("Microsoft Sans Serif", 7.8F);
+            DescriptionTextFiled.Location = new Point(13, 34);
+            DescriptionTextFiled.Name = "DescriptionTextFiled";
+            DescriptionTextFiled.Size = new Size(406, 22);
+            DescriptionTextFiled.TabIndex = 2;
             // 
-            // flowLayoutPanel6
+            // DescriptionInputGroup
             // 
-            flowLayoutPanel6.AutoSize = true;
-            flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel6.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel6.Controls.Add(Description);
-            flowLayoutPanel6.Controls.Add(txtDescription);
-            flowLayoutPanel6.Dock = DockStyle.Fill;
-            flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel6.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel6.Location = new Point(30, 252);
-            flowLayoutPanel6.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel6.Size = new Size(440, 72);
-            flowLayoutPanel6.TabIndex = 12;
+            DescriptionInputGroup.AutoSize = true;
+            DescriptionInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DescriptionInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            DescriptionInputGroup.Controls.Add(DescriptionLabel);
+            DescriptionInputGroup.Controls.Add(DescriptionTextFiled);
+            DescriptionInputGroup.Dock = DockStyle.Fill;
+            DescriptionInputGroup.FlowDirection = FlowDirection.TopDown;
+            DescriptionInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            DescriptionInputGroup.Location = new Point(30, 252);
+            DescriptionInputGroup.Margin = new Padding(0, 0, 0, 40);
+            DescriptionInputGroup.Name = "DescriptionInputGroup";
+            DescriptionInputGroup.Padding = new Padding(10, 11, 10, 11);
+            DescriptionInputGroup.Size = new Size(440, 72);
+            DescriptionInputGroup.TabIndex = 12;
             // 
-            // label4
+            // NameLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label4.Location = new Point(13, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(53, 20);
-            label4.TabIndex = 4;
-            label4.Text = "Nama";
+            NameLabel.AutoSize = true;
+            NameLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            NameLabel.Location = new Point(13, 11);
+            NameLabel.Name = "NameLabel";
+            NameLabel.Size = new Size(53, 20);
+            NameLabel.TabIndex = 4;
+            NameLabel.Text = "Nama";
             // 
-            // txtName
+            // NameTextField
             // 
-            txtName.Font = new Font("Microsoft Sans Serif", 7.8F);
-            txtName.Location = new Point(13, 34);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(406, 22);
-            txtName.TabIndex = 3;
+            NameTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
+            NameTextField.Location = new Point(13, 34);
+            NameTextField.Name = "NameTextField";
+            NameTextField.Size = new Size(406, 22);
+            NameTextField.TabIndex = 3;
             // 
-            // flowLayoutPanel5
+            // NameInputGroup
             // 
-            flowLayoutPanel5.AutoSize = true;
-            flowLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel5.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel5.Controls.Add(label4);
-            flowLayoutPanel5.Controls.Add(txtName);
-            flowLayoutPanel5.Dock = DockStyle.Fill;
-            flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel5.Font = new Font("Microsoft Sans Serif", 7.8F);
-            flowLayoutPanel5.Location = new Point(30, 140);
-            flowLayoutPanel5.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(10, 11, 10, 11);
-            flowLayoutPanel5.Size = new Size(440, 72);
-            flowLayoutPanel5.TabIndex = 10;
+            NameInputGroup.AutoSize = true;
+            NameInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            NameInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            NameInputGroup.Controls.Add(NameLabel);
+            NameInputGroup.Controls.Add(NameTextField);
+            NameInputGroup.Dock = DockStyle.Fill;
+            NameInputGroup.FlowDirection = FlowDirection.TopDown;
+            NameInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
+            NameInputGroup.Location = new Point(30, 140);
+            NameInputGroup.Margin = new Padding(0, 0, 0, 40);
+            NameInputGroup.Name = "NameInputGroup";
+            NameInputGroup.Padding = new Padding(10, 11, 10, 11);
+            NameInputGroup.Size = new Size(440, 72);
+            NameInputGroup.TabIndex = 10;
             // 
-            // flowLayoutPanel1
+            // ListContainer
             // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(addBtn);
-            flowLayoutPanel1.Controls.Add(EggCategoryList);
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1362, 924);
-            flowLayoutPanel1.TabIndex = 6;
+            ListContainer.AutoSize = true;
+            ListContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ListContainer.Controls.Add(PageLabel);
+            ListContainer.Controls.Add(AddBtn);
+            ListContainer.Controls.Add(EggCategoryList);
+            ListContainer.FlowDirection = FlowDirection.TopDown;
+            ListContainer.Location = new Point(3, 3);
+            ListContainer.Name = "ListContainer";
+            ListContainer.Size = new Size(1362, 924);
+            ListContainer.TabIndex = 6;
             // 
-            // label1
+            // PageLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(3, 0);
-            label1.Margin = new Padding(3, 0, 3, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(192, 36);
-            label1.TabIndex = 2;
-            label1.Text = "Kategori telur";
+            PageLabel.AutoSize = true;
+            PageLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageLabel.ForeColor = SystemColors.ControlText;
+            PageLabel.Location = new Point(3, 0);
+            PageLabel.Margin = new Padding(3, 0, 3, 15);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(192, 36);
+            PageLabel.TabIndex = 2;
+            PageLabel.Text = "Kategori telur";
             // 
-            // addBtn
+            // AddBtn
             // 
-            addBtn.AutoSize = true;
-            addBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addBtn.Location = new Point(3, 54);
-            addBtn.Margin = new Padding(3, 3, 3, 29);
-            addBtn.Name = "addBtn";
-            addBtn.Size = new Size(181, 48);
-            addBtn.TabIndex = 17;
-            addBtn.Text = "Tambah Telur";
-            addBtn.UseVisualStyleBackColor = true;
-            addBtn.Click += addBtn_Click;
+            AddBtn.AutoSize = true;
+            AddBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddBtn.Location = new Point(3, 54);
+            AddBtn.Margin = new Padding(3, 3, 3, 29);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(181, 48);
+            AddBtn.TabIndex = 17;
+            AddBtn.Text = "Tambah Telur";
+            AddBtn.UseVisualStyleBackColor = true;
+            AddBtn.Click += addBtn_Click;
             // 
             // EggCategoryList
             // 
@@ -234,45 +233,45 @@
             EggCategoryList.Size = new Size(1309, 787);
             EggCategoryList.TabIndex = 3;
             // 
-            // label2
+            // FormLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(33, 29);
-            label2.Margin = new Padding(3, 0, 3, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(312, 36);
-            label2.TabIndex = 1;
-            label2.Text = "Kelola Data Pengguna";
+            FormLabel.AutoSize = true;
+            FormLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormLabel.ForeColor = SystemColors.ControlText;
+            FormLabel.Location = new Point(33, 29);
+            FormLabel.Margin = new Padding(3, 0, 3, 15);
+            FormLabel.Name = "FormLabel";
+            FormLabel.Size = new Size(312, 36);
+            FormLabel.TabIndex = 1;
+            FormLabel.Text = "Kelola Data Pengguna";
             // 
-            // validationErrorMsg
+            // ValidationErrorMsg
             // 
-            validationErrorMsg.AutoSize = true;
-            validationErrorMsg.BackColor = SystemColors.Control;
-            validationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validationErrorMsg.ForeColor = Color.Red;
-            validationErrorMsg.Location = new Point(33, 80);
-            validationErrorMsg.Margin = new Padding(3, 0, 3, 40);
-            validationErrorMsg.Name = "validationErrorMsg";
-            validationErrorMsg.Size = new Size(0, 20);
-            validationErrorMsg.TabIndex = 15;
+            ValidationErrorMsg.AutoSize = true;
+            ValidationErrorMsg.BackColor = SystemColors.Control;
+            ValidationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ValidationErrorMsg.ForeColor = Color.Red;
+            ValidationErrorMsg.Location = new Point(33, 80);
+            ValidationErrorMsg.Margin = new Padding(3, 0, 3, 40);
+            ValidationErrorMsg.Name = "ValidationErrorMsg";
+            ValidationErrorMsg.Size = new Size(0, 20);
+            ValidationErrorMsg.TabIndex = 15;
             // 
-            // formPanel
+            // FormContainer
             // 
-            formPanel.Controls.Add(label2);
-            formPanel.Controls.Add(validationErrorMsg);
-            formPanel.Controls.Add(flowLayoutPanel5);
-            formPanel.Controls.Add(flowLayoutPanel6);
-            formPanel.Controls.Add(flowLayoutPanel7);
-            formPanel.Controls.Add(SaveBtn);
-            formPanel.Controls.Add(cancelBtn);
-            formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(1371, 3);
-            formPanel.Name = "formPanel";
-            formPanel.Padding = new Padding(30, 29, 30, 29);
-            formPanel.Size = new Size(485, 912);
-            formPanel.TabIndex = 5;
+            FormContainer.Controls.Add(FormLabel);
+            FormContainer.Controls.Add(ValidationErrorMsg);
+            FormContainer.Controls.Add(NameInputGroup);
+            FormContainer.Controls.Add(DescriptionInputGroup);
+            FormContainer.Controls.Add(PriceInputGroup);
+            FormContainer.Controls.Add(SaveBtn);
+            FormContainer.Controls.Add(CancelBtn);
+            FormContainer.FlowDirection = FlowDirection.TopDown;
+            FormContainer.Location = new Point(1371, 3);
+            FormContainer.Name = "FormContainer";
+            FormContainer.Padding = new Padding(30, 29, 30, 29);
+            FormContainer.Size = new Size(485, 912);
+            FormContainer.TabIndex = 5;
             // 
             // SaveBtn
             // 
@@ -286,162 +285,162 @@
             SaveBtn.UseVisualStyleBackColor = true;
             SaveBtn.Click += SaveBtn_Click;
             // 
-            // body
+            // Body
             // 
-            body.AutoSize = true;
-            body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            body.ColumnCount = 2;
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.Controls.Add(flowLayoutPanel1, 0, 0);
-            body.Controls.Add(formPanel, 1, 0);
-            body.Location = new Point(3, 35);
-            body.Name = "body";
-            body.RowCount = 1;
-            body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(1859, 930);
-            body.TabIndex = 7;
+            Body.AutoSize = true;
+            Body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Body.ColumnCount = 2;
+            Body.ColumnStyles.Add(new ColumnStyle());
+            Body.ColumnStyles.Add(new ColumnStyle());
+            Body.Controls.Add(ListContainer, 0, 0);
+            Body.Controls.Add(FormContainer, 1, 0);
+            Body.Location = new Point(3, 35);
+            Body.Name = "Body";
+            Body.RowCount = 1;
+            Body.RowStyles.Add(new RowStyle());
+            Body.Size = new Size(1859, 930);
+            Body.TabIndex = 7;
             // 
-            // menuLogout
+            // LogoutMenu
             // 
-            menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(79, 26);
-            menuLogout.Text = "Logout";
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(79, 26);
+            LogoutMenu.Text = "Logout";
             // 
-            // laporanMenu
+            // ReportMenu
             // 
-            laporanMenu.Name = "laporanMenu";
-            laporanMenu.Size = new Size(90, 26);
-            laporanMenu.Text = "Laporan";
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(90, 26);
+            ReportMenu.Text = "Laporan";
             // 
-            // operationalMenu
+            // OperationalMenu
             // 
-            operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(121, 26);
-            operationalMenu.Text = "Operasional";
+            OperationalMenu.Name = "OperationalMenu";
+            OperationalMenu.Size = new Size(121, 26);
+            OperationalMenu.Text = "Operasional";
             // 
-            // transaksiMenu
+            // TransactionMenu
             // 
-            transaksiMenu.Name = "transaksiMenu";
-            transaksiMenu.Size = new Size(103, 26);
-            transaksiMenu.Text = "Transaksi";
+            TransactionMenu.Name = "TransactionMenu";
+            TransactionMenu.Size = new Size(103, 26);
+            TransactionMenu.Text = "Transaksi";
             // 
-            // stokMenu
+            // StockMenu
             // 
-            stokMenu.Name = "stokMenu";
-            stokMenu.Size = new Size(138, 26);
-            stokMenu.Text = "Stok & Inventori";
-            stokMenu.Click += stokMenu_Click;
+            StockMenu.Name = "StockMenu";
+            StockMenu.Size = new Size(138, 26);
+            StockMenu.Text = "Stok & Inventori";
+            StockMenu.Click += stokMenu_Click;
             // 
-            // kategoriMenu
+            // EggCategoryMenu
             // 
-            kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(138, 26);
-            kategoriMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(138, 26);
+            EggCategoryMenu.Text = "Kategori Telur";
             // 
-            // penggunaMenu
+            // UserMenu
             // 
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(106, 26);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += penggunaMenu_Click;
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(106, 26);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += penggunaMenu_Click;
             // 
-            // dashboardMenu
+            // DashboardMenu
             // 
-            dashboardMenu.Name = "dashboardMenu";
-            dashboardMenu.Size = new Size(112, 26);
-            dashboardMenu.Text = "Dashboard";
+            DashboardMenu.Name = "DashboardMenu";
+            DashboardMenu.Size = new Size(112, 26);
+            DashboardMenu.Text = "Dashboard";
             // 
-            // topMenu
+            // TopMenu
             // 
-            topMenu.BackColor = SystemColors.ControlLight;
-            topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
-            topMenu.Location = new Point(0, 0);
-            topMenu.Name = "topMenu";
-            topMenu.Padding = new Padding(6, 3, 0, 3);
-            topMenu.Size = new Size(1902, 32);
-            topMenu.TabIndex = 6;
-            topMenu.Text = "menuStrip1";
+            TopMenu.BackColor = SystemColors.ControlLight;
+            TopMenu.Dock = DockStyle.Fill;
+            TopMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TopMenu.ImageScalingSize = new Size(20, 20);
+            TopMenu.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            TopMenu.Location = new Point(0, 0);
+            TopMenu.Name = "TopMenu";
+            TopMenu.Padding = new Padding(6, 3, 0, 3);
+            TopMenu.Size = new Size(1902, 32);
+            TopMenu.TabIndex = 6;
+            TopMenu.Text = "menuStrip1";
             // 
-            // container
+            // Container
             // 
-            container.ColumnCount = 1;
-            container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            container.Controls.Add(topMenu, 0, 0);
-            container.Controls.Add(body, 0, 1);
-            container.Dock = DockStyle.Fill;
-            container.Location = new Point(0, 0);
-            container.Name = "container";
-            container.RowCount = 2;
-            container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(1902, 1033);
-            container.TabIndex = 1;
+            Container.ColumnCount = 1;
+            Container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            Container.Controls.Add(TopMenu, 0, 0);
+            Container.Controls.Add(Body, 0, 1);
+            Container.Dock = DockStyle.Fill;
+            Container.Location = new Point(0, 0);
+            Container.Name = "Container";
+            Container.RowCount = 2;
+            Container.RowStyles.Add(new RowStyle());
+            Container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            Container.Size = new Size(1902, 1033);
+            Container.TabIndex = 1;
             // 
             // EggCategoryPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(container);
+            Controls.Add(Container);
             Name = "EggCategoryPage";
             SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "EggCategoryPage";
             WindowState = FormWindowState.Maximized;
-            flowLayoutPanel7.ResumeLayout(false);
-            flowLayoutPanel7.PerformLayout();
-            flowLayoutPanel6.ResumeLayout(false);
-            flowLayoutPanel6.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            PriceInputGroup.ResumeLayout(false);
+            PriceInputGroup.PerformLayout();
+            DescriptionInputGroup.ResumeLayout(false);
+            DescriptionInputGroup.PerformLayout();
+            NameInputGroup.ResumeLayout(false);
+            NameInputGroup.PerformLayout();
+            ListContainer.ResumeLayout(false);
+            ListContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)EggCategoryList).EndInit();
-            formPanel.ResumeLayout(false);
-            formPanel.PerformLayout();
-            body.ResumeLayout(false);
-            body.PerformLayout();
-            topMenu.ResumeLayout(false);
-            topMenu.PerformLayout();
-            container.ResumeLayout(false);
-            container.PerformLayout();
+            FormContainer.ResumeLayout(false);
+            FormContainer.PerformLayout();
+            Body.ResumeLayout(false);
+            Body.PerformLayout();
+            TopMenu.ResumeLayout(false);
+            TopMenu.PerformLayout();
+            Container.ResumeLayout(false);
+            Container.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button cancelBtn;
-        private Label label5;
-        private FlowLayoutPanel flowLayoutPanel7;
-        private Label Description;
-        private TextBox txtDescription;
-        private FlowLayoutPanel flowLayoutPanel6;
-        private Label label4;
-        private TextBox txtName;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
-        private Button addBtn;
+        private Button CancelBtn;
+        private Label PriceLabel;
+        private FlowLayoutPanel PriceInputGroup;
+        private Label DescriptionLabel;
+        private TextBox DescriptionTextFiled;
+        private FlowLayoutPanel DescriptionInputGroup;
+        private Label NameLabel;
+        private TextBox NameTextField;
+        private FlowLayoutPanel NameInputGroup;
+        private FlowLayoutPanel ListContainer;
+        private Label PageLabel;
+        private Button AddBtn;
         private DataGridView EggCategoryList;
-        private Label label2;
-        private Label validationErrorMsg;
-        private FlowLayoutPanel formPanel;
+        private Label FormLabel;
+        private Label ValidationErrorMsg;
+        private FlowLayoutPanel FormContainer;
         private Button SaveBtn;
-        private TableLayoutPanel body;
-        private ToolStripMenuItem menuLogout;
-        private ToolStripMenuItem laporanMenu;
-        private ToolStripMenuItem operationalMenu;
-        private ToolStripMenuItem transaksiMenu;
-        private ToolStripMenuItem stokMenu;
-        private ToolStripMenuItem kategoriMenu;
-        private ToolStripMenuItem penggunaMenu;
-        private ToolStripMenuItem dashboardMenu;
-        private MenuStrip topMenu;
-        private TableLayoutPanel container;
-        private TextBox txtPrice;
+        private TableLayoutPanel Body;
+        private ToolStripMenuItem LogoutMenu;
+        private ToolStripMenuItem ReportMenu;
+        private ToolStripMenuItem OperationalMenu;
+        private ToolStripMenuItem TransactionMenu;
+        private ToolStripMenuItem StockMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem UserMenu;
+        private ToolStripMenuItem DashboardMenu;
+        private MenuStrip TopMenu;
+        private TableLayoutPanel Container;
+        private TextBox PriceTextField;
     }
 }

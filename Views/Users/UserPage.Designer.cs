@@ -59,8 +59,8 @@
             RoleInputGroup = new FlowLayoutPanel();
             RoleLabel = new Label();
             RoleComboBox = new ComboBox();
-            SaveBtn = new Button();
-            CancelBtn = new Button();
+            SaveButton = new Button();
+            CancelButton = new Button();
             PageContainer.SuspendLayout();
             MenuContainer.SuspendLayout();
             PageBodyContainer.SuspendLayout();
@@ -92,7 +92,7 @@
             // 
             MenuContainer.BackColor = SystemColors.ControlLight;
             MenuContainer.Dock = DockStyle.Fill;
-            MenuContainer.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MenuContainer.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MenuContainer.ImageScalingSize = new Size(20, 20);
             MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             MenuContainer.Location = new Point(0, 0);
@@ -105,28 +105,28 @@
             // DashboardMenu
             // 
             DashboardMenu.Name = "DashboardMenu";
-            DashboardMenu.Size = new Size(111, 26);
+            DashboardMenu.Size = new Size(112, 26);
             DashboardMenu.Text = "Dashboard";
             DashboardMenu.Click += HandleClickMenu;
             // 
             // UserMenu
             // 
             UserMenu.Name = "UserMenu";
-            UserMenu.Size = new Size(104, 26);
+            UserMenu.Size = new Size(106, 26);
             UserMenu.Text = "Pengguna";
             UserMenu.Click += HandleClickMenu;
             // 
             // TenantMenu
             // 
             TenantMenu.Name = "TenantMenu";
-            TenantMenu.Size = new Size(80, 26);
+            TenantMenu.Size = new Size(81, 26);
             TenantMenu.Text = "Tenant";
             TenantMenu.Click += HandleClickMenu;
             // 
             // EggCategoryMenu
             // 
             EggCategoryMenu.Name = "EggCategoryMenu";
-            EggCategoryMenu.Size = new Size(136, 26);
+            EggCategoryMenu.Size = new Size(138, 26);
             EggCategoryMenu.Text = "Kategori Telur";
             EggCategoryMenu.Click += HandleClickMenu;
             // 
@@ -147,7 +147,7 @@
             // OperationalMenu
             // 
             OperationalMenu.Name = "OperationalMenu";
-            OperationalMenu.Size = new Size(120, 26);
+            OperationalMenu.Size = new Size(121, 26);
             OperationalMenu.Text = "Operasional";
             OperationalMenu.Click += HandleClickMenu;
             // 
@@ -161,7 +161,7 @@
             // LogoutMenu
             // 
             LogoutMenu.Name = "LogoutMenu";
-            LogoutMenu.Size = new Size(80, 26);
+            LogoutMenu.Size = new Size(79, 26);
             LogoutMenu.Text = "Logout";
             LogoutMenu.Click += HandleClickMenu;
             // 
@@ -217,7 +217,7 @@
             AddBtn.TabIndex = 17;
             AddBtn.Text = "Tambah Data";
             AddBtn.UseVisualStyleBackColor = true;
-            AddBtn.Click += AddBtn_Click;
+            AddBtn.Click += AddButton_Click;
             // 
             // UsersList
             // 
@@ -239,8 +239,8 @@
             FormContainer.Controls.Add(PasswordInputGroup);
             FormContainer.Controls.Add(EmailInputGroup);
             FormContainer.Controls.Add(RoleInputGroup);
-            FormContainer.Controls.Add(SaveBtn);
-            FormContainer.Controls.Add(CancelBtn);
+            FormContainer.Controls.Add(SaveButton);
+            FormContainer.Controls.Add(CancelButton);
             FormContainer.FlowDirection = FlowDirection.TopDown;
             FormContainer.Location = new Point(1371, 3);
             FormContainer.Name = "FormContainer";
@@ -413,29 +413,29 @@
             RoleComboBox.Size = new Size(406, 24);
             RoleComboBox.TabIndex = 2;
             // 
-            // SaveBtn
+            // SaveButton
             // 
-            SaveBtn.AutoSize = true;
-            SaveBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SaveBtn.Location = new Point(33, 593);
-            SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(434, 48);
-            SaveBtn.TabIndex = 9;
-            SaveBtn.Text = "Simpan";
-            SaveBtn.UseVisualStyleBackColor = true;
-            SaveBtn.Click += SaveBtn_Click;
+            SaveButton.AutoSize = true;
+            SaveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveButton.Location = new Point(33, 593);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(434, 48);
+            SaveButton.TabIndex = 9;
+            SaveButton.Text = "Simpan";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
-            // CancelBtn
+            // CancelButton
             // 
-            CancelBtn.AutoSize = true;
-            CancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CancelBtn.Location = new Point(33, 647);
-            CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(434, 48);
-            CancelBtn.TabIndex = 16;
-            CancelBtn.Text = "Batalkan";
-            CancelBtn.UseVisualStyleBackColor = true;
-            CancelBtn.Click += CancelBtn_Click;
+            CancelButton.AutoSize = true;
+            CancelButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelButton.Location = new Point(33, 647);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(434, 48);
+            CancelButton.TabIndex = 16;
+            CancelButton.Text = "Batalkan";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // UserPage
             // 
@@ -446,6 +446,7 @@
             Name = "UserPage";
             Text = "UserPage";
             WindowState = FormWindowState.Maximized;
+            Load += UserPage_Load;
             PageContainer.ResumeLayout(false);
             PageContainer.PerformLayout();
             MenuContainer.ResumeLayout(false);
@@ -495,11 +496,11 @@
         private FlowLayoutPanel RoleInputGroup;
         private Label RoleLabel;
         private ComboBox RoleComboBox;
-        private Button SaveBtn;
+        private Button SaveButton;
         private FlowLayoutPanel ListContainer;
         private Label PageLabel;
         private DataGridView UsersList;
-        private Button CancelBtn;
+        private Button CancelButton;
         private Button AddBtn;
         private ToolStripMenuItem UserMenu;
         private ToolStripMenuItem TenantMenu;

@@ -28,339 +28,339 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            formPanel = new FlowLayoutPanel();
-            label2 = new Label();
-            validationErrorMsg = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            flpContainer = new FlowLayoutPanel();
-            label5 = new Label();
-            btnAddItem = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            label3 = new Label();
-            dtDate = new DateTimePicker();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            label4 = new Label();
-            txtCustomerName = new TextBox();
-            flowLayoutPanel6 = new FlowLayoutPanel();
-            Email = new Label();
-            txtCustomerPhoneNumber = new TextBox();
-            cancelBtn = new Button();
-            button1 = new Button();
-            tableLayoutPanel1.SuspendLayout();
-            formPanel.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            flpContainer.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel4.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            flowLayoutPanel6.SuspendLayout();
+            BodyContainer = new TableLayoutPanel();
+            PageContainer = new FlowLayoutPanel();
+            PageLabel = new Label();
+            ValidationErrorMessageLabel = new Label();
+            TransactionContainer = new TableLayoutPanel();
+            TransactionItemsGroup = new FlowLayoutPanel();
+            TransactionItemsContainer = new FlowLayoutPanel();
+            TransactionDetailLabel = new Label();
+            AddItemButton = new Button();
+            TransactionDataContainer = new FlowLayoutPanel();
+            DateInputGroup = new FlowLayoutPanel();
+            DateInputLabel = new Label();
+            DateTimePicker = new DateTimePicker();
+            CustomerNameInputGroup = new FlowLayoutPanel();
+            CustomerNameLabel = new Label();
+            CustomerNameTextField = new TextBox();
+            CustomerPhoneNumberInputGroup = new FlowLayoutPanel();
+            CustomerPhoneNumberLabel = new Label();
+            CustomerPhoneNumbeTextField = new TextBox();
+            CancelButton = new Button();
+            SaveButton = new Button();
+            BodyContainer.SuspendLayout();
+            PageContainer.SuspendLayout();
+            TransactionContainer.SuspendLayout();
+            TransactionItemsGroup.SuspendLayout();
+            TransactionItemsContainer.SuspendLayout();
+            TransactionDataContainer.SuspendLayout();
+            DateInputGroup.SuspendLayout();
+            CustomerNameInputGroup.SuspendLayout();
+            CustomerPhoneNumberInputGroup.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // BodyContainer
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(formPanel, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(982, 1033);
-            tableLayoutPanel1.TabIndex = 0;
+            BodyContainer.ColumnCount = 1;
+            BodyContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            BodyContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            BodyContainer.Controls.Add(PageContainer, 0, 0);
+            BodyContainer.Dock = DockStyle.Fill;
+            BodyContainer.Location = new Point(0, 0);
+            BodyContainer.Name = "BodyContainer";
+            BodyContainer.RowCount = 1;
+            BodyContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            BodyContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            BodyContainer.Size = new Size(982, 1033);
+            BodyContainer.TabIndex = 0;
             // 
-            // formPanel
+            // PageContainer
             // 
-            formPanel.Controls.Add(label2);
-            formPanel.Controls.Add(validationErrorMsg);
-            formPanel.Controls.Add(tableLayoutPanel2);
-            formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(3, 3);
-            formPanel.Name = "formPanel";
-            formPanel.Padding = new Padding(10);
-            formPanel.Size = new Size(976, 1027);
-            formPanel.TabIndex = 6;
+            PageContainer.Controls.Add(PageLabel);
+            PageContainer.Controls.Add(ValidationErrorMessageLabel);
+            PageContainer.Controls.Add(TransactionContainer);
+            PageContainer.FlowDirection = FlowDirection.TopDown;
+            PageContainer.Location = new Point(3, 3);
+            PageContainer.Name = "PageContainer";
+            PageContainer.Padding = new Padding(10);
+            PageContainer.Size = new Size(976, 1027);
+            PageContainer.TabIndex = 6;
             // 
-            // label2
+            // PageLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Poppins", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(13, 10);
-            label2.Margin = new Padding(3, 0, 3, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(297, 53);
-            label2.TabIndex = 1;
-            label2.Text = "Tambah Transaksi";
+            PageLabel.AutoSize = true;
+            PageLabel.Font = new Font("Poppins", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageLabel.ForeColor = SystemColors.ControlText;
+            PageLabel.Location = new Point(13, 10);
+            PageLabel.Margin = new Padding(3, 0, 3, 15);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(297, 53);
+            PageLabel.TabIndex = 1;
+            PageLabel.Text = "Tambah Transaksi";
             // 
-            // validationErrorMsg
+            // ValidationErrorMessageLabel
             // 
-            validationErrorMsg.AutoSize = true;
-            validationErrorMsg.BackColor = SystemColors.Control;
-            validationErrorMsg.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validationErrorMsg.ForeColor = Color.Red;
-            validationErrorMsg.Location = new Point(13, 78);
-            validationErrorMsg.Margin = new Padding(3, 0, 3, 40);
-            validationErrorMsg.Name = "validationErrorMsg";
-            validationErrorMsg.Size = new Size(0, 30);
-            validationErrorMsg.TabIndex = 15;
+            ValidationErrorMessageLabel.AutoSize = true;
+            ValidationErrorMessageLabel.BackColor = SystemColors.Control;
+            ValidationErrorMessageLabel.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ValidationErrorMessageLabel.ForeColor = Color.Red;
+            ValidationErrorMessageLabel.Location = new Point(13, 78);
+            ValidationErrorMessageLabel.Margin = new Padding(3, 0, 3, 40);
+            ValidationErrorMessageLabel.Name = "ValidationErrorMessageLabel";
+            ValidationErrorMessageLabel.Size = new Size(0, 30);
+            ValidationErrorMessageLabel.TabIndex = 15;
             // 
-            // tableLayoutPanel2
+            // TransactionContainer
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.16981F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 52.83019F));
-            tableLayoutPanel2.Controls.Add(flowLayoutPanel2, 1, 0);
-            tableLayoutPanel2.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel2.Controls.Add(cancelBtn, 1, 1);
-            tableLayoutPanel2.Controls.Add(button1, 0, 1);
-            tableLayoutPanel2.Location = new Point(13, 151);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(954, 823);
-            tableLayoutPanel2.TabIndex = 23;
+            TransactionContainer.ColumnCount = 2;
+            TransactionContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.16981F));
+            TransactionContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 52.83019F));
+            TransactionContainer.Controls.Add(TransactionItemsGroup, 1, 0);
+            TransactionContainer.Controls.Add(TransactionDataContainer, 0, 0);
+            TransactionContainer.Controls.Add(CancelButton, 1, 1);
+            TransactionContainer.Controls.Add(SaveButton, 0, 1);
+            TransactionContainer.Location = new Point(13, 151);
+            TransactionContainer.Name = "TransactionContainer";
+            TransactionContainer.RowCount = 2;
+            TransactionContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            TransactionContainer.RowStyles.Add(new RowStyle());
+            TransactionContainer.Size = new Size(954, 823);
+            TransactionContainer.TabIndex = 23;
             // 
-            // flowLayoutPanel2
+            // TransactionItemsGroup
             // 
-            flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel2.Controls.Add(flpContainer);
-            flowLayoutPanel2.Controls.Add(btnAddItem);
-            flowLayoutPanel2.Location = new Point(453, 3);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(494, 771);
-            flowLayoutPanel2.TabIndex = 21;
+            TransactionItemsGroup.AutoSize = true;
+            TransactionItemsGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TransactionItemsGroup.Controls.Add(TransactionItemsContainer);
+            TransactionItemsGroup.Controls.Add(AddItemButton);
+            TransactionItemsGroup.Location = new Point(453, 3);
+            TransactionItemsGroup.Name = "TransactionItemsGroup";
+            TransactionItemsGroup.Size = new Size(494, 771);
+            TransactionItemsGroup.TabIndex = 21;
             // 
-            // flpContainer
+            // TransactionItemsContainer
             // 
-            flpContainer.BorderStyle = BorderStyle.FixedSingle;
-            flpContainer.Controls.Add(label5);
-            flpContainer.FlowDirection = FlowDirection.TopDown;
-            flpContainer.Font = new Font("Poppins", 7.8F);
-            flpContainer.Location = new Point(0, 0);
-            flpContainer.Margin = new Padding(0, 0, 0, 40);
-            flpContainer.Name = "flpContainer";
-            flpContainer.Padding = new Padding(10);
-            flpContainer.Size = new Size(491, 680);
-            flpContainer.TabIndex = 18;
+            TransactionItemsContainer.BorderStyle = BorderStyle.FixedSingle;
+            TransactionItemsContainer.Controls.Add(TransactionDetailLabel);
+            TransactionItemsContainer.FlowDirection = FlowDirection.TopDown;
+            TransactionItemsContainer.Font = new Font("Poppins", 7.8F);
+            TransactionItemsContainer.Location = new Point(0, 0);
+            TransactionItemsContainer.Margin = new Padding(0, 0, 0, 40);
+            TransactionItemsContainer.Name = "TransactionItemsContainer";
+            TransactionItemsContainer.Padding = new Padding(10);
+            TransactionItemsContainer.Size = new Size(491, 680);
+            TransactionItemsContainer.TabIndex = 18;
             // 
-            // label5
+            // TransactionDetailLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Poppins", 10.2F);
-            label5.Location = new Point(13, 10);
-            label5.Name = "label5";
-            label5.Size = new Size(119, 30);
-            label5.TabIndex = 1;
-            label5.Text = "Item Belanja";
+            TransactionDetailLabel.AutoSize = true;
+            TransactionDetailLabel.Font = new Font("Poppins", 10.2F);
+            TransactionDetailLabel.Location = new Point(13, 10);
+            TransactionDetailLabel.Name = "TransactionDetailLabel";
+            TransactionDetailLabel.Size = new Size(119, 30);
+            TransactionDetailLabel.TabIndex = 1;
+            TransactionDetailLabel.Text = "Item Belanja";
             // 
-            // btnAddItem
+            // AddItemButton
             // 
-            btnAddItem.AutoSize = true;
-            btnAddItem.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAddItem.Location = new Point(3, 723);
-            btnAddItem.Name = "btnAddItem";
-            btnAddItem.Size = new Size(488, 48);
-            btnAddItem.TabIndex = 9;
-            btnAddItem.Text = "Tambah Item";
-            btnAddItem.UseVisualStyleBackColor = true;
-            btnAddItem.Click += btnAddItem_Click;
+            AddItemButton.AutoSize = true;
+            AddItemButton.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddItemButton.Location = new Point(3, 723);
+            AddItemButton.Name = "AddItemButton";
+            AddItemButton.Size = new Size(488, 48);
+            AddItemButton.TabIndex = 9;
+            AddItemButton.Text = "Tambah Item";
+            AddItemButton.UseVisualStyleBackColor = true;
+            AddItemButton.Click += AddItemButton_Click;
             // 
-            // flowLayoutPanel1
+            // TransactionDataContainer
             // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel4);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel5);
-            flowLayoutPanel1.Controls.Add(flowLayoutPanel6);
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(434, 375);
-            flowLayoutPanel1.TabIndex = 20;
+            TransactionDataContainer.AutoSize = true;
+            TransactionDataContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            TransactionDataContainer.Controls.Add(DateInputGroup);
+            TransactionDataContainer.Controls.Add(CustomerNameInputGroup);
+            TransactionDataContainer.Controls.Add(CustomerPhoneNumberInputGroup);
+            TransactionDataContainer.Location = new Point(3, 3);
+            TransactionDataContainer.Name = "TransactionDataContainer";
+            TransactionDataContainer.Size = new Size(434, 375);
+            TransactionDataContainer.TabIndex = 20;
             // 
-            // flowLayoutPanel4
+            // DateInputGroup
             // 
-            flowLayoutPanel4.AutoSize = true;
-            flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel4.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel4.Controls.Add(label3);
-            flowLayoutPanel4.Controls.Add(dtDate);
-            flowLayoutPanel4.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel4.Font = new Font("Poppins", 7.8F);
-            flowLayoutPanel4.Location = new Point(0, 0);
-            flowLayoutPanel4.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Padding = new Padding(10);
-            flowLayoutPanel4.Size = new Size(434, 85);
-            flowLayoutPanel4.TabIndex = 11;
+            DateInputGroup.AutoSize = true;
+            DateInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            DateInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            DateInputGroup.Controls.Add(DateInputLabel);
+            DateInputGroup.Controls.Add(DateTimePicker);
+            DateInputGroup.FlowDirection = FlowDirection.TopDown;
+            DateInputGroup.Font = new Font("Poppins", 7.8F);
+            DateInputGroup.Location = new Point(0, 0);
+            DateInputGroup.Margin = new Padding(0, 0, 0, 40);
+            DateInputGroup.Name = "DateInputGroup";
+            DateInputGroup.Padding = new Padding(10);
+            DateInputGroup.Size = new Size(434, 85);
+            DateInputGroup.TabIndex = 11;
             // 
-            // label3
+            // DateInputLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Poppins", 10.2F);
-            label3.Location = new Point(13, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(81, 30);
-            label3.TabIndex = 1;
-            label3.Text = "Tanggal";
+            DateInputLabel.AutoSize = true;
+            DateInputLabel.Font = new Font("Poppins", 10.2F);
+            DateInputLabel.Location = new Point(13, 10);
+            DateInputLabel.Name = "DateInputLabel";
+            DateInputLabel.Size = new Size(81, 30);
+            DateInputLabel.TabIndex = 1;
+            DateInputLabel.Text = "Tanggal";
             // 
-            // dtDate
+            // DateTimePicker
             // 
-            dtDate.Location = new Point(13, 43);
-            dtDate.Name = "dtDate";
-            dtDate.Size = new Size(406, 27);
-            dtDate.TabIndex = 3;
+            DateTimePicker.Location = new Point(13, 43);
+            DateTimePicker.Name = "DateTimePicker";
+            DateTimePicker.Size = new Size(406, 27);
+            DateTimePicker.TabIndex = 3;
             // 
-            // flowLayoutPanel5
+            // CustomerNameInputGroup
             // 
-            flowLayoutPanel5.AutoSize = true;
-            flowLayoutPanel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel5.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel5.Controls.Add(label4);
-            flowLayoutPanel5.Controls.Add(txtCustomerName);
-            flowLayoutPanel5.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel5.Font = new Font("Poppins", 7.8F);
-            flowLayoutPanel5.Location = new Point(0, 125);
-            flowLayoutPanel5.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(10);
-            flowLayoutPanel5.Size = new Size(434, 85);
-            flowLayoutPanel5.TabIndex = 10;
+            CustomerNameInputGroup.AutoSize = true;
+            CustomerNameInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            CustomerNameInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            CustomerNameInputGroup.Controls.Add(CustomerNameLabel);
+            CustomerNameInputGroup.Controls.Add(CustomerNameTextField);
+            CustomerNameInputGroup.FlowDirection = FlowDirection.TopDown;
+            CustomerNameInputGroup.Font = new Font("Poppins", 7.8F);
+            CustomerNameInputGroup.Location = new Point(0, 125);
+            CustomerNameInputGroup.Margin = new Padding(0, 0, 0, 40);
+            CustomerNameInputGroup.Name = "CustomerNameInputGroup";
+            CustomerNameInputGroup.Padding = new Padding(10);
+            CustomerNameInputGroup.Size = new Size(434, 85);
+            CustomerNameInputGroup.TabIndex = 10;
             // 
-            // label4
+            // CustomerNameLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Poppins", 10.2F);
-            label4.Location = new Point(13, 10);
-            label4.Name = "label4";
-            label4.Size = new Size(155, 30);
-            label4.TabIndex = 4;
-            label4.Text = "Nama Customer";
+            CustomerNameLabel.AutoSize = true;
+            CustomerNameLabel.Font = new Font("Poppins", 10.2F);
+            CustomerNameLabel.Location = new Point(13, 10);
+            CustomerNameLabel.Name = "CustomerNameLabel";
+            CustomerNameLabel.Size = new Size(155, 30);
+            CustomerNameLabel.TabIndex = 4;
+            CustomerNameLabel.Text = "Nama Customer";
             // 
-            // txtCustomerName
+            // CustomerNameTextField
             // 
-            txtCustomerName.Font = new Font("Poppins", 7.8F);
-            txtCustomerName.Location = new Point(13, 43);
-            txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.Size = new Size(406, 27);
-            txtCustomerName.TabIndex = 3;
+            CustomerNameTextField.Font = new Font("Poppins", 7.8F);
+            CustomerNameTextField.Location = new Point(13, 43);
+            CustomerNameTextField.Name = "CustomerNameTextField";
+            CustomerNameTextField.Size = new Size(406, 27);
+            CustomerNameTextField.TabIndex = 3;
             // 
-            // flowLayoutPanel6
+            // CustomerPhoneNumberInputGroup
             // 
-            flowLayoutPanel6.AutoSize = true;
-            flowLayoutPanel6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel6.BorderStyle = BorderStyle.FixedSingle;
-            flowLayoutPanel6.Controls.Add(Email);
-            flowLayoutPanel6.Controls.Add(txtCustomerPhoneNumber);
-            flowLayoutPanel6.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel6.Font = new Font("Poppins", 7.8F);
-            flowLayoutPanel6.Location = new Point(0, 250);
-            flowLayoutPanel6.Margin = new Padding(0, 0, 0, 40);
-            flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Padding = new Padding(10);
-            flowLayoutPanel6.Size = new Size(434, 85);
-            flowLayoutPanel6.TabIndex = 12;
+            CustomerPhoneNumberInputGroup.AutoSize = true;
+            CustomerPhoneNumberInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            CustomerPhoneNumberInputGroup.BorderStyle = BorderStyle.FixedSingle;
+            CustomerPhoneNumberInputGroup.Controls.Add(CustomerPhoneNumberLabel);
+            CustomerPhoneNumberInputGroup.Controls.Add(CustomerPhoneNumbeTextField);
+            CustomerPhoneNumberInputGroup.FlowDirection = FlowDirection.TopDown;
+            CustomerPhoneNumberInputGroup.Font = new Font("Poppins", 7.8F);
+            CustomerPhoneNumberInputGroup.Location = new Point(0, 250);
+            CustomerPhoneNumberInputGroup.Margin = new Padding(0, 0, 0, 40);
+            CustomerPhoneNumberInputGroup.Name = "CustomerPhoneNumberInputGroup";
+            CustomerPhoneNumberInputGroup.Padding = new Padding(10);
+            CustomerPhoneNumberInputGroup.Size = new Size(434, 85);
+            CustomerPhoneNumberInputGroup.TabIndex = 12;
             // 
-            // Email
+            // CustomerPhoneNumberLabel
             // 
-            Email.AutoSize = true;
-            Email.Font = new Font("Poppins", 10.2F);
-            Email.Location = new Point(13, 10);
-            Email.Name = "Email";
-            Email.Size = new Size(234, 30);
-            Email.TabIndex = 1;
-            Email.Text = "Nomor Telepon Customer";
+            CustomerPhoneNumberLabel.AutoSize = true;
+            CustomerPhoneNumberLabel.Font = new Font("Poppins", 10.2F);
+            CustomerPhoneNumberLabel.Location = new Point(13, 10);
+            CustomerPhoneNumberLabel.Name = "CustomerPhoneNumberLabel";
+            CustomerPhoneNumberLabel.Size = new Size(234, 30);
+            CustomerPhoneNumberLabel.TabIndex = 1;
+            CustomerPhoneNumberLabel.Text = "Nomor Telepon Customer";
             // 
-            // txtCustomerPhoneNumber
+            // CustomerPhoneNumbeTextField
             // 
-            txtCustomerPhoneNumber.Font = new Font("Poppins", 7.8F);
-            txtCustomerPhoneNumber.Location = new Point(13, 43);
-            txtCustomerPhoneNumber.Name = "txtCustomerPhoneNumber";
-            txtCustomerPhoneNumber.Size = new Size(406, 27);
-            txtCustomerPhoneNumber.TabIndex = 2;
+            CustomerPhoneNumbeTextField.Font = new Font("Poppins", 7.8F);
+            CustomerPhoneNumbeTextField.Location = new Point(13, 43);
+            CustomerPhoneNumbeTextField.Name = "CustomerPhoneNumbeTextField";
+            CustomerPhoneNumbeTextField.Size = new Size(406, 27);
+            CustomerPhoneNumbeTextField.TabIndex = 2;
             // 
-            // cancelBtn
+            // CancelButton
             // 
-            cancelBtn.AutoSize = true;
-            cancelBtn.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cancelBtn.Location = new Point(453, 780);
-            cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(491, 40);
-            cancelBtn.TabIndex = 16;
-            cancelBtn.Text = "Batalkan";
-            cancelBtn.UseVisualStyleBackColor = true;
-            cancelBtn.Click += cancelBtn_Click;
+            CancelButton.AutoSize = true;
+            CancelButton.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelButton.Location = new Point(453, 780);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(491, 40);
+            CancelButton.TabIndex = 16;
+            CancelButton.Text = "Batalkan";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
-            // button1
+            // SaveButton
             // 
-            button1.AutoSize = true;
-            button1.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(3, 780);
-            button1.Name = "button1";
-            button1.Size = new Size(432, 40);
-            button1.TabIndex = 19;
-            button1.Text = "Simpan";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btnSave_Click;
+            SaveButton.AutoSize = true;
+            SaveButton.Font = new Font("Poppins", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveButton.Location = new Point(3, 780);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(432, 40);
+            SaveButton.TabIndex = 19;
+            SaveButton.Text = "Simpan";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
             // AddTransactionPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 1033);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(BodyContainer);
             Name = "AddTransactionPage";
             Text = "AddTransactionPage";
-            tableLayoutPanel1.ResumeLayout(false);
-            formPanel.ResumeLayout(false);
-            formPanel.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            flpContainer.ResumeLayout(false);
-            flpContainer.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            flowLayoutPanel4.ResumeLayout(false);
-            flowLayoutPanel4.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
-            flowLayoutPanel6.ResumeLayout(false);
-            flowLayoutPanel6.PerformLayout();
+            BodyContainer.ResumeLayout(false);
+            PageContainer.ResumeLayout(false);
+            PageContainer.PerformLayout();
+            TransactionContainer.ResumeLayout(false);
+            TransactionContainer.PerformLayout();
+            TransactionItemsGroup.ResumeLayout(false);
+            TransactionItemsGroup.PerformLayout();
+            TransactionItemsContainer.ResumeLayout(false);
+            TransactionItemsContainer.PerformLayout();
+            TransactionDataContainer.ResumeLayout(false);
+            TransactionDataContainer.PerformLayout();
+            DateInputGroup.ResumeLayout(false);
+            DateInputGroup.PerformLayout();
+            CustomerNameInputGroup.ResumeLayout(false);
+            CustomerNameInputGroup.PerformLayout();
+            CustomerPhoneNumberInputGroup.ResumeLayout(false);
+            CustomerPhoneNumberInputGroup.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private FlowLayoutPanel formPanel;
-        private Label label2;
-        private Label validationErrorMsg;
-        private Button cancelBtn;
-        private Button button1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private Label label3;
-        private DateTimePicker dtDate;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private Label label4;
-        private TextBox txtCustomerName;
-        private FlowLayoutPanel flowLayoutPanel6;
-        private Label Email;
-        private TextBox txtCustomerPhoneNumber;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private FlowLayoutPanel flpContainer;
-        private Label label5;
-        private Button btnAddItem;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel BodyContainer;
+        private FlowLayoutPanel PageContainer;
+        private Label PageLabel;
+        private Label ValidationErrorMessageLabel;
+        private Button CancelButton;
+        private Button SaveButton;
+        private FlowLayoutPanel TransactionDataContainer;
+        private FlowLayoutPanel DateInputGroup;
+        private Label DateInputLabel;
+        private DateTimePicker DateTimePicker;
+        private FlowLayoutPanel CustomerNameInputGroup;
+        private Label CustomerNameLabel;
+        private TextBox CustomerNameTextField;
+        private FlowLayoutPanel CustomerPhoneNumberInputGroup;
+        private Label CustomerPhoneNumberLabel;
+        private TextBox CustomerPhoneNumbeTextField;
+        private FlowLayoutPanel TransactionItemsGroup;
+        private FlowLayoutPanel TransactionItemsContainer;
+        private Label TransactionDetailLabel;
+        private Button AddItemButton;
+        private TableLayoutPanel TransactionContainer;
     }
 }
