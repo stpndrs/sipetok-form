@@ -48,12 +48,12 @@
             SaveBtn = new Button();
             Body = new TableLayoutPanel();
             LogoutMenu = new ToolStripMenuItem();
-            LaporanMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
             OperationalMenu = new ToolStripMenuItem();
             TransactionMenu = new ToolStripMenuItem();
             StockMenu = new ToolStripMenuItem();
-            CategoryEggMenu = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
             DashboardMenu = new ToolStripMenuItem();
             TopMenu = new MenuStrip();
             Container = new TableLayoutPanel();
@@ -244,7 +244,6 @@
             FormLabel.Size = new Size(312, 36);
             FormLabel.TabIndex = 1;
             FormLabel.Text = "Kelola Data Pengguna";
-            FormLabel.Click += label2_Click;
             // 
             // ValidationErrorMsg
             // 
@@ -308,11 +307,11 @@
             LogoutMenu.Size = new Size(79, 26);
             LogoutMenu.Text = "Logout";
             // 
-            // LaporanMenu
+            // ReportMenu
             // 
-            LaporanMenu.Name = "LaporanMenu";
-            LaporanMenu.Size = new Size(90, 26);
-            LaporanMenu.Text = "Laporan";
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(90, 26);
+            ReportMenu.Text = "Laporan";
             // 
             // OperationalMenu
             // 
@@ -333,18 +332,18 @@
             StockMenu.Text = "Stok & Inventori";
             StockMenu.Click += stokMenu_Click;
             // 
-            // CategoryEggMenu
+            // EggCategoryMenu
             // 
-            CategoryEggMenu.Name = "CategoryEggMenu";
-            CategoryEggMenu.Size = new Size(138, 26);
-            CategoryEggMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(138, 26);
+            EggCategoryMenu.Text = "Kategori Telur";
             // 
-            // penggunaMenu
+            // UserMenu
             // 
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(106, 26);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += penggunaMenu_Click;
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(106, 26);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += penggunaMenu_Click;
             // 
             // DashboardMenu
             // 
@@ -358,7 +357,7 @@
             TopMenu.Dock = DockStyle.Fill;
             TopMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TopMenu.ImageScalingSize = new Size(20, 20);
-            TopMenu.Items.AddRange(new ToolStripItem[] { DashboardMenu, penggunaMenu, CategoryEggMenu, StockMenu, TransactionMenu, OperationalMenu, LaporanMenu, LogoutMenu });
+            TopMenu.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             TopMenu.Location = new Point(0, 0);
             TopMenu.Name = "TopMenu";
             TopMenu.Padding = new Padding(6, 3, 0, 3);
@@ -392,7 +391,6 @@
             StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "EggCategoryPage";
             WindowState = FormWindowState.Maximized;
-            Load += EggCategoryPage_Load;
             PriceInputGroup.ResumeLayout(false);
             PriceInputGroup.PerformLayout();
             DescriptionInputGroup.ResumeLayout(false);
@@ -434,12 +432,12 @@
         private Button SaveBtn;
         private TableLayoutPanel Body;
         private ToolStripMenuItem LogoutMenu;
-        private ToolStripMenuItem LaporanMenu;
+        private ToolStripMenuItem ReportMenu;
         private ToolStripMenuItem OperationalMenu;
         private ToolStripMenuItem TransactionMenu;
         private ToolStripMenuItem StockMenu;
-        private ToolStripMenuItem CategoryEggMenu;
-        private ToolStripMenuItem penggunaMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem UserMenu;
         private ToolStripMenuItem DashboardMenu;
         private MenuStrip TopMenu;
         private TableLayoutPanel Container;
