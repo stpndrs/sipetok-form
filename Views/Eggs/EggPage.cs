@@ -57,7 +57,8 @@ namespace sipetok_form.Views.Eggs
                     EggsList.Columns["Id"].HeaderText = "Id";
                     EggsList.Columns["ProductionDate"].HeaderText = "Tanggal Produksi";
                     EggsList.Columns["Stock"].HeaderText = "Stok";
-                    EggsList.Columns["CategoryId"].HeaderText = "Id Kategori";
+                    EggsList.Columns["CategoryId"].Visible = false;
+                    EggsList.Columns["Category"].HeaderText = "Nama Kategori"; 
 
                     SetupActionButtons();
                     EggsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -188,12 +189,25 @@ namespace sipetok_form.Views.Eggs
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
+        private void EggsList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.Value == null) return;
 
-        private async void SaveBtn_Click(object sender, EventArgs e)
+            if (EggsList.Columns[e.ColumnIndex].Name == "Category" && e.Value != null)
+            {
+                if (e.Value is EggCategory categoryObj)
+                {
+                    e.Value = categoryObj.Name;
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -258,7 +272,7 @@ namespace sipetok_form.Views.Eggs
             }
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             _saveDataType = "create";
             ToggleForm(true);
