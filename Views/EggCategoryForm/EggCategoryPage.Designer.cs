@@ -45,7 +45,7 @@
             label2 = new Label();
             validationErrorMsg = new Label();
             formPanel = new FlowLayoutPanel();
-            btnSave = new Button();
+            SaveBtn = new Button();
             body = new TableLayoutPanel();
             menuLogout = new ToolStripMenuItem();
             laporanMenu = new ToolStripMenuItem();
@@ -88,7 +88,6 @@
             label5.Size = new Size(48, 20);
             label5.TabIndex = 1;
             label5.Text = "Price";
-            label5.Click += label5_Click;
             // 
             // flowLayoutPanel7
             // 
@@ -124,7 +123,7 @@
             Description.Size = new Size(80, 20);
             Description.TabIndex = 1;
             Description.Text = "Deskripsi";
-            Description.Click += Email_Click;
+            
             // 
             // txtDescription
             // 
@@ -266,7 +265,7 @@
             formPanel.Controls.Add(flowLayoutPanel5);
             formPanel.Controls.Add(flowLayoutPanel6);
             formPanel.Controls.Add(flowLayoutPanel7);
-            formPanel.Controls.Add(btnSave);
+            formPanel.Controls.Add(SaveBtn);
             formPanel.Controls.Add(cancelBtn);
             formPanel.FlowDirection = FlowDirection.TopDown;
             formPanel.Location = new Point(1371, 3);
@@ -275,17 +274,17 @@
             formPanel.Size = new Size(485, 912);
             formPanel.TabIndex = 5;
             // 
-            // btnSave
+            // SaveBtn
             // 
-            btnSave.AutoSize = true;
-            btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(33, 479);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(434, 48);
-            btnSave.TabIndex = 9;
-            btnSave.Text = "Simpan";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
+            SaveBtn.AutoSize = true;
+            SaveBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveBtn.Location = new Point(33, 479);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(434, 48);
+            SaveBtn.TabIndex = 9;
+            SaveBtn.Text = "Simpan";
+            SaveBtn.UseVisualStyleBackColor = true;
+            SaveBtn.Click += SaveBtn_Click;
             // 
             // body
             // 
@@ -431,7 +430,7 @@
         private Label label2;
         private Label validationErrorMsg;
         private FlowLayoutPanel formPanel;
-        private Button btnSave;
+        private Button SaveBtn;
         private TableLayoutPanel body;
         private ToolStripMenuItem menuLogout;
         private ToolStripMenuItem laporanMenu;

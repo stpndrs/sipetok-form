@@ -28,7 +28,7 @@ namespace sipetok_form.Views.Eggs
         {
             try
             {
-                List<EggCategory>? categories = await _apiService.EggCategory.GetEggCategorysAsync();
+                List<EggCategory>? categories = await _apiService.EggCategory.GetEggCategoriesAsync();
                 if (categories != null)
                 {
                     CategoryComboBox.DataSource = categories;

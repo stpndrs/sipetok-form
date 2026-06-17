@@ -4,25 +4,16 @@ namespace sipetok_form.Services.Factories
 {
     internal class EggCategoryFactory : ModuleFactory
     {
+        //penerapan clean code KISS dengan menggunakan switch expression untuk membuat kode lebih bersih dan mudah dibaca
         public override IMethod CreateMethod(string actionType)
         {
-            switch (actionType.ToLower())
+            return actionType.ToLower() switch
             {
-                case "get":
-                case "read":
-                    return new GetData(HttpClient);
-
-                // Tambahkan ini untuk handle Create & Update
-                case "save":
-                case "write":
-                    return new SaveData(HttpClient);
-
-                case "delete":
-                    return new DeleteData(HttpClient);
-
-                default:
-                    throw new ArgumentException($"Aksi '{actionType}' tidak dikenali di EggCategoryFactory.");
-            }
+                "get" or "read" => new GetData(HttpClient),
+                "save" or "write" => new SaveData(HttpClient),
+                "delete" => new DeleteData(HttpClient),
+                _ => throw new ArgumentException($"Aksi '{actionType}' tidak dikenali di EggCategoryFactory.")
+            };
         }
     }
 }

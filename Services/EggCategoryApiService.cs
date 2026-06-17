@@ -12,6 +12,7 @@ namespace sipetok_form.Services
     internal class EggCategoryApiService
     {
         private readonly ModuleFactory _eggCategoryFactory;
+        private const string BaseEndpoint = "egg/categories";
 
         public EggCategoryApiService()
         {
@@ -19,7 +20,7 @@ namespace sipetok_form.Services
             _eggCategoryFactory = new EggCategoryFactory();
         }
 
-        public async Task<List<EggCategory>?> GetEggCategorysAsync()
+        public async Task<List<EggCategory>?> GetEggCategoriesAsync()
         {
             try
             {
@@ -27,7 +28,8 @@ namespace sipetok_form.Services
                 IMethod getService = _eggCategoryFactory.CreateMethod("get");
 
                 // 2. Eksekusi action dengan passing target class response & endpoint-nya
-                var response = await getService.ActionAsync<dto.response.ApiResponse<EggCategory>>("egg/categories");
+                //penerapan teknik DRY 
+                var response = await getService.ActionAsync<ApiResponse<EggCategory>>(BaseEndpoint);
 
                 return response?.Data;
             }
