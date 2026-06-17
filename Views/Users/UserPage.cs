@@ -234,22 +234,16 @@ namespace sipetok_form.Views.Users
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            _saveDataType = "create";
-            ToggleForm(true);
-        }
-
-        private async void SaveBtn_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                SaveBtn.Enabled = false;
+                SaveButton.Enabled = false;
                 ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
@@ -294,13 +288,14 @@ namespace sipetok_form.Views.Users
             }
             finally
             {
-                SaveBtn.Enabled = true;
+                SaveButton.Enabled = true;
             }
         }
 
-        private void UserPage_Load(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-
+            _saveDataType = "create";
+            ToggleForm(true);
         }
     }
 }

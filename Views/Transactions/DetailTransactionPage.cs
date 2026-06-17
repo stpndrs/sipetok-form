@@ -38,12 +38,12 @@ namespace sipetok_form.Views.Transactions
                     var transaction = response;
 
                     // 1. Set informasi header data utama ke Label GUI
-                    lblOrderStatus.Text = transaction?.OrderStatus;
-                    lblPaymentStatus.Text = transaction?.PaymentStatus;
-                    lblDate.Text = transaction?.Date.ToString("dd MMMM yyyy");
-                    lblCustomerName.Text = transaction?.CustomerName;
-                    lblCustomerPhone.Text = transaction?.CustomerPhoneNumber;
-                    lblPaymentAmount.Text = transaction?.PaymentAmount.ToString("N2");
+                    OrderStatusLabelValue.Text = transaction?.OrderStatus;
+                    PaymentStatusLabelValue.Text = transaction?.PaymentStatus;
+                    DateLabelValue.Text = transaction?.Date.ToString("dd MMMM yyyy");
+                    CustomerNameLabelValue.Text = transaction?.CustomerName;
+                    CustomerPhoneLabelValue.Text = transaction?.CustomerPhoneNumber;
+                    PaymentAmountLabelValue.Text = transaction?.PaymentAmount.ToString("N2");
 
                     if (transaction?.Details != null)
                     {
@@ -65,10 +65,10 @@ namespace sipetok_form.Views.Transactions
                         }).ToList();
 
                         decimal totalPrice = displayList.Sum(item => item.Subtotal);
-                        lblTotalPrice.Text = totalPrice.ToString("N2");
+                        TotalPriceLabelValue.Text = totalPrice.ToString("N2");
 
-                        dgvItems.DataSource = null;
-                        dgvItems.DataSource = displayList;
+                        TransactionDetailList.DataSource = null;
+                        TransactionDetailList.DataSource = displayList;
                     }
                 }
             }

@@ -23,7 +23,7 @@ namespace sipetok_form.Views.Transactions
         {
             InitializeComponent();
             this.Load += FormMain_Load;
-            usersList.CellContentClick += usersList_CellContentClick;
+            TransactionsList.CellContentClick += TransactionsList_CellContentClick;
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -39,18 +39,18 @@ namespace sipetok_form.Views.Transactions
 
                 if (data != null)
                 {
-                    usersList.DataSource = null;
-                    usersList.DataSource = data;
+                    TransactionsList.DataSource = null;
+                    TransactionsList.DataSource = data;
 
                     // Atur Susunan Header Utama GUI (Id, CustomerName, dll...)
-                    usersList.Columns["Id"].HeaderText = "Id";
-                    usersList.Columns["CustomerName"].HeaderText = "Customer Name";
-                    usersList.Columns["CustomerPhoneNumber"].HeaderText = "Customer Phone Number";
-                    usersList.Columns["TotalPrice"].HeaderText = "Total Price";
-                    usersList.Columns["PaymentAmount"].HeaderText = "PaymentAmount";
-                    usersList.Columns["PaymentStatus"].HeaderText = "Payment Status";
-                    usersList.Columns["OrderStatus"].HeaderText = "Order Status";
-                    usersList.Columns["Details"].Visible = false;
+                    TransactionsList.Columns["Id"].HeaderText = "Id";
+                    TransactionsList.Columns["CustomerName"].HeaderText = "Customer Name";
+                    TransactionsList.Columns["CustomerPhoneNumber"].HeaderText = "Customer Phone Number";
+                    TransactionsList.Columns["TotalPrice"].HeaderText = "Total Price";
+                    TransactionsList.Columns["PaymentAmount"].HeaderText = "PaymentAmount";
+                    TransactionsList.Columns["PaymentStatus"].HeaderText = "Payment Status";
+                    TransactionsList.Columns["OrderStatus"].HeaderText = "Order Status";
+                    TransactionsList.Columns["Details"].Visible = false;
 
                     // 1. Buat dulu semua kolom buttonnya
                     SetupActionButtons();
@@ -73,34 +73,34 @@ namespace sipetok_form.Views.Transactions
 
                     // 3. KONTROL VISIBILITAS KOLOM SECARA GLOBAL
                     // Jika tidak ada satu pun transaksi yang berstatus WaitingForPayment, HIDE kolom bayar & cancel
-                    usersList.Columns["BtnPay"].Visible = adaWaitingPayment;
-                    usersList.Columns["BtnCancel"].Visible = adaWaitingPayment;
+                    TransactionsList.Columns["PayButton"].Visible = adaWaitingPayment;
+                    TransactionsList.Columns["CancelButton"].Visible = adaWaitingPayment;
 
                     // Jika tidak ada satu pun transaksi yang berstatus ReadyForPickup, HIDE kolom complete
-                    usersList.Columns["BtnComplete"].Visible = adaReadyForPickup;
+                    TransactionsList.Columns["CompleteButton"].Visible = adaReadyForPickup;
 
 
                     // 4. KONTROL RENDERING CELL PER BARIS (Trik gabungan agar baris yang tidak memenuhi syarat tetap bersih)
-                    foreach (DataGridViewRow row in usersList.Rows)
+                    foreach (DataGridViewRow row in TransactionsList.Rows)
                     {
                         if (row.IsNewRow) continue;
 
                         var transaction = (Transaction)row.DataBoundItem;
 
                         // Jika kolomnya terlihat, tapi baris ini tidak memenuhi syarat status, hapus button di baris ini saja
-                        if (usersList.Columns["BtnPay"].Visible && !(transaction.PaymentStatus == "WaitingForPayment" && transaction.OrderStatus == "OrderComeIn"))
+                        if (TransactionsList.Columns["PayButton"].Visible && !(transaction.PaymentStatus == "WaitingForPayment" && transaction.OrderStatus == "OrderComeIn"))
                         {
-                            row.Cells["BtnPay"] = new DataGridViewTextBoxCell { Value = "" };
-                            row.Cells["BtnCancel"] = new DataGridViewTextBoxCell { Value = "" };
+                            row.Cells["PayButton"] = new DataGridViewTextBoxCell { Value = "" };
+                            row.Cells["CancelButton"] = new DataGridViewTextBoxCell { Value = "" };
                         }
 
-                        if (usersList.Columns["BtnComplete"].Visible && !(transaction.PaymentStatus == "Success" && transaction.OrderStatus == "ReadyForPickup"))
+                        if (TransactionsList.Columns["CompleteButton"].Visible && !(transaction.PaymentStatus == "Success" && transaction.OrderStatus == "ReadyForPickup"))
                         {
-                            row.Cells["BtnComplete"] = new DataGridViewTextBoxCell { Value = "" };
+                            row.Cells["CompleteButton"] = new DataGridViewTextBoxCell { Value = "" };
                         }
                     }
 
-                    usersList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    TransactionsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     AdjustGridHeight();
                 }
             }
@@ -113,83 +113,89 @@ namespace sipetok_form.Views.Transactions
 
         private void SetupActionButtons()
         {
-            if (usersList.Columns.Contains("BtnDetail")) usersList.Columns.Remove("BtnDetail");
-            if (usersList.Columns.Contains("BtnPay")) usersList.Columns.Remove("BtnPay");
-            if (usersList.Columns.Contains("BtnComplete")) usersList.Columns.Remove("BtnComplete");
-            if (usersList.Columns.Contains("BtnCancel")) usersList.Columns.Remove("BtnCancel");
+            if (TransactionsList.Columns.Contains("DetailButton")) TransactionsList.Columns.Remove("DetailButton");
+            if (TransactionsList.Columns.Contains("PayButton")) TransactionsList.Columns.Remove("PayButton");
+            if (TransactionsList.Columns.Contains("CompleteButton")) TransactionsList.Columns.Remove("CompleteButton");
+            if (TransactionsList.Columns.Contains("CancelButton")) TransactionsList.Columns.Remove("CancelButton");
 
             DataGridViewButtonColumn btnDetail = new DataGridViewButtonColumn
             {
-                Name = "BtnDetail",
+                Name = "DetailButton",
                 HeaderText = "Aksi Detail",
                 Text = "Detail Transaksi",
                 UseColumnTextForButtonValue = true
             };
-            usersList.Columns.Add(btnDetail);
+            TransactionsList.Columns.Add(btnDetail);
 
             DataGridViewButtonColumn btnPay = new DataGridViewButtonColumn
             {
-                Name = "BtnPay",
+                Name = "PayButton",
                 HeaderText = "Aksi Bayar",
                 Text = "Bayar Transaksi",
                 UseColumnTextForButtonValue = true
             };
-            usersList.Columns.Add(btnPay);
+            TransactionsList.Columns.Add(btnPay);
 
             DataGridViewButtonColumn btnComplete = new DataGridViewButtonColumn
             {
-                Name = "BtnComplete",
+                Name = "CompleteButton",
                 HeaderText = "Aksi Complete",
                 Text = "Complete Transaksi",
                 UseColumnTextForButtonValue = true
             };
-            usersList.Columns.Add(btnComplete);
+            TransactionsList.Columns.Add(btnComplete);
 
             DataGridViewButtonColumn btnCancel = new DataGridViewButtonColumn
             {
-                Name = "BtnCancel",
+                Name = "CancelButton",
                 HeaderText = "Aksi Cancel",
                 Text = "Cancel Transaksi",
                 UseColumnTextForButtonValue = true
             };
-            usersList.Columns.Add(btnCancel);
+            TransactionsList.Columns.Add(btnCancel);
         }
 
         private void AdjustGridHeight()
         {
-            int totalHeight = usersList.ColumnHeadersHeight;
-            foreach (DataGridViewRow row in usersList.Rows)
+            int totalHeight = TransactionsList.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in TransactionsList.Rows)
             {
                 totalHeight += row.Height;
             }
-            usersList.Height = totalHeight + 4;
+            TransactionsList.Height = totalHeight + 4;
         }
 
-        private async void usersList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddTransactionPage addPage = new AddTransactionPage(this);
+            addPage.Show();
+        }
+
+        private async void TransactionsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             // Validasi: Cegah error crash jika user mengklik sel yang tombolnya sudah diubah jadi TextBoxCell
-            if (usersList.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewTextBoxCell) return;
+            if (TransactionsList.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewTextBoxCell) return;
 
-            var dataSelected = (Transaction)usersList.Rows[e.RowIndex].DataBoundItem;
+            var dataSelected = (Transaction)TransactionsList.Rows[e.RowIndex].DataBoundItem;
             Debug.WriteLine("id dari list" + dataSelected.Id);
 
-            if (usersList.Columns[e.ColumnIndex].Name == "BtnDetail")
+            if (TransactionsList.Columns[e.ColumnIndex].Name == "DetailButton")
             {
                 // buka window detail
                 DetailTransactionPage detailPage = new DetailTransactionPage(dataSelected.Id);
                 detailPage.Show();
             }
 
-            if (usersList.Columns[e.ColumnIndex].Name == "BtnPay")
+            if (TransactionsList.Columns[e.ColumnIndex].Name == "PayButton")
             {
                 // buka window pay
                 PayTransactionPage payPage = new PayTransactionPage(dataSelected.Id);
                 payPage.Show();
             }
 
-            if (usersList.Columns[e.ColumnIndex].Name == "BtnComplete")
+            if (TransactionsList.Columns[e.ColumnIndex].Name == "CompleteButton")
             {
                 DialogResult result = MessageBox.Show(
                     "Anda ingin menyelesaikan pesanan?",
@@ -216,7 +222,7 @@ namespace sipetok_form.Views.Transactions
                 }
             }
 
-            if (usersList.Columns[e.ColumnIndex].Name == "BtnCancel")
+            if (TransactionsList.Columns[e.ColumnIndex].Name == "CancelButton")
             {
                 DialogResult result = MessageBox.Show(
                     "Anda ingin membatalkan pesanan?",
@@ -244,15 +250,9 @@ namespace sipetok_form.Views.Transactions
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
-        }
-
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            AddTransactionPage addPage = new AddTransactionPage(this);
-            addPage.Show();
         }
     }
 }

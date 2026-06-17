@@ -72,6 +72,7 @@ namespace sipetok_form.Services
                     PaymentAmount = transaction.PaymentAmount,
                     CustomerName = transaction.CustomerName,
                     CustomerPhoneNumber = transaction.CustomerPhoneNumber,
+                    Details = new List<TransactionDetailSaveRequest>()
                 };
 
                 if (transaction.Details != null)

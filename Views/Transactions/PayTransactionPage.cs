@@ -17,7 +17,6 @@ namespace sipetok_form.Views.Transactions
     {
         private readonly ApiService _apiService = new ApiService();
         private int transactionId;
-        public TransactionPage trsPage = new TransactionPage();
         public PayTransactionPage(int transactionId)
         {
             this.transactionId = transactionId;
@@ -43,9 +42,9 @@ namespace sipetok_form.Views.Transactions
                     var transaction = response;
 
                     // 1. Set informasi header data utama ke Label GUI
-                    lblDate.Text = transaction.Date.ToString("dd MMMM yyyy");
-                    lblCustomerName.Text = transaction.CustomerName;
-                    lblCustomerPhone.Text = transaction.CustomerPhoneNumber;
+                    DateValueLabel.Text = transaction.Date.ToString("dd MMMM yyyy");
+                    CustomerNameLabelValue.Text = transaction.CustomerName;
+                    CustomerPhoneLabelValue.Text = transaction.CustomerPhoneNumber;
 
                     if (transaction.Details != null)
                     {
@@ -67,10 +66,10 @@ namespace sipetok_form.Views.Transactions
                         }).ToList();
 
                         decimal totalPrice = displayList.Sum(item => item.Subtotal);
-                        lblTotalPrice.Text = totalPrice.ToString("N2");
+                        CustomerPriceLabelValue.Text = totalPrice.ToString("N2");
 
-                        dgvItems.DataSource = null;
-                        dgvItems.DataSource = displayList;
+                        TransactionDetailList.DataSource = null;
+                        TransactionDetailList.DataSource = displayList;
                     }
                 }
             }
@@ -81,16 +80,16 @@ namespace sipetok_form.Views.Transactions
             }
         }
 
-        private async void btnPay_Click(object sender, EventArgs e)
+        private async void PayButton_Click(object sender, EventArgs e)
         {
             try
             {
-                btnPay.Enabled = false;
+                PayButton.Enabled = false;
                 ActionResponse<Transaction> response = new ActionResponse<Transaction>();
 
                 Transaction transaction = new Transaction
                 {
-                    PaymentAmount = decimal.Parse(txtPaymentAmount.Text)
+                    PaymentAmount = decimal.Parse(PaymentAmountTextField.Text)
                 };
 
                 // Kirim ke API menggunakan service kasir SIPETOK
@@ -99,12 +98,13 @@ namespace sipetok_form.Views.Transactions
                 if (response.Success)
                 {
                     this.Close();
-                    await trsPage.RefreshGrid();
+                    TransactionPage TransactionPage = new TransactionPage();
+                    await TransactionPage.RefreshGrid();
                     MessageBox.Show("Transaksi SIPETOK berhasil dibayar!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMessageLabel);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -114,14 +114,15 @@ namespace sipetok_form.Views.Transactions
             }
             finally
             {
-                btnPay.Enabled = true;
+                PayButton.Enabled = true;
             }
 
         }
 
-        private async void cancelBtn_Click(object sender, EventArgs e)
+        private async void CancelButton_Click(object sender, EventArgs e)
         {
-            await trsPage.RefreshGrid();
+            TransactionPage TransactionPage = new TransactionPage();
+            await TransactionPage.RefreshGrid();
             this.Close();
         }
     }

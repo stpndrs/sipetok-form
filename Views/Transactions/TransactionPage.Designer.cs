@@ -28,212 +28,212 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label1 = new Label();
-            addBtn = new Button();
-            usersList = new DataGridView();
-            body = new TableLayoutPanel();
-            menuLogout = new ToolStripMenuItem();
-            laporanMenu = new ToolStripMenuItem();
-            operationalMenu = new ToolStripMenuItem();
-            transaksiMenu = new ToolStripMenuItem();
-            stokMenu = new ToolStripMenuItem();
-            kategoriMenu = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
-            dashboardMenu = new ToolStripMenuItem();
-            topMenu = new MenuStrip();
-            container = new TableLayoutPanel();
-            flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)usersList).BeginInit();
-            body.SuspendLayout();
-            topMenu.SuspendLayout();
-            container.SuspendLayout();
+            ListContainer = new FlowLayoutPanel();
+            PageLabel = new Label();
+            AddButton = new Button();
+            TransactionsList = new DataGridView();
+            PageBodyContainer = new TableLayoutPanel();
+            LogoutMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
+            OperationalMenu = new ToolStripMenuItem();
+            TransactionMenu = new ToolStripMenuItem();
+            StockMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
+            DashboardMenu = new ToolStripMenuItem();
+            MenuContainer = new MenuStrip();
+            PageContainer = new TableLayoutPanel();
+            ListContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TransactionsList).BeginInit();
+            PageBodyContainer.SuspendLayout();
+            MenuContainer.SuspendLayout();
+            PageContainer.SuspendLayout();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // ListContainer
             // 
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(addBtn);
-            flowLayoutPanel1.Controls.Add(usersList);
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1846, 925);
-            flowLayoutPanel1.TabIndex = 6;
+            ListContainer.AutoSize = true;
+            ListContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ListContainer.Controls.Add(PageLabel);
+            ListContainer.Controls.Add(AddButton);
+            ListContainer.Controls.Add(TransactionsList);
+            ListContainer.FlowDirection = FlowDirection.TopDown;
+            ListContainer.Location = new Point(3, 3);
+            ListContainer.Name = "ListContainer";
+            ListContainer.Size = new Size(1846, 925);
+            ListContainer.TabIndex = 6;
             // 
-            // label1
+            // PageLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(3, 0);
-            label1.Margin = new Padding(3, 0, 3, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(231, 36);
-            label1.TabIndex = 2;
-            label1.Text = "Daftar Transaksi";
+            PageLabel.AutoSize = true;
+            PageLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageLabel.ForeColor = SystemColors.ControlText;
+            PageLabel.Location = new Point(3, 0);
+            PageLabel.Margin = new Padding(3, 0, 3, 15);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(231, 36);
+            PageLabel.TabIndex = 2;
+            PageLabel.Text = "Daftar Transaksi";
             // 
-            // addBtn
+            // AddButton
             // 
-            addBtn.AutoSize = true;
-            addBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addBtn.Location = new Point(3, 54);
-            addBtn.Margin = new Padding(3, 3, 3, 30);
-            addBtn.Name = "addBtn";
-            addBtn.Size = new Size(180, 48);
-            addBtn.TabIndex = 17;
-            addBtn.Text = "Tambah Data";
-            addBtn.UseVisualStyleBackColor = true;
-            addBtn.Click += addBtn_Click;
+            AddButton.AutoSize = true;
+            AddButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddButton.Location = new Point(3, 54);
+            AddButton.Margin = new Padding(3, 3, 3, 30);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(180, 48);
+            AddButton.TabIndex = 17;
+            AddButton.Text = "Tambah Data";
+            AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
-            // usersList
+            // TransactionsList
             // 
-            usersList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            usersList.Location = new Point(3, 135);
-            usersList.Margin = new Padding(3, 3, 50, 3);
-            usersList.MaximumSize = new Size(1793, 787);
-            usersList.Name = "usersList";
-            usersList.RowHeadersWidth = 51;
-            usersList.Size = new Size(1793, 787);
-            usersList.TabIndex = 3;
+            TransactionsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TransactionsList.Location = new Point(3, 135);
+            TransactionsList.Margin = new Padding(3, 3, 50, 3);
+            TransactionsList.MaximumSize = new Size(1793, 787);
+            TransactionsList.Name = "TransactionsList";
+            TransactionsList.RowHeadersWidth = 51;
+            TransactionsList.Size = new Size(1793, 787);
+            TransactionsList.TabIndex = 3;
             // 
-            // body
+            // PageBodyContainer
             // 
-            body.AutoSize = true;
-            body.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            body.ColumnCount = 1;
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.ColumnStyles.Add(new ColumnStyle());
-            body.Controls.Add(flowLayoutPanel1, 0, 0);
-            body.Location = new Point(3, 33);
-            body.Name = "body";
-            body.RowCount = 1;
-            body.RowStyles.Add(new RowStyle());
-            body.Size = new Size(1852, 931);
-            body.TabIndex = 7;
+            PageBodyContainer.AutoSize = true;
+            PageBodyContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            PageBodyContainer.ColumnCount = 1;
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
+            PageBodyContainer.Controls.Add(ListContainer, 0, 0);
+            PageBodyContainer.Location = new Point(3, 33);
+            PageBodyContainer.Name = "PageBodyContainer";
+            PageBodyContainer.RowCount = 1;
+            PageBodyContainer.RowStyles.Add(new RowStyle());
+            PageBodyContainer.Size = new Size(1852, 931);
+            PageBodyContainer.TabIndex = 7;
             // 
-            // menuLogout
+            // LogoutMenu
             // 
-            menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(79, 26);
-            menuLogout.Text = "Logout";
-            menuLogout.Click += handleClickMenu;
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(79, 26);
+            LogoutMenu.Text = "Logout";
+            LogoutMenu.Click += HandleClickMenu;
             // 
-            // laporanMenu
+            // ReportMenu
             // 
-            laporanMenu.Name = "laporanMenu";
-            laporanMenu.Size = new Size(90, 26);
-            laporanMenu.Text = "Laporan";
-            laporanMenu.Click += handleClickMenu;
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(90, 26);
+            ReportMenu.Text = "Laporan";
+            ReportMenu.Click += HandleClickMenu;
             // 
-            // operationalMenu
+            // OperationalMenu
             // 
-            operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(121, 26);
-            operationalMenu.Text = "Operasional";
-            operationalMenu.Click += handleClickMenu;
+            OperationalMenu.Name = "OperationalMenu";
+            OperationalMenu.Size = new Size(121, 26);
+            OperationalMenu.Text = "Operasional";
+            OperationalMenu.Click += HandleClickMenu;
             // 
-            // transaksiMenu
+            // TransactionMenu
             // 
-            transaksiMenu.Name = "transaksiMenu";
-            transaksiMenu.Size = new Size(103, 26);
-            transaksiMenu.Text = "Transaksi";
-            transaksiMenu.Click += handleClickMenu;
+            TransactionMenu.Name = "TransactionMenu";
+            TransactionMenu.Size = new Size(103, 26);
+            TransactionMenu.Text = "Transaksi";
+            TransactionMenu.Click += HandleClickMenu;
             // 
-            // stokMenu
+            // StockMenu
             // 
-            stokMenu.Name = "stokMenu";
-            stokMenu.Size = new Size(138, 26);
-            stokMenu.Text = "Stok & Inventori";
-            stokMenu.Click += handleClickMenu;
+            StockMenu.Name = "StockMenu";
+            StockMenu.Size = new Size(138, 26);
+            StockMenu.Text = "Stok & Inventori";
+            StockMenu.Click += HandleClickMenu;
             // 
-            // kategoriMenu
+            // EggCategoryMenu
             // 
-            kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(138, 26);
-            kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += handleClickMenu;
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(138, 26);
+            EggCategoryMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Click += HandleClickMenu;
             // 
-            // penggunaMenu
+            // UserMenu
             // 
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(106, 26);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += handleClickMenu;
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(106, 26);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += HandleClickMenu;
             // 
-            // dashboardMenu
+            // DashboardMenu
             // 
-            dashboardMenu.Name = "dashboardMenu";
-            dashboardMenu.Size = new Size(112, 26);
-            dashboardMenu.Text = "Dashboard";
-            dashboardMenu.Click += handleClickMenu;
+            DashboardMenu.Name = "DashboardMenu";
+            DashboardMenu.Size = new Size(112, 26);
+            DashboardMenu.Text = "Dashboard";
+            DashboardMenu.Click += HandleClickMenu;
             // 
-            // topMenu
+            // MenuContainer
             // 
-            topMenu.BackColor = SystemColors.ControlLight;
-            topMenu.Dock = DockStyle.Fill;
-            topMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
-            topMenu.Location = new Point(0, 0);
-            topMenu.Name = "topMenu";
-            topMenu.Size = new Size(1902, 30);
-            topMenu.TabIndex = 6;
-            topMenu.Text = "menuStrip1";
+            MenuContainer.BackColor = SystemColors.ControlLight;
+            MenuContainer.Dock = DockStyle.Fill;
+            MenuContainer.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MenuContainer.ImageScalingSize = new Size(20, 20);
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            MenuContainer.Location = new Point(0, 0);
+            MenuContainer.Name = "MenuContainer";
+            MenuContainer.Size = new Size(1902, 30);
+            MenuContainer.TabIndex = 6;
+            MenuContainer.Text = "menuStrip1";
             // 
-            // container
+            // PageContainer
             // 
-            container.ColumnCount = 1;
-            container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            container.Controls.Add(topMenu, 0, 0);
-            container.Controls.Add(body, 0, 1);
-            container.Dock = DockStyle.Fill;
-            container.Location = new Point(0, 0);
-            container.Name = "container";
-            container.RowCount = 2;
-            container.RowStyles.Add(new RowStyle());
-            container.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            container.Size = new Size(1902, 1033);
-            container.TabIndex = 1;
+            PageContainer.ColumnCount = 1;
+            PageContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            PageContainer.Controls.Add(MenuContainer, 0, 0);
+            PageContainer.Controls.Add(PageBodyContainer, 0, 1);
+            PageContainer.Dock = DockStyle.Fill;
+            PageContainer.Location = new Point(0, 0);
+            PageContainer.Name = "PageContainer";
+            PageContainer.RowCount = 2;
+            PageContainer.RowStyles.Add(new RowStyle());
+            PageContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PageContainer.Size = new Size(1902, 1033);
+            PageContainer.TabIndex = 1;
             // 
             // TransactionPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(container);
+            Controls.Add(PageContainer);
             Name = "TransactionPage";
-            Text = "Form1";
+            Text = "TransactionPage";
             WindowState = FormWindowState.Maximized;
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)usersList).EndInit();
-            body.ResumeLayout(false);
-            body.PerformLayout();
-            topMenu.ResumeLayout(false);
-            topMenu.PerformLayout();
-            container.ResumeLayout(false);
-            container.PerformLayout();
+            ListContainer.ResumeLayout(false);
+            ListContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TransactionsList).EndInit();
+            PageBodyContainer.ResumeLayout(false);
+            PageBodyContainer.PerformLayout();
+            MenuContainer.ResumeLayout(false);
+            MenuContainer.PerformLayout();
+            PageContainer.ResumeLayout(false);
+            PageContainer.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
-        private Button addBtn;
-        private DataGridView usersList;
-        private TableLayoutPanel body;
-        private ToolStripMenuItem menuLogout;
-        private ToolStripMenuItem laporanMenu;
-        private ToolStripMenuItem operationalMenu;
-        private ToolStripMenuItem transaksiMenu;
-        private ToolStripMenuItem stokMenu;
-        private ToolStripMenuItem kategoriMenu;
-        private ToolStripMenuItem penggunaMenu;
-        private ToolStripMenuItem dashboardMenu;
-        private MenuStrip topMenu;
-        private TableLayoutPanel container;
+        private FlowLayoutPanel ListContainer;
+        private Label PageLabel;
+        private Button AddButton;
+        private DataGridView TransactionsList;
+        private TableLayoutPanel PageBodyContainer;
+        private ToolStripMenuItem LogoutMenu;
+        private ToolStripMenuItem ReportMenu;
+        private ToolStripMenuItem OperationalMenu;
+        private ToolStripMenuItem TransactionMenu;
+        private ToolStripMenuItem StockMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem UserMenu;
+        private ToolStripMenuItem DashboardMenu;
+        private MenuStrip MenuContainer;
+        private TableLayoutPanel PageContainer;
     }
 }

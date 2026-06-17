@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Diagnostics;
+using System.Net.Http.Json;
 
 namespace sipetok_form.Services.Products
 {
@@ -55,6 +56,7 @@ namespace sipetok_form.Services.Products
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 throw new Exception($"[{method.Method} Error] Gagal mengirim data ke {endpoint}: {ex.Message}");
             }
         }
