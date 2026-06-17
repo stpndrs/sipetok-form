@@ -75,7 +75,6 @@ namespace sipetok_form.Views.EggCategoryForm
         private void SetupActionButtons()
         {
             if (EggCategoryList.Columns.Contains("editBtn")) EggCategoryList.Columns.Remove("editBtn");
-            if (EggCategoryList.Columns.Contains("deleteBtn")) EggCategoryList.Columns.Remove("deleteBtn");
 
             DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn
             {
@@ -86,14 +85,6 @@ namespace sipetok_form.Views.EggCategoryForm
             };
             EggCategoryList.Columns.Add(editBtn);
 
-            DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn
-            {
-                Name = "deleteBtn",
-                HeaderText = "Aksi Hapus",
-                Text = "Hapus",
-                UseColumnTextForButtonValue = true
-            };
-            EggCategoryList.Columns.Add(deleteBtn);
         }
         private void AdjustGridHeight()
         {
