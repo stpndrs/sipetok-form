@@ -30,20 +30,20 @@
         {
             components = new System.ComponentModel.Container();
             MenuContainer = new MenuStrip();
-            dahboardToolStripMenuItem = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
-            tenantMenu = new ToolStripMenuItem();
-            kategoriMenu = new ToolStripMenuItem();
-            transaksiMenu = new ToolStripMenuItem();
-            operationalMenu = new ToolStripMenuItem();
-            laporanMenu = new ToolStripMenuItem();
-            menuLogout = new ToolStripMenuItem();
+            DashboardMenu = new ToolStripMenuItem();
+            PenggunaMenu = new ToolStripMenuItem();
+            TenantMenu = new ToolStripMenuItem();
+            KategoriMenu = new ToolStripMenuItem();
+            TransaksiMenu = new ToolStripMenuItem();
+            OperationalMenu = new ToolStripMenuItem();
+            LaporanMenu = new ToolStripMenuItem();
+            LogoutMenu = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            body = new TableLayoutPanel();
-            formPanel = new FlowLayoutPanel();
+            PageBodyContainer = new TableLayoutPanel();
+            FormContainer = new FlowLayoutPanel();
             FormLabel = new Label();
             validationErrorMsg = new Label();
-            flowLayoutPanel3 = new FlowLayoutPanel();
+            InputContainer = new FlowLayoutPanel();
             DateStartInputGroup = new FlowLayoutPanel();
             DateStartLabel = new Label();
             StartDateTimePicker = new DateTimePicker();
@@ -53,19 +53,19 @@
             TypeInputGroup = new FlowLayoutPanel();
             TypeLabel = new Label();
             TypeComboBox = new ComboBox();
-            ExportBtn = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            TransaksiBtn = new Button();
-            OperationalBtn = new Button();
+            ExportButton = new Button();
+            ListContainer = new FlowLayoutPanel();
+            TransaksiButton = new Button();
+            OperationalButton = new Button();
             DataList = new DataGridView();
             MenuContainer.SuspendLayout();
-            body.SuspendLayout();
-            formPanel.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
+            PageBodyContainer.SuspendLayout();
+            FormContainer.SuspendLayout();
+            InputContainer.SuspendLayout();
             DateStartInputGroup.SuspendLayout();
             DateEndInputGroup.SuspendLayout();
             TypeInputGroup.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            ListContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataList).BeginInit();
             SuspendLayout();
             // 
@@ -73,7 +73,7 @@
             // 
             MenuContainer.BackColor = SystemColors.ControlLight;
             MenuContainer.ImageScalingSize = new Size(20, 20);
-            MenuContainer.Items.AddRange(new ToolStripItem[] { dahboardToolStripMenuItem, penggunaMenu, tenantMenu, kategoriMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, PenggunaMenu, TenantMenu, KategoriMenu, TransaksiMenu, OperationalMenu, LaporanMenu, LogoutMenu });
             MenuContainer.Location = new Point(0, 0);
             MenuContainer.Name = "MenuContainer";
             MenuContainer.Padding = new Padding(5, 2, 0, 2);
@@ -81,69 +81,69 @@
             MenuContainer.TabIndex = 0;
             MenuContainer.Text = "menuStrip1";
             // 
-            // dahboardToolStripMenuItem
+            // DashboardMenu
             // 
-            dahboardToolStripMenuItem.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dahboardToolStripMenuItem.Name = "dahboardToolStripMenuItem";
-            dahboardToolStripMenuItem.Size = new Size(84, 22);
-            dahboardToolStripMenuItem.Text = "Dahboard";
-            dahboardToolStripMenuItem.Click += HandleMenuClick;
+            DashboardMenu.Font = new Font("Roboto", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DashboardMenu.Name = "DashboardMenu";
+            DashboardMenu.Size = new Size(84, 22);
+            DashboardMenu.Text = "Dahboard";
+            DashboardMenu.Click += HandleMenuClick;
             // 
-            // penggunaMenu
+            // PenggunaMenu
             // 
-            penggunaMenu.Font = new Font("Roboto", 10.8F);
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(85, 22);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += HandleMenuClick;
+            PenggunaMenu.Font = new Font("Roboto", 10.8F);
+            PenggunaMenu.Name = "PenggunaMenu";
+            PenggunaMenu.Size = new Size(85, 22);
+            PenggunaMenu.Text = "Pengguna";
+            PenggunaMenu.Click += HandleMenuClick;
             // 
-            // tenantMenu
+            // TenantMenu
             // 
-            tenantMenu.Font = new Font("Roboto", 10.8F);
-            tenantMenu.Name = "tenantMenu";
-            tenantMenu.Size = new Size(65, 22);
-            tenantMenu.Text = "Tenant";
-            tenantMenu.Click += HandleMenuClick;
+            TenantMenu.Font = new Font("Roboto", 10.8F);
+            TenantMenu.Name = "TenantMenu";
+            TenantMenu.Size = new Size(65, 22);
+            TenantMenu.Text = "Tenant";
+            TenantMenu.Click += HandleMenuClick;
             // 
-            // kategoriMenu
+            // KategoriMenu
             // 
-            kategoriMenu.Font = new Font("Roboto", 10.8F);
-            kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(113, 22);
-            kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += HandleMenuClick;
+            KategoriMenu.Font = new Font("Roboto", 10.8F);
+            KategoriMenu.Name = "KategoriMenu";
+            KategoriMenu.Size = new Size(113, 22);
+            KategoriMenu.Text = "Kategori Telur";
+            KategoriMenu.Click += HandleMenuClick;
             // 
-            // transaksiMenu
+            // TransaksiMenu
             // 
-            transaksiMenu.Font = new Font("Roboto", 10.8F);
-            transaksiMenu.Name = "transaksiMenu";
-            transaksiMenu.Size = new Size(85, 22);
-            transaksiMenu.Text = "Transaksi";
-            transaksiMenu.Click += HandleMenuClick;
+            TransaksiMenu.Font = new Font("Roboto", 10.8F);
+            TransaksiMenu.Name = "TransaksiMenu";
+            TransaksiMenu.Size = new Size(85, 22);
+            TransaksiMenu.Text = "Transaksi";
+            TransaksiMenu.Click += HandleMenuClick;
             // 
-            // operationalMenu
+            // OperationalMenu
             // 
-            operationalMenu.Font = new Font("Roboto", 10.8F);
-            operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(100, 22);
-            operationalMenu.Text = "Operasional";
-            operationalMenu.Click += HandleMenuClick;
+            OperationalMenu.Font = new Font("Roboto", 10.8F);
+            OperationalMenu.Name = "OperationalMenu";
+            OperationalMenu.Size = new Size(100, 22);
+            OperationalMenu.Text = "Operasional";
+            OperationalMenu.Click += HandleMenuClick;
             // 
-            // laporanMenu
+            // LaporanMenu
             // 
-            laporanMenu.Font = new Font("Roboto", 10.8F);
-            laporanMenu.Name = "laporanMenu";
-            laporanMenu.Size = new Size(74, 22);
-            laporanMenu.Text = "Laporan";
-            laporanMenu.Click += HandleMenuClick;
+            LaporanMenu.Font = new Font("Roboto", 10.8F);
+            LaporanMenu.Name = "LaporanMenu";
+            LaporanMenu.Size = new Size(74, 22);
+            LaporanMenu.Text = "Laporan";
+            LaporanMenu.Click += HandleMenuClick;
             // 
-            // menuLogout
+            // LogoutMenu
             // 
-            menuLogout.Font = new Font("Roboto", 10.8F);
-            menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(67, 22);
-            menuLogout.Text = "Logout";
-            menuLogout.Click += HandleMenuClick;
+            LogoutMenu.Font = new Font("Roboto", 10.8F);
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(67, 22);
+            LogoutMenu.Text = "Logout";
+            LogoutMenu.Click += HandleMenuClick;
             // 
             // contextMenuStrip1
             // 
@@ -151,33 +151,33 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // body
+            // PageBodyContainer
             // 
-            body.ColumnCount = 2;
-            body.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            body.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            body.Controls.Add(formPanel, 1, 0);
-            body.Controls.Add(flowLayoutPanel1, 0, 0);
-            body.Dock = DockStyle.Fill;
-            body.Location = new Point(0, 26);
-            body.Name = "body";
-            body.RowCount = 1;
-            body.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            body.Size = new Size(1904, 770);
-            body.TabIndex = 1;
+            PageBodyContainer.ColumnCount = 2;
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            PageBodyContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            PageBodyContainer.Controls.Add(FormContainer, 1, 0);
+            PageBodyContainer.Controls.Add(ListContainer, 0, 0);
+            PageBodyContainer.Dock = DockStyle.Fill;
+            PageBodyContainer.Location = new Point(0, 26);
+            PageBodyContainer.Name = "PageBodyContainer";
+            PageBodyContainer.RowCount = 1;
+            PageBodyContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            PageBodyContainer.Size = new Size(1904, 770);
+            PageBodyContainer.TabIndex = 1;
             // 
-            // formPanel
+            // FormContainer
             // 
-            formPanel.Controls.Add(FormLabel);
-            formPanel.Controls.Add(validationErrorMsg);
-            formPanel.Controls.Add(flowLayoutPanel3);
-            formPanel.FlowDirection = FlowDirection.TopDown;
-            formPanel.Location = new Point(1335, 2);
-            formPanel.Margin = new Padding(3, 2, 3, 2);
-            formPanel.Name = "formPanel";
-            formPanel.Padding = new Padding(26, 22, 26, 22);
-            formPanel.Size = new Size(424, 766);
-            formPanel.TabIndex = 6;
+            FormContainer.Controls.Add(FormLabel);
+            FormContainer.Controls.Add(validationErrorMsg);
+            FormContainer.Controls.Add(InputContainer);
+            FormContainer.FlowDirection = FlowDirection.TopDown;
+            FormContainer.Location = new Point(1335, 2);
+            FormContainer.Margin = new Padding(3, 2, 3, 2);
+            FormContainer.Name = "FormContainer";
+            FormContainer.Padding = new Padding(26, 22, 26, 22);
+            FormContainer.Size = new Size(424, 766);
+            FormContainer.TabIndex = 6;
             // 
             // FormLabel
             // 
@@ -203,18 +203,18 @@
             validationErrorMsg.Size = new Size(0, 17);
             validationErrorMsg.TabIndex = 15;
             // 
-            // flowLayoutPanel3
+            // InputContainer
             // 
-            flowLayoutPanel3.Controls.Add(DateStartInputGroup);
-            flowLayoutPanel3.Controls.Add(DateEndInputGroup);
-            flowLayoutPanel3.Controls.Add(TypeInputGroup);
-            flowLayoutPanel3.Controls.Add(ExportBtn);
-            flowLayoutPanel3.Location = new Point(29, 111);
-            flowLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Padding = new Padding(26, 22, 26, 22);
-            flowLayoutPanel3.Size = new Size(356, 461);
-            flowLayoutPanel3.TabIndex = 17;
+            InputContainer.Controls.Add(DateStartInputGroup);
+            InputContainer.Controls.Add(DateEndInputGroup);
+            InputContainer.Controls.Add(TypeInputGroup);
+            InputContainer.Controls.Add(ExportButton);
+            InputContainer.Location = new Point(29, 111);
+            InputContainer.Margin = new Padding(3, 2, 3, 2);
+            InputContainer.Name = "InputContainer";
+            InputContainer.Padding = new Padding(26, 22, 26, 22);
+            InputContainer.Size = new Size(356, 461);
+            InputContainer.TabIndex = 17;
             // 
             // DateStartInputGroup
             // 
@@ -302,45 +302,45 @@
             TypeComboBox.Size = new Size(249, 23);
             TypeComboBox.TabIndex = 1;
             // 
-            // ExportBtn
+            // ExportButton
             // 
-            ExportBtn.Location = new Point(29, 338);
-            ExportBtn.Name = "ExportBtn";
-            ExportBtn.Size = new Size(281, 29);
-            ExportBtn.TabIndex = 6;
-            ExportBtn.Text = "Export";
-            ExportBtn.UseVisualStyleBackColor = true;
-            ExportBtn.Click += ExportBtn_Click;
+            ExportButton.Location = new Point(29, 338);
+            ExportButton.Name = "ExportButton";
+            ExportButton.Size = new Size(281, 29);
+            ExportButton.TabIndex = 6;
+            ExportButton.Text = "Export";
+            ExportButton.UseVisualStyleBackColor = true;
+            ExportButton.Click += ExportBtn_Click;
             // 
-            // flowLayoutPanel1
+            // ListContainer
             // 
-            flowLayoutPanel1.Controls.Add(TransaksiBtn);
-            flowLayoutPanel1.Controls.Add(OperationalBtn);
-            flowLayoutPanel1.Controls.Add(DataList);
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1326, 764);
-            flowLayoutPanel1.TabIndex = 0;
+            ListContainer.Controls.Add(TransaksiButton);
+            ListContainer.Controls.Add(OperationalButton);
+            ListContainer.Controls.Add(DataList);
+            ListContainer.Location = new Point(3, 3);
+            ListContainer.Name = "ListContainer";
+            ListContainer.Size = new Size(1326, 764);
+            ListContainer.TabIndex = 0;
             // 
-            // TransaksiBtn
+            // TransaksiButton
             // 
-            TransaksiBtn.Location = new Point(3, 3);
-            TransaksiBtn.Name = "TransaksiBtn";
-            TransaksiBtn.Size = new Size(110, 23);
-            TransaksiBtn.TabIndex = 0;
-            TransaksiBtn.Text = "Transaksi";
-            TransaksiBtn.UseVisualStyleBackColor = true;
-            TransaksiBtn.Click += TransaksiBtn_Click;
+            TransaksiButton.Location = new Point(3, 3);
+            TransaksiButton.Name = "TransaksiButton";
+            TransaksiButton.Size = new Size(110, 23);
+            TransaksiButton.TabIndex = 0;
+            TransaksiButton.Text = "Transaksi";
+            TransaksiButton.UseVisualStyleBackColor = true;
+            TransaksiButton.Click += TransaksiBtn_Click;
             // 
-            // OperationalBtn
+            // OperationalButton
             // 
-            OperationalBtn.Location = new Point(119, 3);
-            OperationalBtn.Name = "OperationalBtn";
-            OperationalBtn.Size = new Size(110, 23);
-            OperationalBtn.TabIndex = 1;
-            OperationalBtn.Text = "Operational";
-            OperationalBtn.UseVisualStyleBackColor = true;
-            OperationalBtn.Click += OperationalBtn_Click;
+            OperationalButton.Location = new Point(119, 3);
+            OperationalButton.Name = "OperationalButton";
+            OperationalButton.Size = new Size(110, 23);
+            OperationalButton.TabIndex = 1;
+            OperationalButton.Text = "Operational";
+            OperationalButton.UseVisualStyleBackColor = true;
+            OperationalButton.Click += OperationalBtn_Click;
             // 
             // DataList
             // 
@@ -357,7 +357,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 796);
-            Controls.Add(body);
+            Controls.Add(PageBodyContainer);
             Controls.Add(MenuContainer);
             MainMenuStrip = MenuContainer;
             Margin = new Padding(3, 2, 3, 2);
@@ -366,17 +366,17 @@
             WindowState = FormWindowState.Maximized;
             MenuContainer.ResumeLayout(false);
             MenuContainer.PerformLayout();
-            body.ResumeLayout(false);
-            formPanel.ResumeLayout(false);
-            formPanel.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
+            PageBodyContainer.ResumeLayout(false);
+            FormContainer.ResumeLayout(false);
+            FormContainer.PerformLayout();
+            InputContainer.ResumeLayout(false);
             DateStartInputGroup.ResumeLayout(false);
             DateStartInputGroup.PerformLayout();
             DateEndInputGroup.ResumeLayout(false);
             DateEndInputGroup.PerformLayout();
             TypeInputGroup.ResumeLayout(false);
             TypeInputGroup.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
+            ListContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DataList).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -385,23 +385,23 @@
         #endregion
 
         private MenuStrip MenuContainer;
-        private ToolStripMenuItem dahboardToolStripMenuItem;
-        private ToolStripMenuItem penggunaMenu;
-        private ToolStripMenuItem kategoriMenu;
-        private ToolStripMenuItem transaksiMenu;
-        private ToolStripMenuItem operationalMenu;
-        private ToolStripMenuItem laporanMenu;
-        private ToolStripMenuItem menuLogout;
+        private ToolStripMenuItem DashboardMenu;
+        private ToolStripMenuItem PenggunaMenu;
+        private ToolStripMenuItem KategoriMenu;
+        private ToolStripMenuItem TransaksiMenu;
+        private ToolStripMenuItem OperationalMenu;
+        private ToolStripMenuItem LaporanMenu;
+        private ToolStripMenuItem LogoutMenu;
         private ContextMenuStrip contextMenuStrip1;
-        private TableLayoutPanel body;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Button TransaksiBtn;
+        private TableLayoutPanel PageBodyContainer;
+        private FlowLayoutPanel ListContainer;
+        private Button TransaksiButton;
         private DataGridView DataList;
-        private Button OperationalBtn;
-        private FlowLayoutPanel formPanel;
+        private Button OperationalButton;
+        private FlowLayoutPanel FormContainer;
         private Label FormLabel;
         private Label validationErrorMsg;
-        private FlowLayoutPanel flowLayoutPanel3;
+        private FlowLayoutPanel InputContainer;
         private FlowLayoutPanel DateStartInputGroup;
         private Label DateStartLabel;
         private DateTimePicker StartDateTimePicker;
@@ -411,7 +411,7 @@
         private FlowLayoutPanel TypeInputGroup;
         private Label TypeLabel;
         private ComboBox TypeComboBox;
-        private Button ExportBtn;
-        private ToolStripMenuItem tenantMenu;
+        private Button ExportButton;
+        private ToolStripMenuItem TenantMenu;
     }
 }

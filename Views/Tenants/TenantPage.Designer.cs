@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Phone = new Label();
+            PhoneNumberLabel = new Label();
             PhoneNumberTextField = new TextBox();
             PhoneNumberInputGroup = new FlowLayoutPanel();
-            label4 = new Label();
+            AddressLabel = new Label();
             AddressTextField = new TextBox();
             AddresInputGroup = new FlowLayoutPanel();
-            label3 = new Label();
+            NameLabel = new Label();
             NamaTextField = new TextBox();
-            label2 = new Label();
+            FormLabel = new Label();
             validationErrorMsg = new Label();
             NameInputGroup = new FlowLayoutPanel();
             ListContainer = new FlowLayoutPanel();
-            label1 = new Label();
-            AddBtn = new Button();
+            PageLabel = new Label();
+            AddButton = new Button();
             TenantList = new DataGridView();
             PageBodyContainer = new TableLayoutPanel();
             FormContainer = new FlowLayoutPanel();
             ValidationInputGroup = new FlowLayoutPanel();
-            label6 = new Label();
+            ValidLabel = new Label();
             chkIsValid = new CheckBox();
             UsernameInputGroup = new FlowLayoutPanel();
-            label5 = new Label();
+            UsernameLabel = new Label();
             UsernameTextField = new TextBox();
             PasswordInputGroup = new FlowLayoutPanel();
-            label7 = new Label();
+            PasswordLabel = new Label();
             PasswordTextField = new TextBox();
             EmailInputGroup = new FlowLayoutPanel();
-            Email = new Label();
+            EmailLabel = new Label();
             EmailTextField = new TextBox();
-            SaveBtn = new Button();
-            CancelBtn = new Button();
+            SaveButton = new Button();
+            CancelButton = new Button();
             LogoutMenu = new ToolStripMenuItem();
             LaporanMenu = new ToolStripMenuItem();
             OperationalMenu = new ToolStripMenuItem();
@@ -85,15 +85,15 @@
             container.SuspendLayout();
             SuspendLayout();
             // 
-            // Phone
+            // PhoneNumberLabel
             // 
-            Phone.AutoSize = true;
-            Phone.Font = new Font("Microsoft Sans Serif", 10.2F);
-            Phone.Location = new Point(12, 8);
-            Phone.Name = "Phone";
-            Phone.Size = new Size(106, 17);
-            Phone.TabIndex = 1;
-            Phone.Text = "Nomor Telepon";
+            PhoneNumberLabel.AutoSize = true;
+            PhoneNumberLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            PhoneNumberLabel.Location = new Point(12, 8);
+            PhoneNumberLabel.Name = "PhoneNumberLabel";
+            PhoneNumberLabel.Size = new Size(106, 17);
+            PhoneNumberLabel.TabIndex = 1;
+            PhoneNumberLabel.Text = "Nomor Telepon";
             // 
             // PhoneNumberTextField
             // 
@@ -109,7 +109,7 @@
             PhoneNumberInputGroup.AutoSize = true;
             PhoneNumberInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             PhoneNumberInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            PhoneNumberInputGroup.Controls.Add(Phone);
+            PhoneNumberInputGroup.Controls.Add(PhoneNumberLabel);
             PhoneNumberInputGroup.Controls.Add(PhoneNumberTextField);
             PhoneNumberInputGroup.Dock = DockStyle.Fill;
             PhoneNumberInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -121,15 +121,15 @@
             PhoneNumberInputGroup.Size = new Size(386, 58);
             PhoneNumberInputGroup.TabIndex = 12;
             // 
-            // label4
+            // AddressLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label4.Location = new Point(12, 8);
-            label4.Name = "label4";
-            label4.Size = new Size(51, 17);
-            label4.TabIndex = 4;
-            label4.Text = "Alamat";
+            AddressLabel.AutoSize = true;
+            AddressLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            AddressLabel.Location = new Point(12, 8);
+            AddressLabel.Name = "AddressLabel";
+            AddressLabel.Size = new Size(51, 17);
+            AddressLabel.TabIndex = 4;
+            AddressLabel.Text = "Alamat";
             // 
             // AddressTextField
             // 
@@ -145,7 +145,7 @@
             AddresInputGroup.AutoSize = true;
             AddresInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             AddresInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            AddresInputGroup.Controls.Add(label4);
+            AddresInputGroup.Controls.Add(AddressLabel);
             AddresInputGroup.Controls.Add(AddressTextField);
             AddresInputGroup.Dock = DockStyle.Fill;
             AddresInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -157,15 +157,15 @@
             AddresInputGroup.Size = new Size(386, 58);
             AddresInputGroup.TabIndex = 10;
             // 
-            // label3
+            // NameLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label3.Location = new Point(12, 8);
-            label3.Name = "label3";
-            label3.Size = new Size(45, 17);
-            label3.TabIndex = 1;
-            label3.Text = "Nama";
+            NameLabel.AutoSize = true;
+            NameLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            NameLabel.Location = new Point(12, 8);
+            NameLabel.Name = "NameLabel";
+            NameLabel.Size = new Size(45, 17);
+            NameLabel.TabIndex = 1;
+            NameLabel.Text = "Nama";
             // 
             // NamaTextField
             // 
@@ -176,17 +176,17 @@
             NamaTextField.Size = new Size(356, 19);
             NamaTextField.TabIndex = 2;
             // 
-            // label2
+            // FormLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(29, 22);
-            label2.Margin = new Padding(3, 0, 3, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(253, 29);
-            label2.TabIndex = 1;
-            label2.Text = "Kelola Data Pengguna";
+            FormLabel.AutoSize = true;
+            FormLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormLabel.ForeColor = SystemColors.ControlText;
+            FormLabel.Location = new Point(29, 22);
+            FormLabel.Margin = new Padding(3, 0, 3, 11);
+            FormLabel.Name = "FormLabel";
+            FormLabel.Size = new Size(253, 29);
+            FormLabel.TabIndex = 1;
+            FormLabel.Text = "Kelola Data Pengguna";
             // 
             // validationErrorMsg
             // 
@@ -205,7 +205,7 @@
             NameInputGroup.AutoSize = true;
             NameInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             NameInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            NameInputGroup.Controls.Add(label3);
+            NameInputGroup.Controls.Add(NameLabel);
             NameInputGroup.Controls.Add(NamaTextField);
             NameInputGroup.Dock = DockStyle.Fill;
             NameInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -221,8 +221,8 @@
             // 
             ListContainer.AutoSize = true;
             ListContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ListContainer.Controls.Add(label1);
-            ListContainer.Controls.Add(AddBtn);
+            ListContainer.Controls.Add(PageLabel);
+            ListContainer.Controls.Add(AddButton);
             ListContainer.Controls.Add(TenantList);
             ListContainer.FlowDirection = FlowDirection.TopDown;
             ListContainer.Location = new Point(3, 2);
@@ -231,30 +231,30 @@
             ListContainer.Size = new Size(1195, 694);
             ListContainer.TabIndex = 6;
             // 
-            // label1
+            // PageLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(3, 0);
-            label1.Margin = new Padding(3, 0, 3, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(157, 29);
-            label1.TabIndex = 2;
-            label1.Text = "Daftar Tenant";
+            PageLabel.AutoSize = true;
+            PageLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PageLabel.ForeColor = SystemColors.ControlText;
+            PageLabel.Location = new Point(3, 0);
+            PageLabel.Margin = new Padding(3, 0, 3, 11);
+            PageLabel.Name = "PageLabel";
+            PageLabel.Size = new Size(157, 29);
+            PageLabel.TabIndex = 2;
+            PageLabel.Text = "Daftar Tenant";
             // 
-            // AddBtn
+            // AddButton
             // 
-            AddBtn.AutoSize = true;
-            AddBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddBtn.Location = new Point(3, 42);
-            AddBtn.Margin = new Padding(3, 2, 3, 22);
-            AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(158, 36);
-            AddBtn.TabIndex = 17;
-            AddBtn.Text = "Tambah Data";
-            AddBtn.UseVisualStyleBackColor = true;
-            AddBtn.Click += addBtn_Click;
+            AddButton.AutoSize = true;
+            AddButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AddButton.Location = new Point(3, 42);
+            AddButton.Margin = new Padding(3, 2, 3, 22);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(158, 36);
+            AddButton.TabIndex = 17;
+            AddButton.Text = "Tambah Data";
+            AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // TenantList
             // 
@@ -266,7 +266,7 @@
             TenantList.RowHeadersWidth = 51;
             TenantList.Size = new Size(1148, 590);
             TenantList.TabIndex = 3;
-            TenantList.CellContentClick += tenantsList_CellContentClick;
+            TenantList.CellContentClick += TenantList_CellContentClick;
             // 
             // PageBodyContainer
             // 
@@ -287,7 +287,7 @@
             // 
             // FormContainer
             // 
-            FormContainer.Controls.Add(label2);
+            FormContainer.Controls.Add(FormLabel);
             FormContainer.Controls.Add(validationErrorMsg);
             FormContainer.Controls.Add(NameInputGroup);
             FormContainer.Controls.Add(AddresInputGroup);
@@ -296,8 +296,8 @@
             FormContainer.Controls.Add(UsernameInputGroup);
             FormContainer.Controls.Add(PasswordInputGroup);
             FormContainer.Controls.Add(EmailInputGroup);
-            FormContainer.Controls.Add(SaveBtn);
-            FormContainer.Controls.Add(CancelBtn);
+            FormContainer.Controls.Add(SaveButton);
+            FormContainer.Controls.Add(CancelButton);
             FormContainer.FlowDirection = FlowDirection.TopDown;
             FormContainer.Location = new Point(1204, 2);
             FormContainer.Margin = new Padding(3, 2, 3, 2);
@@ -311,7 +311,7 @@
             ValidationInputGroup.AutoSize = true;
             ValidationInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ValidationInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            ValidationInputGroup.Controls.Add(label6);
+            ValidationInputGroup.Controls.Add(ValidLabel);
             ValidationInputGroup.Controls.Add(chkIsValid);
             ValidationInputGroup.Dock = DockStyle.Fill;
             ValidationInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -323,15 +323,15 @@
             ValidationInputGroup.Size = new Size(386, 58);
             ValidationInputGroup.TabIndex = 17;
             // 
-            // label6
+            // ValidLabel
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label6.Location = new Point(12, 8);
-            label6.Name = "label6";
-            label6.Size = new Size(39, 17);
-            label6.TabIndex = 1;
-            label6.Text = "Valid";
+            ValidLabel.AutoSize = true;
+            ValidLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            ValidLabel.Location = new Point(12, 8);
+            ValidLabel.Name = "ValidLabel";
+            ValidLabel.Size = new Size(39, 17);
+            ValidLabel.TabIndex = 1;
+            ValidLabel.Text = "Valid";
             // 
             // chkIsValid
             // 
@@ -348,7 +348,7 @@
             UsernameInputGroup.AutoSize = true;
             UsernameInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             UsernameInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            UsernameInputGroup.Controls.Add(label5);
+            UsernameInputGroup.Controls.Add(UsernameLabel);
             UsernameInputGroup.Controls.Add(UsernameTextField);
             UsernameInputGroup.Dock = DockStyle.Fill;
             UsernameInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -360,15 +360,15 @@
             UsernameInputGroup.Size = new Size(386, 58);
             UsernameInputGroup.TabIndex = 21;
             // 
-            // label5
+            // UsernameLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label5.Location = new Point(12, 8);
-            label5.Name = "label5";
-            label5.Size = new Size(73, 17);
-            label5.TabIndex = 1;
-            label5.Text = "Username";
+            UsernameLabel.AutoSize = true;
+            UsernameLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            UsernameLabel.Location = new Point(12, 8);
+            UsernameLabel.Name = "UsernameLabel";
+            UsernameLabel.Size = new Size(73, 17);
+            UsernameLabel.TabIndex = 1;
+            UsernameLabel.Text = "Username";
             // 
             // UsernameTextField
             // 
@@ -384,7 +384,7 @@
             PasswordInputGroup.AutoSize = true;
             PasswordInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             PasswordInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            PasswordInputGroup.Controls.Add(label7);
+            PasswordInputGroup.Controls.Add(PasswordLabel);
             PasswordInputGroup.Controls.Add(PasswordTextField);
             PasswordInputGroup.Dock = DockStyle.Fill;
             PasswordInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -396,15 +396,15 @@
             PasswordInputGroup.Size = new Size(386, 58);
             PasswordInputGroup.TabIndex = 20;
             // 
-            // label7
+            // PasswordLabel
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 10.2F);
-            label7.Location = new Point(12, 8);
-            label7.Name = "label7";
-            label7.Size = new Size(69, 17);
-            label7.TabIndex = 4;
-            label7.Text = "Password";
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            PasswordLabel.Location = new Point(12, 8);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(69, 17);
+            PasswordLabel.TabIndex = 4;
+            PasswordLabel.Text = "Password";
             // 
             // PasswordTextField
             // 
@@ -420,7 +420,7 @@
             EmailInputGroup.AutoSize = true;
             EmailInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             EmailInputGroup.BorderStyle = BorderStyle.FixedSingle;
-            EmailInputGroup.Controls.Add(Email);
+            EmailInputGroup.Controls.Add(EmailLabel);
             EmailInputGroup.Controls.Add(EmailTextField);
             EmailInputGroup.Dock = DockStyle.Fill;
             EmailInputGroup.FlowDirection = FlowDirection.TopDown;
@@ -432,15 +432,15 @@
             EmailInputGroup.Size = new Size(386, 58);
             EmailInputGroup.TabIndex = 22;
             // 
-            // Email
+            // EmailLabel
             // 
-            Email.AutoSize = true;
-            Email.Font = new Font("Microsoft Sans Serif", 10.2F);
-            Email.Location = new Point(12, 8);
-            Email.Name = "Email";
-            Email.Size = new Size(42, 17);
-            Email.TabIndex = 1;
-            Email.Text = "Email";
+            EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
+            EmailLabel.Location = new Point(12, 8);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(42, 17);
+            EmailLabel.TabIndex = 1;
+            EmailLabel.Text = "Email";
             // 
             // EmailTextField
             // 
@@ -450,89 +450,89 @@
             EmailTextField.Name = "EmailTextField";
             EmailTextField.Size = new Size(356, 19);
             EmailTextField.TabIndex = 2;
-            EmailTextField.Click += handleClickMenu;
+            EmailTextField.Click += HandleClickMenu;
             // 
-            // SaveBtn
+            // SaveButton
             // 
-            SaveBtn.AutoSize = true;
-            SaveBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SaveBtn.Location = new Point(29, 727);
-            SaveBtn.Margin = new Padding(3, 2, 3, 2);
-            SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(380, 36);
-            SaveBtn.TabIndex = 23;
-            SaveBtn.Text = "Simpan";
-            SaveBtn.UseVisualStyleBackColor = true;
-            SaveBtn.Click += btnSave_Click;
+            SaveButton.AutoSize = true;
+            SaveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaveButton.Location = new Point(29, 727);
+            SaveButton.Margin = new Padding(3, 2, 3, 2);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(380, 36);
+            SaveButton.TabIndex = 23;
+            SaveButton.Text = "Simpan";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
-            // CancelBtn
+            // CancelButton
             // 
-            CancelBtn.AutoSize = true;
-            CancelBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CancelBtn.Location = new Point(29, 767);
-            CancelBtn.Margin = new Padding(3, 2, 3, 2);
-            CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(380, 36);
-            CancelBtn.TabIndex = 24;
-            CancelBtn.Text = "Batalkan";
-            CancelBtn.UseVisualStyleBackColor = true;
-            CancelBtn.Click += cancelBtn_Click;
+            CancelButton.AutoSize = true;
+            CancelButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CancelButton.Location = new Point(29, 767);
+            CancelButton.Margin = new Padding(3, 2, 3, 2);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(380, 36);
+            CancelButton.TabIndex = 24;
+            CancelButton.Text = "Batalkan";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // LogoutMenu
             // 
             LogoutMenu.Name = "LogoutMenu";
             LogoutMenu.Size = new Size(67, 22);
             LogoutMenu.Text = "Logout";
-            LogoutMenu.Click += handleClickMenu;
+            LogoutMenu.Click += HandleClickMenu;
             // 
             // LaporanMenu
             // 
             LaporanMenu.Name = "LaporanMenu";
             LaporanMenu.Size = new Size(74, 22);
             LaporanMenu.Text = "Laporan";
-            LaporanMenu.Click += handleClickMenu;
+            LaporanMenu.Click += HandleClickMenu;
             // 
             // OperationalMenu
             // 
             OperationalMenu.Name = "OperationalMenu";
             OperationalMenu.Size = new Size(100, 22);
             OperationalMenu.Text = "Operasional";
-            OperationalMenu.Click += handleClickMenu;
+            OperationalMenu.Click += HandleClickMenu;
             // 
             // TransaksiMenu
             // 
             TransaksiMenu.Name = "TransaksiMenu";
             TransaksiMenu.Size = new Size(85, 22);
             TransaksiMenu.Text = "Transaksi";
-            TransaksiMenu.Click += handleClickMenu;
+            TransaksiMenu.Click += HandleClickMenu;
             // 
             // StokMenu
             // 
             StokMenu.Name = "StokMenu";
             StokMenu.Size = new Size(117, 22);
             StokMenu.Text = "Stok & Inventori";
-            StokMenu.Click += handleClickMenu;
+            StokMenu.Click += HandleClickMenu;
             // 
             // KategoriMenu
             // 
             KategoriMenu.Name = "KategoriMenu";
             KategoriMenu.Size = new Size(113, 22);
             KategoriMenu.Text = "Kategori Telur";
-            KategoriMenu.Click += handleClickMenu;
+            KategoriMenu.Click += HandleClickMenu;
             // 
             // PenggunaMenu
             // 
             PenggunaMenu.Name = "PenggunaMenu";
             PenggunaMenu.Size = new Size(85, 22);
             PenggunaMenu.Text = "Pengguna";
-            PenggunaMenu.Click += handleClickMenu;
+            PenggunaMenu.Click += HandleClickMenu;
             // 
             // DashboardMenu
             // 
             DashboardMenu.Name = "DashboardMenu";
             DashboardMenu.Size = new Size(92, 22);
             DashboardMenu.Text = "Dashboard";
-            DashboardMenu.Click += handleClickMenu;
+            DashboardMenu.Click += HandleClickMenu;
             // 
             // MenuContainer
             // 
@@ -553,7 +553,7 @@
             TenantMenu.Name = "TenantMenu";
             TenantMenu.Size = new Size(65, 22);
             TenantMenu.Text = "Tenant";
-            TenantMenu.Click += handleClickMenu;
+            TenantMenu.Click += HandleClickMenu;
             // 
             // container
             // 
@@ -608,20 +608,20 @@
         }
 
         #endregion
-        private Label Phone;
+        private Label PhoneNumberLabel;
         private TextBox PhoneNumberTextField;
         private FlowLayoutPanel PhoneNumberInputGroup;
-        private Label label4;
+        private Label AddressLabel;
         private TextBox AddressTextField;
         private FlowLayoutPanel AddresInputGroup;
-        private Label label3;
+        private Label NameLabel;
         private TextBox NamaTextField;
-        private Label label2;
+        private Label FormLabel;
         private Label validationErrorMsg;
         private FlowLayoutPanel NameInputGroup;
         private FlowLayoutPanel ListContainer;
-        private Label label1;
-        private Button AddBtn;
+        private Label PageLabel;
+        private Button AddButton;
         private DataGridView TenantList;
         private TableLayoutPanel PageBodyContainer;
         private FlowLayoutPanel FormContainer;
@@ -636,19 +636,19 @@
         private MenuStrip MenuContainer;
         private TableLayoutPanel container;
         private FlowLayoutPanel ValidationInputGroup;
-        private Label label6;
+        private Label ValidLabel;
         private CheckBox chkIsValid;
         private ToolStripMenuItem TenantMenu;
         private FlowLayoutPanel UsernameInputGroup;
-        private Label label5;
+        private Label UsernameLabel;
         private TextBox UsernameTextField;
         private FlowLayoutPanel PasswordInputGroup;
-        private Label label7;
+        private Label PasswordLabel;
         private TextBox PasswordTextField;
         private FlowLayoutPanel EmailInputGroup;
-        private Label Email;
+        private Label EmailLabel;
         private TextBox EmailTextField;
-        private Button SaveBtn;
-        private Button CancelBtn;
+        private Button SaveButton;
+        private Button CancelButton;
     }
 }

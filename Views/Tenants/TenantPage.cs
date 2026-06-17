@@ -26,7 +26,8 @@ namespace sipetok_form.Views.Tenants
         {
             InitializeComponent();
             this.Load += FormMain_Load;
-            this.TenantList.CellFormatting += tenantsList_CellFormatting;
+            this.TenantList.CellFormatting += TenantList_CellFormatting;
+            this.TenantList.CellContentClick += TenantList_CellContentClick;
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace sipetok_form.Views.Tenants
                     TenantList.DataSource = null;
                     TenantList.DataSource = data;
 
+                    // Atur Susunan Header Utama GUI
                     TenantList.Columns["Id"].HeaderText = "Id Tenant";
                     TenantList.Columns["Name"].HeaderText = "Nama Tenant";
                     TenantList.Columns["Address"].HeaderText = "Alamat";
@@ -83,7 +85,7 @@ namespace sipetok_form.Views.Tenants
             }
         }
 
-        private void tenantsList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void TenantList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || e.Value == null) return;
 
@@ -99,12 +101,12 @@ namespace sipetok_form.Views.Tenants
 
         private void SetupActionButtons()
         {
-            if (TenantList.Columns.Contains("BtnEdit")) TenantList.Columns.Remove("BtnEdit");
-            if (TenantList.Columns.Contains("BtnHapus")) TenantList.Columns.Remove("BtnHapus");
+            if (TenantList.Columns.Contains("EditBtn")) TenantList.Columns.Remove("EditBtn");
+            if (TenantList.Columns.Contains("DeleteBtn")) TenantList.Columns.Remove("DeleteBtn");
 
             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
             {
-                Name = "BtnEdit",
+                Name = "EditBtn",
                 HeaderText = "Aksi Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true
@@ -113,7 +115,7 @@ namespace sipetok_form.Views.Tenants
 
             DataGridViewButtonColumn btnHapus = new DataGridViewButtonColumn
             {
-                Name = "BtnHapus",
+                Name = "DeleteBtn",
                 HeaderText = "Aksi Hapus",
                 Text = "Hapus",
                 UseColumnTextForButtonValue = true
@@ -121,7 +123,6 @@ namespace sipetok_form.Views.Tenants
             TenantList.Columns.Add(btnHapus);
         }
 
-        // PERBAIKAN 1: Logika penempatan struktur if-else untuk menyembunyikan/menampilkan field
         private void ToggleForm(bool show)
         {
             FormContainer.Visible = show;
@@ -139,7 +140,6 @@ namespace sipetok_form.Views.Tenants
 
                 if (_saveDataType == "update")
                 {
-                    // Sembunyikan field Akun User saat Edit Tenant
                     UsernameInputGroup.Visible = false;
                     PasswordInputGroup.Visible = false;
                     EmailInputGroup.Visible = false;
@@ -148,19 +148,15 @@ namespace sipetok_form.Views.Tenants
                 }
                 else if (_saveDataType == "create")
                 {
-                    // Pastikan field Akun User selalu muncul saat Tambah Data Baru
                     UsernameInputGroup.Visible = true;
                     PasswordInputGroup.Visible = true;
                     EmailInputGroup.Visible = true;
                     ValidationInputGroup.Visible = false;
-
-
-                    AttemptFormFields(true); // Bersihkan form field agar kosong
+                    AttemptFormFields(true);
                 }
             }
             else
             {
-                // Bagian ini sekarang akan selalu berjalan saat form ditutup (Batal/Sukses Simpan)
                 columnStyles[0].SizeType = SizeType.Percent;
                 columnStyles[0].Width = 100;
 
@@ -208,20 +204,20 @@ namespace sipetok_form.Views.Tenants
             }
         }
 
-        private async void tenantsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void TenantList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             var dataSelected = (sipetok_api.Models.Tenant)TenantList.Rows[e.RowIndex].DataBoundItem;
 
-            if (TenantList.Columns[e.ColumnIndex].Name == "BtnEdit")
+            if (TenantList.Columns[e.ColumnIndex].Name == "EditBtn")
             {
                 _selectedTenant = dataSelected;
                 _saveDataType = "update";
                 ToggleForm(true);
             }
 
-            if (TenantList.Columns[e.ColumnIndex].Name == "BtnHapus")
+            if (TenantList.Columns[e.ColumnIndex].Name == "DeleteBtn")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
@@ -247,21 +243,21 @@ namespace sipetok_form.Views.Tenants
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                SaveBtn.Enabled = false;
+                SaveButton.Enabled = false;
                 ActionResponse<sipetok_api.Models.Tenant> response = new ActionResponse<sipetok_api.Models.Tenant>();
 
                 if (_saveDataType == "update")
@@ -275,7 +271,6 @@ namespace sipetok_form.Views.Tenants
                 }
                 else if (_saveDataType == "create")
                 {
-                    // PERBAIKAN 2: Menambahkan instansiasi objek 'new User' secara eksplisit
                     var newTenant = new sipetok_api.Models.Tenant
                     {
                         Name = NamaTextField.Text,
@@ -309,11 +304,11 @@ namespace sipetok_form.Views.Tenants
             }
             finally
             {
-                SaveBtn.Enabled = true;
+                SaveButton.Enabled = true;
             }
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             _saveDataType = "create";
             ToggleForm(true);

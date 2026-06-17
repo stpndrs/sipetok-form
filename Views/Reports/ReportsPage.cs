@@ -36,14 +36,14 @@ namespace sipetok_form.Views.Laporan
         /// </summary>
         private void LaporanPage_Load(object sender, EventArgs e)
         {
-            var columnStyles = body.ColumnStyles;
+            var columnStyles = PageBodyContainer.ColumnStyles;
             columnStyles[0].SizeType = SizeType.Percent;
             columnStyles[0].Width = 70;
             columnStyles[1].SizeType = SizeType.Percent;
             columnStyles[1].Width = 30;
             DataList.Width = 1300;
 
-            TransaksiBtn.PerformClick();
+            TransaksiButton.PerformClick();
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace sipetok_form.Views.Laporan
             await LoadReportDataAsync(
                 fetchDataFunc: () => _reportService.GetTransaksiAsync(),
                 configureGridAction: SetupTransactionColumns,
-                loadingButton: TransaksiBtn,
-                activeButton: TransaksiBtn,
-                inactiveButton: OperationalBtn,
+                loadingButton: TransaksiButton,
+                activeButton: TransaksiButton,
+                inactiveButton: OperationalButton,
                 headerTitle: "Manage Transaction Report"
             );
         }
@@ -79,9 +79,9 @@ namespace sipetok_form.Views.Laporan
             await LoadReportDataAsync(
                 fetchDataFunc: () => _reportService.GetOperationalAsync(),
                 configureGridAction: SetupOperationalColumns,
-                loadingButton: OperationalBtn,
-                activeButton: OperationalBtn,
-                inactiveButton: TransaksiBtn,
+                loadingButton: OperationalButton,
+                activeButton: OperationalButton,
+                inactiveButton: TransaksiButton,
                 headerTitle: "Manage Operational Report"
             );
         }
