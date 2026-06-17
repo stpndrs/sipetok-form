@@ -171,14 +171,14 @@ namespace sipetok_form.Views.Laporan
         {
             try
             {
-                if (JenisCb.SelectedItem == null)
+                if (TypeComboBox.SelectedItem == null)
                 {
                     MessageBox.Show("Please select an export file format (Excel or PDF)!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                DateTime startDate = MulaiDateTimePicker.Value.Date;
-                DateTime endDate = SelesaiDateTimePicker.Value.Date.AddDays(1).AddTicks(-1);
+                DateTime startDate = StartDateTimePicker.Value.Date;
+                DateTime endDate = EndDateTimePicker.Value.Date.AddDays(1).AddTicks(-1);
 
                 if (startDate > endDate)
                 {
@@ -186,7 +186,7 @@ namespace sipetok_form.Views.Laporan
                     return;
                 }
 
-                string selectedFormat = JenisCb.SelectedItem.ToString();
+                string selectedFormat = TypeComboBox.SelectedItem.ToString();
 
                 if (DataList.DataSource is List<Transaction> transactionList)
                 {
@@ -219,7 +219,7 @@ namespace sipetok_form.Views.Laporan
             var filteredData = transactions.Where(t => t.Date >= start && t.Date <= end).ToList();
             if (IsDataFilteredEmpty(filteredData.Count)) return;
 
-            string defaultFileName = $"Transaction_Report_{start:yyyyMMdd}_to_{SelesaiDateTimePicker.Value:yyyyMMdd}";
+            string defaultFileName = $"Transaction_Report_{start:yyyyMMdd}_to_{EndDateTimePicker.Value:yyyyMMdd}";
             string filePath = GetSaveFilePath(format, defaultFileName);
 
             if (!string.IsNullOrEmpty(filePath))
@@ -238,7 +238,7 @@ namespace sipetok_form.Views.Laporan
             var filteredData = operationals.Where(o => o.OperationalDate >= start && o.OperationalDate <= end).ToList();
             if (IsDataFilteredEmpty(filteredData.Count)) return;
 
-            string defaultFileName = $"Operational_Report_{start:yyyyMMdd}_to_{SelesaiDateTimePicker.Value:yyyyMMdd}";
+            string defaultFileName = $"Operational_Report_{start:yyyyMMdd}_to_{EndDateTimePicker.Value:yyyyMMdd}";
             string filePath = GetSaveFilePath(format, defaultFileName);
 
             if (!string.IsNullOrEmpty(filePath))
@@ -298,7 +298,7 @@ namespace sipetok_form.Views.Laporan
         {
             activeButton.BackColor = Color.LightGray;
             inactiveButton.BackColor = Color.White;
-            label2.Text = headerTitle;
+            FormLabel.Text = headerTitle;
         }
 
         /// <summary>

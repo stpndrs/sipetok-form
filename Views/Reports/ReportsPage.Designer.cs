@@ -41,18 +41,18 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             body = new TableLayoutPanel();
             formPanel = new FlowLayoutPanel();
-            label2 = new Label();
+            FormLabel = new Label();
             validationErrorMsg = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            label1 = new Label();
-            MulaiDateTimePicker = new DateTimePicker();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            label4 = new Label();
-            SelesaiDateTimePicker = new DateTimePicker();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            label5 = new Label();
-            JenisCb = new ComboBox();
+            DateStartInputGroup = new FlowLayoutPanel();
+            DateStartLabel = new Label();
+            StartDateTimePicker = new DateTimePicker();
+            DateEndInputGroup = new FlowLayoutPanel();
+            DateEndLabel = new Label();
+            EndDateTimePicker = new DateTimePicker();
+            TypeInputGroup = new FlowLayoutPanel();
+            TypeLabel = new Label();
+            TypeComboBox = new ComboBox();
             ExportBtn = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             TransaksiBtn = new Button();
@@ -62,9 +62,9 @@
             body.SuspendLayout();
             formPanel.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel4.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
+            DateStartInputGroup.SuspendLayout();
+            DateEndInputGroup.SuspendLayout();
+            TypeInputGroup.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataList).BeginInit();
             SuspendLayout();
@@ -168,7 +168,7 @@
             // 
             // formPanel
             // 
-            formPanel.Controls.Add(label2);
+            formPanel.Controls.Add(FormLabel);
             formPanel.Controls.Add(validationErrorMsg);
             formPanel.Controls.Add(flowLayoutPanel3);
             formPanel.FlowDirection = FlowDirection.TopDown;
@@ -179,17 +179,17 @@
             formPanel.Size = new Size(424, 766);
             formPanel.TabIndex = 6;
             // 
-            // label2
+            // FormLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ControlText;
-            label2.Location = new Point(29, 22);
-            label2.Margin = new Padding(3, 0, 3, 11);
-            label2.Name = "label2";
-            label2.Size = new Size(287, 29);
-            label2.TabIndex = 1;
-            label2.Text = "Kelola Laporan Transaksi";
+            FormLabel.AutoSize = true;
+            FormLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormLabel.ForeColor = SystemColors.ControlText;
+            FormLabel.Location = new Point(29, 22);
+            FormLabel.Margin = new Padding(3, 0, 3, 11);
+            FormLabel.Name = "FormLabel";
+            FormLabel.Size = new Size(287, 29);
+            FormLabel.TabIndex = 1;
+            FormLabel.Text = "Kelola Laporan Transaksi";
             // 
             // validationErrorMsg
             // 
@@ -205,9 +205,9 @@
             // 
             // flowLayoutPanel3
             // 
-            flowLayoutPanel3.Controls.Add(flowLayoutPanel2);
-            flowLayoutPanel3.Controls.Add(flowLayoutPanel4);
-            flowLayoutPanel3.Controls.Add(flowLayoutPanel5);
+            flowLayoutPanel3.Controls.Add(DateStartInputGroup);
+            flowLayoutPanel3.Controls.Add(DateEndInputGroup);
+            flowLayoutPanel3.Controls.Add(TypeInputGroup);
             flowLayoutPanel3.Controls.Add(ExportBtn);
             flowLayoutPanel3.Location = new Point(29, 111);
             flowLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
@@ -216,91 +216,91 @@
             flowLayoutPanel3.Size = new Size(356, 461);
             flowLayoutPanel3.TabIndex = 17;
             // 
-            // flowLayoutPanel2
+            // DateStartInputGroup
             // 
-            flowLayoutPanel2.Controls.Add(label1);
-            flowLayoutPanel2.Controls.Add(MulaiDateTimePicker);
-            flowLayoutPanel2.Location = new Point(26, 22);
-            flowLayoutPanel2.Margin = new Padding(0, 0, 0, 30);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Padding = new Padding(9, 8, 9, 8);
-            flowLayoutPanel2.Size = new Size(284, 76);
-            flowLayoutPanel2.TabIndex = 3;
+            DateStartInputGroup.Controls.Add(DateStartLabel);
+            DateStartInputGroup.Controls.Add(StartDateTimePicker);
+            DateStartInputGroup.Location = new Point(26, 22);
+            DateStartInputGroup.Margin = new Padding(0, 0, 0, 30);
+            DateStartInputGroup.Name = "DateStartInputGroup";
+            DateStartInputGroup.Padding = new Padding(9, 8, 9, 8);
+            DateStartInputGroup.Size = new Size(284, 76);
+            DateStartInputGroup.TabIndex = 3;
             // 
-            // label1
+            // DateStartLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12F);
-            label1.Location = new Point(12, 8);
-            label1.Name = "label1";
-            label1.Size = new Size(107, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Tanggal Mulai";
+            DateStartLabel.AutoSize = true;
+            DateStartLabel.Font = new Font("Microsoft Sans Serif", 12F);
+            DateStartLabel.Location = new Point(12, 8);
+            DateStartLabel.Name = "DateStartLabel";
+            DateStartLabel.Size = new Size(107, 20);
+            DateStartLabel.TabIndex = 0;
+            DateStartLabel.Text = "Tanggal Mulai";
             // 
-            // MulaiDateTimePicker
+            // StartDateTimePicker
             // 
-            MulaiDateTimePicker.Location = new Point(12, 31);
-            MulaiDateTimePicker.Name = "MulaiDateTimePicker";
-            MulaiDateTimePicker.Size = new Size(249, 23);
-            MulaiDateTimePicker.TabIndex = 1;
+            StartDateTimePicker.Location = new Point(12, 31);
+            StartDateTimePicker.Name = "StartDateTimePicker";
+            StartDateTimePicker.Size = new Size(249, 23);
+            StartDateTimePicker.TabIndex = 1;
             // 
-            // flowLayoutPanel4
+            // DateEndInputGroup
             // 
-            flowLayoutPanel4.Controls.Add(label4);
-            flowLayoutPanel4.Controls.Add(SelesaiDateTimePicker);
-            flowLayoutPanel4.Location = new Point(26, 128);
-            flowLayoutPanel4.Margin = new Padding(0, 0, 0, 30);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Padding = new Padding(9, 8, 9, 8);
-            flowLayoutPanel4.Size = new Size(284, 76);
-            flowLayoutPanel4.TabIndex = 4;
+            DateEndInputGroup.Controls.Add(DateEndLabel);
+            DateEndInputGroup.Controls.Add(EndDateTimePicker);
+            DateEndInputGroup.Location = new Point(26, 128);
+            DateEndInputGroup.Margin = new Padding(0, 0, 0, 30);
+            DateEndInputGroup.Name = "DateEndInputGroup";
+            DateEndInputGroup.Padding = new Padding(9, 8, 9, 8);
+            DateEndInputGroup.Size = new Size(284, 76);
+            DateEndInputGroup.TabIndex = 4;
             // 
-            // label4
+            // DateEndLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(12, 8);
-            label4.Name = "label4";
-            label4.Size = new Size(122, 20);
-            label4.TabIndex = 0;
-            label4.Text = "Tanggal Selesai";
+            DateEndLabel.AutoSize = true;
+            DateEndLabel.Font = new Font("Microsoft Sans Serif", 12F);
+            DateEndLabel.Location = new Point(12, 8);
+            DateEndLabel.Name = "DateEndLabel";
+            DateEndLabel.Size = new Size(122, 20);
+            DateEndLabel.TabIndex = 0;
+            DateEndLabel.Text = "Tanggal Selesai";
             // 
-            // SelesaiDateTimePicker
+            // EndDateTimePicker
             // 
-            SelesaiDateTimePicker.Location = new Point(12, 31);
-            SelesaiDateTimePicker.Name = "SelesaiDateTimePicker";
-            SelesaiDateTimePicker.Size = new Size(249, 23);
-            SelesaiDateTimePicker.TabIndex = 1;
+            EndDateTimePicker.Location = new Point(12, 31);
+            EndDateTimePicker.Name = "EndDateTimePicker";
+            EndDateTimePicker.Size = new Size(249, 23);
+            EndDateTimePicker.TabIndex = 1;
             // 
-            // flowLayoutPanel5
+            // TypeInputGroup
             // 
-            flowLayoutPanel5.Controls.Add(label5);
-            flowLayoutPanel5.Controls.Add(JenisCb);
-            flowLayoutPanel5.Location = new Point(26, 234);
-            flowLayoutPanel5.Margin = new Padding(0, 0, 0, 30);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(9, 8, 9, 8);
-            flowLayoutPanel5.Size = new Size(284, 71);
-            flowLayoutPanel5.TabIndex = 5;
+            TypeInputGroup.Controls.Add(TypeLabel);
+            TypeInputGroup.Controls.Add(TypeComboBox);
+            TypeInputGroup.Location = new Point(26, 234);
+            TypeInputGroup.Margin = new Padding(0, 0, 0, 30);
+            TypeInputGroup.Name = "TypeInputGroup";
+            TypeInputGroup.Padding = new Padding(9, 8, 9, 8);
+            TypeInputGroup.Size = new Size(284, 71);
+            TypeInputGroup.TabIndex = 5;
             // 
-            // label5
+            // TypeLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 12F);
-            label5.Location = new Point(12, 8);
-            label5.Name = "label5";
-            label5.Size = new Size(46, 20);
-            label5.TabIndex = 0;
-            label5.Text = "Jenis";
+            TypeLabel.AutoSize = true;
+            TypeLabel.Font = new Font("Microsoft Sans Serif", 12F);
+            TypeLabel.Location = new Point(12, 8);
+            TypeLabel.Name = "TypeLabel";
+            TypeLabel.Size = new Size(46, 20);
+            TypeLabel.TabIndex = 0;
+            TypeLabel.Text = "Jenis";
             // 
-            // JenisCb
+            // TypeComboBox
             // 
-            JenisCb.FormattingEnabled = true;
-            JenisCb.Items.AddRange(new object[] { "Excel", "Pdf" });
-            JenisCb.Location = new Point(12, 31);
-            JenisCb.Name = "JenisCb";
-            JenisCb.Size = new Size(249, 23);
-            JenisCb.TabIndex = 1;
+            TypeComboBox.FormattingEnabled = true;
+            TypeComboBox.Items.AddRange(new object[] { "Excel", "Pdf" });
+            TypeComboBox.Location = new Point(12, 31);
+            TypeComboBox.Name = "TypeComboBox";
+            TypeComboBox.Size = new Size(249, 23);
+            TypeComboBox.TabIndex = 1;
             // 
             // ExportBtn
             // 
@@ -352,7 +352,7 @@
             DataList.Size = new Size(1281, 898);
             DataList.TabIndex = 2;
             // 
-            // LaporanPage
+            // ReportsPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -361,7 +361,7 @@
             Controls.Add(MenuContainer);
             MainMenuStrip = MenuContainer;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "LaporanPage";
+            Name = "ReportsPage";
             Text = "LaporanPage";
             WindowState = FormWindowState.Maximized;
             MenuContainer.ResumeLayout(false);
@@ -370,12 +370,12 @@
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel2.PerformLayout();
-            flowLayoutPanel4.ResumeLayout(false);
-            flowLayoutPanel4.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            flowLayoutPanel5.PerformLayout();
+            DateStartInputGroup.ResumeLayout(false);
+            DateStartInputGroup.PerformLayout();
+            DateEndInputGroup.ResumeLayout(false);
+            DateEndInputGroup.PerformLayout();
+            TypeInputGroup.ResumeLayout(false);
+            TypeInputGroup.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DataList).EndInit();
             ResumeLayout(false);
@@ -399,18 +399,18 @@
         private DataGridView DataList;
         private Button OperationalBtn;
         private FlowLayoutPanel formPanel;
-        private Label label2;
+        private Label FormLabel;
         private Label validationErrorMsg;
         private FlowLayoutPanel flowLayoutPanel3;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Label label1;
-        private DateTimePicker MulaiDateTimePicker;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private Label label4;
-        private DateTimePicker SelesaiDateTimePicker;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private Label label5;
-        private ComboBox JenisCb;
+        private FlowLayoutPanel DateStartInputGroup;
+        private Label DateStartLabel;
+        private DateTimePicker StartDateTimePicker;
+        private FlowLayoutPanel DateEndInputGroup;
+        private Label DateEndLabel;
+        private DateTimePicker EndDateTimePicker;
+        private FlowLayoutPanel TypeInputGroup;
+        private Label TypeLabel;
+        private ComboBox TypeComboBox;
         private Button ExportBtn;
         private ToolStripMenuItem tenantMenu;
     }
