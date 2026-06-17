@@ -78,7 +78,7 @@
             CancelButton.TabIndex = 16;
             CancelButton.Text = "Batalkan";
             CancelButton.UseVisualStyleBackColor = true;
-            CancelButton.Click += CancelBtn_Click;
+            CancelButton.Click += CancelButton_Click;
             // 
             // ProductionDateLabel
             // 
@@ -223,7 +223,7 @@
             AddButton.TabIndex = 17;
             AddButton.Text = "Tambah Data";
             AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += AddBtn_Click;
+            AddButton.Click += AddButton_Click;
             // 
             // EggsList
             // 
@@ -236,6 +236,7 @@
             EggsList.Size = new Size(1309, 787);
             EggsList.TabIndex = 3;
             EggsList.CellContentClick += EggList_CellContentClick;
+            EggsList.CellFormatting += EggsList_CellFormatting;
             // 
             // FormLabel
             // 
@@ -287,7 +288,7 @@
             SaveButton.TabIndex = 9;
             SaveButton.Text = "Simpan";
             SaveButton.UseVisualStyleBackColor = true;
-            SaveButton.Click += SaveBtn_Click;
+            SaveButton.Click += SaveButton_Click;
             // 
             // PageBodyContainer
             // 

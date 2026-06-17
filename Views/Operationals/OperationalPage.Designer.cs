@@ -43,7 +43,7 @@ namespace sipetok_form.Views.Operationals
             AddButton = new Button();
             OperationalList = new DataGridView();
             FormLabel = new Label();
-            validationErrorMsg = new Label();
+            ValidationErrorMessage = new Label();
             FormContainer = new FlowLayoutPanel();
             SaveButton = new Button();
             PageBodyContainer = new TableLayoutPanel();
@@ -78,7 +78,7 @@ namespace sipetok_form.Views.Operationals
             CancelButton.TabIndex = 16;
             CancelButton.Text = "Batalkan";
             CancelButton.UseVisualStyleBackColor = true;
-            CancelButton.Click += cancelBtn_Click;
+            CancelButton.Click += CancelButton_Click;
             // 
             // OperationalDateLabel
             // 
@@ -221,7 +221,7 @@ namespace sipetok_form.Views.Operationals
             AddButton.TabIndex = 17;
             AddButton.Text = "Tambah Data";
             AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += addBtn_Click;
+            AddButton.Click += AddButton_Click;
             // 
             // OperationalList
             // 
@@ -233,7 +233,7 @@ namespace sipetok_form.Views.Operationals
             OperationalList.RowHeadersWidth = 51;
             OperationalList.Size = new Size(1309, 787);
             OperationalList.TabIndex = 3;
-            OperationalList.CellContentClick += operationalList_CellContentClick;
+            OperationalList.CellContentClick += OperationalList_CellContentClick;
             // 
             // FormLabel
             // 
@@ -249,20 +249,20 @@ namespace sipetok_form.Views.Operationals
             // 
             // validationErrorMsg
             // 
-            validationErrorMsg.AutoSize = true;
-            validationErrorMsg.BackColor = SystemColors.Control;
-            validationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validationErrorMsg.ForeColor = Color.Red;
-            validationErrorMsg.Location = new Point(33, 80);
-            validationErrorMsg.Margin = new Padding(3, 0, 3, 40);
-            validationErrorMsg.Name = "validationErrorMsg";
-            validationErrorMsg.Size = new Size(0, 20);
-            validationErrorMsg.TabIndex = 15;
+            ValidationErrorMessage.AutoSize = true;
+            ValidationErrorMessage.BackColor = SystemColors.Control;
+            ValidationErrorMessage.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ValidationErrorMessage.ForeColor = Color.Red;
+            ValidationErrorMessage.Location = new Point(33, 80);
+            ValidationErrorMessage.Margin = new Padding(3, 0, 3, 40);
+            ValidationErrorMessage.Name = "validationErrorMsg";
+            ValidationErrorMessage.Size = new Size(0, 20);
+            ValidationErrorMessage.TabIndex = 15;
             // 
             // FormContainer
             // 
             FormContainer.Controls.Add(FormLabel);
-            FormContainer.Controls.Add(validationErrorMsg);
+            FormContainer.Controls.Add(ValidationErrorMessage);
             FormContainer.Controls.Add(ProductionDateInputGroup);
             FormContainer.Controls.Add(OperationalNameInputGroup);
             FormContainer.Controls.Add(OperationalCostInputGroup);
@@ -285,7 +285,7 @@ namespace sipetok_form.Views.Operationals
             SaveButton.TabIndex = 9;
             SaveButton.Text = "Simpan";
             SaveButton.UseVisualStyleBackColor = true;
-            SaveButton.Click += btnSave_Click;
+            SaveButton.Click += SaveButton_Click;
             // 
             // PageBodyContainer
             // 
@@ -308,56 +308,56 @@ namespace sipetok_form.Views.Operationals
             LogoutMenu.Name = "LogoutMenu";
             LogoutMenu.Size = new Size(79, 26);
             LogoutMenu.Text = "Logout";
-            LogoutMenu.Click += handleClickMenu;
+            LogoutMenu.Click += HandleClickMenu;
             // 
             // ReportMenu
             // 
             ReportMenu.Name = "ReportMenu";
             ReportMenu.Size = new Size(90, 26);
             ReportMenu.Text = "Laporan";
-            ReportMenu.Click += handleClickMenu;
+            ReportMenu.Click += HandleClickMenu;
             // 
             // OperationalMenu
             // 
             OperationalMenu.Name = "OperationalMenu";
             OperationalMenu.Size = new Size(121, 26);
             OperationalMenu.Text = "Operasional";
-            OperationalMenu.Click += handleClickMenu;
+            OperationalMenu.Click += HandleClickMenu;
             // 
             // TransactionMenu
             // 
             TransactionMenu.Name = "TransactionMenu";
             TransactionMenu.Size = new Size(103, 26);
             TransactionMenu.Text = "Transaksi";
-            TransactionMenu.Click += handleClickMenu;
+            TransactionMenu.Click += HandleClickMenu;
             // 
             // StockMenu
             // 
             StockMenu.Name = "StockMenu";
             StockMenu.Size = new Size(138, 26);
             StockMenu.Text = "Stok & Inventori";
-            StockMenu.Click += handleClickMenu;
+            StockMenu.Click += HandleClickMenu;
             // 
             // EggCategoryMenu
             // 
             EggCategoryMenu.Name = "EggCategoryMenu";
             EggCategoryMenu.Size = new Size(138, 26);
             EggCategoryMenu.Text = "Kategori Telur";
-            EggCategoryMenu.Click += handleClickMenu;
+            EggCategoryMenu.Click += HandleClickMenu;
             // 
             // UserMenu
             // 
             UserMenu.Name = "UserMenu";
             UserMenu.Size = new Size(106, 26);
             UserMenu.Text = "Pengguna";
-            UserMenu.Click += handleClickMenu;
+            UserMenu.Click += HandleClickMenu;
             // 
             // DashboardMenu
             // 
             DashboardMenu.Name = "DashboardMenu";
             DashboardMenu.Size = new Size(112, 26);
             DashboardMenu.Text = "Dashboard";
-            DashboardMenu.Click += handleClickMenu;
+            DashboardMenu.Click += HandleClickMenu;
             // 
             // MenuContainer
             // 
@@ -433,7 +433,7 @@ namespace sipetok_form.Views.Operationals
         private Button AddButton;
         private DataGridView OperationalList;
         private Label FormLabel;
-        private Label validationErrorMsg;
+        private Label ValidationErrorMessage;
         private FlowLayoutPanel FormContainer;
         private Button SaveButton;
         private TableLayoutPanel PageBodyContainer;

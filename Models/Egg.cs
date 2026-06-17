@@ -11,5 +11,6 @@ namespace sipetok_form.Models
         public int CategoryId { get; set; }
         public DateTime ProductionDate { get; set; }
         public double Stock { get; set; }
+        public EggCategory Category { get; set; }
     }
 }
