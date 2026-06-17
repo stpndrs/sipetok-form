@@ -37,7 +37,7 @@
             NameLabel = new Label();
             NamaTextField = new TextBox();
             FormLabel = new Label();
-            validationErrorMsg = new Label();
+            ValidationErrorMsg = new Label();
             NameInputGroup = new FlowLayoutPanel();
             ListContainer = new FlowLayoutPanel();
             PageLabel = new Label();
@@ -47,7 +47,7 @@
             FormContainer = new FlowLayoutPanel();
             ValidationInputGroup = new FlowLayoutPanel();
             ValidLabel = new Label();
-            chkIsValid = new CheckBox();
+            IsValidCheckBox = new CheckBox();
             UsernameInputGroup = new FlowLayoutPanel();
             UsernameLabel = new Label();
             UsernameTextField = new TextBox();
@@ -188,17 +188,17 @@
             FormLabel.TabIndex = 1;
             FormLabel.Text = "Kelola Data Pengguna";
             // 
-            // validationErrorMsg
+            // ValidationErrorMsg
             // 
-            validationErrorMsg.AutoSize = true;
-            validationErrorMsg.BackColor = SystemColors.Control;
-            validationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            validationErrorMsg.ForeColor = Color.Red;
-            validationErrorMsg.Location = new Point(29, 62);
-            validationErrorMsg.Margin = new Padding(3, 0, 3, 30);
-            validationErrorMsg.Name = "validationErrorMsg";
-            validationErrorMsg.Size = new Size(0, 17);
-            validationErrorMsg.TabIndex = 15;
+            ValidationErrorMsg.AutoSize = true;
+            ValidationErrorMsg.BackColor = SystemColors.Control;
+            ValidationErrorMsg.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ValidationErrorMsg.ForeColor = Color.Red;
+            ValidationErrorMsg.Location = new Point(29, 62);
+            ValidationErrorMsg.Margin = new Padding(3, 0, 3, 30);
+            ValidationErrorMsg.Name = "ValidationErrorMsg";
+            ValidationErrorMsg.Size = new Size(0, 17);
+            ValidationErrorMsg.TabIndex = 15;
             // 
             // NameInputGroup
             // 
@@ -288,7 +288,7 @@
             // FormContainer
             // 
             FormContainer.Controls.Add(FormLabel);
-            FormContainer.Controls.Add(validationErrorMsg);
+            FormContainer.Controls.Add(ValidationErrorMsg);
             FormContainer.Controls.Add(NameInputGroup);
             FormContainer.Controls.Add(AddresInputGroup);
             FormContainer.Controls.Add(PhoneNumberInputGroup);
@@ -312,7 +312,7 @@
             ValidationInputGroup.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ValidationInputGroup.BorderStyle = BorderStyle.FixedSingle;
             ValidationInputGroup.Controls.Add(ValidLabel);
-            ValidationInputGroup.Controls.Add(chkIsValid);
+            ValidationInputGroup.Controls.Add(IsValidCheckBox);
             ValidationInputGroup.Dock = DockStyle.Fill;
             ValidationInputGroup.FlowDirection = FlowDirection.TopDown;
             ValidationInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
@@ -333,15 +333,15 @@
             ValidLabel.TabIndex = 1;
             ValidLabel.Text = "Valid";
             // 
-            // chkIsValid
+            // IsValidCheckBox
             // 
-            chkIsValid.AutoSize = true;
-            chkIsValid.Location = new Point(12, 28);
-            chkIsValid.Name = "chkIsValid";
-            chkIsValid.Size = new Size(60, 17);
-            chkIsValid.TabIndex = 3;
-            chkIsValid.Text = "Is Valid";
-            chkIsValid.UseVisualStyleBackColor = true;
+            IsValidCheckBox.AutoSize = true;
+            IsValidCheckBox.Location = new Point(12, 28);
+            IsValidCheckBox.Name = "IsValidCheckBox";
+            IsValidCheckBox.Size = new Size(60, 17);
+            IsValidCheckBox.TabIndex = 3;
+            IsValidCheckBox.Text = "Is Valid";
+            IsValidCheckBox.UseVisualStyleBackColor = true;
             // 
             // UsernameInputGroup
             // 
@@ -617,7 +617,7 @@
         private Label NameLabel;
         private TextBox NamaTextField;
         private Label FormLabel;
-        private Label validationErrorMsg;
+        private Label ValidationErrorMsg;
         private FlowLayoutPanel NameInputGroup;
         private FlowLayoutPanel ListContainer;
         private Label PageLabel;
@@ -637,7 +637,7 @@
         private TableLayoutPanel container;
         private FlowLayoutPanel ValidationInputGroup;
         private Label ValidLabel;
-        private CheckBox chkIsValid;
+        private CheckBox IsValidCheckBox;
         private ToolStripMenuItem TenantMenu;
         private FlowLayoutPanel UsernameInputGroup;
         private Label UsernameLabel;

@@ -182,7 +182,7 @@ namespace sipetok_form.Views.Tenants
 
         public void AttemptFormFields(bool clear)
         {
-            validationErrorMsg.Text = "";
+            ValidationErrorMsg.Text = "";
 
             if (clear)
             {
@@ -193,14 +193,14 @@ namespace sipetok_form.Views.Tenants
                 UsernameTextField.Text = "";
                 PasswordTextField.Text = "";
                 EmailTextField.Text = "";
-                chkIsValid.Checked = false;
+                IsValidCheckBox.Checked = false;
             }
             else
             {
                 NamaTextField.Text = _selectedTenant?.Name;
                 AddressTextField.Text = _selectedTenant?.Address;
                 PhoneNumberTextField.Text = _selectedTenant?.PhoneNumber;
-                chkIsValid.Checked = _selectedTenant?.IsValid ?? false;
+                IsValidCheckBox.Checked = _selectedTenant?.IsValid ?? false;
             }
         }
 
@@ -265,7 +265,7 @@ namespace sipetok_form.Views.Tenants
                     _selectedTenant.Name = NamaTextField.Text;
                     _selectedTenant.Address = AddressTextField.Text;
                     _selectedTenant.PhoneNumber = PhoneNumberTextField.Text;
-                    _selectedTenant.IsValid = chkIsValid.Checked;
+                    _selectedTenant.IsValid = IsValidCheckBox.Checked;
 
                     response = await _apiService.Tenant.UpdateTenantAsync(_selectedTenant.Id, _selectedTenant);
                 }
@@ -294,7 +294,7 @@ namespace sipetok_form.Views.Tenants
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMsg);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

@@ -43,7 +43,7 @@ namespace sipetok_form.Views.Laporan
             columnStyles[1].Width = 30;
             DataList.Width = 1300;
 
-            TransaksiButton.PerformClick();
+            TransactionButton.PerformClick();
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace sipetok_form.Views.Laporan
             await LoadReportDataAsync(
                 fetchDataFunc: () => _reportService.GetTransaksiAsync(),
                 configureGridAction: SetupTransactionColumns,
-                loadingButton: TransaksiButton,
-                activeButton: TransaksiButton,
+                loadingButton: TransactionButton,
+                activeButton: TransactionButton,
                 inactiveButton: OperationalButton,
                 headerTitle: "Manage Transaction Report"
             );
@@ -81,7 +81,7 @@ namespace sipetok_form.Views.Laporan
                 configureGridAction: SetupOperationalColumns,
                 loadingButton: OperationalButton,
                 activeButton: OperationalButton,
-                inactiveButton: TransaksiButton,
+                inactiveButton: TransactionButton,
                 headerTitle: "Manage Operational Report"
             );
         }
@@ -171,7 +171,7 @@ namespace sipetok_form.Views.Laporan
         {
             try
             {
-                if (TypeComboBox.SelectedItem == null)
+                if (FormatTypeComboBox.SelectedItem == null)
                 {
                     MessageBox.Show("Please select an export file format (Excel or PDF)!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -186,7 +186,7 @@ namespace sipetok_form.Views.Laporan
                     return;
                 }
 
-                string selectedFormat = TypeComboBox.SelectedItem.ToString();
+                string selectedFormat = FormatTypeComboBox.SelectedItem.ToString();
 
                 if (DataList.DataSource is List<Transaction> transactionList)
                 {

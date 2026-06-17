@@ -52,10 +52,10 @@
             EndDateTimePicker = new DateTimePicker();
             TypeInputGroup = new FlowLayoutPanel();
             TypeLabel = new Label();
-            TypeComboBox = new ComboBox();
+            FormatTypeComboBox = new ComboBox();
             ExportButton = new Button();
             ListContainer = new FlowLayoutPanel();
-            TransaksiButton = new Button();
+            TransactionButton = new Button();
             OperationalButton = new Button();
             DataList = new DataGridView();
             MenuContainer.SuspendLayout();
@@ -275,7 +275,7 @@
             // TypeInputGroup
             // 
             TypeInputGroup.Controls.Add(TypeLabel);
-            TypeInputGroup.Controls.Add(TypeComboBox);
+            TypeInputGroup.Controls.Add(FormatTypeComboBox);
             TypeInputGroup.Location = new Point(26, 234);
             TypeInputGroup.Margin = new Padding(0, 0, 0, 30);
             TypeInputGroup.Name = "TypeInputGroup";
@@ -293,14 +293,14 @@
             TypeLabel.TabIndex = 0;
             TypeLabel.Text = "Jenis";
             // 
-            // TypeComboBox
+            // FormatTypeComboBox
             // 
-            TypeComboBox.FormattingEnabled = true;
-            TypeComboBox.Items.AddRange(new object[] { "Excel", "Pdf" });
-            TypeComboBox.Location = new Point(12, 31);
-            TypeComboBox.Name = "TypeComboBox";
-            TypeComboBox.Size = new Size(249, 23);
-            TypeComboBox.TabIndex = 1;
+            FormatTypeComboBox.FormattingEnabled = true;
+            FormatTypeComboBox.Items.AddRange(new object[] { "Excel", "Pdf" });
+            FormatTypeComboBox.Location = new Point(12, 31);
+            FormatTypeComboBox.Name = "FormatTypeComboBox";
+            FormatTypeComboBox.Size = new Size(249, 23);
+            FormatTypeComboBox.TabIndex = 1;
             // 
             // ExportButton
             // 
@@ -314,7 +314,7 @@
             // 
             // ListContainer
             // 
-            ListContainer.Controls.Add(TransaksiButton);
+            ListContainer.Controls.Add(TransactionButton);
             ListContainer.Controls.Add(OperationalButton);
             ListContainer.Controls.Add(DataList);
             ListContainer.Location = new Point(3, 3);
@@ -322,15 +322,15 @@
             ListContainer.Size = new Size(1326, 764);
             ListContainer.TabIndex = 0;
             // 
-            // TransaksiButton
+            // TransactionButton
             // 
-            TransaksiButton.Location = new Point(3, 3);
-            TransaksiButton.Name = "TransaksiButton";
-            TransaksiButton.Size = new Size(110, 23);
-            TransaksiButton.TabIndex = 0;
-            TransaksiButton.Text = "Transaksi";
-            TransaksiButton.UseVisualStyleBackColor = true;
-            TransaksiButton.Click += TransaksiBtn_Click;
+            TransactionButton.Location = new Point(3, 3);
+            TransactionButton.Name = "TransactionButton";
+            TransactionButton.Size = new Size(110, 23);
+            TransactionButton.TabIndex = 0;
+            TransactionButton.Text = "Transaksi";
+            TransactionButton.UseVisualStyleBackColor = true;
+            TransactionButton.Click += TransaksiBtn_Click;
             // 
             // OperationalButton
             // 
@@ -395,7 +395,7 @@
         private ContextMenuStrip contextMenuStrip1;
         private TableLayoutPanel PageBodyContainer;
         private FlowLayoutPanel ListContainer;
-        private Button TransaksiButton;
+        private Button TransactionButton;
         private DataGridView DataList;
         private Button OperationalButton;
         private FlowLayoutPanel FormContainer;
@@ -410,7 +410,7 @@
         private DateTimePicker EndDateTimePicker;
         private FlowLayoutPanel TypeInputGroup;
         private Label TypeLabel;
-        private ComboBox TypeComboBox;
+        private ComboBox FormatTypeComboBox;
         private Button ExportButton;
         private ToolStripMenuItem TenantMenu;
     }
