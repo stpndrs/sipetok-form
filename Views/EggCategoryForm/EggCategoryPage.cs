@@ -107,9 +107,9 @@ namespace sipetok_form.Views.EggCategoryForm
 
         private void ToggleForm(bool show)
         {
-            formPanel.Visible = show;
+            FormContainer.Visible = show;
 
-            var columnStyles = body.ColumnStyles;
+            var columnStyles = Body.ColumnStyles;
 
             if (show)
             {
@@ -143,22 +143,22 @@ namespace sipetok_form.Views.EggCategoryForm
 
         public void AttemptFormFields(bool clear)
         {
-            validationErrorMsg.Text = "";
+            ValidationErrorMsg.Text = "";
 
             if (clear)
             {
                 _selectedEggCategory = null;
-                txtName.Text = "";
-                txtDescription.Text = "";
-                txtPrice.Text = "";
+                NameTextField.Text = "";
+                DescriptionTextFiled.Text = "";
+                PriceTextField.Text = "";
                 //txtTenantId.Text = "";
             }
             else
             {
                 Debug.WriteLine(_selectedEggCategory?.Id);
-                txtName.Text = _selectedEggCategory?.Name;
-                txtDescription.Text = _selectedEggCategory?.Description;
-                txtPrice.Text = _selectedEggCategory?.Price.ToString();
+                NameTextField.Text = _selectedEggCategory?.Name;
+                DescriptionTextFiled.Text = _selectedEggCategory?.Description;
+                PriceTextField.Text = _selectedEggCategory?.Price.ToString();
                 //txtTenantId.Text = _selectedEggCategory?.ToString();
             }
         }
@@ -217,7 +217,7 @@ namespace sipetok_form.Views.EggCategoryForm
             }
         }
 
-       
+
 
         private void penggunaMenu_Click(object sender, EventArgs e)
         {
@@ -255,12 +255,12 @@ namespace sipetok_form.Views.EggCategoryForm
         // FUNGSI-FUNGSI BARU SRP baru untuk memisahkan tanggung jawab validasi, eksekusi request, dan output UI agar lebih clean dan maintainable
         private bool ValidateInput(out decimal price)
         {
-            if (!decimal.TryParse(txtPrice.Text, out price))
+            if (!decimal.TryParse(PriceTextField.Text, out price))
             {
                 MessageBox.Show("Harga harus berupa angka yang valid!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            if (string.IsNullOrWhiteSpace(NameTextField.Text))
             {
                 MessageBox.Show("Nama kategori tidak boleh kosong!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -272,13 +272,13 @@ namespace sipetok_form.Views.EggCategoryForm
         {
             if (_saveDataType == "update" && _selectedEggCategory != null)
             {
-                _selectedEggCategory.Name = txtName.Text;
-                _selectedEggCategory.Description = txtDescription.Text;
+                _selectedEggCategory.Name = NameTextField.Text;
+                _selectedEggCategory.Description = DescriptionTextFiled.Text;
                 _selectedEggCategory.Price = parsedPrice;
                 return await _apiService.EggCategory.UpdateEggCategoryAsync(_selectedEggCategory.Id, _selectedEggCategory);
             }
 
-            EggCategory newCategory = new EggCategory { Name = txtName.Text, Description = txtDescription.Text, Price = parsedPrice };
+            EggCategory newCategory = new EggCategory { Name = NameTextField.Text, Description = DescriptionTextFiled.Text, Price = parsedPrice };
             return await _apiService.EggCategory.CreateEggCategoryAsync(newCategory);
         }
 
@@ -292,9 +292,19 @@ namespace sipetok_form.Views.EggCategoryForm
             }
             else
             {
-                ValidationHelper.ShowValidation(response, validationErrorMsg);
+                ValidationHelper.ShowValidation(response, ValidationErrorMsg);
                 MessageBox.Show(response.Message, "Gagal Menyimpan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void EggCategoryPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
