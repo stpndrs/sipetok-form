@@ -210,12 +210,7 @@ namespace sipetok_form.Views.EggCategoryForm
 
 
 
-        private void penggunaMenu_Click(object sender, EventArgs e)
-        {
-            MenuHelper.HandleClick(sender, e, this);
-        }
-
-        private void stokMenu_Click(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }

@@ -306,50 +306,56 @@
             LogoutMenu.Name = "LogoutMenu";
             LogoutMenu.Size = new Size(79, 26);
             LogoutMenu.Text = "Logout";
+            LogoutMenu.Click += HandleClickMenu;
             // 
             // ReportMenu
             // 
             ReportMenu.Name = "ReportMenu";
             ReportMenu.Size = new Size(90, 26);
             ReportMenu.Text = "Laporan";
+            ReportMenu.Click += HandleClickMenu;
             // 
             // OperationalMenu
             // 
             OperationalMenu.Name = "OperationalMenu";
             OperationalMenu.Size = new Size(121, 26);
             OperationalMenu.Text = "Operasional";
+            OperationalMenu.Click += HandleClickMenu;
             // 
             // TransactionMenu
             // 
             TransactionMenu.Name = "TransactionMenu";
             TransactionMenu.Size = new Size(103, 26);
             TransactionMenu.Text = "Transaksi";
+            TransactionMenu.Click += HandleClickMenu;
             // 
             // StockMenu
             // 
             StockMenu.Name = "StockMenu";
             StockMenu.Size = new Size(138, 26);
             StockMenu.Text = "Stok & Inventori";
-            StockMenu.Click += stokMenu_Click;
+            StockMenu.Click += HandleClickMenu;
             // 
             // EggCategoryMenu
             // 
             EggCategoryMenu.Name = "EggCategoryMenu";
             EggCategoryMenu.Size = new Size(138, 26);
             EggCategoryMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Click += HandleClickMenu;
             // 
             // UserMenu
             // 
             UserMenu.Name = "UserMenu";
             UserMenu.Size = new Size(106, 26);
             UserMenu.Text = "Pengguna";
-            UserMenu.Click += penggunaMenu_Click;
+            UserMenu.Click += HandleClickMenu;
             // 
             // DashboardMenu
             // 
             DashboardMenu.Name = "DashboardMenu";
             DashboardMenu.Size = new Size(112, 26);
             DashboardMenu.Text = "Dashboard";
+            DashboardMenu.Click += HandleClickMenu;
             // 
             // TopMenu
             // 
