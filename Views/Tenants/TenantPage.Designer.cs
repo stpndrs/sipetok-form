@@ -184,9 +184,9 @@
             FormLabel.Location = new Point(29, 22);
             FormLabel.Margin = new Padding(3, 0, 3, 11);
             FormLabel.Name = "FormLabel";
-            FormLabel.Size = new Size(253, 29);
+            FormLabel.Size = new Size(218, 29);
             FormLabel.TabIndex = 1;
-            FormLabel.Text = "Kelola Data Pengguna";
+            FormLabel.Text = "Kelola Data Tenant";
             // 
             // ValidationErrorMsg
             // 
@@ -329,18 +329,18 @@
             ValidLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
             ValidLabel.Location = new Point(12, 8);
             ValidLabel.Name = "ValidLabel";
-            ValidLabel.Size = new Size(39, 17);
+            ValidLabel.Size = new Size(48, 17);
             ValidLabel.TabIndex = 1;
-            ValidLabel.Text = "Valid";
+            ValidLabel.Text = "Status";
             // 
             // IsValidCheckBox
             // 
             IsValidCheckBox.AutoSize = true;
             IsValidCheckBox.Location = new Point(12, 28);
             IsValidCheckBox.Name = "IsValidCheckBox";
-            IsValidCheckBox.Size = new Size(60, 17);
+            IsValidCheckBox.Size = new Size(68, 17);
             IsValidCheckBox.TabIndex = 3;
-            IsValidCheckBox.Text = "Is Valid";
+            IsValidCheckBox.Text = "Verifikasi";
             IsValidCheckBox.UseVisualStyleBackColor = true;
             // 
             // UsernameInputGroup

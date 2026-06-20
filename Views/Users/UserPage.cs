@@ -247,10 +247,10 @@ namespace sipetok_form.Views.Users
                 ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
-                    if (PasswordTextField.Text != "")
-                    {
-                        _selectedUser.Password = PasswordTextField.Text;
-                    }
+                    //if (PasswordTextField.Text == "")
+                    //{
+                    //}
+                    _selectedUser.Password = PasswordTextField.Text;
                     _selectedUser.Username = UsernameTextField.Text;
                     _selectedUser.Email = EmailTextField.Text;
                     _selectedUser.Role = new Role { Key = (int)RoleComboBox?.SelectedValue, Label = RoleComboBox.Text };
