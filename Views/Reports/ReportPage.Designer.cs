@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             MenuContainer = new MenuStrip();
             DashboardMenu = new ToolStripMenuItem();
-            PenggunaMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
             TenantMenu = new ToolStripMenuItem();
             EggCategoryMenu = new ToolStripMenuItem();
             StockMenu = new ToolStripMenuItem();
@@ -74,7 +74,7 @@
             // 
             MenuContainer.BackColor = SystemColors.ControlLight;
             MenuContainer.ImageScalingSize = new Size(20, 20);
-            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, PenggunaMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             MenuContainer.Location = new Point(0, 0);
             MenuContainer.Name = "MenuContainer";
             MenuContainer.Padding = new Padding(5, 2, 0, 2);
@@ -90,13 +90,13 @@
             DashboardMenu.Text = "Dahboard";
             DashboardMenu.Click += HandleMenuClick;
             // 
-            // PenggunaMenu
+            // UserMenu
             // 
-            PenggunaMenu.Font = new Font("Roboto", 10.8F);
-            PenggunaMenu.Name = "PenggunaMenu";
-            PenggunaMenu.Size = new Size(85, 22);
-            PenggunaMenu.Text = "Pengguna";
-            PenggunaMenu.Click += HandleMenuClick;
+            UserMenu.Font = new Font("Roboto", 10.8F);
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(85, 22);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += HandleMenuClick;
             // 
             // TenantMenu
             // 
@@ -395,7 +395,7 @@
 
         private MenuStrip MenuContainer;
         private ToolStripMenuItem DashboardMenu;
-        private ToolStripMenuItem PenggunaMenu;
+        private ToolStripMenuItem UserMenu;
         private ToolStripMenuItem EggCategoryMenu;
         private ToolStripMenuItem TransactionMenu;
         private ToolStripMenuItem OperationalMenu;

@@ -30,7 +30,42 @@ namespace sipetok_form.Views.Users
         private async void FormMain_Load(object sender, EventArgs e)
         {
             ToggleForm(false);
+            SetupRoleBasedUI();
             await RefreshGrid();
+        }
+
+        private void SetupRoleBasedUI()
+        {
+            if (UserSession.Role == 1)
+            {
+                UserMenu.Visible = true;
+                TenantMenu.Visible = true;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
+            else if (UserSession.Role == 2)
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = true;
+                OperationalMenu.Visible = true;
+                ReportMenu.Visible = true;
+                StockMenu.Visible = true;
+                EggCategoryMenu.Visible = true;
+            }
+            else
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
         }
 
         private async Task RefreshGrid()

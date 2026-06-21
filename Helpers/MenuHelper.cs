@@ -65,7 +65,14 @@ namespace sipetok_form.Helpers
                     DialogResult result = MessageBox.Show("Apakah Anda yakin ingin logout?", "Konfirmasi", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        Application.Exit();
+                        LoginView loginView = new LoginView();
+                        loginView.Show();
+
+                        Properties.Settings.Default.AuthToken = null;
+                        Properties.Settings.Default.Save();
+                        UserSession.Logout();
+
+                        thisForm.Close();
                     }
                     break;
 
