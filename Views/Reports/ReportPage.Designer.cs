@@ -31,12 +31,13 @@
             components = new System.ComponentModel.Container();
             MenuContainer = new MenuStrip();
             DashboardMenu = new ToolStripMenuItem();
-            PenggunaMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
             TenantMenu = new ToolStripMenuItem();
-            KategoriMenu = new ToolStripMenuItem();
-            TransaksiMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            StockMenu = new ToolStripMenuItem();
+            TransactionMenu = new ToolStripMenuItem();
             OperationalMenu = new ToolStripMenuItem();
-            LaporanMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
             LogoutMenu = new ToolStripMenuItem();
             contextMenuStrip1 = new ContextMenuStrip(components);
             PageBodyContainer = new TableLayoutPanel();
@@ -73,7 +74,7 @@
             // 
             MenuContainer.BackColor = SystemColors.ControlLight;
             MenuContainer.ImageScalingSize = new Size(20, 20);
-            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, PenggunaMenu, TenantMenu, KategoriMenu, TransaksiMenu, OperationalMenu, LaporanMenu, LogoutMenu });
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             MenuContainer.Location = new Point(0, 0);
             MenuContainer.Name = "MenuContainer";
             MenuContainer.Padding = new Padding(5, 2, 0, 2);
@@ -89,13 +90,13 @@
             DashboardMenu.Text = "Dahboard";
             DashboardMenu.Click += HandleMenuClick;
             // 
-            // PenggunaMenu
+            // UserMenu
             // 
-            PenggunaMenu.Font = new Font("Roboto", 10.8F);
-            PenggunaMenu.Name = "PenggunaMenu";
-            PenggunaMenu.Size = new Size(85, 22);
-            PenggunaMenu.Text = "Pengguna";
-            PenggunaMenu.Click += HandleMenuClick;
+            UserMenu.Font = new Font("Roboto", 10.8F);
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(85, 22);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += HandleMenuClick;
             // 
             // TenantMenu
             // 
@@ -105,21 +106,29 @@
             TenantMenu.Text = "Tenant";
             TenantMenu.Click += HandleMenuClick;
             // 
-            // KategoriMenu
+            // EggCategoryMenu
             // 
-            KategoriMenu.Font = new Font("Roboto", 10.8F);
-            KategoriMenu.Name = "KategoriMenu";
-            KategoriMenu.Size = new Size(113, 22);
-            KategoriMenu.Text = "Kategori Telur";
-            KategoriMenu.Click += HandleMenuClick;
+            EggCategoryMenu.Font = new Font("Roboto", 10.8F);
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(113, 22);
+            EggCategoryMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Click += HandleMenuClick;
             // 
-            // TransaksiMenu
+            // StockMenu
             // 
-            TransaksiMenu.Font = new Font("Roboto", 10.8F);
-            TransaksiMenu.Name = "TransaksiMenu";
-            TransaksiMenu.Size = new Size(85, 22);
-            TransaksiMenu.Text = "Transaksi";
-            TransaksiMenu.Click += HandleMenuClick;
+            StockMenu.Font = new Font("Roboto", 10.8F);
+            StockMenu.Name = "StockMenu";
+            StockMenu.Size = new Size(117, 22);
+            StockMenu.Text = "Stok & Inventori";
+            StockMenu.Click += HandleMenuClick;
+            // 
+            // TransactionMenu
+            // 
+            TransactionMenu.Font = new Font("Roboto", 10.8F);
+            TransactionMenu.Name = "TransactionMenu";
+            TransactionMenu.Size = new Size(85, 22);
+            TransactionMenu.Text = "Transaksi";
+            TransactionMenu.Click += HandleMenuClick;
             // 
             // OperationalMenu
             // 
@@ -129,13 +138,13 @@
             OperationalMenu.Text = "Operasional";
             OperationalMenu.Click += HandleMenuClick;
             // 
-            // LaporanMenu
+            // ReportMenu
             // 
-            LaporanMenu.Font = new Font("Roboto", 10.8F);
-            LaporanMenu.Name = "LaporanMenu";
-            LaporanMenu.Size = new Size(74, 22);
-            LaporanMenu.Text = "Laporan";
-            LaporanMenu.Click += HandleMenuClick;
+            ReportMenu.Font = new Font("Roboto", 10.8F);
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(74, 22);
+            ReportMenu.Text = "Laporan";
+            ReportMenu.Click += HandleMenuClick;
             // 
             // LogoutMenu
             // 
@@ -352,7 +361,7 @@
             DataList.Size = new Size(1281, 898);
             DataList.TabIndex = 2;
             // 
-            // ReportsPage
+            // ReportPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -361,7 +370,7 @@
             Controls.Add(MenuContainer);
             MainMenuStrip = MenuContainer;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "ReportsPage";
+            Name = "ReportPage";
             Text = "LaporanPage";
             WindowState = FormWindowState.Maximized;
             MenuContainer.ResumeLayout(false);
@@ -386,11 +395,11 @@
 
         private MenuStrip MenuContainer;
         private ToolStripMenuItem DashboardMenu;
-        private ToolStripMenuItem PenggunaMenu;
-        private ToolStripMenuItem KategoriMenu;
-        private ToolStripMenuItem TransaksiMenu;
+        private ToolStripMenuItem UserMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem TransactionMenu;
         private ToolStripMenuItem OperationalMenu;
-        private ToolStripMenuItem LaporanMenu;
+        private ToolStripMenuItem ReportMenu;
         private ToolStripMenuItem LogoutMenu;
         private ContextMenuStrip contextMenuStrip1;
         private TableLayoutPanel PageBodyContainer;
@@ -413,5 +422,6 @@
         private ComboBox FormatTypeComboBox;
         private Button ExportButton;
         private ToolStripMenuItem TenantMenu;
+        private ToolStripMenuItem StockMenu;
     }
 }

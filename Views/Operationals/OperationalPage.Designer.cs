@@ -57,6 +57,7 @@ namespace sipetok_form.Views.Operationals
             DashboardMenu = new ToolStripMenuItem();
             MenuContainer = new MenuStrip();
             PageContainer = new TableLayoutPanel();
+            TenantMenu = new ToolStripMenuItem();
             ProductionDateInputGroup.SuspendLayout();
             OperationalNameInputGroup.SuspendLayout();
             OperationalCostInputGroup.SuspendLayout();
@@ -72,9 +73,10 @@ namespace sipetok_form.Views.Operationals
             // 
             CancelButton.AutoSize = true;
             CancelButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CancelButton.Location = new Point(33, 533);
+            CancelButton.Location = new Point(29, 415);
+            CancelButton.Margin = new Padding(3, 2, 3, 2);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(434, 48);
+            CancelButton.Size = new Size(380, 36);
             CancelButton.TabIndex = 16;
             CancelButton.Text = "Batalkan";
             CancelButton.UseVisualStyleBackColor = true;
@@ -84,18 +86,19 @@ namespace sipetok_form.Views.Operationals
             // 
             OperationalDateLabel.AutoSize = true;
             OperationalDateLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
-            OperationalDateLabel.Location = new Point(13, 11);
+            OperationalDateLabel.Location = new Point(12, 8);
             OperationalDateLabel.Name = "OperationalDateLabel";
-            OperationalDateLabel.Size = new Size(163, 20);
+            OperationalDateLabel.Size = new Size(141, 17);
             OperationalDateLabel.TabIndex = 1;
             OperationalDateLabel.Text = "Tanggal Operasional";
             // 
             // OperationalDateTimePicker
             // 
             OperationalDateTimePicker.Font = new Font("Microsoft Sans Serif", 7.8F);
-            OperationalDateTimePicker.Location = new Point(13, 34);
+            OperationalDateTimePicker.Location = new Point(12, 27);
+            OperationalDateTimePicker.Margin = new Padding(3, 2, 3, 2);
             OperationalDateTimePicker.Name = "OperationalDateTimePicker";
-            OperationalDateTimePicker.Size = new Size(406, 22);
+            OperationalDateTimePicker.Size = new Size(356, 19);
             OperationalDateTimePicker.TabIndex = 2;
             // 
             // ProductionDateInputGroup
@@ -108,29 +111,30 @@ namespace sipetok_form.Views.Operationals
             ProductionDateInputGroup.Dock = DockStyle.Fill;
             ProductionDateInputGroup.FlowDirection = FlowDirection.TopDown;
             ProductionDateInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
-            ProductionDateInputGroup.Location = new Point(30, 140);
-            ProductionDateInputGroup.Margin = new Padding(0, 0, 0, 40);
+            ProductionDateInputGroup.Location = new Point(26, 109);
+            ProductionDateInputGroup.Margin = new Padding(0, 0, 0, 30);
             ProductionDateInputGroup.Name = "ProductionDateInputGroup";
-            ProductionDateInputGroup.Padding = new Padding(10, 11, 10, 11);
-            ProductionDateInputGroup.Size = new Size(440, 72);
+            ProductionDateInputGroup.Padding = new Padding(9, 8, 9, 8);
+            ProductionDateInputGroup.Size = new Size(386, 58);
             ProductionDateInputGroup.TabIndex = 11;
             // 
             // OperationalNameLabel
             // 
             OperationalNameLabel.AutoSize = true;
             OperationalNameLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
-            OperationalNameLabel.Location = new Point(13, 11);
+            OperationalNameLabel.Location = new Point(12, 8);
             OperationalNameLabel.Name = "OperationalNameLabel";
-            OperationalNameLabel.Size = new Size(148, 20);
+            OperationalNameLabel.Size = new Size(126, 17);
             OperationalNameLabel.TabIndex = 4;
             OperationalNameLabel.Text = "Nama Operasional";
             // 
             // OperationalNameTextField
             // 
             OperationalNameTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
-            OperationalNameTextField.Location = new Point(13, 34);
+            OperationalNameTextField.Location = new Point(12, 27);
+            OperationalNameTextField.Margin = new Padding(3, 2, 3, 2);
             OperationalNameTextField.Name = "OperationalNameTextField";
-            OperationalNameTextField.Size = new Size(406, 22);
+            OperationalNameTextField.Size = new Size(356, 19);
             OperationalNameTextField.TabIndex = 3;
             // 
             // OperationalNameInputGroup
@@ -143,29 +147,30 @@ namespace sipetok_form.Views.Operationals
             OperationalNameInputGroup.Dock = DockStyle.Fill;
             OperationalNameInputGroup.FlowDirection = FlowDirection.TopDown;
             OperationalNameInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
-            OperationalNameInputGroup.Location = new Point(30, 252);
-            OperationalNameInputGroup.Margin = new Padding(0, 0, 0, 40);
+            OperationalNameInputGroup.Location = new Point(26, 197);
+            OperationalNameInputGroup.Margin = new Padding(0, 0, 0, 30);
             OperationalNameInputGroup.Name = "OperationalNameInputGroup";
-            OperationalNameInputGroup.Padding = new Padding(10, 11, 10, 11);
-            OperationalNameInputGroup.Size = new Size(440, 72);
+            OperationalNameInputGroup.Padding = new Padding(9, 8, 9, 8);
+            OperationalNameInputGroup.Size = new Size(386, 58);
             OperationalNameInputGroup.TabIndex = 10;
             // 
             // OperationalCostLabel
             // 
             OperationalCostLabel.AutoSize = true;
             OperationalCostLabel.Font = new Font("Microsoft Sans Serif", 10.2F);
-            OperationalCostLabel.Location = new Point(13, 11);
+            OperationalCostLabel.Location = new Point(12, 8);
             OperationalCostLabel.Name = "OperationalCostLabel";
-            OperationalCostLabel.Size = new Size(146, 20);
+            OperationalCostLabel.Size = new Size(124, 17);
             OperationalCostLabel.TabIndex = 1;
             OperationalCostLabel.Text = "Biaya Operasional";
             // 
             // OperationalCostTextField
             // 
             OperationalCostTextField.Font = new Font("Microsoft Sans Serif", 7.8F);
-            OperationalCostTextField.Location = new Point(13, 34);
+            OperationalCostTextField.Location = new Point(12, 27);
+            OperationalCostTextField.Margin = new Padding(3, 2, 3, 2);
             OperationalCostTextField.Name = "OperationalCostTextField";
-            OperationalCostTextField.Size = new Size(406, 22);
+            OperationalCostTextField.Size = new Size(356, 19);
             OperationalCostTextField.TabIndex = 2;
             // 
             // OperationalCostInputGroup
@@ -178,11 +183,11 @@ namespace sipetok_form.Views.Operationals
             OperationalCostInputGroup.Dock = DockStyle.Fill;
             OperationalCostInputGroup.FlowDirection = FlowDirection.TopDown;
             OperationalCostInputGroup.Font = new Font("Microsoft Sans Serif", 7.8F);
-            OperationalCostInputGroup.Location = new Point(30, 364);
-            OperationalCostInputGroup.Margin = new Padding(0, 0, 0, 40);
+            OperationalCostInputGroup.Location = new Point(26, 285);
+            OperationalCostInputGroup.Margin = new Padding(0, 0, 0, 30);
             OperationalCostInputGroup.Name = "OperationalCostInputGroup";
-            OperationalCostInputGroup.Padding = new Padding(10, 11, 10, 11);
-            OperationalCostInputGroup.Size = new Size(440, 72);
+            OperationalCostInputGroup.Padding = new Padding(9, 8, 9, 8);
+            OperationalCostInputGroup.Size = new Size(386, 58);
             OperationalCostInputGroup.TabIndex = 12;
             // 
             // ListContainer
@@ -193,9 +198,10 @@ namespace sipetok_form.Views.Operationals
             ListContainer.Controls.Add(AddButton);
             ListContainer.Controls.Add(OperationalList);
             ListContainer.FlowDirection = FlowDirection.TopDown;
-            ListContainer.Location = new Point(3, 3);
+            ListContainer.Location = new Point(3, 2);
+            ListContainer.Margin = new Padding(3, 2, 3, 2);
             ListContainer.Name = "ListContainer";
-            ListContainer.Size = new Size(1362, 924);
+            ListContainer.Size = new Size(1192, 694);
             ListContainer.TabIndex = 6;
             // 
             // PageLabel
@@ -204,9 +210,9 @@ namespace sipetok_form.Views.Operationals
             PageLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PageLabel.ForeColor = SystemColors.ControlText;
             PageLabel.Location = new Point(3, 0);
-            PageLabel.Margin = new Padding(3, 0, 3, 15);
+            PageLabel.Margin = new Padding(3, 0, 3, 11);
             PageLabel.Name = "PageLabel";
-            PageLabel.Size = new Size(175, 36);
+            PageLabel.Size = new Size(145, 29);
             PageLabel.TabIndex = 2;
             PageLabel.Text = "Operasional";
             // 
@@ -214,10 +220,10 @@ namespace sipetok_form.Views.Operationals
             // 
             AddButton.AutoSize = true;
             AddButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddButton.Location = new Point(3, 54);
-            AddButton.Margin = new Padding(3, 3, 3, 29);
+            AddButton.Location = new Point(3, 42);
+            AddButton.Margin = new Padding(3, 2, 3, 22);
             AddButton.Name = "AddButton";
-            AddButton.Size = new Size(181, 48);
+            AddButton.Size = new Size(158, 36);
             AddButton.TabIndex = 17;
             AddButton.Text = "Tambah Data";
             AddButton.UseVisualStyleBackColor = true;
@@ -226,12 +232,12 @@ namespace sipetok_form.Views.Operationals
             // OperationalList
             // 
             OperationalList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            OperationalList.Location = new Point(3, 134);
-            OperationalList.Margin = new Padding(3, 3, 50, 3);
-            OperationalList.MaximumSize = new Size(1793, 787);
+            OperationalList.Location = new Point(3, 102);
+            OperationalList.Margin = new Padding(3, 2, 44, 2);
+            OperationalList.MaximumSize = new Size(1569, 590);
             OperationalList.Name = "OperationalList";
             OperationalList.RowHeadersWidth = 51;
-            OperationalList.Size = new Size(1309, 787);
+            OperationalList.Size = new Size(1145, 590);
             OperationalList.TabIndex = 3;
             OperationalList.CellContentClick += OperationalList_CellContentClick;
             // 
@@ -240,23 +246,23 @@ namespace sipetok_form.Views.Operationals
             FormLabel.AutoSize = true;
             FormLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormLabel.ForeColor = SystemColors.ControlText;
-            FormLabel.Location = new Point(33, 29);
-            FormLabel.Margin = new Padding(3, 0, 3, 15);
+            FormLabel.Location = new Point(29, 22);
+            FormLabel.Margin = new Padding(3, 0, 3, 11);
             FormLabel.Name = "FormLabel";
-            FormLabel.Size = new Size(266, 36);
+            FormLabel.Size = new Size(220, 29);
             FormLabel.TabIndex = 1;
             FormLabel.Text = "Kelola Operasional";
             // 
-            // validationErrorMsg
+            // ValidationErrorMessage
             // 
             ValidationErrorMessage.AutoSize = true;
             ValidationErrorMessage.BackColor = SystemColors.Control;
             ValidationErrorMessage.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ValidationErrorMessage.ForeColor = Color.Red;
-            ValidationErrorMessage.Location = new Point(33, 80);
-            ValidationErrorMessage.Margin = new Padding(3, 0, 3, 40);
-            ValidationErrorMessage.Name = "validationErrorMsg";
-            ValidationErrorMessage.Size = new Size(0, 20);
+            ValidationErrorMessage.Location = new Point(29, 62);
+            ValidationErrorMessage.Margin = new Padding(3, 0, 3, 30);
+            ValidationErrorMessage.Name = "ValidationErrorMessage";
+            ValidationErrorMessage.Size = new Size(0, 17);
             ValidationErrorMessage.TabIndex = 15;
             // 
             // FormContainer
@@ -269,19 +275,21 @@ namespace sipetok_form.Views.Operationals
             FormContainer.Controls.Add(SaveButton);
             FormContainer.Controls.Add(CancelButton);
             FormContainer.FlowDirection = FlowDirection.TopDown;
-            FormContainer.Location = new Point(1371, 3);
+            FormContainer.Location = new Point(1201, 2);
+            FormContainer.Margin = new Padding(3, 2, 3, 2);
             FormContainer.Name = "FormContainer";
-            FormContainer.Padding = new Padding(30, 29, 30, 29);
-            FormContainer.Size = new Size(485, 912);
+            FormContainer.Padding = new Padding(26, 22, 26, 22);
+            FormContainer.Size = new Size(424, 684);
             FormContainer.TabIndex = 5;
             // 
             // SaveButton
             // 
             SaveButton.AutoSize = true;
             SaveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SaveButton.Location = new Point(33, 479);
+            SaveButton.Location = new Point(29, 375);
+            SaveButton.Margin = new Padding(3, 2, 3, 2);
             SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(434, 48);
+            SaveButton.Size = new Size(380, 36);
             SaveButton.TabIndex = 9;
             SaveButton.Text = "Simpan";
             SaveButton.UseVisualStyleBackColor = true;
@@ -296,66 +304,67 @@ namespace sipetok_form.Views.Operationals
             PageBodyContainer.ColumnStyles.Add(new ColumnStyle());
             PageBodyContainer.Controls.Add(ListContainer, 0, 0);
             PageBodyContainer.Controls.Add(FormContainer, 1, 0);
-            PageBodyContainer.Location = new Point(3, 35);
+            PageBodyContainer.Location = new Point(3, 28);
+            PageBodyContainer.Margin = new Padding(3, 2, 3, 2);
             PageBodyContainer.Name = "PageBodyContainer";
             PageBodyContainer.RowCount = 1;
             PageBodyContainer.RowStyles.Add(new RowStyle());
-            PageBodyContainer.Size = new Size(1859, 930);
+            PageBodyContainer.Size = new Size(1628, 698);
             PageBodyContainer.TabIndex = 7;
             // 
             // LogoutMenu
             // 
             LogoutMenu.Name = "LogoutMenu";
-            LogoutMenu.Size = new Size(79, 26);
+            LogoutMenu.Size = new Size(66, 22);
             LogoutMenu.Text = "Logout";
             LogoutMenu.Click += HandleClickMenu;
             // 
             // ReportMenu
             // 
             ReportMenu.Name = "ReportMenu";
-            ReportMenu.Size = new Size(90, 26);
+            ReportMenu.Size = new Size(74, 22);
             ReportMenu.Text = "Laporan";
             ReportMenu.Click += HandleClickMenu;
             // 
             // OperationalMenu
             // 
             OperationalMenu.Name = "OperationalMenu";
-            OperationalMenu.Size = new Size(121, 26);
+            OperationalMenu.Size = new Size(100, 22);
             OperationalMenu.Text = "Operasional";
             OperationalMenu.Click += HandleClickMenu;
             // 
             // TransactionMenu
             // 
             TransactionMenu.Name = "TransactionMenu";
-            TransactionMenu.Size = new Size(103, 26);
+            TransactionMenu.Size = new Size(85, 22);
             TransactionMenu.Text = "Transaksi";
             TransactionMenu.Click += HandleClickMenu;
             // 
             // StockMenu
             // 
             StockMenu.Name = "StockMenu";
-            StockMenu.Size = new Size(138, 26);
+            StockMenu.Size = new Size(114, 22);
             StockMenu.Text = "Stok & Inventori";
             StockMenu.Click += HandleClickMenu;
             // 
             // EggCategoryMenu
             // 
             EggCategoryMenu.Name = "EggCategoryMenu";
-            EggCategoryMenu.Size = new Size(138, 26);
+            EggCategoryMenu.Size = new Size(112, 22);
             EggCategoryMenu.Text = "Kategori Telur";
             EggCategoryMenu.Click += HandleClickMenu;
             // 
             // UserMenu
             // 
             UserMenu.Name = "UserMenu";
-            UserMenu.Size = new Size(106, 26);
+            UserMenu.Size = new Size(86, 22);
             UserMenu.Text = "Pengguna";
             UserMenu.Click += HandleClickMenu;
             // 
             // DashboardMenu
             // 
             DashboardMenu.Name = "DashboardMenu";
-            DashboardMenu.Size = new Size(112, 26);
+            DashboardMenu.Size = new Size(93, 22);
             DashboardMenu.Text = "Dashboard";
             DashboardMenu.Click += HandleClickMenu;
             // 
@@ -365,11 +374,11 @@ namespace sipetok_form.Views.Operationals
             MenuContainer.Dock = DockStyle.Fill;
             MenuContainer.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MenuContainer.ImageScalingSize = new Size(20, 20);
-            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
+            MenuContainer.Items.AddRange(new ToolStripItem[] { DashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             MenuContainer.Location = new Point(0, 0);
             MenuContainer.Name = "MenuContainer";
-            MenuContainer.Padding = new Padding(6, 3, 0, 3);
-            MenuContainer.Size = new Size(1902, 32);
+            MenuContainer.Padding = new Padding(5, 2, 0, 2);
+            MenuContainer.Size = new Size(1664, 26);
             MenuContainer.TabIndex = 6;
             MenuContainer.Text = "menuStrip1";
             // 
@@ -381,19 +390,27 @@ namespace sipetok_form.Views.Operationals
             PageContainer.Controls.Add(PageBodyContainer, 0, 1);
             PageContainer.Dock = DockStyle.Fill;
             PageContainer.Location = new Point(0, 0);
+            PageContainer.Margin = new Padding(3, 2, 3, 2);
             PageContainer.Name = "PageContainer";
             PageContainer.RowCount = 2;
             PageContainer.RowStyles.Add(new RowStyle());
             PageContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            PageContainer.Size = new Size(1902, 1033);
+            PageContainer.Size = new Size(1664, 775);
             PageContainer.TabIndex = 1;
+            // 
+            // TenantMenu
+            // 
+            TenantMenu.Name = "TenantMenu";
+            TenantMenu.Size = new Size(65, 22);
+            TenantMenu.Text = "Tenant";
             // 
             // OperationalPage
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1902, 1033);
+            ClientSize = new Size(1664, 775);
             Controls.Add(PageContainer);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "OperationalPage";
             Text = "Operasional Tenant";
             WindowState = FormWindowState.Maximized;
@@ -447,6 +464,7 @@ namespace sipetok_form.Views.Operationals
         private ToolStripMenuItem DashboardMenu;
         private MenuStrip MenuContainer;
         private TableLayoutPanel PageContainer;
+        private ToolStripMenuItem TenantMenu;
     }
 }
  

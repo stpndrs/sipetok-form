@@ -31,15 +31,16 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             label1 = new Label();
             body = new TableLayoutPanel();
-            menuLogout = new ToolStripMenuItem();
-            laporanMenu = new ToolStripMenuItem();
-            operationalMenu = new ToolStripMenuItem();
-            transaksiMenu = new ToolStripMenuItem();
-            stokMenu = new ToolStripMenuItem();
-            kategoriMenu = new ToolStripMenuItem();
-            penggunaMenu = new ToolStripMenuItem();
+            LogoutMenu = new ToolStripMenuItem();
+            ReportMenu = new ToolStripMenuItem();
+            OperationalMenu = new ToolStripMenuItem();
+            TransactionMenu = new ToolStripMenuItem();
+            StockMenu = new ToolStripMenuItem();
+            EggCategoryMenu = new ToolStripMenuItem();
+            UserMenu = new ToolStripMenuItem();
             dashboardMenu = new ToolStripMenuItem();
             topMenu = new MenuStrip();
+            TenantMenu = new ToolStripMenuItem();
             container = new TableLayoutPanel();
             flowLayoutPanel1.SuspendLayout();
             body.SuspendLayout();
@@ -87,49 +88,54 @@
             body.Size = new Size(143, 44);
             body.TabIndex = 7;
             // 
-            // menuLogout
+            // LogoutMenu
             // 
-            menuLogout.Name = "menuLogout";
-            menuLogout.Size = new Size(66, 22);
-            menuLogout.Text = "Logout";
+            LogoutMenu.Name = "LogoutMenu";
+            LogoutMenu.Size = new Size(66, 22);
+            LogoutMenu.Text = "Logout";
+            LogoutMenu.Click += handleClickMenu;
             // 
-            // laporanMenu
+            // ReportMenu
             // 
-            laporanMenu.Name = "laporanMenu";
-            laporanMenu.Size = new Size(74, 22);
-            laporanMenu.Text = "Laporan";
+            ReportMenu.Name = "ReportMenu";
+            ReportMenu.Size = new Size(74, 22);
+            ReportMenu.Text = "Laporan";
+            ReportMenu.Click += handleClickMenu;
             // 
-            // operationalMenu
+            // OperationalMenu
             // 
-            operationalMenu.Name = "operationalMenu";
-            operationalMenu.Size = new Size(100, 22);
-            operationalMenu.Text = "Operasional";
+            OperationalMenu.Name = "OperationalMenu";
+            OperationalMenu.Size = new Size(100, 22);
+            OperationalMenu.Text = "Operasional";
+            OperationalMenu.Click += handleClickMenu;
             // 
-            // transaksiMenu
+            // TransactionMenu
             // 
-            transaksiMenu.Name = "transaksiMenu";
-            transaksiMenu.Size = new Size(85, 22);
-            transaksiMenu.Text = "Transaksi";
+            TransactionMenu.Name = "TransactionMenu";
+            TransactionMenu.Size = new Size(85, 22);
+            TransactionMenu.Text = "Transaksi";
+            TransactionMenu.Click += handleClickMenu;
             // 
-            // stokMenu
+            // StockMenu
             // 
-            stokMenu.Name = "stokMenu";
-            stokMenu.Size = new Size(114, 22);
-            stokMenu.Text = "Stok & Inventori";
+            StockMenu.Name = "StockMenu";
+            StockMenu.Size = new Size(114, 22);
+            StockMenu.Text = "Stok & Inventori";
+            StockMenu.Click += handleClickMenu;
             // 
-            // kategoriMenu
+            // EggCategoryMenu
             // 
-            kategoriMenu.Name = "kategoriMenu";
-            kategoriMenu.Size = new Size(112, 22);
-            kategoriMenu.Text = "Kategori Telur";
-            kategoriMenu.Click += kategoriMenu_Click;
+            EggCategoryMenu.Name = "EggCategoryMenu";
+            EggCategoryMenu.Size = new Size(112, 22);
+            EggCategoryMenu.Text = "Kategori Telur";
+            EggCategoryMenu.Click += handleClickMenu;
             // 
-            // penggunaMenu
+            // UserMenu
             // 
-            penggunaMenu.Name = "penggunaMenu";
-            penggunaMenu.Size = new Size(86, 22);
-            penggunaMenu.Text = "Pengguna";
-            penggunaMenu.Click += penggunaMenu_Click;
+            UserMenu.Name = "UserMenu";
+            UserMenu.Size = new Size(86, 22);
+            UserMenu.Text = "Pengguna";
+            UserMenu.Click += handleClickMenu;
             // 
             // dashboardMenu
             // 
@@ -144,13 +150,20 @@
             topMenu.Dock = DockStyle.Fill;
             topMenu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             topMenu.ImageScalingSize = new Size(20, 20);
-            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, penggunaMenu, kategoriMenu, stokMenu, transaksiMenu, operationalMenu, laporanMenu, menuLogout });
+            topMenu.Items.AddRange(new ToolStripItem[] { dashboardMenu, UserMenu, TenantMenu, EggCategoryMenu, StockMenu, TransactionMenu, OperationalMenu, ReportMenu, LogoutMenu });
             topMenu.Location = new Point(0, 0);
             topMenu.Name = "topMenu";
             topMenu.Padding = new Padding(5, 2, 0, 2);
             topMenu.Size = new Size(1664, 26);
             topMenu.TabIndex = 6;
             topMenu.Text = "menuStrip1";
+            // 
+            // TenantMenu
+            // 
+            TenantMenu.Name = "TenantMenu";
+            TenantMenu.Size = new Size(65, 22);
+            TenantMenu.Text = "Tenant";
+            TenantMenu.Click += handleClickMenu;
             // 
             // container
             // 
@@ -194,15 +207,16 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label1;
         private TableLayoutPanel body;
-        private ToolStripMenuItem menuLogout;
-        private ToolStripMenuItem laporanMenu;
-        private ToolStripMenuItem operationalMenu;
-        private ToolStripMenuItem transaksiMenu;
-        private ToolStripMenuItem stokMenu;
-        private ToolStripMenuItem kategoriMenu;
-        private ToolStripMenuItem penggunaMenu;
+        private ToolStripMenuItem LogoutMenu;
+        private ToolStripMenuItem ReportMenu;
+        private ToolStripMenuItem OperationalMenu;
+        private ToolStripMenuItem TransactionMenu;
+        private ToolStripMenuItem StockMenu;
+        private ToolStripMenuItem EggCategoryMenu;
+        private ToolStripMenuItem UserMenu;
         private ToolStripMenuItem dashboardMenu;
         private MenuStrip topMenu;
         private TableLayoutPanel container;
+        private ToolStripMenuItem TenantMenu;
     }
 }

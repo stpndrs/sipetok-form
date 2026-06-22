@@ -18,5 +18,7 @@ namespace sipetok_form.dto.response
     internal class LoginData
     {
         public string Token { get; set; } = string.Empty;
+        public string Username {  get; set; } = string.Empty;
+        public int Role { get; set; }
     }
 }
