@@ -38,6 +38,25 @@ namespace sipetok_form.Services
             }
         }
 
+        public async Task<User> GetMyAccount()
+        {
+            try
+            {
+                // 1. Minta produk "get" ke factory
+                IMethod getService = _userFactory.CreateMethod("get");
+
+                // 2. Eksekusi action dengan passing target class response & endpoint-nya
+                var response = await getService.ActionAsync<dto.response.SingleApiResponse<User>>("users/myaccount");
+
+                return response?.Data;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
         public async Task<ActionResponse<User>> CreateUserAsync(User user)
         {
             try

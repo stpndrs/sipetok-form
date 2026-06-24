@@ -1,5 +1,6 @@
 using sipetok_form.dto.request;
 using sipetok_form.dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
 using sipetok_form.Models.dto.request;
 using sipetok_form.Models.dto.response;
@@ -43,6 +44,12 @@ namespace sipetok_form.Services
                     {
                         Properties.Settings.Default.AuthToken = response.Data.Token;
                         Properties.Settings.Default.Save();
+                    }
+
+                    if (response.Data != null && !string.IsNullOrEmpty(response.Data.Username) && response.Data.Role != 0)
+                    {
+                        UserSession.Username = response.Data.Username;
+                        UserSession.Role = response.Data.Role;
                     }
                 }
 

@@ -30,7 +30,42 @@ namespace sipetok_form.Views.Users
         private async void FormMain_Load(object sender, EventArgs e)
         {
             ToggleForm(false);
+            SetupRoleBasedUI();
             await RefreshGrid();
+        }
+
+        private void SetupRoleBasedUI()
+        {
+            if (UserSession.Role == 1)
+            {
+                UserMenu.Visible = true;
+                TenantMenu.Visible = true;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
+            else if (UserSession.Role == 2)
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = true;
+                OperationalMenu.Visible = true;
+                ReportMenu.Visible = true;
+                StockMenu.Visible = true;
+                EggCategoryMenu.Visible = true;
+            }
+            else
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
         }
 
         private async Task RefreshGrid()
@@ -234,29 +269,23 @@ namespace sipetok_form.Views.Users
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            _saveDataType = "create";
-            ToggleForm(true);
-        }
-
-        private async void SaveBtn_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                SaveBtn.Enabled = false;
+                SaveButton.Enabled = false;
                 ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
-                    if (PasswordTextField.Text != "")
-                    {
-                        _selectedUser.Password = PasswordTextField.Text;
-                    }
+                    //if (PasswordTextField.Text == "")
+                    //{
+                    //}
+                    _selectedUser.Password = PasswordTextField.Text;
                     _selectedUser.Username = UsernameTextField.Text;
                     _selectedUser.Email = EmailTextField.Text;
                     _selectedUser.Role = new Role { Key = (int)RoleComboBox?.SelectedValue, Label = RoleComboBox.Text };
@@ -294,13 +323,14 @@ namespace sipetok_form.Views.Users
             }
             finally
             {
-                SaveBtn.Enabled = true;
+                SaveButton.Enabled = true;
             }
         }
 
-        private void UserPage_Load(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-
+            _saveDataType = "create";
+            ToggleForm(true);
         }
     }
 }

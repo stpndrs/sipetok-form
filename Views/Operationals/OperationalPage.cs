@@ -18,7 +18,42 @@ namespace sipetok_form.Views.Operationals
         public OperationalPage()
         {
             InitializeComponent();
+            SetupRoleBasedUI();
             this.Load += FormMain_Load;
+        }
+
+        private void SetupRoleBasedUI()
+        {
+            if (UserSession.Role == 1)
+            {
+                UserMenu.Visible = true;
+                TenantMenu.Visible = true;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
+            else if (UserSession.Role == 2)
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = true;
+                OperationalMenu.Visible = true;
+                ReportMenu.Visible = true;
+                StockMenu.Visible = true;
+                EggCategoryMenu.Visible = true;
+            }
+            else
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -35,21 +70,21 @@ namespace sipetok_form.Views.Operationals
 
                 if (data != null)
                 {
-                    operationalList.DataSource = null;
-                    operationalList.DataSource = data;
+                    OperationalList.DataSource = null;
+                    OperationalList.DataSource = data;
 
-                    operationalList.Columns["Id"].HeaderText = "Id";
-                    operationalList.Columns["Name"].HeaderText = "Nama Operasional";
-                    operationalList.Columns["OperationalCost"].HeaderText = "Biaya Operasional";
-                    operationalList.Columns["OperationalDate"].HeaderText = "Tanggal";
+                    OperationalList.Columns["Id"].HeaderText = "Id";
+                    OperationalList.Columns["Name"].HeaderText = "Nama Operasional";
+                    OperationalList.Columns["OperationalCost"].HeaderText = "Biaya Operasional";
+                    OperationalList.Columns["OperationalDate"].HeaderText = "Tanggal";
 
-                    if (operationalList.Columns.Contains("TenantId"))
-                        operationalList.Columns["TenantId"].Visible = false;
-                    if (operationalList.Columns.Contains("Tenant"))
-                        operationalList.Columns["Tenant"].Visible = false;
+                    if (OperationalList.Columns.Contains("TenantId"))
+                        OperationalList.Columns["TenantId"].Visible = false;
+                    if (OperationalList.Columns.Contains("Tenant"))
+                        OperationalList.Columns["Tenant"].Visible = false;
 
                     SetupActionButtons();
-                    operationalList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    OperationalList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     AdjustGridHeight();
                 }
             }
@@ -61,10 +96,10 @@ namespace sipetok_form.Views.Operationals
 
         private void SetupActionButtons()
         {
-            if (operationalList.Columns.Contains("BtnEdit")) operationalList.Columns.Remove("BtnEdit");
-            if (operationalList.Columns.Contains("BtnHapus")) operationalList.Columns.Remove("BtnHapus");
+            if (OperationalList.Columns.Contains("BtnEdit")) OperationalList.Columns.Remove("BtnEdit");
+            if (OperationalList.Columns.Contains("BtnHapus")) OperationalList.Columns.Remove("BtnHapus");
 
-            operationalList.Columns.Add(new DataGridViewButtonColumn
+            OperationalList.Columns.Add(new DataGridViewButtonColumn
             {
                 Name = "BtnEdit",
                 HeaderText = "Aksi Edit",
@@ -72,7 +107,7 @@ namespace sipetok_form.Views.Operationals
                 UseColumnTextForButtonValue = true
             });
 
-            operationalList.Columns.Add(new DataGridViewButtonColumn
+            OperationalList.Columns.Add(new DataGridViewButtonColumn
             {
                 Name = "BtnHapus",
                 HeaderText = "Aksi Hapus",
@@ -83,8 +118,8 @@ namespace sipetok_form.Views.Operationals
 
         private void ToggleForm(bool show)
         {
-            formPanel.Visible = show;
-            var columnStyles = body.ColumnStyles;
+            FormContainer.Visible = show;
+            var columnStyles = PageBodyContainer.ColumnStyles;
 
             if (show)
             {
@@ -92,7 +127,7 @@ namespace sipetok_form.Views.Operationals
                 columnStyles[0].Width = 70;
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 30;
-                operationalList.Width = 1300;
+                OperationalList.Width = 1300;
 
                 if (_saveDataType == "update")
                     AttemptFormFields(false);
@@ -103,7 +138,7 @@ namespace sipetok_form.Views.Operationals
                 columnStyles[0].Width = 100;
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 0;
-                operationalList.Width = 1920;
+                OperationalList.Width = 1920;
 
                 AttemptFormFields(true);
                 _saveDataType = null;
@@ -112,45 +147,45 @@ namespace sipetok_form.Views.Operationals
 
         private void AdjustGridHeight()
         {
-            int totalHeight = operationalList.ColumnHeadersHeight;
-            foreach (DataGridViewRow row in operationalList.Rows)
+            int totalHeight = OperationalList.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in OperationalList.Rows)
                 totalHeight += row.Height;
-            operationalList.Height = totalHeight + 4;
+            OperationalList.Height = totalHeight + 4;
         }
 
         public void AttemptFormFields(bool clear)
         {
-            validationErrorMsg.Text = "";
+            ValidationErrorMessage.Text = "";
 
             if (clear)
             {
                 _selectedOperational = null;
-                dtpOperationalDate.Value = DateTime.Today;
-                txtName.Text = "";
-                txtCost.Text = "";
+                OperationalDateTimePicker.Value = DateTime.Today;
+                OperationalNameTextField.Text = "";
+                OperationalCostTextField.Text = "";
             }
             else
             {
-                dtpOperationalDate.Value = _selectedOperational?.OperationalDate ?? DateTime.Today;
-                txtName.Text = _selectedOperational?.Name ?? "";
-                txtCost.Text = _selectedOperational?.OperationalCost ?? "";
+                OperationalDateTimePicker.Value = _selectedOperational?.OperationalDate ?? DateTime.Today;
+                OperationalNameTextField.Text = _selectedOperational?.Name ?? "";
+                OperationalCostTextField.Text = _selectedOperational?.OperationalCost ?? "";
             }
         }
 
-        private async void operationalList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void OperationalList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            var dataSelected = (Operational)operationalList.Rows[e.RowIndex].DataBoundItem;
+            var dataSelected = (Operational)OperationalList.Rows[e.RowIndex].DataBoundItem;
 
-            if (operationalList.Columns[e.ColumnIndex].Name == "BtnEdit")
+            if (OperationalList.Columns[e.ColumnIndex].Name == "BtnEdit")
             {
                 _selectedOperational = dataSelected;
                 _saveDataType = "update";
                 ToggleForm(true);
             }
 
-            if (operationalList.Columns[e.ColumnIndex].Name == "BtnHapus")
+            if (OperationalList.Columns[e.ColumnIndex].Name == "BtnHapus")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
@@ -171,31 +206,31 @@ namespace sipetok_form.Views.Operationals
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                btnSave.Enabled = false;
+                SaveButton.Enabled = false;
 
-                if (string.IsNullOrEmpty(txtName.Text))
+                if (string.IsNullOrEmpty(OperationalNameTextField.Text))
                 {
-                    validationErrorMsg.Text = "Nama operasional tidak boleh kosong!";
+                    ValidationErrorMessage.Text = "Nama operasional tidak boleh kosong!";
                     return;
                 }
 
-                if (string.IsNullOrEmpty(txtCost.Text))
+                if (string.IsNullOrEmpty(OperationalCostTextField.Text))
                 {
-                    validationErrorMsg.Text = "Biaya operasional tidak boleh kosong!";
+                    ValidationErrorMessage.Text = "Biaya operasional tidak boleh kosong!";
                     return;
                 }
 
@@ -203,18 +238,18 @@ namespace sipetok_form.Views.Operationals
 
                 if (_saveDataType == "update" && _selectedOperational != null)
                 {
-                    _selectedOperational.OperationalDate = dtpOperationalDate.Value;
-                    _selectedOperational.Name = txtName.Text;
-                    _selectedOperational.OperationalCost = txtCost.Text;
+                    _selectedOperational.OperationalDate = OperationalDateTimePicker.Value;
+                    _selectedOperational.Name = OperationalNameTextField.Text;
+                    _selectedOperational.OperationalCost = OperationalCostTextField.Text;
                     response = await _apiService.Operational.UpdateOperationalAsync(_selectedOperational.Id, _selectedOperational);
                 }
                 else
                 {
                     Operational operationalBaru = new Operational
                     {
-                        OperationalDate = dtpOperationalDate.Value,
-                        Name = txtName.Text,
-                        OperationalCost = txtCost.Text
+                        OperationalDate = OperationalDateTimePicker.Value,
+                        Name = OperationalNameTextField.Text,
+                        OperationalCost = OperationalCostTextField.Text
                     };
                     response = await _apiService.Operational.CreateOperationalAsync(operationalBaru);
                 }
@@ -226,7 +261,7 @@ namespace sipetok_form.Views.Operationals
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMessage);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -236,11 +271,11 @@ namespace sipetok_form.Views.Operationals
             }
             finally
             {
-                btnSave.Enabled = true;
+                SaveButton.Enabled = true;
             }
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             _saveDataType = "create";
             ToggleForm(true);

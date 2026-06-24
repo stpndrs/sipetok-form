@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sipetok_form.Views.Tenant
+namespace sipetok_form.Views.Tenants
 {
     public partial class TenantPage : Form
     {
@@ -25,8 +25,44 @@ namespace sipetok_form.Views.Tenant
         public TenantPage()
         {
             InitializeComponent();
+            SetupRoleBasedUI();
             this.Load += FormMain_Load;
-            this.tenantsList.CellFormatting += tenantsList_CellFormatting;
+            this.TenantList.CellFormatting += TenantList_CellFormatting;
+            this.TenantList.CellContentClick += TenantList_CellContentClick;
+        }
+
+        private void SetupRoleBasedUI()
+        {
+            if (UserSession.Role == 1)
+            {
+                UserMenu.Visible = true;
+                TenantMenu.Visible = true;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
+            else if (UserSession.Role == 2)
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = true;
+                OperationalMenu.Visible = true;
+                ReportMenu.Visible = true;
+                StockMenu.Visible = true;
+                EggCategoryMenu.Visible = true;
+            }
+            else
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -43,18 +79,19 @@ namespace sipetok_form.Views.Tenant
 
                 if (data != null)
                 {
-                    tenantsList.DataSource = null;
-                    tenantsList.DataSource = data;
+                    TenantList.DataSource = null;
+                    TenantList.DataSource = data;
 
-                    tenantsList.Columns["Id"].HeaderText = "Id Tenant";
-                    tenantsList.Columns["Name"].HeaderText = "Nama Tenant";
-                    tenantsList.Columns["Address"].HeaderText = "Alamat";
-                    tenantsList.Columns["PhoneNumber"].HeaderText = "No. Telepon";
+                    // Atur Susunan Header Utama GUI
+                    TenantList.Columns["Id"].HeaderText = "Id Tenant";
+                    TenantList.Columns["Name"].HeaderText = "Nama Tenant";
+                    TenantList.Columns["Address"].HeaderText = "Alamat";
+                    TenantList.Columns["PhoneNumber"].HeaderText = "No. Telepon";
 
-                    if (tenantsList.Columns.Contains("IsValid"))
+                    if (TenantList.Columns.Contains("IsValid"))
                     {
-                        int displayIndex = tenantsList.Columns["IsValid"].DisplayIndex;
-                        tenantsList.Columns.Remove("IsValid");
+                        int displayIndex = TenantList.Columns["IsValid"].DisplayIndex;
+                        TenantList.Columns.Remove("IsValid");
 
                         DataGridViewTextBoxColumn txtColumn = new DataGridViewTextBoxColumn
                         {
@@ -63,16 +100,16 @@ namespace sipetok_form.Views.Tenant
                             HeaderText = "Status Validasi"
                         };
 
-                        tenantsList.Columns.Add(txtColumn);
+                        TenantList.Columns.Add(txtColumn);
                         txtColumn.DisplayIndex = displayIndex;
                     }
 
-                    if (tenantsList.Columns.Contains("UserId")) tenantsList.Columns["UserId"].Visible = false;
-                    if (tenantsList.Columns.Contains("User")) tenantsList.Columns["User"].Visible = false;
+                    if (TenantList.Columns.Contains("UserId")) TenantList.Columns["UserId"].Visible = false;
+                    if (TenantList.Columns.Contains("User")) TenantList.Columns["User"].Visible = false;
 
                     SetupActionButtons();
 
-                    tenantsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    TenantList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     AdjustGridHeight();
                 }
             }
@@ -83,11 +120,11 @@ namespace sipetok_form.Views.Tenant
             }
         }
 
-        private void tenantsList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void TenantList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || e.Value == null) return;
 
-            if (tenantsList.Columns[e.ColumnIndex].Name == "IsValid")
+            if (TenantList.Columns[e.ColumnIndex].Name == "IsValid")
             {
                 if (e.Value is bool isValid)
                 {
@@ -99,33 +136,32 @@ namespace sipetok_form.Views.Tenant
 
         private void SetupActionButtons()
         {
-            if (tenantsList.Columns.Contains("BtnEdit")) tenantsList.Columns.Remove("BtnEdit");
-            if (tenantsList.Columns.Contains("BtnHapus")) tenantsList.Columns.Remove("BtnHapus");
+            if (TenantList.Columns.Contains("EditButton")) TenantList.Columns.Remove("EditButton");
+            if (TenantList.Columns.Contains("DeleteButton")) TenantList.Columns.Remove("DeleteButton");
 
             DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
             {
-                Name = "BtnEdit",
+                Name = "EditButton",
                 HeaderText = "Aksi Edit",
                 Text = "Edit",
                 UseColumnTextForButtonValue = true
             };
-            tenantsList.Columns.Add(btnEdit);
+            TenantList.Columns.Add(btnEdit);
 
             DataGridViewButtonColumn btnHapus = new DataGridViewButtonColumn
             {
-                Name = "BtnHapus",
+                Name = "DeleteButton",
                 HeaderText = "Aksi Hapus",
                 Text = "Hapus",
                 UseColumnTextForButtonValue = true
             };
-            tenantsList.Columns.Add(btnHapus);
+            TenantList.Columns.Add(btnHapus);
         }
 
-        // PERBAIKAN 1: Logika penempatan struktur if-else untuk menyembunyikan/menampilkan field
         private void ToggleForm(bool show)
         {
-            formPanel.Visible = show;
-            var columnStyles = body.ColumnStyles;
+            FormContainer.Visible = show;
+            var columnStyles = PageBodyContainer.ColumnStyles;
 
             if (show)
             {
@@ -135,39 +171,34 @@ namespace sipetok_form.Views.Tenant
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 30;
 
-                tenantsList.Width = 1300;
+                TenantList.Width = 1300;
 
                 if (_saveDataType == "update")
                 {
-                    // Sembunyikan field Akun User saat Edit Tenant
-                    flowLayoutPanel3.Visible = false;
-                    flowLayoutPanel7.Visible = false;
-                    flowLayoutPanel8.Visible = false;
-                    flowLayoutPanel2.Visible = true;
+                    UsernameInputGroup.Visible = false;
+                    PasswordInputGroup.Visible = false;
+                    EmailInputGroup.Visible = false;
+                    ValidationInputGroup.Visible = true;
                     AttemptFormFields(false);
                 }
                 else if (_saveDataType == "create")
                 {
-                    // Pastikan field Akun User selalu muncul saat Tambah Data Baru
-                    flowLayoutPanel3.Visible = true;
-                    flowLayoutPanel7.Visible = true;
-                    flowLayoutPanel8.Visible = true;
-                    flowLayoutPanel2.Visible = false;
-
-
-                    AttemptFormFields(true); // Bersihkan form field agar kosong
+                    UsernameInputGroup.Visible = true;
+                    PasswordInputGroup.Visible = true;
+                    EmailInputGroup.Visible = true;
+                    ValidationInputGroup.Visible = false;
+                    AttemptFormFields(true);
                 }
             }
             else
             {
-                // Bagian ini sekarang akan selalu berjalan saat form ditutup (Batal/Sukses Simpan)
                 columnStyles[0].SizeType = SizeType.Percent;
                 columnStyles[0].Width = 100;
 
                 columnStyles[1].SizeType = SizeType.Percent;
                 columnStyles[1].Width = 0;
 
-                tenantsList.Width = 1920;
+                TenantList.Width = 1920;
 
                 AttemptFormFields(true);
                 _saveDataType = null;
@@ -176,52 +207,52 @@ namespace sipetok_form.Views.Tenant
 
         private void AdjustGridHeight()
         {
-            int totalHeight = tenantsList.ColumnHeadersHeight;
-            foreach (DataGridViewRow row in tenantsList.Rows)
+            int totalHeight = TenantList.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in TenantList.Rows)
             {
                 totalHeight += row.Height;
             }
-            tenantsList.Height = totalHeight + 4;
+            TenantList.Height = totalHeight + 4;
         }
 
         public void AttemptFormFields(bool clear)
         {
-            validationErrorMsg.Text = "";
+            ValidationErrorMsg.Text = "";
 
             if (clear)
             {
                 _selectedTenant = null;
-                txtName.Text = "";
-                txtAddress.Text = "";
-                txtPhoneNumber.Text = "";
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                txtEmail.Text = "";
-                chkIsValid.Checked = false;
+                NamaTextField.Text = "";
+                AddressTextField.Text = "";
+                PhoneNumberTextField.Text = "";
+                UsernameTextField.Text = "";
+                PasswordTextField.Text = "";
+                EmailTextField.Text = "";
+                IsValidCheckBox.Checked = false;
             }
             else
             {
-                txtName.Text = _selectedTenant?.Name;
-                txtAddress.Text = _selectedTenant?.Address;
-                txtPhoneNumber.Text = _selectedTenant?.PhoneNumber;
-                chkIsValid.Checked = _selectedTenant?.IsValid ?? false;
+                NamaTextField.Text = _selectedTenant?.Name;
+                AddressTextField.Text = _selectedTenant?.Address;
+                PhoneNumberTextField.Text = _selectedTenant?.PhoneNumber;
+                IsValidCheckBox.Checked = _selectedTenant?.IsValid ?? false;
             }
         }
 
-        private async void tenantsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void TenantList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            var dataSelected = (sipetok_api.Models.Tenant)tenantsList.Rows[e.RowIndex].DataBoundItem;
+            var dataSelected = (sipetok_api.Models.Tenant)TenantList.Rows[e.RowIndex].DataBoundItem;
 
-            if (tenantsList.Columns[e.ColumnIndex].Name == "BtnEdit")
+            if (TenantList.Columns[e.ColumnIndex].Name == "EditButton")
             {
                 _selectedTenant = dataSelected;
                 _saveDataType = "update";
                 ToggleForm(true);
             }
 
-            if (tenantsList.Columns[e.ColumnIndex].Name == "BtnHapus")
+            if (TenantList.Columns[e.ColumnIndex].Name == "DeleteButton")
             {
                 ToggleForm(false);
                 DialogResult dialog = MessageBox.Show(
@@ -247,45 +278,44 @@ namespace sipetok_form.Views.Tenant
             }
         }
 
-        private void handleClickMenu(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             ToggleForm(false);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void SaveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                btnSave.Enabled = false;
+                SaveButton.Enabled = false;
                 ActionResponse<sipetok_api.Models.Tenant> response = new ActionResponse<sipetok_api.Models.Tenant>();
 
                 if (_saveDataType == "update")
                 {
-                    _selectedTenant.Name = txtName.Text;
-                    _selectedTenant.Address = txtAddress.Text;
-                    _selectedTenant.PhoneNumber = txtPhoneNumber.Text;
-                    _selectedTenant.IsValid = chkIsValid.Checked;
+                    _selectedTenant.Name = NamaTextField.Text;
+                    _selectedTenant.Address = AddressTextField.Text;
+                    _selectedTenant.PhoneNumber = PhoneNumberTextField.Text;
+                    _selectedTenant.IsValid = IsValidCheckBox.Checked;
 
                     response = await _apiService.Tenant.UpdateTenantAsync(_selectedTenant.Id, _selectedTenant);
                 }
                 else if (_saveDataType == "create")
                 {
-                    // PERBAIKAN 2: Menambahkan instansiasi objek 'new User' secara eksplisit
                     var newTenant = new sipetok_api.Models.Tenant
                     {
-                        Name = txtName.Text,
-                        PhoneNumber = txtPhoneNumber.Text,
-                        Address = txtAddress.Text,
+                        Name = NamaTextField.Text,
+                        PhoneNumber = PhoneNumberTextField.Text,
+                        Address = AddressTextField.Text,
                         User = new User
                         {
-                            Username = txtUsername.Text,
-                            Password = txtPassword.Text,
-                            Email = txtEmail.Text,
+                            Username = UsernameTextField.Text,
+                            Password = PasswordTextField.Text,
+                            Email = EmailTextField.Text,
                         }
                     };
 
@@ -299,7 +329,7 @@ namespace sipetok_form.Views.Tenant
                 }
                 else
                 {
-                    ValidationHelper.ShowValidation(response, validationErrorMsg);
+                    ValidationHelper.ShowValidation(response, ValidationErrorMsg);
                     MessageBox.Show(response.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -309,11 +339,11 @@ namespace sipetok_form.Views.Tenant
             }
             finally
             {
-                btnSave.Enabled = true;
+                SaveButton.Enabled = true;
             }
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             _saveDataType = "create";
             ToggleForm(true);

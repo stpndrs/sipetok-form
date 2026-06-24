@@ -2,7 +2,7 @@
 using sipetok_form.Views.Eggs;
 using sipetok_form.Views.Laporan;
 using sipetok_form.Views.Operationals;
-using sipetok_form.Views.Tenant;
+using sipetok_form.Views.Tenants;
 using sipetok_form.Views.Transactions;
 using sipetok_form.Views.EggCategoryForm;
 using sipetok_form.Views.Users;
@@ -50,8 +50,8 @@ namespace sipetok_form.Helpers
                     break;
                 
                 case "ReportMenu":
-                    LaporanPage laporanList = new LaporanPage();
-                    laporanList.Show();
+                    ReportPage reportList = new ReportPage();
+                    reportList.Show();
                     thisForm.Close();
                     break;
 
@@ -65,7 +65,14 @@ namespace sipetok_form.Helpers
                     DialogResult result = MessageBox.Show("Apakah Anda yakin ingin logout?", "Konfirmasi", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        Application.Exit();
+                        LoginView loginView = new LoginView();
+                        loginView.Show();
+
+                        Properties.Settings.Default.AuthToken = null;
+                        Properties.Settings.Default.Save();
+                        UserSession.Logout();
+
+                        thisForm.Close();
                     }
                     break;
 
@@ -75,7 +82,7 @@ namespace sipetok_form.Helpers
                     thisForm.Close();
                     break;
 
-                case "operationalMenu":
+                case "OperationalMenu":
                     OperationalPage operationalPage = new OperationalPage();
                     operationalPage.Show();
                     thisForm.Close();

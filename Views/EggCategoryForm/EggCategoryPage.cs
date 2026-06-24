@@ -26,10 +26,46 @@ namespace sipetok_form.Views.EggCategoryForm
         public EggCategoryPage()
         {
             InitializeComponent();
+            SetupRoleBasedUI();
             this.EggCategoryList.CellContentClick += EggCategoryList_CellContentClick;
             this.Load += FormMain_Load;
 
         }
+
+        private void SetupRoleBasedUI()
+        {
+            if (UserSession.Role == 1)
+            {
+                UserMenu.Visible = true;
+                TenantMenu.Visible = true;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
+            else if (UserSession.Role == 2)
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = true;
+                OperationalMenu.Visible = true;
+                ReportMenu.Visible = true;
+                StockMenu.Visible = true;
+                EggCategoryMenu.Visible = true;
+            }
+            else
+            {
+                UserMenu.Visible = false;
+                TenantMenu.Visible = false;
+                TransactionMenu.Visible = false;
+                OperationalMenu.Visible = false;
+                ReportMenu.Visible = false;
+                StockMenu.Visible = false;
+                EggCategoryMenu.Visible = false;
+            }
+        }
+
         private async void FormMain_Load(object sender, EventArgs e)
         {
             ToggleForm(false);
@@ -210,12 +246,7 @@ namespace sipetok_form.Views.EggCategoryForm
 
 
 
-        private void penggunaMenu_Click(object sender, EventArgs e)
-        {
-            MenuHelper.HandleClick(sender, e, this);
-        }
-
-        private void stokMenu_Click(object sender, EventArgs e)
+        private void HandleClickMenu(object sender, EventArgs e)
         {
             MenuHelper.HandleClick(sender, e, this);
         }
