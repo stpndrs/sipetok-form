@@ -224,7 +224,7 @@
             AddBtn.Name = "AddBtn";
             AddBtn.Size = new Size(158, 36);
             AddBtn.TabIndex = 17;
-            AddBtn.Text = "Tambah Telur";
+            AddBtn.Text = "Tambah Kategori";
             AddBtn.UseVisualStyleBackColor = true;
             AddBtn.Click += addBtn_Click;
             // 
@@ -247,9 +247,13 @@
             FormLabel.Location = new Point(29, 22);
             FormLabel.Margin = new Padding(3, 0, 3, 11);
             FormLabel.Name = "FormLabel";
+<<<<<<< HEAD
+            FormLabel.Size = new Size(286, 36);
+=======
             FormLabel.Size = new Size(253, 29);
+>>>>>>> fe6b595da8f235b28e5e2f20e8c6a6987da9e38f
             FormLabel.TabIndex = 1;
-            FormLabel.Text = "Kelola Data Pengguna";
+            FormLabel.Text = "Kelola Data Kategori";
             // 
             // ValidationErrorMsg
             // 
