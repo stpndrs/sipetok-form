@@ -1,4 +1,4 @@
-﻿namespace sipetok_form.Views.Transactions
+﻿namespace sipetok_form.Views.Auth
 {
     partial class LoginView
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace sipetok_form.Models.dto.request
+namespace sipetok_form.Dto.request
 {
     internal class OperationalSaveRequest
     {

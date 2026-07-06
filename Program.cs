@@ -1,6 +1,4 @@
-using sipetok_form.Views;
-using sipetok_form.Views.Transactions;
-using sipetok_form.Views.Users;
+using sipetok_form.Views.Auth;
 
 namespace sipetok_form
 {
@@ -16,7 +14,6 @@ namespace sipetok_form
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginView());
-            //Application.Run(new DashboardView());
         }
     }
 }

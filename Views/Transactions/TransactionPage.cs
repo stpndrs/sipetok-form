@@ -1,6 +1,6 @@
-﻿using sipetok_form.Helpers;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
 using System;
 using System.Collections.Generic;
@@ -141,7 +141,7 @@ namespace sipetok_form.Views.Transactions
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Gagal memuat data dari API: {ex.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -194,7 +194,7 @@ namespace sipetok_form.Views.Transactions
         {
             int totalHeight = TransactionsList.ColumnHeadersHeight;
             foreach (DataGridViewRow row in TransactionsList.Rows)
-            {
+            { 
                 totalHeight += row.Height;
             }
             TransactionsList.Height = totalHeight + 4;
@@ -214,7 +214,6 @@ namespace sipetok_form.Views.Transactions
             if (TransactionsList.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewTextBoxCell) return;
 
             var dataSelected = (Transaction)TransactionsList.Rows[e.RowIndex].DataBoundItem;
-            Debug.WriteLine("id dari list" + dataSelected.Id);
 
             if (TransactionsList.Columns[e.ColumnIndex].Name == "DetailButton")
             {
@@ -226,7 +225,7 @@ namespace sipetok_form.Views.Transactions
             if (TransactionsList.Columns[e.ColumnIndex].Name == "PayButton")
             {
                 // buka window pay
-                PayTransactionPage payPage = new PayTransactionPage(dataSelected.Id);
+                PayTransactionPage payPage = new PayTransactionPage(dataSelected.Id, this);
                 payPage.Show();
             }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace sipetok_form.Models
+﻿namespace sipetok_form.Models
 {
     internal class ItemMenu
     {

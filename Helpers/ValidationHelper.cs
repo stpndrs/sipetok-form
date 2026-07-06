@@ -1,6 +1,6 @@
-﻿using System;
+﻿using sipetok_form.Dto.response; // Import namespace tempat ActionResponse berada
+using System;
 using System.Windows.Forms; // Wajib di-import untuk membaca komponen Label
-using sipetok_form.Models.dto.response; // Import namespace tempat ActionResponse berada
 
 namespace sipetok_form.Helpers
 {
@@ -13,7 +13,6 @@ namespace sipetok_form.Helpers
             if (response != null && response.Errors != null && response.Errors.Count > 0)
             {
                 var sb = new System.Text.StringBuilder();
-                // sb.AppendLine($"{response.Message}:");
 
                 foreach (var item in response.Errors)
                 {

@@ -1,6 +1,6 @@
-﻿using sipetok_form.Helpers;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace sipetok_form.Views.Operationals
     public partial class OperationalPage : Form
     {
         private Operational? _selectedOperational = null;
-        private string _saveDataType = null;
+        private string? _saveDataType = null;
         private readonly ApiService _apiService = new ApiService();
 
         public OperationalPage()

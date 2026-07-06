@@ -1,8 +1,10 @@
 using sipetok_form.Helpers;
 using sipetok_form.Services;
+using sipetok_form.Views;
+using sipetok_form.Views.Transactions;
 using sipetok_form.Views.Users;
 
-namespace sipetok_form.Views.Transactions
+namespace sipetok_form.Views.Auth
 {
     public partial class LoginView : Form
     {
@@ -38,7 +40,6 @@ namespace sipetok_form.Views.Transactions
                 // 3. Cek hasil respon dari API
                 if (response.Success)
                 {
-                    System.Diagnostics.Debug.WriteLine($"[LOGIN SUKSES] Selamat datang, {username}!");
                     MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // 4. Buka halaman utama (UserLists) dan sembunyikan Form Login ini

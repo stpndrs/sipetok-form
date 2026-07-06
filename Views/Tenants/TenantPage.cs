@@ -1,25 +1,15 @@
-﻿using ClosedXML.Excel;
+﻿using sipetok_form.Dto.response;
 using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.request;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace sipetok_form.Views.Tenants
 {
     public partial class TenantPage : Form
     {
-        private sipetok_api.Models.Tenant? _selectedTenant = null;
-        private string _saveDataType = null;
+        private Tenant? _selectedTenant = null;
+        private string? _saveDataType = null;
         private readonly ApiService _apiService = new ApiService();
 
         public TenantPage()
@@ -75,7 +65,7 @@ namespace sipetok_form.Views.Tenants
         {
             try
             {
-                List<sipetok_api.Models.Tenant>? data = await _apiService.Tenant.GetTenantsAsync();
+                List<Tenant>? data = await _apiService.Tenant.GetTenantsAsync();
 
                 if (data != null)
                 {
@@ -115,7 +105,7 @@ namespace sipetok_form.Views.Tenants
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Gagal memuat data tenant dari API: {ex.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -243,7 +233,7 @@ namespace sipetok_form.Views.Tenants
         {
             if (e.RowIndex < 0) return;
 
-            var dataSelected = (sipetok_api.Models.Tenant)TenantList.Rows[e.RowIndex].DataBoundItem;
+            var dataSelected = (Tenant)TenantList.Rows[e.RowIndex].DataBoundItem;
 
             if (TenantList.Columns[e.ColumnIndex].Name == "EditButton")
             {
@@ -264,7 +254,7 @@ namespace sipetok_form.Views.Tenants
 
                 if (dialog == DialogResult.Yes)
                 {
-                    ActionResponse<sipetok_api.Models.Tenant> response = await _apiService.Tenant.DeleteTenantAsync(dataSelected.Id);
+                    ActionResponse<Tenant> response = await _apiService.Tenant.DeleteTenantAsync(dataSelected.Id);
 
                     if (response.Success)
                     {
@@ -293,7 +283,7 @@ namespace sipetok_form.Views.Tenants
             try
             {
                 SaveButton.Enabled = false;
-                ActionResponse<sipetok_api.Models.Tenant> response = new ActionResponse<sipetok_api.Models.Tenant>();
+                ActionResponse<Tenant> response = new ActionResponse<Tenant>();
 
                 if (_saveDataType == "update")
                 {
@@ -306,7 +296,7 @@ namespace sipetok_form.Views.Tenants
                 }
                 else if (_saveDataType == "create")
                 {
-                    var newTenant = new sipetok_api.Models.Tenant
+                    var newTenant = new Tenant
                     {
                         Name = NamaTextField.Text,
                         PhoneNumber = PhoneNumberTextField.Text,

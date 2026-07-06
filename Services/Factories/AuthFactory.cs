@@ -13,7 +13,7 @@ namespace sipetok_form.Services.Factories
                     return new SaveData(HttpClient);
 
                 default:
-                    throw new ArgumentException($"Aksi '{actionType}' tidak dikenali di UserFactory.");
+                    throw new ArgumentException($"Aksi '{actionType}' tidak dikenali di AuthFactory.");
             }
         }
     }

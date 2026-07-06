@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using sipetok_form.Models;
-
-namespace sipetok_api.Models
+﻿namespace sipetok_form.Models
 {
     internal class Tenant
     {

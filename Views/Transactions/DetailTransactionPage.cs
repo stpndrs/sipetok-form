@@ -13,11 +13,10 @@ namespace sipetok_form.Views.Transactions
     public partial class DetailTransactionPage : Form
     {
         private readonly ApiService _apiService = new ApiService();
-        private int transactionId;
-        public TransactionPage trsPage = new TransactionPage();
+        private int _transactionId;
         public DetailTransactionPage(int transactionId)
         {
-            this.transactionId = transactionId;
+            _transactionId = transactionId;
             FormMain_Load();
             InitializeComponent();
         }
@@ -31,7 +30,7 @@ namespace sipetok_form.Views.Transactions
         {
             try
             {
-                var response = await _apiService.Transaction.GetTransactionByIdAsync(transactionId);
+                var response = await _apiService.Transaction.GetTransactionByIdAsync(_transactionId);
 
                 if (response != null)
                 {
@@ -74,7 +73,7 @@ namespace sipetok_form.Views.Transactions
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Gagal memuat detail transaksi dari API: {ex.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

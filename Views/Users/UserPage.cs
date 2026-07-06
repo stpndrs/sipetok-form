@@ -1,8 +1,7 @@
-﻿using sipetok_form.Helpers;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
-using sipetok_form.Views.Transactions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +16,7 @@ namespace sipetok_form.Views.Users
     public partial class UserPage : Form
     {
         private User? _selectedUser = null;
-        private string _saveDataType = null;
+        private string? _saveDataType = null;
         private readonly ApiService _apiService = new ApiService();
 
         public UserPage()
@@ -94,7 +93,7 @@ namespace sipetok_form.Views.Users
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Gagal memuat data dari API: {ex.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -107,7 +106,6 @@ namespace sipetok_form.Views.Users
             {
                 if (e.Value is Role roleObj)
                 {
-                    Debug.WriteLine(roleObj);
                     e.Value = roleObj.Label;
                     e.FormattingApplied = true;
                 }
@@ -216,7 +214,6 @@ namespace sipetok_form.Views.Users
             }
             else
             {
-                Debug.WriteLine(_selectedUser?.Username);
                 UsernameTextField.Text = _selectedUser?.Username;
                 EmailTextField.Text = _selectedUser?.Email;
                 RoleComboBox.Text = _selectedUser?.Role.Label;
@@ -282,9 +279,6 @@ namespace sipetok_form.Views.Users
                 ActionResponse<User> response = new ActionResponse<User>();
                 if (_saveDataType == "update")
                 {
-                    //if (PasswordTextField.Text == "")
-                    //{
-                    //}
                     _selectedUser.Password = PasswordTextField.Text;
                     _selectedUser.Username = UsernameTextField.Text;
                     _selectedUser.Email = EmailTextField.Text;

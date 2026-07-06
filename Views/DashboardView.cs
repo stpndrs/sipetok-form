@@ -1,5 +1,4 @@
 ﻿using sipetok_form.Helpers;
-using sipetok_form.Views.Transactions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

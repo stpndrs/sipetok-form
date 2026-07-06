@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using sipetok_form.Models;
 
-namespace sipetok_form.dto.response
+namespace sipetok_form.Dto.response
 {
     internal class SingleApiResponse<T>
     {

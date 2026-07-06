@@ -1,9 +1,6 @@
-using sipetok_api.Models;
-using sipetok_form.dto.request;
-using sipetok_form.dto.response;
+using sipetok_form.Dto.request;
+using sipetok_form.Dto.response;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.request;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services.Factories;
 using sipetok_form.Services.Products;
 using System.Diagnostics;
@@ -28,7 +25,7 @@ namespace sipetok_form.Services
                 IMethod getService = _transactionFactory.CreateMethod("get");
 
                 // 2. Eksekusi action dengan passing target class response & endpoint-nya
-                var response = await getService.ActionAsync<dto.response.ApiResponse<Transaction>>("transactions");
+                var response = await getService.ActionAsync<ApiResponse<Transaction>>("transactions");
 
                 return response?.Data;
             }
@@ -47,7 +44,7 @@ namespace sipetok_form.Services
                 IMethod getService = _transactionFactory.CreateMethod("get");
 
                 // 2. Eksekusi action dengan passing target class response & endpoint-nya
-                var response = await getService.ActionAsync<dto.response.SingleApiResponse<Transaction>>($"transactions/{id}");
+                var response = await getService.ActionAsync<SingleApiResponse<Transaction>>($"transactions/{id}");
 
                 return response?.Data;
             }

@@ -1,4 +1,4 @@
-﻿namespace sipetok_form.Views.Laporan
+﻿namespace sipetok_form.Views.Reports
 {
     partial class ReportPage
     {

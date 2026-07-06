@@ -1,14 +1,12 @@
 ﻿using sipetok_form.Views;
+using sipetok_form.Views.Auth;
 using sipetok_form.Views.Eggs;
-using sipetok_form.Views.Laporan;
+using sipetok_form.Views.Reports;
 using sipetok_form.Views.Operationals;
 using sipetok_form.Views.Tenants;
 using sipetok_form.Views.Transactions;
 using sipetok_form.Views.EggCategoryForm;
 using sipetok_form.Views.Users;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace sipetok_form.Helpers
 {

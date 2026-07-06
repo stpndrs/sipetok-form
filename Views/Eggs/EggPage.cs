@@ -1,6 +1,6 @@
-﻿using sipetok_form.Helpers;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
 
 namespace sipetok_form.Views.Eggs
@@ -8,7 +8,7 @@ namespace sipetok_form.Views.Eggs
     public partial class EggStockPage : Form
     {
         private Egg? _selectedEgg = null;
-        private string _saveDataType = null;
+        private string? _saveDataType = null;
         private readonly ApiService _apiService = new ApiService();
 
         public EggStockPage()

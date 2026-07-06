@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization; // Digunakan jika nama property JSON berbeda dengan C#
 
-namespace sipetok_form.dto.response
+namespace sipetok_form.Dto.response
 {
     internal class LoginResponse
     {

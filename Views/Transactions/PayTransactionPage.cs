@@ -1,6 +1,6 @@
-﻿using sipetok_form.Helpers;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
 using System;
 using System.Collections.Generic;
@@ -16,11 +16,12 @@ namespace sipetok_form.Views.Transactions
     public partial class PayTransactionPage : Form
     {
         private readonly ApiService _apiService = new ApiService();
-        private int transactionId;
-        public PayTransactionPage(int transactionId)
+        private readonly TransactionPage _transactionPage;
+        private int _transactionId;
+        public PayTransactionPage(int transactionId, TransactionPage transactionPage)
         {
-            this.transactionId = transactionId;
-            Debug.WriteLine("id dari pay " + this.transactionId);
+            _transactionId = transactionId;
+            _transactionPage = transactionPage;
             InitializeComponent();
             FormMain_Load();
         }
@@ -34,8 +35,7 @@ namespace sipetok_form.Views.Transactions
         {
             try
             {
-                var response = await _apiService.Transaction.GetTransactionByIdAsync(transactionId);
-                Debug.WriteLine("data" + response);
+                var response = await _apiService.Transaction.GetTransactionByIdAsync(_transactionId);
 
                 if (response != null)
                 {
@@ -75,7 +75,7 @@ namespace sipetok_form.Views.Transactions
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Gagal memuat detail transaksi dari API: {ex.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -93,13 +93,13 @@ namespace sipetok_form.Views.Transactions
                 };
 
                 // Kirim ke API menggunakan service kasir SIPETOK
-                response = await _apiService.Transaction.PayTransactionAsync(this.transactionId, transaction);
+                response = await _apiService.Transaction.PayTransactionAsync(_transactionId, transaction);
 
                 if (response.Success)
                 {
                     this.Close();
-                    TransactionPage TransactionPage = new TransactionPage();
-                    await TransactionPage.RefreshGrid();
+                    TransactionPage transactionPage = new TransactionPage();
+                    await transactionPage.RefreshGrid();
                     MessageBox.Show("Transaksi SIPETOK berhasil dibayar!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -115,14 +115,14 @@ namespace sipetok_form.Views.Transactions
             finally
             {
                 PayButton.Enabled = true;
+                await _transactionPage.RefreshGrid();
             }
 
         }
 
         private async void CancelButton_Click(object sender, EventArgs e)
         {
-            TransactionPage TransactionPage = new TransactionPage();
-            await TransactionPage.RefreshGrid();
+            await _transactionPage.RefreshGrid();
             this.Close();
         }
     }

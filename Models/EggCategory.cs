@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-
-namespace sipetok_form.Models
+﻿namespace sipetok_form.Models
 {
     internal class EggCategory
     {

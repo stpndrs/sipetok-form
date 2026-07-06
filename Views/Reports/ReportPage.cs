@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sipetok_form.Views.Laporan
+namespace sipetok_form.Views.Reports
 {
     public partial class ReportPage : Form
     {

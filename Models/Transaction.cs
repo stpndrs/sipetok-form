@@ -1,9 +1,4 @@
-﻿using sipetok_api.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace sipetok_form.Models
 {

@@ -1,6 +1,6 @@
-﻿using sipetok_form.Helpers;
-using sipetok_form.Models; 
-using sipetok_form.Models.dto.response;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
+using sipetok_form.Models;
 using sipetok_form.Services;
 using System;
 using System.Collections.Generic;
@@ -14,13 +14,10 @@ using System.Windows.Forms;
 
 namespace sipetok_form.Views.EggCategoryForm
 {
-
-
     public partial class EggCategoryPage : Form
     {
-
         private EggCategory? _selectedEggCategory = null;
-        private string _saveDataType = null;
+        private string? _saveDataType = null;
         private readonly ApiService _apiService = new ApiService();
 
         public EggCategoryPage()
@@ -104,7 +101,7 @@ namespace sipetok_form.Views.EggCategoryForm
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Gagal memuat data dari API: {ex.Message}", "Error Jaringan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -178,15 +175,12 @@ namespace sipetok_form.Views.EggCategoryForm
                 NameTextField.Text = "";
                 DescriptionTextFiled.Text = "";
                 PriceTextField.Text = "";
-                //txtTenantId.Text = "";
             }
             else
             {
-                Debug.WriteLine(_selectedEggCategory?.Id);
                 NameTextField.Text = _selectedEggCategory?.Name;
                 DescriptionTextFiled.Text = _selectedEggCategory?.Description;
                 PriceTextField.Text = _selectedEggCategory?.Price.ToString();
-                //txtTenantId.Text = _selectedEggCategory?.ToString();
             }
         }
 
@@ -318,7 +312,5 @@ namespace sipetok_form.Views.EggCategoryForm
                 MessageBox.Show(response.Message, "Gagal Menyimpan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
-        
     }
 }

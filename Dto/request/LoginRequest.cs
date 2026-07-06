@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace sipetok_form.dto.request
+namespace sipetok_form.Dto.request
 {
     internal class LoginRequest
     {

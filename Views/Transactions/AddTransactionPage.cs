@@ -1,6 +1,6 @@
-﻿using sipetok_form.Helpers;
+﻿using sipetok_form.Dto.response;
+using sipetok_form.Helpers;
 using sipetok_form.Models;
-using sipetok_form.Models.dto.response;
 using sipetok_form.Services;
 using System;
 using System.Collections.Generic;
@@ -17,11 +17,11 @@ namespace sipetok_form.Views.Transactions
     {
         private readonly ApiService _apiService = new ApiService();
         private List<EggCategory> _cachedCategories = new List<EggCategory>();
-        private TransactionPage TransactionPage;
+        private readonly TransactionPage _transactionPage;
 
         public AddTransactionPage(TransactionPage transactionPage)
         {
-            this.TransactionPage = transactionPage; 
+            _transactionPage = transactionPage;
             InitializeComponent();
             LoadEggCategories();
         }
@@ -149,8 +149,7 @@ namespace sipetok_form.Views.Transactions
 
                 if (response.Success)
                 {
-                    TransactionPage TransactionPage = new TransactionPage();
-                    await TransactionPage.RefreshGrid();
+                    await _transactionPage.RefreshGrid();
                     MessageBox.Show("Transaksi SIPETOK berhasil diproses!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -166,11 +165,12 @@ namespace sipetok_form.Views.Transactions
             finally
             {
                 AddItemButton.Enabled = true;
+                this.Close();
             }
         }
         private async void CancelButton_Click(object sender, EventArgs e)
         {
-            await TransactionPage.RefreshGrid();
+            await _transactionPage.RefreshGrid();
             this.Close();
         }
 
