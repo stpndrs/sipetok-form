@@ -91,6 +91,7 @@ namespace sipetok_form.Views.EggCategoryForm
                     EggCategoryList.Columns["Name"].HeaderText = "Name";
                     EggCategoryList.Columns["Description"].HeaderText = "Description";
                     EggCategoryList.Columns["Price"].HeaderText = "Price";
+                    EggCategoryList.Columns["TotalEgg"].HeaderText = "Egg Total";
                     EggCategoryList.Columns["TenantId"].Visible = false;
 
                     SetupActionButtons();
